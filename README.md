@@ -2,7 +2,7 @@
 **Designed by:** Nicole Rappe
 
 **Requirements:**
-* .NET Framework 4.6
+* .NET Framework 4.6.1
 * Windows Operating System
 
 **Dashboard Panel**
