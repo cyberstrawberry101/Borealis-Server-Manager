@@ -1,0 +1,30 @@
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.Main.resources
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csproj.GenerateResource.Cache
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.5.dll
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe.config
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.pdb
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.Properties.Resources.resources
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.exe
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe.config
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.51.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.TechToolkitMainWindow.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.Properties.Resources.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 3.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csprojResolveAssemblyReference.cache
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe.config
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.exe
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.pdb
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.pdb
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.TechToolkitMainWindow.resources
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.Properties.Resources.resources
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csproj.GenerateResource.Cache
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\MetroFramework.dll
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.csprojResolveAssemblyReference.cache

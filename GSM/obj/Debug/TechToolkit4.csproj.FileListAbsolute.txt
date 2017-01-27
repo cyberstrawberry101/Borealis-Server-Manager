@@ -1,0 +1,25 @@
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit4.csprojResolveAssemblyReference.cache
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit4.TechToolkitMainWindow.resources
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit3.Properties.Resources.resources
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit4.csproj.GenerateResource.Cache
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.exe
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\Tech Toolkit 3.pdb
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe.config
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.exe
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Tech Toolkit 3.pdb
+\\192.168.3.29\Projects\Coding Projects\C# Projects\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\MetroFramework.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\MetroFramework.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit4.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\TechToolkit4.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServer Manager 1.0.exe.config
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.CustomControl1.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.TechToolkitMainWindow.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.Properties.Resources.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GameServerManager_DeployGameServer_Panel.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.Toolkit_CustomerInformation_Panel.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.Toolkit_TechServices_Panel.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServer Manager 1.0.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServer Manager 1.0.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer Manager 1.0.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer Manager 1.0.pdb

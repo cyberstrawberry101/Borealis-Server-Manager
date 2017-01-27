@@ -1,0 +1,17 @@
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServerManager.exe.config
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServerManager.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\GameServerManager.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\MetroFramework.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GSM_Performance_Dashboard.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GameServerManager.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.Properties.Resources.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GSM_Deployment.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GSM_Management.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServer_Manager.GSM_Console.resources
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServerManager.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServerManager.exe
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServerManager.pdb
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\obj\Debug\GameServerManager.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicole\Desktop\Tech Toolkit 4.0\SlidingPane_BunifuUI\bin\Debug\Newtonsoft.Json.xml

@@ -1,0 +1,21 @@
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.exe.config
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.exe
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.pdb
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.5.dll
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.5.pdb
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.csprojResolveAssemblyReference.cache
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.Form1.resources
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.Properties.Resources.resources
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.csproj.GenerateResource.Cache
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.exe
+c:\users\kim too flex\documents\visual studio 2013\UI\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.pdb
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.exe.config
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.exe
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.pdb
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.exe
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\SlidingPane_BunifuUI.pdb
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\bin\Debug\Bunifu_UI_v1.5.pdb
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.Form1.resources
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.Properties.Resources.resources
+C:\Users\Nicole\Downloads\Animated-Sliding-Menu-Modern-Flat-example\SlidingPane_BunifuUI\SlidingPane_BunifuUI\obj\Debug\SlidingPane_BunifuUI.csproj.GenerateResource.Cache
