@@ -1,11 +1,11 @@
-GameServerManager
+# GameServerManager #
 Designed by Nicole Rappe
 
-Requirements:
+**Requirements:**
 .NET Framework 4.6
 Windows Operating System
 
-[b]Dashboard Panel[/b]
+**Dashboard Panel**
 ![ScreenShot](Screenshots/Screenshot01.png)
 ![ScreenShot](Screenshots/Screenshot02.png)
 ![ScreenShot](Screenshots/Screenshot03.png)
