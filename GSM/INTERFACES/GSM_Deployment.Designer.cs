@@ -106,7 +106,6 @@
             this.dropdownServerSelection.Items.AddRange(new object[] {
             "Garry\'s Mod",
             "Killing Floor 2",
-            "Minecraft",
             "SynergyMod HL2-Coop",
             "Team Fortress 2"});
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);

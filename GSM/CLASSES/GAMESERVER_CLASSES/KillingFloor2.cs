@@ -8,7 +8,7 @@ using System.IO;
 
 namespace GameServer_Manager
 {
-    public class GarrysMod_Classes
+    public class KillingFloor2_Classes
     {
         //===================================================================================//
         // Download GameServer using SteamCMD                                                //

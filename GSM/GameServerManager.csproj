@@ -67,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLASSES\ExternalExecution_Classes.cs" />
+    <Compile Include="CLASSES\GAMESERVER_CLASSES\SynergyMod.cs" />
+    <Compile Include="CLASSES\GAMESERVER_CLASSES\KillingFloor2.cs" />
+    <Compile Include="CLASSES\GAMESERVER_CLASSES\TeamFortress2.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\GSM_MonitoringFunctions.cs" />
     <Compile Include="CLASSES\GSM_InterfaceCreation.cs" />

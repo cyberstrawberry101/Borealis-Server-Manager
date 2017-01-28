@@ -8,7 +8,7 @@ using System.IO;
 
 namespace GameServer_Manager
 {
-    public class GarrysMod_Classes
+    public class SynergyMod_Classes
     {
         //===================================================================================//
         // Download GameServer using SteamCMD                                                //
