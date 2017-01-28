@@ -2,8 +2,8 @@
 Designed by Nicole Rappe
 
 **Requirements:**
-.NET Framework 4.6
-Windows Operating System
+* .NET Framework 4.6
+* Windows Operating System
 
 **Dashboard Panel**
 ![ScreenShot](Screenshots/Screenshot01.png)
