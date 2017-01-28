@@ -45,7 +45,6 @@ namespace GameServer_Manager
 
                 if (dropdownServerSelection.Text == "Garry's Mod")
                 {
-
                     MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (dropdownServerSelection.Text == "Team Fortress 2")

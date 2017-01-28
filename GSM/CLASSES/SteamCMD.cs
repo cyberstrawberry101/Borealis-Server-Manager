@@ -37,11 +37,20 @@ namespace GameServer_Manager
                     }
                 }
             }
+        }
 
-            //Extract SteamCMD.zip
-
-            //System.IO.Compression.ZipFile.ExtractToDirectory(DestinationFolder + @"\SteamCMD.zip", DestinationFolder);
-
+        //===================================================================================//
+        // Download SteamCMD                                                                 //
+        //===================================================================================//
+        public static void DeploySteamCMD()
+            {
+                if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) //Check for network connectivity
+                {
+                    //Extract SteamCMD.zip
+                    //System.IO.Compression.ZipFile.ExtractToDirectory(DestinationFolder + @"\SteamCMD.zip", DestinationFolder);
+                    //Execute SteamCMD to download more files from steam.
+                    ExternalExecution_Classes.LaunchExternalProgram("SteamCMD.exe", "arguments", false, false);
+                }     
+            }
         }
     }
-}
