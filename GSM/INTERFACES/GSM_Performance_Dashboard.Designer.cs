@@ -225,6 +225,7 @@
             this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.overallServerStatsGrid.BackgroundColor = System.Drawing.Color.White;
             this.overallServerStatsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.overallServerStatsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.overallServerStatsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -254,7 +255,7 @@
             this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
             this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.overallServerStatsGrid.Location = new System.Drawing.Point(12, 317);
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(-41, 317);
             this.overallServerStatsGrid.Name = "overallServerStatsGrid";
             this.overallServerStatsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -265,7 +266,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.overallServerStatsGrid.Size = new System.Drawing.Size(673, 202);
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(738, 214);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
             // bunifuCustomLabel1
