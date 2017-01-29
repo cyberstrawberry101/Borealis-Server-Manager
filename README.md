@@ -15,7 +15,7 @@
 ![ScreenShot](Screenshots/Instance02.PNG)
 
 **Management Panel**
-![ScreenShot](Screenshots/Screenshot04.png)
+![ScreenShot](Screenshots/NewUpdateManagement.PNG)
 
 **Control Panel**
 ![ScreenShot](Screenshots/Screenshot05.png)
