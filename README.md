@@ -9,10 +9,10 @@
 ![ScreenShot](Screenshots/Screenshot01.png)
 
 **Deployment Panel**
-![ScreenShot](Screenshots/Instance01.png)
+![ScreenShot](Screenshots/Instance01.PNG)
 
 **Deployment Panel (Extended)**
-![ScreenShot](Screenshots/Instance02.png)
+![ScreenShot](Screenshots/Instance02.PNG)
 
 **Management Panel**
 ![ScreenShot](Screenshots/Screenshot04.png)
