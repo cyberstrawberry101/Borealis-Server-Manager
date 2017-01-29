@@ -336,7 +336,7 @@
             this.lblSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblSeparateConfig.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblSeparateConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblSeparateConfig.Location = new System.Drawing.Point(406, 135);
+            this.lblSeparateConfig.Location = new System.Drawing.Point(390, 135);
             this.lblSeparateConfig.Name = "lblSeparateConfig";
             this.lblSeparateConfig.Size = new System.Drawing.Size(231, 19);
             this.lblSeparateConfig.TabIndex = 43;
@@ -350,7 +350,7 @@
             this.chkSeparateConfig.Checked = false;
             this.chkSeparateConfig.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.chkSeparateConfig.ForeColor = System.Drawing.Color.White;
-            this.chkSeparateConfig.Location = new System.Drawing.Point(380, 135);
+            this.chkSeparateConfig.Location = new System.Drawing.Point(368, 135);
             this.chkSeparateConfig.Name = "chkSeparateConfig";
             this.chkSeparateConfig.Size = new System.Drawing.Size(20, 20);
             this.chkSeparateConfig.TabIndex = 42;
