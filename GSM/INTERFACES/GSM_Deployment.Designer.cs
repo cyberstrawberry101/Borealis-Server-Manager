@@ -49,6 +49,9 @@
             this.lblSeparateConfig = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkSeparateConfig = new Bunifu.Framework.UI.BunifuCheckbox();
             this.dropdownExistingServer = new MetroFramework.Controls.MetroComboBox();
+            this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtServerGivenName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancelDeployGameserver
@@ -360,6 +363,12 @@
             this.dropdownExistingServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.dropdownExistingServer.FormattingEnabled = true;
             this.dropdownExistingServer.ItemHeight = 23;
+            this.dropdownExistingServer.Items.AddRange(new object[] {
+            "TestServer01",
+            "TestServer02",
+            "TestServer03",
+            "TestServer04",
+            "TestServer05"});
             this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
             this.dropdownExistingServer.Name = "dropdownExistingServer";
             this.dropdownExistingServer.Size = new System.Drawing.Size(346, 29);
@@ -370,6 +379,44 @@
             this.dropdownExistingServer.UseCustomForeColor = true;
             this.dropdownExistingServer.UseSelectable = true;
             this.dropdownExistingServer.Visible = false;
+            this.dropdownExistingServer.SelectedValueChanged += new System.EventHandler(this.dropdownExistingServer_SelectedValueChanged);
+            // 
+            // lblServerNameDetails
+            // 
+            this.lblServerNameDetails.AutoSize = true;
+            this.lblServerNameDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblServerNameDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblServerNameDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.lblServerNameDetails.Location = new System.Drawing.Point(13, 305);
+            this.lblServerNameDetails.Name = "lblServerNameDetails";
+            this.lblServerNameDetails.Size = new System.Drawing.Size(206, 13);
+            this.lblServerNameDetails.TabIndex = 46;
+            this.lblServerNameDetails.Text = "Choose what name to give the gameserver";
+            this.lblServerNameDetails.Visible = false;
+            // 
+            // lblServerName
+            // 
+            this.lblServerName.AutoSize = true;
+            this.lblServerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblServerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblServerName.Location = new System.Drawing.Point(12, 284);
+            this.lblServerName.Name = "lblServerName";
+            this.lblServerName.Size = new System.Drawing.Size(146, 21);
+            this.lblServerName.TabIndex = 45;
+            this.lblServerName.Text = "Step 3: Server Name";
+            this.lblServerName.Visible = false;
+            // 
+            // txtServerGivenName
+            // 
+            this.txtServerGivenName.BackColor = System.Drawing.Color.White;
+            this.txtServerGivenName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtServerGivenName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServerGivenName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtServerGivenName.Location = new System.Drawing.Point(16, 329);
+            this.txtServerGivenName.Name = "txtServerGivenName";
+            this.txtServerGivenName.Size = new System.Drawing.Size(346, 29);
+            this.txtServerGivenName.TabIndex = 48;
+            this.txtServerGivenName.Visible = false;
             // 
             // GSM_Deployment
             // 
@@ -377,6 +424,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(697, 531);
+            this.Controls.Add(this.txtServerGivenName);
+            this.Controls.Add(this.lblServerNameDetails);
+            this.Controls.Add(this.lblServerName);
             this.Controls.Add(this.dropdownExistingServer);
             this.Controls.Add(this.lblSeparateConfig);
             this.Controls.Add(this.chkSeparateConfig);
@@ -425,5 +475,8 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblSeparateConfig;
         private Bunifu.Framework.UI.BunifuCheckbox chkSeparateConfig;
         private MetroFramework.Controls.MetroComboBox dropdownExistingServer;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblServerNameDetails;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblServerName;
+        private System.Windows.Forms.TextBox txtServerGivenName;
     }
 }

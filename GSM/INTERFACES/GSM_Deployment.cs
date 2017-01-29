@@ -87,19 +87,35 @@ namespace GameServer_Manager
 
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-                //Enable the option to choose where to install the server.
-                lblDestination.Visible = true;
-                lblDestinationDetails.Visible = true;
-                txtboxDestinationFolder.Visible = true;
-                btnBrowseDestination.Visible = true;
-                chkSeparateConfig.Visible = true;
-                lblSeparateConfig.Visible = true;
-                btnDeployGameserver.Enabled = true;
+            //Enable the option to choose where to install the server.
+            lblDestination.Visible = true;
+            lblDestinationDetails.Visible = true;
+            txtboxDestinationFolder.Visible = true;
+            btnBrowseDestination.Visible = true;
+            chkSeparateConfig.Visible = true;
+            lblSeparateConfig.Visible = true;
 
-                if (chkSeparateConfig.Checked == true)
+            //Server Name Controls
+            lblServerName.Visible = true;
+            lblServerNameDetails.Visible = true;
+            txtServerGivenName.Visible = true;
+
+            //Deployment Button
+            btnDeployGameserver.Enabled = true;
+
+            if (chkSeparateConfig.Checked == true)
                 {
                     lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
                 }
+
+            if (chkSeparateConfig.Checked == true)
+            {
+                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance01";
+            }
+            else
+            {
+                txtServerGivenName.Text = dropdownServerSelection.Text;
+            }
         }
 
 
@@ -114,6 +130,7 @@ namespace GameServer_Manager
                 txtboxDestinationFolder.Text = "N/A";
                 txtboxDestinationFolder.Visible = false;
                 dropdownExistingServer.Visible = true;
+                txtServerGivenName.Text = "";
             }
             else
             {
@@ -122,6 +139,19 @@ namespace GameServer_Manager
                 txtboxDestinationFolder.Text = @"C:\GSM\";
                 txtboxDestinationFolder.Visible = true;
                 dropdownExistingServer.Visible = false;
+            }
+        }
+
+        //Server auto name-generation helper
+        private void dropdownExistingServer_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (chkSeparateConfig.Checked == true)
+            {
+                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance01";
+            }
+            else
+            {
+                txtServerGivenName.Text = dropdownServerSelection.Text;
             }
         }
     }
