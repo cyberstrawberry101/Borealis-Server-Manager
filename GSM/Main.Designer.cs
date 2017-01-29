@@ -306,12 +306,13 @@
             this.bunifuCustomLabel17.AutoSize = true;
             this.bunifuCustomLabel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.bunifuCustomLabel17.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.bunifuCustomLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(86)))), ((int)(((byte)(89)))));
-            this.bunifuCustomLabel17.Location = new System.Drawing.Point(6, 510);
+            this.bunifuCustomLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.bunifuCustomLabel17.Location = new System.Drawing.Point(6, 513);
             this.bunifuCustomLabel17.Name = "bunifuCustomLabel17";
-            this.bunifuCustomLabel17.Size = new System.Drawing.Size(165, 13);
+            this.bunifuCustomLabel17.Size = new System.Drawing.Size(35, 13);
             this.bunifuCustomLabel17.TabIndex = 23;
-            this.bunifuCustomLabel17.Text = "© 2017 Designed by Nicole Rappe";
+            this.bunifuCustomLabel17.Text = "About";
+            this.bunifuCustomLabel17.Click += new System.EventHandler(this.bunifuCustomLabel17_Click);
             // 
             // bunifuDragControl1
             // 

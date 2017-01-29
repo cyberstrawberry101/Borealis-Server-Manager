@@ -153,5 +153,10 @@ namespace GameServer_Manager
             indicatorTabControl.Visible = true;
             GSM_Console_ChildInstance.Show();
         }
+
+        private void bunifuCustomLabel17_Click(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(GameServerManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app/418/Console \nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuUI: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+        }
     }
 }
