@@ -87,28 +87,42 @@ namespace GameServer_Manager
 
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (dropdownServerSelection.SelectedValue != "< Select a GameServer >")
-            {
                 //Enable the option to choose where to install the server.
                 lblDestination.Visible = true;
                 lblDestinationDetails.Visible = true;
                 txtboxDestinationFolder.Visible = true;
                 btnBrowseDestination.Visible = true;
+                chkSeparateConfig.Visible = true;
+                lblSeparateConfig.Visible = true;
                 btnDeployGameserver.Enabled = true;
-            }
-            else
-            {
-                //Disable the option to choose where to install the server.
-                lblDestination.Enabled = false;
-                txtboxDestinationFolder.Enabled = false;
-                btnBrowseDestination.Enabled = false;
-                btnDeployGameserver.Enabled = false;
-                lblDownloadProgress.Visible = false;
-                lblDownloadProgressDetails.Visible = false;
-                progressbarDownloadProgress.Visible = false;
-            }
+
+                if (chkSeparateConfig.Checked == true)
+                {
+                    lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
+                }
         }
 
 
+        /*If the user checks to create a new config for an existing server, 
+        rename the directory selector to indicate you are searching for an existing server.*/
+        private void chkSeparateConfig_OnChange_1(object sender, EventArgs e)
+        {
+            if (chkSeparateConfig.Checked == true)
+            {
+                lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
+                lblDestinationDetails.Text = "This will add a new configuration to an existing server to run a new instance of the server";
+                txtboxDestinationFolder.Text = "N/A";
+                txtboxDestinationFolder.Visible = false;
+                dropdownExistingServer.Visible = true;
+            }
+            else
+            {
+                lblDestination.Text = "Step 2: Destination";
+                lblDestinationDetails.Text = "Choose where you want to install the server";
+                txtboxDestinationFolder.Text = @"C:\GSM\";
+                txtboxDestinationFolder.Visible = true;
+                dropdownExistingServer.Visible = false;
+            }
+        }
     }
 }

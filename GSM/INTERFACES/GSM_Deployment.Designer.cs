@@ -46,6 +46,9 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.browseDestinationFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.serverDeploymentWorker = new System.ComponentModel.BackgroundWorker();
+            this.lblSeparateConfig = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkSeparateConfig = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.dropdownExistingServer = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // btnCancelDeployGameserver
@@ -140,9 +143,9 @@
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetails.Location = new System.Drawing.Point(13, 203);
             this.lblDestinationDetails.Name = "lblDestinationDetails";
-            this.lblDestinationDetails.Size = new System.Drawing.Size(223, 13);
+            this.lblDestinationDetails.Size = new System.Drawing.Size(234, 13);
             this.lblDestinationDetails.TabIndex = 37;
-            this.lblDestinationDetails.Text = "Where do you want to install the gameservers?";
+            this.lblDestinationDetails.Text = "Choose where you want to install the gameserver";
             this.lblDestinationDetails.Visible = false;
             // 
             // lblDownloadProgress
@@ -324,12 +327,59 @@
             this.serverDeploymentWorker.WorkerReportsProgress = true;
             this.serverDeploymentWorker.WorkerSupportsCancellation = true;
             // 
+            // lblSeparateConfig
+            // 
+            this.lblSeparateConfig.AutoSize = true;
+            this.lblSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblSeparateConfig.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblSeparateConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblSeparateConfig.Location = new System.Drawing.Point(406, 135);
+            this.lblSeparateConfig.Name = "lblSeparateConfig";
+            this.lblSeparateConfig.Size = new System.Drawing.Size(231, 19);
+            this.lblSeparateConfig.TabIndex = 43;
+            this.lblSeparateConfig.Text = "Add separate config to existing server";
+            this.lblSeparateConfig.Visible = false;
+            // 
+            // chkSeparateConfig
+            // 
+            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkSeparateConfig.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkSeparateConfig.Checked = false;
+            this.chkSeparateConfig.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkSeparateConfig.ForeColor = System.Drawing.Color.White;
+            this.chkSeparateConfig.Location = new System.Drawing.Point(380, 135);
+            this.chkSeparateConfig.Name = "chkSeparateConfig";
+            this.chkSeparateConfig.Size = new System.Drawing.Size(20, 20);
+            this.chkSeparateConfig.TabIndex = 42;
+            this.chkSeparateConfig.Visible = false;
+            this.chkSeparateConfig.OnChange += new System.EventHandler(this.chkSeparateConfig_OnChange_1);
+            // 
+            // dropdownExistingServer
+            // 
+            this.dropdownExistingServer.BackColor = System.Drawing.Color.White;
+            this.dropdownExistingServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.dropdownExistingServer.FormattingEnabled = true;
+            this.dropdownExistingServer.ItemHeight = 23;
+            this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
+            this.dropdownExistingServer.Name = "dropdownExistingServer";
+            this.dropdownExistingServer.Size = new System.Drawing.Size(346, 29);
+            this.dropdownExistingServer.Sorted = true;
+            this.dropdownExistingServer.TabIndex = 44;
+            this.dropdownExistingServer.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.dropdownExistingServer.UseCustomBackColor = true;
+            this.dropdownExistingServer.UseCustomForeColor = true;
+            this.dropdownExistingServer.UseSelectable = true;
+            this.dropdownExistingServer.Visible = false;
+            // 
             // GSM_Deployment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(697, 531);
+            this.Controls.Add(this.dropdownExistingServer);
+            this.Controls.Add(this.lblSeparateConfig);
+            this.Controls.Add(this.chkSeparateConfig);
             this.Controls.Add(this.btnDeployGameserver);
             this.Controls.Add(this.btnCancelDeployGameserver);
             this.Controls.Add(this.progressbarDownloadProgressOverall);
@@ -372,5 +422,8 @@
         private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgressOverall;
         private System.ComponentModel.BackgroundWorker serverDeploymentWorker;
         private Bunifu.Framework.UI.BunifuFlatButton btnCancelDeployGameserver;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblSeparateConfig;
+        private Bunifu.Framework.UI.BunifuCheckbox chkSeparateConfig;
+        private MetroFramework.Controls.MetroComboBox dropdownExistingServer;
     }
 }
