@@ -46,18 +46,18 @@
             this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
-            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.sidemenu.SuspendLayout();
             this.panelTabTechServices.SuspendLayout();
             this.panelTabCustomerInformation.SuspendLayout();
             this.panelTabAuthentication.SuspendLayout();
             this.panel1.SuspendLayout();
             this.header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.SuspendLayout();
             // 
             // sidemenu
@@ -331,19 +331,15 @@
             this.header.Size = new System.Drawing.Size(957, 48);
             this.header.TabIndex = 1;
             // 
-            // btnExitProgram
+            // panel2
             // 
-            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(86)))), ((int)(((byte)(89)))));
-            this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
-            this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(915, 9);
-            this.btnExitProgram.Name = "btnExitProgram";
-            this.btnExitProgram.Size = new System.Drawing.Size(30, 30);
-            this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnExitProgram.TabIndex = 4;
-            this.btnExitProgram.TabStop = false;
-            this.btnExitProgram.Zoom = 20;
-            this.btnExitProgram.Click += new System.EventHandler(this.btnExitProgram_Click);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel2.Controls.Add(this.bunifuCustomLabel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(260, 48);
+            this.panel2.TabIndex = 5;
             // 
             // bunifuCustomLabel1
             // 
@@ -356,22 +352,26 @@
             this.bunifuCustomLabel1.TabIndex = 2;
             this.bunifuCustomLabel1.Text = "GameServerManager v0.1";
             // 
+            // btnExitProgram
+            // 
+            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
+            this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
+            this.btnExitProgram.ImageActive = null;
+            this.btnExitProgram.Location = new System.Drawing.Point(915, 9);
+            this.btnExitProgram.Name = "btnExitProgram";
+            this.btnExitProgram.Size = new System.Drawing.Size(30, 30);
+            this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnExitProgram.TabIndex = 4;
+            this.btnExitProgram.TabStop = false;
+            this.btnExitProgram.Zoom = 20;
+            this.btnExitProgram.Click += new System.EventHandler(this.btnExitProgram_Click);
+            // 
             // notifyIcon1
             // 
             this.notifyIcon1.BalloonTipText = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Visible = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Controls.Add(this.bunifuCustomLabel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 48);
-            this.panel2.TabIndex = 5;
             // 
             // GameServerManager
             // 
@@ -396,9 +396,9 @@
             this.panelTabAuthentication.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.header.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.ResumeLayout(false);
 
         }
