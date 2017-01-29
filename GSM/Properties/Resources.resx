@@ -145,7 +145,19 @@
   <data name="MANAGEMENT_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\RESOURCES\MANAGEMENT_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SCHEDULE_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RESOURCES\SCHEDULE_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SERVER_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RESOURCES\SERVER_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="STOP_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\RESOURCES\STOP_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TIME_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RESOURCES\TIME_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="USERS_ICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\RESOURCES\USERS_ICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

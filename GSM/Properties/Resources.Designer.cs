@@ -153,9 +153,49 @@ namespace GameServer_Manager.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SCHEDULE_ICON {
+            get {
+                object obj = ResourceManager.GetObject("SCHEDULE_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SERVER_ICON {
+            get {
+                object obj = ResourceManager.GetObject("SERVER_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap STOP_ICON {
             get {
                 object obj = ResourceManager.GetObject("STOP_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TIME_ICON {
+            get {
+                object obj = ResourceManager.GetObject("TIME_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USERS_ICON {
+            get {
+                object obj = ResourceManager.GetObject("USERS_ICON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

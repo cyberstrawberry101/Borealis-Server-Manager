@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GSM_Performance_Dashboard));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblDetailedCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedDISKUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -40,13 +44,16 @@
             this.progressCPUUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.progressDISKUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bunifuProgressBar1 = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.bunifuProgressBar3 = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.bunifuProgressBar2 = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.progressbarDownloadProgress = new Bunifu.Framework.UI.BunifuProgressBar();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
-            this.groupBox1.SuspendLayout();
+            this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDetailedCPUUsage
@@ -207,76 +214,107 @@
             this.progressRAMUsage.TabIndex = 49;
             this.progressRAMUsage.Value = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.bunifuProgressBar1);
-            this.groupBox1.Controls.Add(this.bunifuProgressBar3);
-            this.groupBox1.Controls.Add(this.bunifuProgressBar2);
-            this.groupBox1.Controls.Add(this.progressbarDownloadProgress);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.groupBox1.Location = new System.Drawing.Point(12, 294);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(673, 225);
-            this.groupBox1.TabIndex = 59;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detailed Resource Utilization";
-            // 
-            // bunifuProgressBar1
-            // 
-            this.bunifuProgressBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.bunifuProgressBar1.BorderRadius = 5;
-            this.bunifuProgressBar1.Location = new System.Drawing.Point(334, 100);
-            this.bunifuProgressBar1.Margin = new System.Windows.Forms.Padding(3, 9, 3, 9);
-            this.bunifuProgressBar1.MaximumValue = 100;
-            this.bunifuProgressBar1.Name = "bunifuProgressBar1";
-            this.bunifuProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuProgressBar1.Size = new System.Drawing.Size(324, 13);
-            this.bunifuProgressBar1.TabIndex = 41;
-            this.bunifuProgressBar1.Value = 62;
-            // 
-            // bunifuProgressBar3
-            // 
-            this.bunifuProgressBar3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.bunifuProgressBar3.BorderRadius = 5;
-            this.bunifuProgressBar3.Location = new System.Drawing.Point(334, 75);
-            this.bunifuProgressBar3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.bunifuProgressBar3.MaximumValue = 100;
-            this.bunifuProgressBar3.Name = "bunifuProgressBar3";
-            this.bunifuProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuProgressBar3.Size = new System.Drawing.Size(324, 13);
-            this.bunifuProgressBar3.TabIndex = 40;
-            this.bunifuProgressBar3.Value = 85;
-            // 
-            // bunifuProgressBar2
-            // 
-            this.bunifuProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.bunifuProgressBar2.BorderRadius = 5;
-            this.bunifuProgressBar2.Location = new System.Drawing.Point(334, 50);
-            this.bunifuProgressBar2.Margin = new System.Windows.Forms.Padding(3, 7, 3, 7);
-            this.bunifuProgressBar2.MaximumValue = 100;
-            this.bunifuProgressBar2.Name = "bunifuProgressBar2";
-            this.bunifuProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuProgressBar2.Size = new System.Drawing.Size(324, 13);
-            this.bunifuProgressBar2.TabIndex = 39;
-            this.bunifuProgressBar2.Value = 48;
-            // 
-            // progressbarDownloadProgress
-            // 
-            this.progressbarDownloadProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressbarDownloadProgress.BorderRadius = 5;
-            this.progressbarDownloadProgress.Location = new System.Drawing.Point(334, 26);
-            this.progressbarDownloadProgress.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.progressbarDownloadProgress.MaximumValue = 100;
-            this.progressbarDownloadProgress.Name = "progressbarDownloadProgress";
-            this.progressbarDownloadProgress.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressbarDownloadProgress.Size = new System.Drawing.Size(324, 13);
-            this.progressbarDownloadProgress.TabIndex = 36;
-            this.progressbarDownloadProgress.Value = 23;
-            // 
             // backgroundMetrics
             // 
             this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
+            // 
+            // overallServerStatsGrid
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.overallServerStatsGrid.BackgroundColor = System.Drawing.Color.White;
+            this.overallServerStatsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.overallServerStatsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.overallServerStatsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.overallServerStatsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.columnGameServerName,
+            this.columnGameServerRAM,
+            this.columnGameServerDISK,
+            this.columnGameServerCPU,
+            this.columnNetworkUsage,
+            this.columnStatus});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.overallServerStatsGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.overallServerStatsGrid.DoubleBuffered = true;
+            this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
+            this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(12, 317);
+            this.overallServerStatsGrid.Name = "overallServerStatsGrid";
+            this.overallServerStatsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(673, 202);
+            this.overallServerStatsGrid.TabIndex = 43;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(8, 295);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(175, 19);
+            this.bunifuCustomLabel1.TabIndex = 60;
+            this.bunifuCustomLabel1.Text = "Detailed Resource Utilization";
+            // 
+            // columnGameServerName
+            // 
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerName.HeaderText = "Name";
+            this.columnGameServerName.Name = "columnGameServerName";
+            // 
+            // columnGameServerRAM
+            // 
+            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerRAM.HeaderText = "Memory";
+            this.columnGameServerRAM.Name = "columnGameServerRAM";
+            // 
+            // columnGameServerDISK
+            // 
+            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerDISK.HeaderText = "Disk";
+            this.columnGameServerDISK.Name = "columnGameServerDISK";
+            // 
+            // columnGameServerCPU
+            // 
+            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerCPU.HeaderText = "CPU";
+            this.columnGameServerCPU.Name = "columnGameServerCPU";
+            // 
+            // columnNetworkUsage
+            // 
+            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnNetworkUsage.HeaderText = "Network";
+            this.columnNetworkUsage.Name = "columnNetworkUsage";
+            // 
+            // columnStatus
+            // 
+            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnStatus.HeaderText = "Status";
+            this.columnStatus.Name = "columnStatus";
             // 
             // GSM_Performance_Dashboard
             // 
@@ -284,7 +322,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(697, 531);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.bunifuCustomLabel1);
+            this.Controls.Add(this.overallServerStatsGrid);
             this.Controls.Add(this.lblDetailedCPUUsage);
             this.Controls.Add(this.lblCPUUsage);
             this.Controls.Add(this.progressCPUUsage);
@@ -300,7 +339,7 @@
             this.Name = "GSM_Performance_Dashboard";
             this.Text = "GSM_Performance_Dashboard";
             this.Load += new System.EventHandler(this.GSM_Performance_Dashboard_Load);
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,11 +358,14 @@
         private Bunifu.Framework.UI.BunifuCircleProgressbar progressRAMUsage;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundMetrics;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar1;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar3;
-        private Bunifu.Framework.UI.BunifuProgressBar bunifuProgressBar2;
-        private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgress;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid overallServerStatsGrid;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerRAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerDISK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerCPU;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnNetworkUsage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
     }
 }

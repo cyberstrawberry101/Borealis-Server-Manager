@@ -72,7 +72,6 @@
     <Compile Include="CLASSES\GAMESERVER_CLASSES\TeamFortress2.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\GSM_MonitoringFunctions.cs" />
-    <Compile Include="CLASSES\GSM_InterfaceCreation.cs" />
     <Compile Include="CLASSES\GAMESERVER_CLASSES\GarrysMod.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="INTERFACES\GSM_Performance_Dashboard.cs">
@@ -150,8 +149,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="burn.ico" />
     <Content Include="GSM.ico" />
+    <None Include="RESOURCES\USERS_ICON.png" />
+    <None Include="RESOURCES\TIME_ICON.png" />
+    <None Include="RESOURCES\SERVER_ICON.png" />
+    <None Include="RESOURCES\SCHEDULE_ICON.png" />
     <None Include="RESOURCES\InvalidPanel.png" />
     <None Include="RESOURCES\DASHBOARD_ICON.png" />
     <None Include="RESOURCES\STOP_ICON.png" />
