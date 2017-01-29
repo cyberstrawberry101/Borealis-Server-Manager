@@ -50,6 +50,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
             this.sidemenu.SuspendLayout();
             this.panelTabTechServices.SuspendLayout();
             this.panelTabCustomerInformation.SuspendLayout();
@@ -374,6 +375,9 @@
             this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Visible = true;
             // 
+            // backgroundMetrics
+            // 
+            // 
             // GameServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +429,7 @@
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel panel2;
+        private System.ComponentModel.BackgroundWorker backgroundMetrics;
     }
 }
 

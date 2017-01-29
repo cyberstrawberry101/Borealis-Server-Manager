@@ -59,5 +59,9 @@ namespace GameServer_Manager
             //} 
         }
 
+        private void GSM_Performance_Dashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            backgroundMetrics.CancelAsync();
+        }
     }
 }
