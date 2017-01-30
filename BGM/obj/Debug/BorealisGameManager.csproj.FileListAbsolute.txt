@@ -1,0 +1,16 @@
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\BorealisGameManager.csprojResolveAssemblyReference.cache
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\GameServer_Manager.GSM_Performance_Dashboard.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\GameServer_Manager.GameServerManager.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\Borealis_Game_Manager.Properties.Resources.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\GameServer_Manager.GSM_Deployment.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\GameServer_Manager.GSM_Management.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\GameServer_Manager.GSM_Console.resources
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\BorealisGameManager.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\BorealisGameManager.exe.config
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\BorealisGameManager.exe
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\BorealisGameManager.pdb
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\MetroFramework.dll
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\BorealisGameManager.exe
+C:\Users\Nicole\Desktop\GSM\GameServerManager\GSM\obj\Debug\BorealisGameManager.pdb
