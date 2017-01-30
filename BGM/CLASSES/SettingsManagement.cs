@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,29 +12,6 @@ namespace GameServer_Manager
 {
     public class GSM_SettingsManagement_Classes
     {
-        //=====================================================================================//
-        // Read & Write JSON Data Functions                                                    //
-        // http://www.newtonsoft.com/json/help/html/ReadJsonWithJsonTextReader.htm             //
-        // http://www.newtonsoft.com/json/help/html/WriteJsonWithJsonTextWriter.htm            //
-        //=====================================================================================//
-        /*public static string ReadJSONData(string jsonData)
-        {
-            JsonTextReader reader = new JsonTextReader(new StringReader(jsonData));
-            while (reader.Read())
-                {
-                if (reader.Value != null)
-                    {
-                    return ("Token: {0}, Value: {1}", reader.TokenType, reader.Value);
-                    }
-                    else
-                    {
-                    return ("Token: {0}", reader.TokenType);
-                    }
-                }
-        }
-        */
-
-
         //=====================================================================================//
         // Read & Write XML Data Functions                                                     //
         // https://www.codeproject.com/Articles/30834/Storing-and-Retrieving-Settings-from-XML //

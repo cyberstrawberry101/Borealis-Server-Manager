@@ -14,7 +14,7 @@ namespace GameServer_Manager
     public class ExternalExecution_Classes
     {
         //===================================================================================//
-        // LAUNCH EXTERNAL PROGRAM                                                           //
+        // LAUNCH EXTERNAL PROGRAM WITH GIVEN ARGUMENTS                                      //
         //===================================================================================//
         public static void LaunchExternalProgram(string argProgramName, string argParameters, bool argFullManualPath, bool argRedirectOutput)
         {

@@ -12,7 +12,7 @@ namespace GameServer_Manager
     public class GSM_MonitoringFunctions
     {
         //===================================================================================//
-        // RAM UTILIZATION INFO FUNCTION                                                     //
+        // RAM UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
         public string RetrieveRAMUsage(bool OverallUsage, bool IndividualUsage)
         {
@@ -23,29 +23,30 @@ namespace GameServer_Manager
 
 
         //===================================================================================//
-        // DISK UTILIZATION INFO FUNCTION                                                    //
+        // DIRECTORY UTILIZATION INFO FUNCTIONS                                              //
         //===================================================================================//
         public long GetDirectorySize(string path)
         {
-            // 1.
             // Get array of all file names.
             string[] a = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
-            // 2.
             // Calculate total bytes of all files in a loop.
             long b = 0;
             foreach (string name in a)
             {
-                // 3.
                 // Use FileInfo to get length of each file.
                 FileInfo info = new FileInfo(name);
                 b += info.Length;
             }
-            // 4.
+
             // Return total size
             return b;
         }
 
+
+        //===================================================================================//
+        // DISK UTILIZATION INFO FUNCTIONS                                                   //
+        //===================================================================================//
         public double RetrieveDISKInfo(string driveName, bool TotalSize, bool TotalUsed, bool PercentUsed, bool DirectoryUsed)
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())
@@ -64,24 +65,6 @@ namespace GameServer_Manager
                     {
                         return ((((double)drive.TotalSize - (double)drive.AvailableFreeSpace) / ((double)drive.TotalSize)) * 100);
                     }
-                    if (DirectoryUsed == true)
-                    {
-                        /*
-                        long startDirectorySize = 0;
-                        if (!Directory.Exists(driveName))
-                            return startDirectorySize; //Return 0 while Directory does not exist.
-
-                        var currentDirectory = new DirectoryInfo(driveName);
-                        //Add size of files in the Current Directory to main size.
-                        currentDirectory.GetFiles().ToList().ForEach(f => startDirectorySize += f.Length);
-
-                        //Loop on Sub Directories in the Current Directory and Calculate it's files size.
-                        currentDirectory.GetDirectories().ToList()
-                            .ForEach(d => startDirectorySize += GetDirectorySize(d.FullName));
-
-                        return startDirectorySize;  //Return full Size of this Directory.
-                        */
-                    }
                 }
             }
             return -1;
@@ -89,7 +72,7 @@ namespace GameServer_Manager
 
 
         //===================================================================================//
-        // CPU UTILIZATION CLASSSES                                                          //
+        // CPU UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
         public int RetrieveCPUUsage(bool OverallUsage, bool IndividualUsage)
         {
@@ -98,11 +81,9 @@ namespace GameServer_Manager
             cpuCounter.CategoryName = "Processor";
             cpuCounter.CounterName = "% Processor Time";
             cpuCounter.InstanceName = "_Total";
-
             return (int)cpuCounter.NextValue();
-            
         }
 
-    }
 
+    }
 }

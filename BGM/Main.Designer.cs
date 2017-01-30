@@ -358,7 +358,7 @@
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(915, 9);
+            this.btnExitProgram.Location = new System.Drawing.Point(917, 9);
             this.btnExitProgram.Name = "btnExitProgram";
             this.btnExitProgram.Size = new System.Drawing.Size(30, 30);
             this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -382,6 +382,7 @@
             this.ClientSize = new System.Drawing.Size(957, 582);
             this.Controls.Add(this.sidemenu);
             this.Controls.Add(this.header);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;

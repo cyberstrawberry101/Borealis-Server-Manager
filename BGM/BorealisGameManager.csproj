@@ -36,7 +36,7 @@
     <ApplicationIcon>BGM.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>CLASSES\app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.52, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -46,9 +46,6 @@
     <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DEPENDENCIES\MetroFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -77,11 +74,11 @@
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
     <Compile Include="CLASSES\GAMESERVER_CLASSES\GarrysMod.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
-    <Compile Include="INTERFACES\Performance_Dashboard.cs">
+    <Compile Include="INTERFACES\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Performance_Dashboard.Designer.cs">
-      <DependentUpon>Performance_Dashboard.cs</DependentUpon>
+    <Compile Include="INTERFACES\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\SettingsManagement.cs" />
     <Compile Include="Main.cs">
@@ -110,8 +107,8 @@
     <Compile Include="INTERFACES\Console.Designer.cs">
       <DependentUpon>Console.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="INTERFACES\Performance_Dashboard.resx">
-      <DependentUpon>Performance_Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="INTERFACES\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -130,7 +127,7 @@
     <EmbeddedResource Include="INTERFACES\Console.resx">
       <DependentUpon>Console.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="CLASSES\app.manifest" />
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -158,7 +155,6 @@
     <None Include="RESOURCES\TIME_ICON.png" />
     <None Include="RESOURCES\SERVER_ICON.png" />
     <None Include="RESOURCES\SCHEDULE_ICON.png" />
-    <None Include="RESOURCES\InvalidPanel.png" />
     <None Include="RESOURCES\DASHBOARD_ICON.png" />
     <None Include="RESOURCES\STOP_ICON.png" />
     <None Include="RESOURCES\INDICATOR_WARNING.png" />

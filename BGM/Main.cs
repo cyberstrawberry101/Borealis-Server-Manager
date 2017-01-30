@@ -55,7 +55,6 @@ namespace GameServer_Manager
             
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
-
             MdiClient ctlMDI;
 
             // Loop through all of the form's controls looking
@@ -76,7 +75,7 @@ namespace GameServer_Manager
                 }
             }
 
-            //------- Startup Panel -------
+            //------- Launch Startup Dashboard Panel -------
             GSM_Performance_Dashboard GSM_Performance_Dashboard_ChildInstance = new GSM_Performance_Dashboard();
             DisposeAllButThis(GSM_Performance_Dashboard_ChildInstance);
             GSM_Performance_Dashboard_ChildInstance.MdiParent = this;
@@ -103,6 +102,7 @@ namespace GameServer_Manager
             indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabDeployment.Visible = false;
             GSM_Performance_Dashboard_ChildInstance.Show();
         }
+
         //------- Deploy GameServers Tab -------
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
@@ -115,6 +115,7 @@ namespace GameServer_Manager
             indicatorTabDeployment.Visible = true;
             GSM_Deployment_ChildInstance.Show();
         }
+
         //------- Manage GameServers Tab -------
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
@@ -127,6 +128,7 @@ namespace GameServer_Manager
             indicatorTabManagement.Visible = true;
             GSM_Management_ChildInstance.Show();
         }
+
         //------- Control GameServers Tab -------
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
@@ -140,6 +142,9 @@ namespace GameServer_Manager
             GSM_Console_ChildInstance.Show();
         }
 
+        //===================================================================================//
+        // ATTRIBUTION AND CREDITS DIALOG BOX                                                //
+        //===================================================================================//
         private void bunifuCustomLabel17_Click(object sender, EventArgs e)
         {
             MetroMessageBox.Show(GameServerManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app/418/Console \nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuUI: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

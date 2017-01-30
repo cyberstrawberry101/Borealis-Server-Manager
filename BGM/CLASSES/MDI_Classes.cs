@@ -8,7 +8,10 @@ using System.Runtime.InteropServices;
 
 namespace GameServer_Manager
 {
-        public static class MDIClientSupport
+    //===================================================================================//
+    // MDI CONTAINER PAINTING OVERRIDE: Makes MDI child forms have no border             //
+    //===================================================================================//
+    public static class MDIClientSupport
         {
             [DllImport("user32.dll")]
             private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
