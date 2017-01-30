@@ -9,13 +9,13 @@
 ![ScreenShot](Screenshots/Screenshot01.png)
 
 **Deployment Panel**
-![ScreenShot](Screenshots/Instance01.PNG)
+![ScreenShot](Screenshots/Screenshot02.PNG)
 
 **Deployment Panel (Extended)**
-![ScreenShot](Screenshots/Instance02.PNG)
+![ScreenShot](Screenshots/Screenshot03.PNG)
 
 **Management Panel**
-![ScreenShot](Screenshots/NewUpdateManagement.PNG)
+![ScreenShot](Screenshots/Screenshot04.PNG)
 
 **Control Panel**
 ![ScreenShot](Screenshots/Screenshot05.png)
