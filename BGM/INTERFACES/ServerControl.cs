@@ -87,7 +87,7 @@ namespace GameServer_Manager
         //===================================================================================//
         private void backgroundWorker01_DoWork(object sender, DoWorkEventArgs e)
         {
-            ExternalExecution_Classes.LaunchExternalProgram("C:\\Windows\\system32\\cmd.exe", " -k help", true, false);
+            ExternalExecution_Classes.LaunchExternalProgram("C:\\Windows\\system32\\cmd.exe", " -k help", false);
         }
     }
 }

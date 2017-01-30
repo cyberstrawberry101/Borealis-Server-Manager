@@ -220,7 +220,7 @@
             this.txtboxDestinationFolder.Name = "txtboxDestinationFolder";
             this.txtboxDestinationFolder.Size = new System.Drawing.Size(346, 29);
             this.txtboxDestinationFolder.TabIndex = 32;
-            this.txtboxDestinationFolder.Text = "C:\\GSM\\";
+            this.txtboxDestinationFolder.Text = "C:\\BGM\\";
             this.txtboxDestinationFolder.Visible = false;
             // 
             // lblDestination
@@ -453,6 +453,7 @@
             this.Name = "ServerDeployment";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Toolkit_Authentication_Panel";
+            this.Load += new System.EventHandler(this.ServerDeployment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

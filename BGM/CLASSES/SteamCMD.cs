@@ -12,54 +12,46 @@ namespace GameServer_Manager
     public class SteamCMD_Classes
     {
         //===================================================================================//
-        // Download SteamCMD                                                                 //
+        // Download | Extract | First-Run SteamCMD                                           //
         //===================================================================================//
         public static void DownloadSteamCMD(string DestinationFolder)
         {
+            ServerDeployment ServerDeploymentDelegate = new ServerDeployment();
+
+            ServerDeploymentDelegate.updateProgressStatus(25, 30, "Checking for active internet connection...");
             if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) //Check for network connectivity
             {
-                if (System.IO.Directory.Exists(DestinationFolder)) //If DestinationFolder already exists
+                if (System.IO.File.Exists(DestinationFolder + @"\steamcmd.exe"))
                 {
-                    if (System.IO.File.Exists(Environment.CurrentDirectory + @"\SteamCMD.zip"))
-                    {
-                        MessageBox.Show("SteamCMD already downloaded! Skipping!");
-                    }
-                    else
-                    {
-                        using (System.Net.WebClient client = new System.Net.WebClient()) //Download SteamCMD.zip
-                        {
-                            client.DownloadFileAsync(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
-                            DestinationFolder + @"\SteamCMD.zip");
-                        }
-                    }
-                    
+                    //Do nothing!
                 }
-                else //If DestinationFolder does not exist
+                else
                 {
+                    //Create Server Directory for SteamCMD
                     System.IO.FileInfo file = new System.IO.FileInfo(DestinationFolder);
                     file.Directory.Create(); //If the directory already exists, this method does nothing.
 
+                    //Download SteamCMD.zip to Server Directory
                     using (System.Net.WebClient client = new System.Net.WebClient()) //Download SteamCMD.zip
                     {
-                        client.DownloadFileAsync(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
+                        client.DownloadFile(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
                         DestinationFolder + @"\SteamCMD.zip");
                     }
+
+                    //Extract SteamCMD.zip to Server Directory
+                    ZipFile.ExtractToDirectory(DestinationFolder + @"\SteamCMD.zip", DestinationFolder);
+
+                    //Delete old zip file.
+                    System.IO.File.Delete(DestinationFolder + @"\SteamCMD.zip");
+
+                    //Execute SteamCMD to download files from Valve.
+                    ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", " +quit", false);
                 }
             }
-        }
-
-        //===================================================================================//
-        // Deploy SteamCMD                                                                   //
-        //===================================================================================//
-        public static void DeploySteamCMD()
+            else
             {
-                if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) //Check for network connectivity
-                {
-                    //Extract SteamCMD.zip
-                    //System.IO.Compression.ZipFile.ExtractToDirectory(DestinationFolder + @"\SteamCMD.zip", DestinationFolder);
-                    //Execute SteamCMD to download more files from steam.
-                    ExternalExecution_Classes.LaunchExternalProgram("SteamCMD.exe", "arguments", false, false);
-                }     
+                MessageBox.Show("You have no active internet connection.  You won't be able to download anything.", "Aborting Process");
             }
         }
     }
+}

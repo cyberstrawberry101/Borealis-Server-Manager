@@ -26,9 +26,9 @@ namespace GameServer_Manager
             //progressRAMUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveRAMUsage(true, false));
             //lblDetailedRAMUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveRAMUsage(true, false));
 
-            //OVERALL STORAGE USAGE
-            progressDISKUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, false, true));
-            lblDetailedDISKUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, true, false) + "GB" + " / " + Monitoring_Instance.RetrieveDISKInfo("C:\\", true, false, false) + "GB");
+            //OVERALL STORAGE USAGE (DISABLED FOR NOW)
+            //progressDISKUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, false, true));
+            //lblDetailedDISKUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, true, false) + "GB" + " / " + Monitoring_Instance.RetrieveDISKInfo("C:\\", true, false, false) + "GB");
 
             //OVERALL CPU USAGE
             //progressCPUUsage.Value = Monitoring_Instance.RetrieveCPUUsage(true, false);

@@ -13,11 +13,19 @@ using System.Net.NetworkInformation;
 namespace GameServer_Manager
 
 {
+
     public partial class ServerDeployment : Form
     {
         public ServerDeployment()
         {
             InitializeComponent();
+        }
+
+        public void updateProgressStatus(int currentProgress, int overallProgress, string progressDetails)
+        {
+            progressbarDownloadProgress.Value = currentProgress;
+            progressbarDownloadProgressOverall.Value = overallProgress;
+            lblDownloadProgressDetails.Text = progressDetails;
         }
 
         private void btnBrowseDestination_Click(object sender, EventArgs e)
@@ -45,37 +53,49 @@ namespace GameServer_Manager
                 btnCancelDeployGameserver.Visible = true;
 
                 //Download and prepare SteamCMD
-                lblDownloadProgressDetails.Text = "Status: Downloading SteamCMD...";
-                steamCMDWorker.RunWorkerAsync();
-
+                lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
+                //steamCMDWorker.RunWorkerAsync();
+                SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
                 switch (dropdownServerSelection.Text)
                 {
                     case "Garry's Mod":
                         MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
                         GarrysMod_Classes.DownloadGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
                         GarrysMod_Classes.ConfigureGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
                         GarrysMod_Classes.GenerateScripts();
                         break;
                     case "Team Fortress 2":
                         MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
                         TeamFortress2_Classes.DownloadGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
                         TeamFortress2_Classes.ConfigureGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
                         TeamFortress2_Classes.GenerateScripts();
                         break;
                     case "SynergyMod HL2-Coop":
                         MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
                         SynergyMod_Classes.DownloadGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
                         SynergyMod_Classes.ConfigureGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
                         SynergyMod_Classes.GenerateScripts();
                         break;
                     case "Killing Floor 2":
                         MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
                         KillingFloor2_Classes.DownloadGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
                         KillingFloor2_Classes.ConfigureGameServer();
+                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
                         KillingFloor2_Classes.GenerateScripts();
                         break;
                     default:
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "You should not be seeing this right now.\nHow did you get here? Thanks!", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "You should not be seeing this right now.\nHow did you get here?", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
 
@@ -159,6 +179,9 @@ namespace GameServer_Manager
             }
         }
 
-        
+        private void ServerDeployment_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
