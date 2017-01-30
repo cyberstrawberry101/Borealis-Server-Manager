@@ -1,4 +1,4 @@
-# GameServerManager #
+# Borealis Game Manager #
 **Designed by:** Nicole Rappe
 
 **Requirements:**
