@@ -34,18 +34,6 @@ namespace GameServer_Manager
             txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
         }
 
-        //Download SteamCMD in the background and report work.
-        private void steamCMDWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
-        }
-        //Report progress of background worker.
-        private void steamCMDWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            progressbarDownloadProgress.Value = e.ProgressPercentage;
-            progressbarDownloadProgressOverall.Value = e.ProgressPercentage;
-        }
-
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
@@ -54,46 +42,65 @@ namespace GameServer_Manager
 
                 //Download and prepare SteamCMD
                 lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
-                //steamCMDWorker.RunWorkerAsync();
                 SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
+
+                //Indicate what gameserver is currently being downloaded.
+                lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                 switch (dropdownServerSelection.Text)
                 {
                     case "Garry's Mod":
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
-                        GarrysMod_Classes.DownloadGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
-                        GarrysMod_Classes.ConfigureGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
-                        GarrysMod_Classes.GenerateScripts();
+                        GarrysMod_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         break;
                     case "Team Fortress 2":
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
-                        TeamFortress2_Classes.DownloadGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
-                        TeamFortress2_Classes.ConfigureGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
-                        TeamFortress2_Classes.GenerateScripts();
+                        TeamFortress2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         break;
                     case "SynergyMod HL2-Coop":
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
-                        SynergyMod_Classes.DownloadGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
-                        SynergyMod_Classes.ConfigureGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
-                        SynergyMod_Classes.GenerateScripts();
+                        SynergyMod_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         break;
                     case "Killing Floor 2":
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " ...";
-                        KillingFloor2_Classes.DownloadGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Configuring " + dropdownServerSelection.Text + " ...";
-                        KillingFloor2_Classes.ConfigureGameServer();
-                        lblDownloadProgressDetails.Text = "Status: Generating Launch Scripts " + dropdownServerSelection.Text + " ...";
-                        KillingFloor2_Classes.GenerateScripts();
+                        KillingFloor2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         break;
+                    case "Killing Floor":
+                        KillingFloor_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Black Mesa: Deathmatch":
+                        BlackMesaDeathmatch_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Chivalry: Deadliest Warrior":
+                        ChivalryDW_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Chivalry: Medieval Warfare":
+                        ChivalryMW_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Counter-Strike GO":
+                        CounterStrikeGO_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Half-Life 2: Deathmatch":
+                        HalfLife2Deathmatch_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Left 4 Dead":
+                        Left4Dead_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "Left 4 Dead 2":
+                        Left4Dead2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+                    case "7 Days to Die":
+                        SevenDaysToDie_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        break;
+
                     default:
                         MetroMessageBox.Show(GameServerManager.ActiveForm, "You should not be seeing this right now.\nHow did you get here?", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;

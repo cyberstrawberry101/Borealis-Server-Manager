@@ -52,7 +52,6 @@
             this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
-            this.steamCMDWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btnCancelDeployGameserver
@@ -110,8 +109,17 @@
             this.dropdownServerSelection.FormattingEnabled = true;
             this.dropdownServerSelection.ItemHeight = 23;
             this.dropdownServerSelection.Items.AddRange(new object[] {
+            "7 Days to Die",
+            "Black Mesa: Deathmatch",
+            "Chivalry: Deadliest Warrior",
+            "Chivalry: Medieval Warfare",
+            "Counter-Strike GO",
             "Garry\'s Mod",
+            "Half-Life 2: Deathmatch",
+            "Killing Floor",
             "Killing Floor 2",
+            "Left 4 Dead",
+            "Left 4 Dead 2",
             "SynergyMod HL2-Coop",
             "Team Fortress 2"});
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
@@ -415,13 +423,6 @@
             this.txtServerGivenName.TabIndex = 48;
             this.txtServerGivenName.Visible = false;
             // 
-            // steamCMDWorker
-            // 
-            this.steamCMDWorker.WorkerReportsProgress = true;
-            this.steamCMDWorker.WorkerSupportsCancellation = true;
-            this.steamCMDWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.steamCMDWorker_DoWork);
-            this.steamCMDWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.steamCMDWorker_ProgressChanged);
-            // 
             // ServerDeployment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -483,6 +484,5 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerNameDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerName;
         private System.Windows.Forms.TextBox txtServerGivenName;
-        private System.ComponentModel.BackgroundWorker steamCMDWorker;
     }
 }

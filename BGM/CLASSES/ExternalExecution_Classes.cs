@@ -54,7 +54,7 @@ namespace GameServer_Manager
             else  //No not redirect output somewhere else
             {
                 startInfo.UseShellExecute = true; //Execute the programs.
-                startInfo.WindowStyle = ProcessWindowStyle.Hidden; //DEBUG, DISABLED FOR NOW
+                //startInfo.WindowStyle = ProcessWindowStyle.Hidden; //ONLY ENABLE THIS WHEN DATA HAS BEEN SUCCESSFULLY PIPED TO THE PROGRAM ITSELF
 
                 try
                 {

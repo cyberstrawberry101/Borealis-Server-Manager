@@ -8,14 +8,14 @@ using System.IO;
 
 namespace GameServer_Manager
 {
-    public class SynergyMod_Classes
+    public class Left4Dead_Classes
     {
         //===================================================================================//
         // Download GameServer using SteamCMD                                                //
         //===================================================================================//
         public static void DownloadGameServer(string DestinationFolder)
         {
-            ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+login anonymous +app_update 17525 +quit", false);
+            ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+login anonymous +app_update 222840 +quit", false);
         }
 
         //===================================================================================//

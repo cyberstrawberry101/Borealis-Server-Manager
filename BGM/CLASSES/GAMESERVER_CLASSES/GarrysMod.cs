@@ -13,9 +13,9 @@ namespace GameServer_Manager
         //===================================================================================//
         // Download GameServer using SteamCMD                                                //
         //===================================================================================//
-        public static void DownloadGameServer()
+        public static void DownloadGameServer(string DestinationFolder)
         {
-
+            ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+login anonymous +app_update 4020 +quit", false);
         }
 
         //===================================================================================//
@@ -30,6 +30,14 @@ namespace GameServer_Manager
         // Generate Launch Scripts                                                           //
         //===================================================================================//
         public static void GenerateScripts()
+        {
+
+        }
+
+        //===================================================================================//
+        // Install SourceMod                                                                 //
+        //===================================================================================//
+        public static void InstallSourceMod()
         {
 
         }
