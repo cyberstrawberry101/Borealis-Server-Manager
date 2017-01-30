@@ -10,7 +10,7 @@ using System.Xml.XPath;
 
 namespace GameServer_Manager
 {
-    public class GSM_SettingsManagement_Classes
+    public class SettingsManagement_Classes
     {
         //=====================================================================================//
         // Read & Write XML Data Functions                                                     //

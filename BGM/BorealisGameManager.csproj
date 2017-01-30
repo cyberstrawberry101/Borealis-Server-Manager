@@ -74,11 +74,11 @@
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
     <Compile Include="CLASSES\GAMESERVER_CLASSES\GarrysMod.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
-    <Compile Include="INTERFACES\Dashboard.cs">
+    <Compile Include="INTERFACES\ServerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="INTERFACES\ServerDashboard.Designer.cs">
+      <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\SettingsManagement.cs" />
     <Compile Include="Main.cs">
@@ -89,26 +89,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="INTERFACES\Deployment.cs">
+    <Compile Include="INTERFACES\ServerDeployment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Deployment.Designer.cs">
-      <DependentUpon>Deployment.cs</DependentUpon>
+    <Compile Include="INTERFACES\ServerDeployment.Designer.cs">
+      <DependentUpon>ServerDeployment.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\Management.cs">
+    <Compile Include="INTERFACES\ServerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Management.Designer.cs">
-      <DependentUpon>Management.cs</DependentUpon>
+    <Compile Include="INTERFACES\ServerManagement.Designer.cs">
+      <DependentUpon>ServerManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\Console.cs">
+    <Compile Include="INTERFACES\ServerControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Console.Designer.cs">
-      <DependentUpon>Console.cs</DependentUpon>
+    <Compile Include="INTERFACES\ServerControl.Designer.cs">
+      <DependentUpon>ServerControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="INTERFACES\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="INTERFACES\ServerDashboard.resx">
+      <DependentUpon>ServerDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -118,14 +118,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\Deployment.resx">
-      <DependentUpon>Deployment.cs</DependentUpon>
+    <EmbeddedResource Include="INTERFACES\ServerDeployment.resx">
+      <DependentUpon>ServerDeployment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\Management.resx">
-      <DependentUpon>Management.cs</DependentUpon>
+    <EmbeddedResource Include="INTERFACES\ServerManagement.resx">
+      <DependentUpon>ServerManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\Console.resx">
-      <DependentUpon>Console.cs</DependentUpon>
+    <EmbeddedResource Include="INTERFACES\ServerControl.resx">
+      <DependentUpon>ServerControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />

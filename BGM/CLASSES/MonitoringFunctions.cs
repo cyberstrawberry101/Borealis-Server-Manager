@@ -9,7 +9,7 @@ using System.Timers;
 
 namespace GameServer_Manager
 {
-    public class GSM_MonitoringFunctions
+    public class MonitoringFunctions
     {
         //===================================================================================//
         // RAM UTILIZATION INFO FUNCTIONS                                                    //

@@ -51,7 +51,7 @@ namespace GameServer_Manager
         private void Main_Load_1(object sender, EventArgs e)
         {
             //Check to ensure that config file exists, and if it doesnt, generate a new one.
-            GSM_SettingsManagement_Classes.CheckForConfigXML();
+            SettingsManagement_Classes.CheckForConfigXML();
             
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
@@ -59,7 +59,7 @@ namespace GameServer_Manager
 
             // Loop through all of the form's controls looking
             // for the control of type MdiClient.
-            foreach (Control ctl in this.Controls)
+            foreach (System.Windows.Forms.Control ctl in this.Controls)
             {
                 try
                 {
@@ -77,11 +77,11 @@ namespace GameServer_Manager
 
             //------- Launch Startup Dashboard Panel -------
             //Render child MDI form---------------------------------------------
-            GSM_Performance_Dashboard GSM_Performance_Dashboard_ChildInstance = new GSM_Performance_Dashboard();
-            GSM_Performance_Dashboard_ChildInstance.MdiParent = this;
-            GSM_Performance_Dashboard_ChildInstance.AutoScroll = false;
-            GSM_Performance_Dashboard_ChildInstance.Dock = DockStyle.Fill;
-            GSM_Performance_Dashboard_ChildInstance.Show();
+            ServerDashboard Dashboard_ChildInstance = new ServerDashboard();
+            Dashboard_ChildInstance.MdiParent = this;
+            Dashboard_ChildInstance.AutoScroll = false;
+            Dashboard_ChildInstance.Dock = DockStyle.Fill;
+            Dashboard_ChildInstance.Show();
         }
 
 
@@ -103,12 +103,12 @@ namespace GameServer_Manager
             indicatorTabDashboard.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            GSM_Performance_Dashboard GSM_Performance_Dashboard_ChildInstance = new GSM_Performance_Dashboard();
-            DisposeAllButThis(GSM_Performance_Dashboard_ChildInstance); //Destroy all other MDI child forms.
-            GSM_Performance_Dashboard_ChildInstance.MdiParent = this;
-            GSM_Performance_Dashboard_ChildInstance.AutoScroll = false;
-            GSM_Performance_Dashboard_ChildInstance.Dock = DockStyle.Fill;
-            GSM_Performance_Dashboard_ChildInstance.Show();
+            ServerDashboard ServerDashboard_ChildInstance = new ServerDashboard();
+            DisposeAllButThis(ServerDashboard_ChildInstance); //Destroy all other MDI child forms.
+            ServerDashboard_ChildInstance.MdiParent = this;
+            ServerDashboard_ChildInstance.AutoScroll = false;
+            ServerDashboard_ChildInstance.Dock = DockStyle.Fill;
+            ServerDashboard_ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -129,12 +129,12 @@ namespace GameServer_Manager
             indicatorTabDeployment.Visible = true;
             
             //Render child MDI form---------------------------------------------
-            GSM_Deployment GSM_Deployment_ChildInstance = new GSM_Deployment();
-            DisposeAllButThis(GSM_Deployment_ChildInstance); //Destroy all other MDI child forms.
-            GSM_Deployment_ChildInstance.MdiParent = this;
-            GSM_Deployment_ChildInstance.AutoScroll = false;
-            GSM_Deployment_ChildInstance.Dock = DockStyle.Fill;
-            GSM_Deployment_ChildInstance.Show();
+            ServerDeployment ServerDeployment_ChildInstance = new ServerDeployment();
+            DisposeAllButThis(ServerDeployment_ChildInstance); //Destroy all other MDI child forms.
+            ServerDeployment_ChildInstance.MdiParent = this;
+            ServerDeployment_ChildInstance.AutoScroll = false;
+            ServerDeployment_ChildInstance.Dock = DockStyle.Fill;
+            ServerDeployment_ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -155,12 +155,12 @@ namespace GameServer_Manager
             indicatorTabManagement.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            GSM_Management GSM_Management_ChildInstance = new GSM_Management();
-            DisposeAllButThis(GSM_Management_ChildInstance); //Destroy all other MDI child forms.
-            GSM_Management_ChildInstance.MdiParent = this;
-            GSM_Management_ChildInstance.AutoScroll = false;
-            GSM_Management_ChildInstance.Dock = DockStyle.Fill;
-            GSM_Management_ChildInstance.Show();
+            ServerManagement ServerManagement_ChildInstance = new ServerManagement();
+            DisposeAllButThis(ServerManagement_ChildInstance); //Destroy all other MDI child forms.
+            ServerManagement_ChildInstance.MdiParent = this;
+            ServerManagement_ChildInstance.AutoScroll = false;
+            ServerManagement_ChildInstance.Dock = DockStyle.Fill;
+            ServerManagement_ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -181,12 +181,12 @@ namespace GameServer_Manager
             indicatorTabControl.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            GSM_Console GSM_Console_ChildInstance = new GSM_Console();
-            DisposeAllButThis(GSM_Console_ChildInstance); //Destroy all other MDI child forms.
-            GSM_Console_ChildInstance.MdiParent = this;
-            GSM_Console_ChildInstance.AutoScroll = false;
-            GSM_Console_ChildInstance.Dock = DockStyle.Fill;
-            GSM_Console_ChildInstance.Show();
+            ServerControl ServerControl_ChildInstance = new ServerControl();
+            DisposeAllButThis(ServerControl_ChildInstance); //Destroy all other MDI child forms.
+            ServerControl_ChildInstance.MdiParent = this;
+            ServerControl_ChildInstance.AutoScroll = false;
+            ServerControl_ChildInstance.Dock = DockStyle.Fill;
+            ServerControl_ChildInstance.Show();
         }
 
         //===================================================================================//

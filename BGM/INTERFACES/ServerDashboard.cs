@@ -12,16 +12,16 @@ using System.Timers;
 
 namespace GameServer_Manager
 {
-    public partial class GSM_Performance_Dashboard : Form
+    public partial class ServerDashboard : Form
     {
-        public GSM_Performance_Dashboard()
+        public ServerDashboard()
         {
             InitializeComponent();
         }
 
         private void GSM_Performance_Dashboard_Load(object sender, EventArgs e)
         {
-            GSM_MonitoringFunctions Monitoring_Instance = new GSM_MonitoringFunctions();
+            MonitoringFunctions Monitoring_Instance = new MonitoringFunctions();
             //OVERALL RAM USAGE
             //progressRAMUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveRAMUsage(true, false));
             //lblDetailedRAMUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveRAMUsage(true, false));

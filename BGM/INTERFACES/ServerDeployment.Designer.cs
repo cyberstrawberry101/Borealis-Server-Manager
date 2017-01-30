@@ -1,6 +1,6 @@
 ﻿namespace GameServer_Manager
 {
-    partial class GSM_Deployment
+    partial class ServerDeployment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GSM_Deployment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerDeployment));
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.progressbarDownloadProgressOverall = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dropdownServerSelection = new MetroFramework.Controls.MetroComboBox();

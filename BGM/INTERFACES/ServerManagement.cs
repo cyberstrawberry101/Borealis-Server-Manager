@@ -12,9 +12,9 @@ using MetroFramework;
 
 namespace GameServer_Manager
 {
-    public partial class GSM_Management : Form
+    public partial class ServerManagement : Form
     {
-        public GSM_Management()
+        public ServerManagement()
         {
             InitializeComponent();
         }

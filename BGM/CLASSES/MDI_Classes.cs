@@ -38,9 +38,9 @@ namespace GameServer_Manager
 
             public static bool SetBevel(this Form form, bool show)
             {
-                foreach (Control c in form.Controls)
+                foreach (System.Windows.Forms.Control c in form.Controls)
                 {
-                    MdiClient client = c as MdiClient;
+                MdiClient client = c as MdiClient;
                     if (client != null)
                     {
                         int windowLong = GetWindowLong(c.Handle, GWL_EXSTYLE);
@@ -54,10 +54,10 @@ namespace GameServer_Manager
                             windowLong &= ~WS_EX_CLIENTEDGE;
                         }
 
-                        SetWindowLong(c.Handle, GWL_EXSTYLE, windowLong);
+                    SetWindowLong(c.Handle, GWL_EXSTYLE, windowLong);
 
-                        // Update the non-client area.
-                        SetWindowPos(client.Handle, IntPtr.Zero, 0, 0, 0, 0,
+                    // Update the non-client area.
+                    SetWindowPos(client.Handle, IntPtr.Zero, 0, 0, 0, 0,
                             SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER |
                             SWP_NOOWNERZORDER | SWP_FRAMECHANGED);
 

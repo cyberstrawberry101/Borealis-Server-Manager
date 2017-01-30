@@ -12,9 +12,9 @@ using System.Diagnostics;
 
 namespace GameServer_Manager
 {
-    public partial class GSM_Console : Form
+    public partial class ServerControl : Form
     {
-        public GSM_Console()
+        public ServerControl()
         {
             InitializeComponent();
         }

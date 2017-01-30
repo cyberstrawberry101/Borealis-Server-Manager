@@ -13,9 +13,9 @@ using System.Net.NetworkInformation;
 namespace GameServer_Manager
 
 {
-    public partial class GSM_Deployment : Form
+    public partial class ServerDeployment : Form
     {
-        public GSM_Deployment()
+        public ServerDeployment()
         {
             InitializeComponent();
         }
