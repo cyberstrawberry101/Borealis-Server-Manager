@@ -6,7 +6,7 @@
 * Windows Operating System
 
 **Dependancies (Included)**
-* **Icons:** https://icons8.com/web-app/418/Console
+* **Icons:** https://icons8.com/web-app
 * **MetroFramework:** https://github.com/thielj/MetroFramework
 * **BunifuFramework:** https://devtools.bunifu.co.ke/
 
