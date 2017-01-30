@@ -243,6 +243,7 @@
             this.indicatorTabDeployment.Name = "indicatorTabDeployment";
             this.indicatorTabDeployment.Size = new System.Drawing.Size(5, 48);
             this.indicatorTabDeployment.TabIndex = 17;
+            this.indicatorTabDeployment.Visible = false;
             // 
             // panel1
             // 
@@ -256,8 +257,8 @@
             // 
             // tabDashboard
             // 
-            this.tabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.tabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
             this.tabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabDashboard.BorderRadius = 0;
             this.tabDashboard.ButtonText = "    Dashboard";
@@ -279,7 +280,7 @@
             this.tabDashboard.IsTab = true;
             this.tabDashboard.Location = new System.Drawing.Point(0, 0);
             this.tabDashboard.Name = "tabDashboard";
-            this.tabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
             this.tabDashboard.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.tabDashboard.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.tabDashboard.selected = false;
@@ -287,7 +288,7 @@
             this.tabDashboard.TabIndex = 18;
             this.tabDashboard.Text = "    Dashboard";
             this.tabDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.tabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.tabDashboard.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabDashboard.Click += new System.EventHandler(this.tabDashboard_Click_1);
             // 
@@ -299,7 +300,6 @@
             this.indicatorTabDashboard.Name = "indicatorTabDashboard";
             this.indicatorTabDashboard.Size = new System.Drawing.Size(5, 48);
             this.indicatorTabDashboard.TabIndex = 17;
-            this.indicatorTabDashboard.Visible = false;
             // 
             // bunifuCustomLabel17
             // 
