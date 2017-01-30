@@ -193,6 +193,7 @@
             this.txtboxConsoleOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxConsoleOutput.FormattingEnabled = true;
             this.txtboxConsoleOutput.Items.AddRange(new object[] {
+            "",
             "Example console output will be displayed here.",
             "Pretty much whatever you normally would see is here.",
             "",

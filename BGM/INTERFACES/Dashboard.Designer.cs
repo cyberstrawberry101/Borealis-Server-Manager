@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GSM_Performance_Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblDetailedCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedDISKUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -53,7 +53,13 @@
             this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
+            this.panelMemoryUsage = new System.Windows.Forms.Panel();
+            this.panelDiskUsage = new System.Windows.Forms.Panel();
+            this.panelCPUUsage = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
+            this.panelMemoryUsage.SuspendLayout();
+            this.panelDiskUsage.SuspendLayout();
+            this.panelCPUUsage.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblDetailedCPUUsage
@@ -62,7 +68,7 @@
             this.lblDetailedCPUUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDetailedCPUUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDetailedCPUUsage.Location = new System.Drawing.Point(535, 254);
+            this.lblDetailedCPUUsage.Location = new System.Drawing.Point(56, 185);
             this.lblDetailedCPUUsage.Name = "lblDetailedCPUUsage";
             this.lblDetailedCPUUsage.Size = new System.Drawing.Size(95, 19);
             this.lblDetailedCPUUsage.TabIndex = 57;
@@ -73,7 +79,7 @@
             this.lblCPUUsage.AutoSize = true;
             this.lblCPUUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblCPUUsage.Location = new System.Drawing.Point(521, 220);
+            this.lblCPUUsage.Location = new System.Drawing.Point(40, 151);
             this.lblCPUUsage.Name = "lblCPUUsage";
             this.lblCPUUsage.Size = new System.Drawing.Size(128, 32);
             this.lblCPUUsage.TabIndex = 56;
@@ -85,7 +91,7 @@
             this.lblDetailedDISKUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDetailedDISKUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDetailedDISKUsage.Location = new System.Drawing.Point(310, 254);
+            this.lblDetailedDISKUsage.Location = new System.Drawing.Point(54, 185);
             this.lblDetailedDISKUsage.Name = "lblDetailedDISKUsage";
             this.lblDetailedDISKUsage.Size = new System.Drawing.Size(70, 19);
             this.lblDetailedDISKUsage.TabIndex = 54;
@@ -96,7 +102,7 @@
             this.lblDISKUsage.AutoSize = true;
             this.lblDISKUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDISKUsage.Location = new System.Drawing.Point(289, 220);
+            this.lblDISKUsage.Location = new System.Drawing.Point(41, 151);
             this.lblDISKUsage.Name = "lblDISKUsage";
             this.lblDISKUsage.Size = new System.Drawing.Size(125, 32);
             this.lblDISKUsage.TabIndex = 53;
@@ -108,7 +114,7 @@
             this.lblDetailedRAMUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDetailedRAMUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDetailedRAMUsage.Location = new System.Drawing.Point(56, 254);
+            this.lblDetailedRAMUsage.Location = new System.Drawing.Point(53, 185);
             this.lblDetailedRAMUsage.Name = "lblDetailedRAMUsage";
             this.lblDetailedRAMUsage.Size = new System.Drawing.Size(90, 19);
             this.lblDetailedRAMUsage.TabIndex = 51;
@@ -119,7 +125,7 @@
             this.lblRAMUsage.AutoSize = true;
             this.lblRAMUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblRAMUsage.Location = new System.Drawing.Point(24, 220);
+            this.lblRAMUsage.Location = new System.Drawing.Point(16, 151);
             this.lblRAMUsage.Name = "lblRAMUsage";
             this.lblRAMUsage.Size = new System.Drawing.Size(169, 32);
             this.lblRAMUsage.TabIndex = 50;
@@ -160,7 +166,7 @@
             this.progressCPUUsage.LabelVisible = true;
             this.progressCPUUsage.LineProgressThickness = 8;
             this.progressCPUUsage.LineThickness = 5;
-            this.progressCPUUsage.Location = new System.Drawing.Point(506, 68);
+            this.progressCPUUsage.Location = new System.Drawing.Point(23, 1);
             this.progressCPUUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.progressCPUUsage.MaxValue = 100;
             this.progressCPUUsage.Name = "progressCPUUsage";
@@ -182,7 +188,7 @@
             this.progressDISKUsage.LabelVisible = true;
             this.progressDISKUsage.LineProgressThickness = 8;
             this.progressDISKUsage.LineThickness = 5;
-            this.progressDISKUsage.Location = new System.Drawing.Point(268, 68);
+            this.progressDISKUsage.Location = new System.Drawing.Point(23, 1);
             this.progressDISKUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.progressDISKUsage.MaxValue = 100;
             this.progressDISKUsage.Name = "progressDISKUsage";
@@ -204,7 +210,7 @@
             this.progressRAMUsage.LabelVisible = true;
             this.progressRAMUsage.LineProgressThickness = 8;
             this.progressRAMUsage.LineThickness = 5;
-            this.progressRAMUsage.Location = new System.Drawing.Point(28, 68);
+            this.progressRAMUsage.Location = new System.Drawing.Point(23, 1);
             this.progressRAMUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.progressRAMUsage.MaxValue = 100;
             this.progressRAMUsage.Name = "progressRAMUsage";
@@ -216,21 +222,27 @@
             // 
             // overallServerStatsGrid
             // 
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            this.overallServerStatsGrid.AllowUserToAddRows = false;
+            this.overallServerStatsGrid.AllowUserToDeleteRows = false;
+            this.overallServerStatsGrid.AllowUserToOrderColumns = true;
+            this.overallServerStatsGrid.AllowUserToResizeColumns = false;
+            this.overallServerStatsGrid.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.overallServerStatsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.overallServerStatsGrid.BackgroundColor = System.Drawing.Color.White;
             this.overallServerStatsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.overallServerStatsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.overallServerStatsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.overallServerStatsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.overallServerStatsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.overallServerStatsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnGameServerName,
@@ -239,30 +251,41 @@
             this.columnGameServerCPU,
             this.columnNetworkUsage,
             this.columnStatus});
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.overallServerStatsGrid.DefaultCellStyle = dataGridViewCellStyle39;
-            this.overallServerStatsGrid.DoubleBuffered = true;
+            this.overallServerStatsGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.overallServerStatsGrid.DefaultCellStyle = dataGridViewCellStyle15;
+            this.overallServerStatsGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.overallServerStatsGrid.DoubleBuffered = false;
+            this.overallServerStatsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
             this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.overallServerStatsGrid.Location = new System.Drawing.Point(-41, 317);
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 317);
+            this.overallServerStatsGrid.MultiSelect = false;
             this.overallServerStatsGrid.Name = "overallServerStatsGrid";
+            this.overallServerStatsGrid.ReadOnly = true;
             this.overallServerStatsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            this.overallServerStatsGrid.Size = new System.Drawing.Size(738, 214);
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.overallServerStatsGrid.RowHeadersVisible = false;
+            this.overallServerStatsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.overallServerStatsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.overallServerStatsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.overallServerStatsGrid.ShowCellToolTips = false;
+            this.overallServerStatsGrid.ShowEditingIcon = false;
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(697, 214);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
             // columnGameServerName
@@ -270,36 +293,42 @@
             this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnGameServerName.HeaderText = "Name";
             this.columnGameServerName.Name = "columnGameServerName";
+            this.columnGameServerName.ReadOnly = true;
             // 
             // columnGameServerRAM
             // 
             this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnGameServerRAM.HeaderText = "Memory";
             this.columnGameServerRAM.Name = "columnGameServerRAM";
+            this.columnGameServerRAM.ReadOnly = true;
             // 
             // columnGameServerDISK
             // 
             this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnGameServerDISK.HeaderText = "Disk";
             this.columnGameServerDISK.Name = "columnGameServerDISK";
+            this.columnGameServerDISK.ReadOnly = true;
             // 
             // columnGameServerCPU
             // 
             this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnGameServerCPU.HeaderText = "CPU";
             this.columnGameServerCPU.Name = "columnGameServerCPU";
+            this.columnGameServerCPU.ReadOnly = true;
             // 
             // columnNetworkUsage
             // 
             this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnNetworkUsage.HeaderText = "Network";
             this.columnNetworkUsage.Name = "columnNetworkUsage";
+            this.columnNetworkUsage.ReadOnly = true;
             // 
             // columnStatus
             // 
             this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnStatus.HeaderText = "Status";
             this.columnStatus.Name = "columnStatus";
+            this.columnStatus.ReadOnly = true;
             // 
             // bunifuCustomLabel1
             // 
@@ -317,23 +346,47 @@
             // 
             this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
             // 
+            // panelMemoryUsage
+            // 
+            this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
+            this.panelMemoryUsage.Location = new System.Drawing.Point(23, 68);
+            this.panelMemoryUsage.Name = "panelMemoryUsage";
+            this.panelMemoryUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelMemoryUsage.TabIndex = 61;
+            // 
+            // panelDiskUsage
+            // 
+            this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
+            this.panelDiskUsage.Location = new System.Drawing.Point(248, 68);
+            this.panelDiskUsage.Name = "panelDiskUsage";
+            this.panelDiskUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelDiskUsage.TabIndex = 62;
+            // 
+            // panelCPUUsage
+            // 
+            this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
+            this.panelCPUUsage.Location = new System.Drawing.Point(472, 68);
+            this.panelCPUUsage.Name = "panelCPUUsage";
+            this.panelCPUUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelCPUUsage.TabIndex = 62;
+            // 
             // GSM_Performance_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(697, 531);
+            this.Controls.Add(this.panelDiskUsage);
+            this.Controls.Add(this.panelCPUUsage);
+            this.Controls.Add(this.panelMemoryUsage);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.overallServerStatsGrid);
-            this.Controls.Add(this.lblDetailedCPUUsage);
-            this.Controls.Add(this.lblCPUUsage);
-            this.Controls.Add(this.progressCPUUsage);
-            this.Controls.Add(this.lblDetailedDISKUsage);
-            this.Controls.Add(this.lblDISKUsage);
-            this.Controls.Add(this.progressDISKUsage);
-            this.Controls.Add(this.lblDetailedRAMUsage);
-            this.Controls.Add(this.lblRAMUsage);
-            this.Controls.Add(this.progressRAMUsage);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -341,6 +394,12 @@
             this.Text = "GSM_Performance_Dashboard";
             this.Load += new System.EventHandler(this.GSM_Performance_Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).EndInit();
+            this.panelMemoryUsage.ResumeLayout(false);
+            this.panelMemoryUsage.PerformLayout();
+            this.panelDiskUsage.ResumeLayout(false);
+            this.panelDiskUsage.PerformLayout();
+            this.panelCPUUsage.ResumeLayout(false);
+            this.panelCPUUsage.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -368,5 +427,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.ComponentModel.BackgroundWorker backgroundMetrics;
+        private System.Windows.Forms.Panel panelMemoryUsage;
+        private System.Windows.Forms.Panel panelDiskUsage;
+        private System.Windows.Forms.Panel panelCPUUsage;
     }
 }

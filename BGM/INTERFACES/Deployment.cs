@@ -45,29 +45,19 @@ namespace GameServer_Manager
 
                 if (dropdownServerSelection.Text == "Garry's Mod")
                 {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (dropdownServerSelection.Text == "Team Fortress 2")
                 {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (dropdownServerSelection.Text == "SynergyMod HL2-Coop")
                 {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 if (dropdownServerSelection.Text == "Killing Floor 2")
                 {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (dropdownServerSelection.Text == "Minecraft")
-                {
-                    lblDownloadProgress.Visible = true;
-                    lblDownloadProgressDetails.Visible = true;
-                    progressbarDownloadProgress.Visible = true;
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into GSM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    lblDownloadProgress.Visible = false;
-                    lblDownloadProgressDetails.Visible = false;
-                    progressbarDownloadProgress.Visible = false;
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 //Hide the deployment progress bars
