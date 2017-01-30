@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.IO;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace GameServer_Manager
 {
@@ -47,7 +48,7 @@ namespace GameServer_Manager
         //===================================================================================//
         // DISK UTILIZATION INFO FUNCTIONS                                                   //
         //===================================================================================//
-        public double RetrieveDISKInfo(string driveName, bool TotalSize, bool TotalUsed, bool PercentUsed, bool DirectoryUsed)
+        public double RetrieveDISKInfo(string driveName, bool TotalSize, bool TotalUsed, bool PercentUsed)
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
@@ -67,6 +68,7 @@ namespace GameServer_Manager
                     }
                 }
             }
+            MessageBox.Show("ERROR! NO DISK DATA FOUND!"); //YOU SHOULD NEVER SEE THIS.
             return -1;
         }
 

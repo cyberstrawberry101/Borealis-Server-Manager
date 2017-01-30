@@ -26,46 +26,60 @@ namespace GameServer_Manager
             txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
         }
 
-
+        //Download SteamCMD in the background and report work.
+        private void steamCMDWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
+        }
+        //Report progress of background worker.
+        private void steamCMDWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressbarDownloadProgress.Value = e.ProgressPercentage;
+            progressbarDownloadProgressOverall.Value = e.ProgressPercentage;
+        }
 
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                //Show the deployment progress bars
-                lblDownloadProgress.Visible = true;
-                lblDownloadProgressDetails.Visible = true;
-                progressbarDownloadProgress.Visible = true;
-                progressbarDownloadProgressOverall.Visible = true;
                 btnCancelDeployGameserver.Visible = true;
 
                 //Download and prepare SteamCMD
                 lblDownloadProgressDetails.Text = "Status: Downloading SteamCMD...";
-                SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
+                steamCMDWorker.RunWorkerAsync();
 
-                if (dropdownServerSelection.Text == "Garry's Mod")
+                switch (dropdownServerSelection.Text)
                 {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (dropdownServerSelection.Text == "Team Fortress 2")
-                {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (dropdownServerSelection.Text == "SynergyMod HL2-Coop")
-                {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                if (dropdownServerSelection.Text == "Killing Floor 2")
-                {
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    case "Garry's Mod":
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        GarrysMod_Classes.DownloadGameServer();
+                        GarrysMod_Classes.ConfigureGameServer();
+                        GarrysMod_Classes.GenerateScripts();
+                        break;
+                    case "Team Fortress 2":
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TeamFortress2_Classes.DownloadGameServer();
+                        TeamFortress2_Classes.ConfigureGameServer();
+                        TeamFortress2_Classes.GenerateScripts();
+                        break;
+                    case "SynergyMod HL2-Coop":
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        SynergyMod_Classes.DownloadGameServer();
+                        SynergyMod_Classes.ConfigureGameServer();
+                        SynergyMod_Classes.GenerateScripts();
+                        break;
+                    case "Killing Floor 2":
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "Sorry, " + dropdownServerSelection.Text + " has not been fully coded into BGM yet, please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        KillingFloor2_Classes.DownloadGameServer();
+                        KillingFloor2_Classes.ConfigureGameServer();
+                        KillingFloor2_Classes.GenerateScripts();
+                        break;
+                    default:
+                        MetroMessageBox.Show(GameServerManager.ActiveForm, "You should not be seeing this right now.\nHow did you get here? Thanks!", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
                 }
 
-                //Hide the deployment progress bars
                 lblDownloadProgressDetails.Text = "Status: Idle";
-                lblDownloadProgress.Visible = false;
-                lblDownloadProgressDetails.Visible = false;
-                progressbarDownloadProgress.Visible = false;
-                progressbarDownloadProgressOverall.Visible = false;
                 btnCancelDeployGameserver.Visible = false;
             }
             else
@@ -144,5 +158,7 @@ namespace GameServer_Manager
                 txtServerGivenName.Text = dropdownServerSelection.Text;
             }
         }
+
+        
     }
 }

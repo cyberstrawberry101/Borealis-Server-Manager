@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.IO.Compression;
+using System.Windows.Forms;
 
 namespace GameServer_Manager
 {
@@ -19,11 +20,19 @@ namespace GameServer_Manager
             {
                 if (System.IO.Directory.Exists(DestinationFolder)) //If DestinationFolder already exists
                 {
-                    using (System.Net.WebClient client = new System.Net.WebClient()) //Download SteamCMD.zip
+                    if (System.IO.File.Exists(Environment.CurrentDirectory + @"\SteamCMD.zip"))
                     {
-                        client.DownloadFileAsync(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
-                        DestinationFolder + @"\SteamCMD.zip");
+                        MessageBox.Show("SteamCMD already downloaded! Skipping!");
                     }
+                    else
+                    {
+                        using (System.Net.WebClient client = new System.Net.WebClient()) //Download SteamCMD.zip
+                        {
+                            client.DownloadFileAsync(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
+                            DestinationFolder + @"\SteamCMD.zip");
+                        }
+                    }
+                    
                 }
                 else //If DestinationFolder does not exist
                 {

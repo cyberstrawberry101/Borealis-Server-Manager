@@ -52,6 +52,7 @@
             this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
+            this.steamCMDWorker = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // btnCancelDeployGameserver
@@ -101,7 +102,6 @@
             this.progressbarDownloadProgressOverall.Size = new System.Drawing.Size(664, 10);
             this.progressbarDownloadProgressOverall.TabIndex = 40;
             this.progressbarDownloadProgressOverall.Value = 0;
-            this.progressbarDownloadProgressOverall.Visible = false;
             // 
             // dropdownServerSelection
             // 
@@ -136,7 +136,6 @@
             this.lblDownloadProgressDetails.Size = new System.Drawing.Size(55, 13);
             this.lblDownloadProgressDetails.TabIndex = 38;
             this.lblDownloadProgressDetails.Text = "Status: Idle";
-            this.lblDownloadProgressDetails.Visible = false;
             // 
             // lblDestinationDetails
             // 
@@ -161,7 +160,6 @@
             this.lblDownloadProgress.Size = new System.Drawing.Size(230, 21);
             this.lblDownloadProgress.TabIndex = 36;
             this.lblDownloadProgress.Text = "Download / Installation Progress:";
-            this.lblDownloadProgress.Visible = false;
             // 
             // progressbarDownloadProgress
             // 
@@ -174,7 +172,6 @@
             this.progressbarDownloadProgress.Size = new System.Drawing.Size(664, 10);
             this.progressbarDownloadProgress.TabIndex = 35;
             this.progressbarDownloadProgress.Value = 0;
-            this.progressbarDownloadProgress.Visible = false;
             // 
             // btnBrowseDestination
             // 
@@ -418,7 +415,14 @@
             this.txtServerGivenName.TabIndex = 48;
             this.txtServerGivenName.Visible = false;
             // 
-            // GSM_Deployment
+            // steamCMDWorker
+            // 
+            this.steamCMDWorker.WorkerReportsProgress = true;
+            this.steamCMDWorker.WorkerSupportsCancellation = true;
+            this.steamCMDWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.steamCMDWorker_DoWork);
+            this.steamCMDWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.steamCMDWorker_ProgressChanged);
+            // 
+            // ServerDeployment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -446,7 +450,7 @@
             this.Controls.Add(this.lblSelectServerDetails);
             this.Controls.Add(this.lblDestination);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "GSM_Deployment";
+            this.Name = "ServerDeployment";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Toolkit_Authentication_Panel";
             this.ResumeLayout(false);
@@ -478,5 +482,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerNameDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerName;
         private System.Windows.Forms.TextBox txtServerGivenName;
+        private System.ComponentModel.BackgroundWorker steamCMDWorker;
     }
 }
