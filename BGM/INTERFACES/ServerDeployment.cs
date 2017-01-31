@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using System.Net.NetworkInformation;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml.XPath;
 
 namespace GameServer_Manager
 
@@ -46,66 +49,18 @@ namespace GameServer_Manager
 
                 //Indicate what gameserver is currently being downloaded.
                 lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                switch (dropdownServerSelection.Text)
-                {
-                    case "Garry's Mod":
-                        GarrysMod_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Team Fortress 2":
-                        TeamFortress2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "SynergyMod HL2-Coop":
-                        SynergyMod_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Killing Floor 2":
-                        KillingFloor2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Killing Floor":
-                        KillingFloor_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Black Mesa: Deathmatch":
-                        BlackMesaDeathmatch_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Chivalry: Deadliest Warrior":
-                        ChivalryDW_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Chivalry: Medieval Warfare":
-                        ChivalryMW_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Counter-Strike GO":
-                        CounterStrikeGO_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Half-Life 2: Deathmatch":
-                        HalfLife2Deathmatch_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Left 4 Dead":
-                        Left4Dead_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "Left 4 Dead 2":
-                        Left4Dead2_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
-                    case "7 Days to Die":
-                        SevenDaysToDie_Classes.DownloadGameServer(txtboxDestinationFolder.Text);
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        break;
 
-                    default:
-                        MetroMessageBox.Show(GameServerManager.ActiveForm, "You should not be seeing this right now.\nHow did you get here?", "Invalid Option", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
+                //Read the XML file to determine what the launch parameters are.
+                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
+                string retrievedValue = xdoc.Descendants("server")
+                    .Where(s => (string)s.Element("server_name") == dropdownServerSelection.Text)
+                    .Select(s => (string)s.Element("deployment_parameters"))
+                    .FirstOrDefault();
+                lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " via " + retrievedValue + "...";
+                ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", retrievedValue, false);
 
+                //Finish up the process!
+                MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 lblDownloadProgressDetails.Text = "Status: Idle";
                 btnCancelDeployGameserver.Visible = false;
             }
@@ -188,7 +143,15 @@ namespace GameServer_Manager
 
         private void ServerDeployment_Load(object sender, EventArgs e)
         {
-
+            //Query the gameserver_data.xml to list all servers in dropdown menu.
+            if (File.Exists(Environment.CurrentDirectory + @"\gameservers_data.xml"))
+            {
+                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
+                foreach (var child in xdoc.Elements("gameserver_listing").Elements("server").Elements("server_name"))
+                {
+                    dropdownServerSelection.Items.Add(child.Value);
+                }
+            }
         }
     }
-}
+ }

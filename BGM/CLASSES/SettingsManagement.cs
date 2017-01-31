@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
+using System.Xml.Linq;
 using System.Xml.XPath;
 
 namespace GameServer_Manager
 {
     public class SettingsManagement_Classes
     {
+
         //=====================================================================================//
         // Read & Write XML Data Functions                                                     //
         // https://www.codeproject.com/Articles/30834/Storing-and-Retrieving-Settings-from-XML //
@@ -73,16 +75,54 @@ namespace GameServer_Manager
             }
         }
 
-        /*
-        public static string ReadValueFromXML(string pstrValueToRead)
+        public static string ReadValueFromXML(string settingsFilePath, string pstrValueToRead)
         {
-            
+            try
+            {
+                //settingsFilePath is a string variable storing the path of the settings file 
+                XPathDocument doc = new XPathDocument(settingsFilePath);
+                XPathNavigator nav = doc.CreateNavigator();
+                // Compile a standard XPath expression
+                XPathExpression expr;
+                expr = nav.Compile(@"/settings/" + pstrValueToRead);
+                XPathNodeIterator iterator = nav.Select(expr);
+                // Iterate on the node set
+                while (iterator.MoveNext())
+                {
+                    return iterator.Current.Value;
+                }
+                return string.Empty;
+            }
+            catch
+            {
+                //do some error logging here. Leaving for you to do 
+                return string.Empty;
+            }
         }
 
-        public static bool WriteValueToXML(string pstrValueToRead, string pstrValueToWrite)
+        public static bool WriteValueTOXML(string settingsFilePath, string pstrValueToRead, string pstrValueToWrite)
         {
-            
+            try
+            {
+                //settingsFilePath is a string variable storing the path of the settings file 
+                XmlTextReader reader = new XmlTextReader(settingsFilePath);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(reader);
+                //we have loaded the XML, so it's time to close the reader.
+                reader.Close();
+                XmlNode oldNode;
+                XmlElement root = doc.DocumentElement;
+                oldNode = root.SelectSingleNode("/settings/" + pstrValueToRead);
+                oldNode.InnerText = pstrValueToWrite;
+                doc.Save(settingsFilePath);
+                return true;
+            }
+            catch
+            {
+                //properly you need to log the exception here. But as this is just an
+                //example, I am not doing that. 
+                return false;
+            }
         }
-        */
     }
 }

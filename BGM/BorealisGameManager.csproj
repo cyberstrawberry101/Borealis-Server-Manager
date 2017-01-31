@@ -68,21 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CLASSES\ExternalExecution_Classes.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\SynergyMod.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\KillingFloor2.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\Left4Dead.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\Left4Dead2.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\SevenDaysToDie.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\BlackMesaDeathmatch.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\ChivalryDW.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\ChivalryMW.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\CounterStrikeGO.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\HalfLife2Deathmatch.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\KillingFloor.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\TeamFortress2.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
-    <Compile Include="CLASSES\GAMESERVER_CLASSES\GarrysMod.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="INTERFACES\ServerDashboard.cs">
       <SubType>Form</SubType>

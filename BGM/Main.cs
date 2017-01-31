@@ -46,7 +46,7 @@ namespace GameServer_Manager
 
 
         //===================================================================================//
-        // STARTUP: POSITION THE UTILITY PANELS IN THEIR PROPER LOCATION                     //
+        // STARTUP:                                                                          //
         //===================================================================================//
         private void Main_Load_1(object sender, EventArgs e)
         {

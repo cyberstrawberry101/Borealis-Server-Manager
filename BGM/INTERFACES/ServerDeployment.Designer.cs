@@ -105,25 +105,15 @@
             // dropdownServerSelection
             // 
             this.dropdownServerSelection.BackColor = System.Drawing.Color.White;
+            this.dropdownServerSelection.DropDownHeight = 150;
             this.dropdownServerSelection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.dropdownServerSelection.FormattingEnabled = true;
+            this.dropdownServerSelection.IntegralHeight = false;
             this.dropdownServerSelection.ItemHeight = 23;
-            this.dropdownServerSelection.Items.AddRange(new object[] {
-            "7 Days to Die",
-            "Black Mesa: Deathmatch",
-            "Chivalry: Deadliest Warrior",
-            "Chivalry: Medieval Warfare",
-            "Counter-Strike GO",
-            "Garry\'s Mod",
-            "Half-Life 2: Deathmatch",
-            "Killing Floor",
-            "Killing Floor 2",
-            "Left 4 Dead",
-            "Left 4 Dead 2",
-            "SynergyMod HL2-Coop",
-            "Team Fortress 2"});
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
+            this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
+            this.dropdownServerSelection.PromptText = "<Select a gameserver to install>";
             this.dropdownServerSelection.Size = new System.Drawing.Size(346, 29);
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;
@@ -131,6 +121,7 @@
             this.dropdownServerSelection.UseCustomBackColor = true;
             this.dropdownServerSelection.UseCustomForeColor = true;
             this.dropdownServerSelection.UseSelectable = true;
+            this.dropdownServerSelection.UseStyleColors = true;
             this.dropdownServerSelection.SelectedValueChanged += new System.EventHandler(this.dropdownServerSelection_SelectedValueChanged);
             // 
             // lblDownloadProgressDetails
@@ -365,8 +356,10 @@
             // dropdownExistingServer
             // 
             this.dropdownExistingServer.BackColor = System.Drawing.Color.White;
+            this.dropdownExistingServer.DropDownHeight = 150;
             this.dropdownExistingServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.dropdownExistingServer.FormattingEnabled = true;
+            this.dropdownExistingServer.IntegralHeight = false;
             this.dropdownExistingServer.ItemHeight = 23;
             this.dropdownExistingServer.Items.AddRange(new object[] {
             "TestServer01",
@@ -375,7 +368,9 @@
             "TestServer04",
             "TestServer05"});
             this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
+            this.dropdownExistingServer.MaxDropDownItems = 100;
             this.dropdownExistingServer.Name = "dropdownExistingServer";
+            this.dropdownExistingServer.PromptText = "<Select an existing server>";
             this.dropdownExistingServer.Size = new System.Drawing.Size(346, 29);
             this.dropdownExistingServer.Sorted = true;
             this.dropdownExistingServer.TabIndex = 44;
@@ -383,6 +378,7 @@
             this.dropdownExistingServer.UseCustomBackColor = true;
             this.dropdownExistingServer.UseCustomForeColor = true;
             this.dropdownExistingServer.UseSelectable = true;
+            this.dropdownExistingServer.UseStyleColors = true;
             this.dropdownExistingServer.Visible = false;
             this.dropdownExistingServer.SelectedValueChanged += new System.EventHandler(this.dropdownExistingServer_SelectedValueChanged);
             // 
