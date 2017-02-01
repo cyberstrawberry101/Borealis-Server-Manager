@@ -124,5 +124,16 @@ namespace GameServer_Manager
                 return false;
             }
         }
+
+        public static string GameServerXMLData(string serverName, string elementToFind)
+        {
+            //Read the XML file to determine what the launch parameters are.
+            var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
+            string retrievedValue = xdoc.Descendants("server")
+                .Where(s => (string)s.Element("server_name") == serverName)
+                .Select(s => (string)s.Element(elementToFind))
+                .FirstOrDefault();
+            return retrievedValue;
+        }
     }
 }

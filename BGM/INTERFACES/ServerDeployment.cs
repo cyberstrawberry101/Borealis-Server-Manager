@@ -39,35 +39,58 @@ namespace GameServer_Manager
 
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
-            if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            btnCancelDeployGameserver.Visible = true;
+
+            //Download and prepare SteamCMD
+            lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
+            SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
+
+            //Inform the user what level of support BGM provides for the gameserver they are about to deploy.
+
+            //NO CURRENT SUPPORT IMPLEMENTED
+            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "none")
             {
-                btnCancelDeployGameserver.Visible = true;
-
-                //Download and prepare SteamCMD
-                lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
-                SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
-
-                //Indicate what gameserver is currently being downloaded.
-                lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-
-                //Read the XML file to determine what the launch parameters are.
-                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
-                string retrievedValue = xdoc.Descendants("server")
-                    .Where(s => (string)s.Element("server_name") == dropdownServerSelection.Text)
-                    .Select(s => (string)s.Element("deployment_parameters"))
-                    .FirstOrDefault();
-                lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + " via " + retrievedValue + "...";
-                ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", retrievedValue, false);
-
-                //Finish up the process!
-                MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                lblDownloadProgressDetails.Text = "Status: Idle";
-                btnCancelDeployGameserver.Visible = false;
+                MessageBox.Show("NONE");
+                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+                {
+                    //Indicate what gameserver is currently being downloaded.
+                    lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
             }
-            else
+
+            //PARTIAL SUPPORT IMPLEMENTED
+            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "partial")
             {
+                MessageBox.Show("PARTIAL");
+                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only minimally configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                {
+                    //Indicate what gameserver is currently being downloaded.
+                    lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+
             }
-            
+
+            //FULL SUPPORT IMPLEMENTED
+            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "full")
+            {
+                MessageBox.Show("FULL");
+                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //Indicate what gameserver is currently being downloaded.
+                    lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+
+            }
+
+            //Finish up the process!
+            lblDownloadProgressDetails.Text = "Status: Idle";
+            btnCancelDeployGameserver.Visible = false;
         }
 
 
