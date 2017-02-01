@@ -5,494 +5,404 @@
 		<deployment_parameters>+login anonymous +app_update 294420 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Age of Chivalry</server_name>
 		<deployment_parameters>+login anonymous +app_update 17515 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>partial</bgm_integration><bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>ARK: Survival Evolved</server_name>
 		<deployment_parameters>+login anonymous +app_update 376030 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>full</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>	
 	<server>
 		<server_name>Black Mesa: Deathmatch</server_name>
 		<deployment_parameters>+login anonymous +app_update 346680 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>	
 	<server>
 		<server_name>BlazeRush</server_name>
 		<deployment_parameters>+login anonymous +app_update 332850 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>	
 	<server>
 		<server_name>Counter-Strike 1.6</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod czero" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>	
 	<server>
 		<server_name>Counter-Strike: Condition Zero</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod dod" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>	
 	<server>
 		<server_name>Counter-Strike: Source</server_name>
 		<deployment_parameters>+login anonymous +app_update 232330 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>D.I.P.R.I.P.</server_name>
 		<deployment_parameters>+login anonymous +app_update 17535 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Day of Defeat</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod dmc" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Double Action</server_name>
 		<deployment_parameters>+login anonymous +app_update 317800 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Dystopia</server_name>
 		<deployment_parameters>+login anonymous +app_update 17585 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Eden Star</server_name>
 		<deployment_parameters>+login anonymous +app_update 419790 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Empires</server_name>
 		<deployment_parameters>+login anonymous +app_update 460040 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Eternal Silence</server_name>
 		<deployment_parameters>+login anonymous +app_update 17555 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Fistful of Frags</server_name>
 		<deployment_parameters>+login anonymous +app_update 295230 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Fortress Forever</server_name>
 		<deployment_parameters>+login anonymous +app_update 329710 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Garry's Mod</server_name>
 		<deployment_parameters>+login anonymous +app_update 4020 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Half-Life 2: Deathmatch</server_name>
 		<deployment_parameters>+login anonymous +app_update 232370 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Half-Life Deathmatch: Source</server_name>
 		<deployment_parameters>+login anonymous +app_update 255470 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Half-Life: Opposing Force</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod gearbox" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Hurtworld</server_name>
 		<deployment_parameters>+login anonymous +app_update 405100 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Insurgency</server_name>
 		<deployment_parameters>+login anonymous +app_update 237410 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Insurgency: Modern Infantry Combat</server_name>
 		<deployment_parameters>+login anonymous +app_update 17705 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Just Cause 2: Multiplayer</server_name>
 		<deployment_parameters>+login anonymous +app_update 261140 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Killing Floor 2</server_name>
 		<deployment_parameters>+login anonymous +app_update 232130 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Kingdoms Rise</server_name>
 		<deployment_parameters>+login anonymous +app_update 265360 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Left 4 Dead 2</server_name>
 		<deployment_parameters>+login anonymous +app_update 222860 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Left 4 Dead</server_name>
 		<deployment_parameters>+login anonymous +app_update 222840 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Life is Feudal</server_name>
 		<deployment_parameters>+login anonymous +app_update 320850 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>NEOTOKYO</server_name>
 		<deployment_parameters>+login anonymous +app_update 313600 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>NS2: Combat</server_name>
 		<deployment_parameters>+login anonymous +app_update 313900 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Nuclear Dawn</server_name>
 		<deployment_parameters>+login anonymous +app_update 111710 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Pirates, Vikings, and Knights II</server_name>
 		<deployment_parameters>+login anonymous +app_update 17575 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Reflex</server_name>
 		<deployment_parameters>+login anonymous +app_update 329740 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Ricochet</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod ricochet" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Rust</server_name>
 		<deployment_parameters>+login anonymous +app_update 258550 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Serious Sam HD: The Second Encounter</server_name>
 		<deployment_parameters>+login anonymous +app_update 299310 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Space Engineers</server_name>
 		<deployment_parameters>+login anonymous +app_update 298740 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Synergy</server_name>
 		<deployment_parameters>+login anonymous +app_update 17525 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Takedown: Red Sabre</server_name>
 		<deployment_parameters>+login anonymous +app_update 261020 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Team Fortress 2</server_name>
 		<deployment_parameters>+login anonymous +app_update 232250 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Team Fortress Classic</server_name>
 		<deployment_parameters>+login anonymous +app_update 90 +app_set_config "90 mod tfc" +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Tower Unite</server_name>
 		<deployment_parameters>+login anonymous +app_update 439660 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 	<server>
 		<server_name>Zombie Panic Source</server_name>
 		<deployment_parameters>+login anonymous +app_update 17505 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
 		<bgm_integration>none</bgm_integration>
-		<default_config>
-			<hostname></hostname>
-			<port></port>
-			<server_config_file></server_config_file>
-		</default_config>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
     </server>
 </gameserver_listing>
