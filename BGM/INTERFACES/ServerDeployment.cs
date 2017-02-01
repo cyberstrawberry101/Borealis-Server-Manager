@@ -50,7 +50,6 @@ namespace GameServer_Manager
             //NO CURRENT SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "none")
             {
-                MessageBox.Show("NONE");
                 if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
@@ -63,7 +62,6 @@ namespace GameServer_Manager
             //PARTIAL SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "partial")
             {
-                MessageBox.Show("PARTIAL");
                 if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only minimally configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
@@ -77,7 +75,6 @@ namespace GameServer_Manager
             //FULL SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "full")
             {
-                MessageBox.Show("FULL");
                 if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.

@@ -15,7 +15,7 @@
 		<server_name>Age of Chivalry</server_name>
 		<deployment_parameters>+login anonymous +app_update 17515 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
-		<bgm_integration>none</bgm_integration><bgm_integration>none</bgm_integration>
+		<bgm_integration>partial</bgm_integration><bgm_integration>none</bgm_integration>
 		<default_config>
 			<hostname></hostname>
 			<port></port>
@@ -26,7 +26,7 @@
 		<server_name>ARK: Survival Evolved</server_name>
 		<deployment_parameters>+login anonymous +app_update 376030 +quit</deployment_parameters>
 		<default_launchscript></default_launchscript>
-		<bgm_integration>none</bgm_integration>
+		<bgm_integration>full</bgm_integration>
 		<default_config>
 			<hostname></hostname>
 			<port></port>
