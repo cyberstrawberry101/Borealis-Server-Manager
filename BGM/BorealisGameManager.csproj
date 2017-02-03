@@ -70,6 +70,7 @@
     <Compile Include="CLASSES\ExternalExecution_Classes.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
+    <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="INTERFACES\ServerDashboard.cs">
       <SubType>Form</SubType>
@@ -125,7 +126,6 @@
       <DependentUpon>ServerControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +162,11 @@
     <None Include="RESOURCES\DEPLOY_ICON.png" />
     <None Include="RESOURCES\CONSOLE_ICON.png" />
     <None Include="RESOURCES\MANAGEMENT_ICON.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>9.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

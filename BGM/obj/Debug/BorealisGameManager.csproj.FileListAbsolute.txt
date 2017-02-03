@@ -29,3 +29,4 @@ C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.S
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerDeployment.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerManagement.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerControl.resources
+C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\Newtonsoft.Json.dll

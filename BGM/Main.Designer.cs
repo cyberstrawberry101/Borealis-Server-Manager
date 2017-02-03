@@ -50,6 +50,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.sidemenu.SuspendLayout();
             this.panelTabTechServices.SuspendLayout();
             this.panelTabCustomerInformation.SuspendLayout();
@@ -63,6 +64,7 @@
             // sidemenu
             // 
             this.sidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.sidemenu.Controls.Add(this.button1);
             this.sidemenu.Controls.Add(this.panelTabTechServices);
             this.sidemenu.Controls.Add(this.panelTabCustomerInformation);
             this.sidemenu.Controls.Add(this.panelTabAuthentication);
@@ -374,6 +376,16 @@
             this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Visible = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 286);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // GameServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,6 +438,7 @@
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

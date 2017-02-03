@@ -196,5 +196,11 @@ namespace GameServer_Manager
         {
             MetroMessageBox.Show(GameServerManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app \nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuFramework: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ServerAPI_Classes.GET_Config("name", "4000");
+
+        }
     }
 }
