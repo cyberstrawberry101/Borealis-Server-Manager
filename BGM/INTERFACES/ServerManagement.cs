@@ -19,11 +19,17 @@ namespace GameServer_Manager
             InitializeComponent();
         }
 
+        //===================================================================================//
+        // STARTUP                                                                           //
+        //===================================================================================//
         private void GSM_Management_Load(object sender, EventArgs e)
         {
             //comboboxGameserverList.Items.Add(GSM_SettingsManagement_Classes.ReadValueFromXML("gameserver01/server_alias"));
         }
 
+        //===================================================================================//
+        // UPDATE SERVER CONFIGURATION                                                       //
+        //===================================================================================//
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
             txtCustomerName.Enabled = false;

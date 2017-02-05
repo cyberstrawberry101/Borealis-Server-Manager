@@ -12,13 +12,12 @@ using MetroFramework;
 namespace GameServer_Manager
 {
 
-    public partial class GameServerManager : Form
+    public partial class BorealisGameManager : Form
     {
-        public GameServerManager()
+        public BorealisGameManager()
         {
             InitializeComponent();
         }
-
 
         //===================================================================================//
         // MDI CHILD CLEANUP FUNCTION                                                        //
@@ -35,7 +34,6 @@ namespace GameServer_Manager
             }
         }
 
-
         //===================================================================================//
         // TOOLKIT EXIT BUTTON                                                              //
         //===================================================================================//
@@ -44,15 +42,11 @@ namespace GameServer_Manager
             this.Close();
         }
 
-
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
-        private void Main_Load_1(object sender, EventArgs e)
+        private void BorealisGameManager_Load(object sender, EventArgs e)
         {
-            //Check to ensure that config file exists, and if it doesnt, generate a new one.
-            SettingsManagement_Classes.CheckForConfigXML();
-            
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
             MdiClient ctlMDI;
@@ -84,7 +78,6 @@ namespace GameServer_Manager
             Dashboard_ChildInstance.Show();
         }
 
-
         //===================================================================================//
         // DASHBOARD PANEL                                                                   //
         //===================================================================================//
@@ -112,7 +105,7 @@ namespace GameServer_Manager
         }
 
         //===================================================================================//
-        // DEPLOY GAMESERVERS PANEL                                                          //
+        // DEPLOY GAMESERVERS TAB                                                            //
         //===================================================================================//
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
@@ -138,7 +131,7 @@ namespace GameServer_Manager
         }
 
         //===================================================================================//
-        // MANAGE GAMESERVERS PANEL                                                          //
+        // MANAGE GAMESERVERS TAB                                                            //
         //===================================================================================//
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
@@ -164,7 +157,7 @@ namespace GameServer_Manager
         }
 
         //===================================================================================//
-        // CONTROL GAMESERVERS PANEL                                                         //
+        // CONTROL GAMESERVERS TAB                                                           //
         //===================================================================================//
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
@@ -192,15 +185,10 @@ namespace GameServer_Manager
         //===================================================================================//
         // ATTRIBUTION AND CREDITS DIALOG BOX                                                //
         //===================================================================================//
-        private void bunifuCustomLabel17_Click(object sender, EventArgs e)
+        private void lblAttribution_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(GameServerManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app \nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuFramework: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MetroMessageBox.Show(BorealisGameManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app \nContributions by: Mezarith\nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuFramework: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            ServerAPI_Classes.GET_Config("name", "4000");
-
-        }
     }
 }

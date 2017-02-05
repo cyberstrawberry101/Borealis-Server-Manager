@@ -73,18 +73,50 @@ namespace GameServer_Manager
                                .Append("\n\n")
                                .Append("[Retry]: Attempt to start the same server again.\n")
                                .Append("[Cancel]: Cancel attempting to start server.");
-                    //if (MetroMessageBox.Show(this, errorDialog.ToString(), "Error Launching Cleanup Tool", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Retry)
-                    //{
-                    //    goto LaunchTool_Retry; //Hacky way retry the method.
-                    //}
+                    /*
+                    if (MetroMessageBox.Show(this, errorDialog.ToString(), "Error Launching Cleanup Tool", MessageBoxButtons.RetryCancel, MessageBoxIcon.Warning) == DialogResult.Retry)
+                    {
+                    goto LaunchTool_Retry; //Hacky way retry the method.
+                    }
+                    */
                 }
             }
 
             
         }
-        
 
+        //===================================================================================//
+        // LAUNCH EXTERNAL PROGRAM AND REDIRECT ITS OUTPUT (DEPRECIATED)                     //
+        //===================================================================================//
+        public static void RunWithRedirect(string cmdPath)
+        {
+            /*
+            var proc = new Process();
+            proc.StartInfo.FileName = cmdPath;
+
+            // set up output redirection
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.EnableRaisingEvents = true;
+            proc.StartInfo.CreateNoWindow = true;
+            proc.StartInfo.UseShellExecute = false;
+            // see below for output handler
+            proc.ErrorDataReceived += proc_DataReceived;
+            proc.OutputDataReceived += proc_DataReceived;
+
+            proc.Start();
+
+            proc.BeginErrorReadLine();
+            proc.BeginOutputReadLine();
+
+            proc.WaitForExit();
+            */
+        }
+
+        public void proc_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            // output will be in string e.Data
+            //txtboxConsoleOutput.Text = e.Data;
+        }
     }
-
-
 }

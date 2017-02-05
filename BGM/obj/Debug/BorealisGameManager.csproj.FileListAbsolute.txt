@@ -20,7 +20,6 @@ C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\BorealisGameManager.
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\Bunifu_UI_v1.52.dll
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\MetroFramework.dll
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\BorealisGameManager.csprojResolveAssemblyReference.cache
-C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.GameServerManager.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\Borealis_Game_Manager.Properties.Resources.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\BorealisGameManager.csproj.GenerateResource.Cache
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\BorealisGameManager.exe
@@ -30,3 +29,4 @@ C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.S
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerManagement.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerControl.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.BorealisGameManager.resources

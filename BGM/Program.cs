@@ -16,7 +16,7 @@ namespace GameServer_Manager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameServerManager());
+            Application.Run(new BorealisGameManager());
         }
     }
 }

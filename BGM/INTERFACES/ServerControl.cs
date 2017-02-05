@@ -20,38 +20,8 @@ namespace GameServer_Manager
         }
 
         //===================================================================================//
-        // LAUNCH EXTERNAL PROGRAM AND REDIRECT ITS OUTPUT                                   //
+        // START THE CURRENTLY STOPPED SELECTED GAMESERVER                                   //
         //===================================================================================//
-        public void RunWithRedirect(string cmdPath)
-        {
-            var proc = new Process();
-            proc.StartInfo.FileName = cmdPath;
-
-            // set up output redirection
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.EnableRaisingEvents = true;
-            proc.StartInfo.CreateNoWindow = true;
-            proc.StartInfo.UseShellExecute = false;
-            // see below for output handler
-            proc.ErrorDataReceived += proc_DataReceived;
-            proc.OutputDataReceived += proc_DataReceived;
-
-            proc.Start();
-
-            proc.BeginErrorReadLine();
-            proc.BeginOutputReadLine();
-
-            proc.WaitForExit();
-        }
-
-        public void proc_DataReceived(object sender, DataReceivedEventArgs e)
-        {
-            // output will be in string e.Data
-            txtboxConsoleOutput.Text = e.Data;
-
-        }
-
         private void btnStartServer_Click(object sender, EventArgs e)
         {
             btnStartServer.Enabled = false;
@@ -65,6 +35,9 @@ namespace GameServer_Manager
 
         }
 
+        //===================================================================================//
+        // STOP THE CURRENTLY RUNNING SELECTED GAMESERVER                                    //
+        //===================================================================================//
         private void btnStopServer_Click(object sender, EventArgs e)
         {
             btnStopServer.Enabled = false;
@@ -76,18 +49,20 @@ namespace GameServer_Manager
             consoleViewport.color = Color.FromArgb(255, 191, 75, 96);
         }
 
+        //===================================================================================//
+        // ISSUE COMMAND TO SERVER VIA TEXTBOX                                               //
+        //===================================================================================//
         private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
         {
             txtboxIssueCommand.Text = "";
         }
-
 
         //===================================================================================//
         // LAUNCH BACKGROUND WORKER TO HANDLE PROCESS                                        //
         //===================================================================================//
         private void backgroundWorker01_DoWork(object sender, DoWorkEventArgs e)
         {
-            ExternalExecution_Classes.LaunchExternalProgram("C:\\Windows\\system32\\cmd.exe", " -k help", false);
+            //ExternalExecution_Classes.LaunchExternalProgram("C:\\Windows\\system32\\cmd.exe", " -k help", false);
         }
     }
 }

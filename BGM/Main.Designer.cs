@@ -1,6 +1,6 @@
 ﻿namespace GameServer_Manager
 {
-    partial class GameServerManager
+    partial class BorealisGameManager
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameServerManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisGameManager));
             this.sidemenu = new System.Windows.Forms.Panel();
             this.panelTabTechServices = new System.Windows.Forms.Panel();
             this.tabControlGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -43,14 +43,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabDashboard = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabDashboard = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel17 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblAttribution = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.sidemenu.SuspendLayout();
             this.panelTabTechServices.SuspendLayout();
             this.panelTabCustomerInformation.SuspendLayout();
@@ -64,12 +63,11 @@
             // sidemenu
             // 
             this.sidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.sidemenu.Controls.Add(this.button1);
             this.sidemenu.Controls.Add(this.panelTabTechServices);
             this.sidemenu.Controls.Add(this.panelTabCustomerInformation);
             this.sidemenu.Controls.Add(this.panelTabAuthentication);
             this.sidemenu.Controls.Add(this.panel1);
-            this.sidemenu.Controls.Add(this.bunifuCustomLabel17);
+            this.sidemenu.Controls.Add(this.lblAttribution);
             this.sidemenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidemenu.Location = new System.Drawing.Point(0, 48);
             this.sidemenu.Name = "sidemenu";
@@ -303,18 +301,18 @@
             this.indicatorTabDashboard.Size = new System.Drawing.Size(5, 48);
             this.indicatorTabDashboard.TabIndex = 17;
             // 
-            // bunifuCustomLabel17
+            // lblAttribution
             // 
-            this.bunifuCustomLabel17.AutoSize = true;
-            this.bunifuCustomLabel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuCustomLabel17.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.bunifuCustomLabel17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.bunifuCustomLabel17.Location = new System.Drawing.Point(6, 513);
-            this.bunifuCustomLabel17.Name = "bunifuCustomLabel17";
-            this.bunifuCustomLabel17.Size = new System.Drawing.Size(35, 13);
-            this.bunifuCustomLabel17.TabIndex = 23;
-            this.bunifuCustomLabel17.Text = "About";
-            this.bunifuCustomLabel17.Click += new System.EventHandler(this.bunifuCustomLabel17_Click);
+            this.lblAttribution.AutoSize = true;
+            this.lblAttribution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.lblAttribution.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblAttribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.lblAttribution.Location = new System.Drawing.Point(6, 513);
+            this.lblAttribution.Name = "lblAttribution";
+            this.lblAttribution.Size = new System.Drawing.Size(35, 13);
+            this.lblAttribution.TabIndex = 23;
+            this.lblAttribution.Text = "About";
+            this.lblAttribution.Click += new System.EventHandler(this.lblAttribution_Click);
             // 
             // bunifuDragControl1
             // 
@@ -360,9 +358,9 @@
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(917, 9);
+            this.btnExitProgram.Location = new System.Drawing.Point(930, 3);
             this.btnExitProgram.Name = "btnExitProgram";
-            this.btnExitProgram.Size = new System.Drawing.Size(30, 30);
+            this.btnExitProgram.Size = new System.Drawing.Size(24, 24);
             this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExitProgram.TabIndex = 4;
             this.btnExitProgram.TabStop = false;
@@ -376,17 +374,7 @@
             this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Visible = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(89, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // GameServerManager
+            // BorealisGameManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -398,11 +386,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.Name = "GameServerManager";
+            this.Name = "BorealisGameManager";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GameServerManager v0.1";
-            this.Load += new System.EventHandler(this.Main_Load_1);
+            this.Load += new System.EventHandler(this.BorealisGameManager_Load);
             this.sidemenu.ResumeLayout(false);
             this.sidemenu.PerformLayout();
             this.panelTabTechServices.ResumeLayout(false);
@@ -419,7 +407,7 @@
 
         #endregion
         private System.Windows.Forms.Panel sidemenu;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel17;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblAttribution;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Panel panelTabTechServices;
@@ -438,7 +426,6 @@
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
     }
 }
 

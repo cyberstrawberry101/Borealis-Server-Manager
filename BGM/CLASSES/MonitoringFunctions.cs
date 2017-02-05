@@ -22,7 +22,6 @@ namespace GameServer_Manager
             return Convert.ToString(ramCounter.NextValue());
         }
 
-
         //===================================================================================//
         // DIRECTORY UTILIZATION INFO FUNCTIONS                                              //
         //===================================================================================//
@@ -43,7 +42,6 @@ namespace GameServer_Manager
             // Return total size
             return b;
         }
-
 
         //===================================================================================//
         // DISK UTILIZATION INFO FUNCTIONS                                                   //
@@ -72,7 +70,6 @@ namespace GameServer_Manager
             return -1;
         }
 
-
         //===================================================================================//
         // CPU UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
@@ -85,7 +82,6 @@ namespace GameServer_Manager
             cpuCounter.InstanceName = "_Total";
             return (int)cpuCounter.NextValue();
         }
-
 
     }
 }

@@ -19,6 +19,9 @@ namespace GameServer_Manager
             InitializeComponent();
         }
 
+        //===================================================================================//
+        // PANEL STARTUP                                                                     //
+        //===================================================================================//
         private void GSM_Performance_Dashboard_Load(object sender, EventArgs e)
         {
             MonitoringFunctions Monitoring_Instance = new MonitoringFunctions();
@@ -45,6 +48,9 @@ namespace GameServer_Manager
             // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
         }
 
+        //===================================================================================//
+        // BACKGROUNDWORKER TO COLLECT SYSTEM METRICS                                        //
+        //===================================================================================//
         private void backgroundMetrics_DoWork(object sender, DoWorkEventArgs e)
         {
             //Instance Function from MonitoringFunctions Class

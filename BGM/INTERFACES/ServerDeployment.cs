@@ -24,6 +24,25 @@ namespace GameServer_Manager
             InitializeComponent();
         }
 
+        //===================================================================================//
+        // STARTUP                                                                           //
+        //===================================================================================//
+        private void ServerDeployment_Load(object sender, EventArgs e)
+        {
+            //Query the gameserver_data.xml to list all servers in dropdown menu.
+            if (File.Exists(Environment.CurrentDirectory + @"\gameservers_data.xml"))
+            {
+                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
+                foreach (var child in xdoc.Elements("gameserver_listing").Elements("server").Elements("server_name"))
+                {
+                    dropdownServerSelection.Items.Add(child.Value);
+                }
+            }
+        }
+
+        //===================================================================================//
+        // REPORT PROGRESS UPDATES VIA THIS FUNCTION                                         //
+        //===================================================================================//
         public void updateProgressStatus(int currentProgress, int overallProgress, string progressDetails)
         {
             progressbarDownloadProgress.Value = currentProgress;
@@ -31,12 +50,18 @@ namespace GameServer_Manager
             lblDownloadProgressDetails.Text = progressDetails;
         }
 
+        //===================================================================================//
+        // BROWSE FOR DIRECTORY USER WISHES TO DEPLOY SERVER TO                              //
+        //===================================================================================//
         private void btnBrowseDestination_Click(object sender, EventArgs e)
         {
             browseDestinationFolder.ShowDialog();
             txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
         }
 
+        //===================================================================================//
+        // DEPLOY A GAMESERVER                                                               //
+        //===================================================================================//
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             btnCancelDeployGameserver.Visible = true;
@@ -50,24 +75,24 @@ namespace GameServer_Manager
             //NO CURRENT SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "none")
             {
-                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                     ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
             }
 
             //PARTIAL SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "partial")
             {
-                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only minimally configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only minimally configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                     ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 
             }
@@ -75,12 +100,12 @@ namespace GameServer_Manager
             //FULL SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "full")
             {
-                if (MetroMessageBox.Show(GameServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                     ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
-                    MetroMessageBox.Show(GameServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 
             }
@@ -90,7 +115,9 @@ namespace GameServer_Manager
             btnCancelDeployGameserver.Visible = false;
         }
 
-
+        //===================================================================================//
+        // UPDATE INTERFACE WHEN A GAMESERVER HAS BEEN CHOSEN FROM THE DROPDOWN LIST         //
+        //===================================================================================//
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
             //Enable the option to choose where to install the server.
@@ -124,9 +151,9 @@ namespace GameServer_Manager
             }
         }
 
-
-        /*If the user checks to create a new config for an existing server, 
-        rename the directory selector to indicate you are searching for an existing server.*/
+        //===================================================================================//
+        // UPDATE INTERFACE IF A USER WANTS TO DEPLOY A SEPARATE CONFIGURATION               //
+        //===================================================================================//
         private void chkSeparateConfig_OnChange_1(object sender, EventArgs e)
         {
             if (chkSeparateConfig.Checked == true)
@@ -148,7 +175,9 @@ namespace GameServer_Manager
             }
         }
 
-        //Server auto name-generation helper
+        //===================================================================================//
+        // AUTO-GENERATE A NAME FOR SERVERS AND SERVER CONFIGURATION INSTANCES               //
+        //===================================================================================//
         private void dropdownExistingServer_SelectedValueChanged(object sender, EventArgs e)
         {
             if (chkSeparateConfig.Checked == true)
@@ -158,19 +187,6 @@ namespace GameServer_Manager
             else
             {
                 txtServerGivenName.Text = dropdownServerSelection.Text;
-            }
-        }
-
-        private void ServerDeployment_Load(object sender, EventArgs e)
-        {
-            //Query the gameserver_data.xml to list all servers in dropdown menu.
-            if (File.Exists(Environment.CurrentDirectory + @"\gameservers_data.xml"))
-            {
-                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
-                foreach (var child in xdoc.Elements("gameserver_listing").Elements("server").Elements("server_name"))
-                {
-                    dropdownServerSelection.Items.Add(child.Value);
-                }
             }
         }
     }
