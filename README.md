@@ -1,4 +1,5 @@
 # Borealis Game Manager #
+Utility designed to facilitate the deployment, management, and control of various kinds of dedicated gameservers.
 **Designed by:** Nicole Rappe
 
 **Requirements:**
