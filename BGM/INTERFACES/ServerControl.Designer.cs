@@ -34,7 +34,6 @@
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.lblAutoRestart = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuCheckbox();
             this.btnStartServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.consoleViewport = new Bunifu.Framework.UI.BunifuCards();
             this.txtboxConsoleOutput = new System.Windows.Forms.ListBox();
@@ -44,6 +43,7 @@
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
+            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.panelTechServices.SuspendLayout();
             this.consoleViewport.SuspendLayout();
             this.SuspendLayout();
@@ -51,11 +51,11 @@
             // panelTechServices
             // 
             this.panelTechServices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.panelTechServices.Controls.Add(this.chkAutoRestart);
             this.panelTechServices.Controls.Add(this.bunifuCustomLabel1);
             this.panelTechServices.Controls.Add(this.comboboxGameserverList);
             this.panelTechServices.Controls.Add(this.txtboxIssueCommand);
             this.panelTechServices.Controls.Add(this.lblAutoRestart);
-            this.panelTechServices.Controls.Add(this.chkAutoRestart);
             this.panelTechServices.Controls.Add(this.btnStartServer);
             this.panelTechServices.Controls.Add(this.consoleViewport);
             this.panelTechServices.Controls.Add(this.btnStopServer);
@@ -64,7 +64,7 @@
             this.panelTechServices.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTechServices.Location = new System.Drawing.Point(0, 0);
             this.panelTechServices.Name = "panelTechServices";
-            this.panelTechServices.Size = new System.Drawing.Size(697, 531);
+            this.panelTechServices.Size = new System.Drawing.Size(700, 537);
             this.panelTechServices.TabIndex = 20;
             // 
             // bunifuCustomLabel1
@@ -116,23 +116,11 @@
             this.lblAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblAutoRestart.Location = new System.Drawing.Point(42, 493);
+            this.lblAutoRestart.Location = new System.Drawing.Point(65, 502);
             this.lblAutoRestart.Name = "lblAutoRestart";
             this.lblAutoRestart.Size = new System.Drawing.Size(189, 19);
             this.lblAutoRestart.TabIndex = 18;
             this.lblAutoRestart.Text = "Auto-restart server if it crashes";
-            // 
-            // chkAutoRestart
-            // 
-            this.chkAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkAutoRestart.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkAutoRestart.Checked = true;
-            this.chkAutoRestart.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkAutoRestart.ForeColor = System.Drawing.Color.White;
-            this.chkAutoRestart.Location = new System.Drawing.Point(16, 493);
-            this.chkAutoRestart.Name = "chkAutoRestart";
-            this.chkAutoRestart.Size = new System.Drawing.Size(20, 20);
-            this.chkAutoRestart.TabIndex = 17;
             // 
             // btnStartServer
             // 
@@ -156,7 +144,7 @@
             this.btnStartServer.IconVisible = true;
             this.btnStartServer.IconZoom = 90D;
             this.btnStartServer.IsTab = false;
-            this.btnStartServer.Location = new System.Drawing.Point(378, 465);
+            this.btnStartServer.Location = new System.Drawing.Point(378, 473);
             this.btnStartServer.Name = "btnStartServer";
             this.btnStartServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnStartServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -226,7 +214,7 @@
             this.btnStopServer.IconVisible = true;
             this.btnStopServer.IconZoom = 45D;
             this.btnStopServer.IsTab = false;
-            this.btnStopServer.Location = new System.Drawing.Point(537, 465);
+            this.btnStopServer.Location = new System.Drawing.Point(537, 473);
             this.btnStopServer.Name = "btnStopServer";
             this.btnStopServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnStopServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
@@ -288,14 +276,28 @@
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
-            // GSM_Console
+            // chkAutoRestart
+            // 
+            this.chkAutoRestart.BackColor = System.Drawing.Color.Transparent;
+            this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
+            this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
+            this.chkAutoRestart.Name = "chkAutoRestart";
+            this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
+            this.chkAutoRestart.TabIndex = 42;
+            this.chkAutoRestart.Value = true;
+            // 
+            // ServerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 531);
+            this.ClientSize = new System.Drawing.Size(700, 537);
             this.Controls.Add(this.panelTechServices);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "GSM_Console";
+            this.Name = "ServerControl";
             this.Text = "Toolkit_TechServices_Panel";
             this.panelTechServices.ResumeLayout(false);
             this.panelTechServices.PerformLayout();
@@ -312,7 +314,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
         private Bunifu.Framework.UI.BunifuCards consoleViewport;
         private Bunifu.Framework.UI.BunifuCustomLabel lblAutoRestart;
-        private Bunifu.Framework.UI.BunifuCheckbox chkAutoRestart;
         private Bunifu.Framework.UI.BunifuFlatButton btnStartServer;
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.ListBox txtboxConsoleOutput;
@@ -321,5 +322,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker01;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
     }
 }

@@ -76,7 +76,7 @@
             this.btnCancelDeployGameserver.IconVisible = true;
             this.btnCancelDeployGameserver.IconZoom = 45D;
             this.btnCancelDeployGameserver.IsTab = false;
-            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(378, 465);
+            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(378, 473);
             this.btnCancelDeployGameserver.Name = "btnCancelDeployGameserver";
             this.btnCancelDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
@@ -94,7 +94,7 @@
             // 
             this.progressbarDownloadProgressOverall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgressOverall.BorderRadius = 5;
-            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(16, 447);
+            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(16, 452);
             this.progressbarDownloadProgressOverall.MaximumValue = 100;
             this.progressbarDownloadProgressOverall.Name = "progressbarDownloadProgressOverall";
             this.progressbarDownloadProgressOverall.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -130,7 +130,7 @@
             this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDownloadProgressDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDownloadProgressDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(13, 411);
+            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(13, 416);
             this.lblDownloadProgressDetails.Name = "lblDownloadProgressDetails";
             this.lblDownloadProgressDetails.Size = new System.Drawing.Size(55, 13);
             this.lblDownloadProgressDetails.TabIndex = 38;
@@ -154,7 +154,7 @@
             this.lblDownloadProgress.AutoSize = true;
             this.lblDownloadProgress.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDownloadProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDownloadProgress.Location = new System.Drawing.Point(12, 390);
+            this.lblDownloadProgress.Location = new System.Drawing.Point(12, 395);
             this.lblDownloadProgress.Name = "lblDownloadProgress";
             this.lblDownloadProgress.Size = new System.Drawing.Size(230, 21);
             this.lblDownloadProgress.TabIndex = 36;
@@ -164,7 +164,7 @@
             // 
             this.progressbarDownloadProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgress.BorderRadius = 5;
-            this.progressbarDownloadProgress.Location = new System.Drawing.Point(16, 431);
+            this.progressbarDownloadProgress.Location = new System.Drawing.Point(16, 436);
             this.progressbarDownloadProgress.MaximumValue = 100;
             this.progressbarDownloadProgress.Name = "progressbarDownloadProgress";
             this.progressbarDownloadProgress.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -269,7 +269,7 @@
             this.btnDeployGameserver.IconVisible = true;
             this.btnDeployGameserver.IconZoom = 90D;
             this.btnDeployGameserver.IsTab = false;
-            this.btnDeployGameserver.Location = new System.Drawing.Point(537, 465);
+            this.btnDeployGameserver.Location = new System.Drawing.Point(537, 473);
             this.btnDeployGameserver.Name = "btnDeployGameserver";
             this.btnDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -424,7 +424,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(697, 531);
+            this.ClientSize = new System.Drawing.Size(700, 537);
             this.Controls.Add(this.txtServerGivenName);
             this.Controls.Add(this.lblServerNameDetails);
             this.Controls.Add(this.lblServerName);

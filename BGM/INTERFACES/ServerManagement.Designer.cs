@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerManagement));
             this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -37,6 +38,7 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.SuspendLayout();
             // 
             // btnBrowseDestination
@@ -144,7 +146,7 @@
             this.btnUpdateServerConfig.IconVisible = true;
             this.btnUpdateServerConfig.IconZoom = 90D;
             this.btnUpdateServerConfig.IsTab = false;
-            this.btnUpdateServerConfig.Location = new System.Drawing.Point(537, 465);
+            this.btnUpdateServerConfig.Location = new System.Drawing.Point(537, 473);
             this.btnUpdateServerConfig.Name = "btnUpdateServerConfig";
             this.btnUpdateServerConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnUpdateServerConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -192,12 +194,16 @@
             this.bunifuCustomLabel7.TabIndex = 4;
             this.bunifuCustomLabel7.Text = "GameServer Management";
             // 
-            // GSM_Management
+            // fadingTransition
+            // 
+            this.fadingTransition.Delay = 1;
+            // 
+            // ServerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(697, 531);
+            this.ClientSize = new System.Drawing.Size(700, 537);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btnBrowseDestination);
             this.Controls.Add(this.comboboxGameserverList);
@@ -207,7 +213,7 @@
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.bunifuCustomLabel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "GSM_Management";
+            this.Name = "ServerManagement";
             this.Text = "Toolkit_CustomerInformation_Panel";
             this.Load += new System.EventHandler(this.GSM_Management_Load);
             this.ResumeLayout(false);
@@ -224,5 +230,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuFlatButton btnBrowseDestination;
+        private Bunifu.Framework.UI.BunifuFormFadeTransition fadingTransition;
     }
 }

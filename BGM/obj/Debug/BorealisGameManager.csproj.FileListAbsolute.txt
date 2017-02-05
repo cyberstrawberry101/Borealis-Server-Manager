@@ -30,3 +30,4 @@ C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.S
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.ServerControl.resources
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.BorealisGameManager.resources
+C:\Users\Nicole\Desktop\Borealis-Game-Manager\BGM\obj\Debug\GameServer_Manager.Experimental_Area.resources

@@ -267,7 +267,7 @@
             this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
             this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 317);
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 323);
             this.overallServerStatsGrid.MultiSelect = false;
             this.overallServerStatsGrid.Name = "overallServerStatsGrid";
             this.overallServerStatsGrid.ReadOnly = true;
@@ -286,7 +286,7 @@
             this.overallServerStatsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.overallServerStatsGrid.ShowCellToolTips = false;
             this.overallServerStatsGrid.ShowEditingIcon = false;
-            this.overallServerStatsGrid.Size = new System.Drawing.Size(697, 214);
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(700, 214);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
             // columnGameServerName
@@ -394,7 +394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(697, 531);
+            this.ClientSize = new System.Drawing.Size(700, 537);
             this.Controls.Add(this.bunifuCustomLabel3);
             this.Controls.Add(this.panelDiskUsage);
             this.Controls.Add(this.panelCPUUsage);
