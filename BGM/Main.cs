@@ -232,5 +232,16 @@ namespace GameServer_Manager
             lblAttribution.ForeColor = Color.FromArgb(145, 155, 166);
         }
 
+        private void toggleExperimentalMode_OnValueChange(object sender, EventArgs e)
+        {
+            if (toggleExperimentalMode.Value == true)
+            {
+                panelExperimental.Visible = true;
+            }
+            else
+            {
+                panelExperimental.Visible = false;
+            }
+        }
     }
 }
