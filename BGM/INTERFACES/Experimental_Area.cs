@@ -27,7 +27,7 @@ namespace GameServer_Manager
         {
             try
             {
-                MetroMessageBox.Show(BorealisGameManager.ActiveForm, ServerAPI_Classes.GET_Config(txtPropertySearch.Text, txtappIDSearch.Text), "Query Result", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MetroMessageBox.Show(BorealisGameManager.ActiveForm, ServerAPI_Classes.QUERY_DATA(txtTriggerSearch.Text, txtPropertySearch.Text, txtappIDSearch.Text), "Query Result", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             catch (Exception)
             {

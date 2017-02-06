@@ -16,23 +16,17 @@ namespace GameServer_Manager
         //===================================================================================//
         public static void DownloadSteamCMD(string DestinationFolder)
         {
-            ServerDeployment ServerDeploymentDelegate = new ServerDeployment();
-
-            ServerDeploymentDelegate.updateProgressStatus(25, 30, "Checking for active internet connection...");
-            if (System.Net.NetworkInformation.NetworkInterface.GetIsNetworkAvailable()) //Check for network connectivity
+            try
             {
-                if (System.IO.File.Exists(DestinationFolder + @"\steamcmd.exe"))
-                {
-                    //Do nothing!
-                }
-                else
+                ServerDeployment ServerDeploymentDelegate = new ServerDeployment();
+                if (System.IO.File.Exists(DestinationFolder + @"\steamcmd.exe") == false)
                 {
                     //Create Server Directory for SteamCMD
                     System.IO.FileInfo file = new System.IO.FileInfo(DestinationFolder);
-                    file.Directory.Create(); //If the directory already exists, this method does nothing.
+                    file.Directory.Create();
 
                     //Download SteamCMD.zip to Server Directory
-                    using (System.Net.WebClient client = new System.Net.WebClient()) //Download SteamCMD.zip
+                    using (System.Net.WebClient client = new System.Net.WebClient())
                     {
                         client.DownloadFile(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
                         DestinationFolder + @"\SteamCMD.zip");
@@ -48,9 +42,9 @@ namespace GameServer_Manager
                     ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", false);
                 }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("You have no active internet connection.  You won't be able to download anything.", "Aborting Process");
+                MessageBox.Show("It appears that either you have no internet connection, or you are unable to connect to Valve's servers.", "Unable to Connect");
             }
         }
     }

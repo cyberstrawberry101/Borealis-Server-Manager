@@ -51,7 +51,6 @@
             this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
             this.panelMemoryUsage = new System.Windows.Forms.Panel();
             this.panelDiskUsage = new System.Windows.Forms.Panel();
@@ -332,18 +331,6 @@
             this.columnStatus.Name = "columnStatus";
             this.columnStatus.ReadOnly = true;
             // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(-2, 295);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(178, 19);
-            this.bunifuCustomLabel1.TabIndex = 60;
-            this.bunifuCustomLabel1.Text = "Detailed Resource Utilization:";
-            // 
             // backgroundMetrics
             // 
             this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
@@ -400,7 +387,6 @@
             this.Controls.Add(this.panelDiskUsage);
             this.Controls.Add(this.panelCPUUsage);
             this.Controls.Add(this.panelMemoryUsage);
-            this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.overallServerStatsGrid);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.bunifuCustomLabel2);
@@ -440,7 +426,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerCPU;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNetworkUsage;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.ComponentModel.BackgroundWorker backgroundMetrics;
         private System.Windows.Forms.Panel panelMemoryUsage;
         private System.Windows.Forms.Panel panelDiskUsage;

@@ -71,11 +71,10 @@ namespace GameServer_Manager
             SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
 
             //Inform the user what level of support BGM provides for the gameserver they are about to deploy.
-
             //NO CURRENT SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "none")
             {
-                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
@@ -87,7 +86,7 @@ namespace GameServer_Manager
             //PARTIAL SUPPORT IMPLEMENTED
             if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "partial")
             {
-                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only minimally configure it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";

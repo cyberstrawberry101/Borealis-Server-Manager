@@ -16,35 +16,14 @@ namespace GameServer_Manager
         //===================================================================================//
         // Download Config Data via API                                                      //
         //===================================================================================//
-        public static string GET_Config(string chosenProperty, string appID)
+        public static string QUERY_DATA(string triggerName, string chosenProperty, string appID)
         {
             using (var webClient = new System.Net.WebClient())
             {
-                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/config/" + appID);
+                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/" + triggerName + "/" + appID);
                 Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
                 var value = (string)o[chosenProperty];
                 return value;
-            }
-        }
-
-        //===================================================================================//
-        // Check online hashes via API                                                       //
-        //===================================================================================//
-        public static bool GET_Hash(string jsonfile, string appID)
-        {
-            using (var webClient = new System.Net.WebClient())
-            {
-                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/hash/" + appID);
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
-                var hashvalue = (string)o["hash"];
-                if (hashvalue == "internally_calculated_hash")
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
             }
         }
 

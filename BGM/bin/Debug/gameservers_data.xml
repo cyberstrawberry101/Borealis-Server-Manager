@@ -405,4 +405,13 @@
 		<port></port>
 		<server_config_file></server_config_file>
     </server>
+		<server>
+		<server_name>Conan Exiles</server_name>
+		<deployment_parameters>+login anonymous +app_update 443030 +quit</deployment_parameters>
+		<default_launchscript></default_launchscript>
+		<bgm_integration>none</bgm_integration>
+		<hostname></hostname>
+		<port></port>
+		<server_config_file></server_config_file>
+    </server>
 </gameserver_listing>
