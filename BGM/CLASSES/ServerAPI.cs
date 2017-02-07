@@ -8,6 +8,7 @@ using System.IO.Compression;
 using System.Windows.Forms;
 using System.Net;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace GameServer_Manager
 {
@@ -16,14 +17,38 @@ namespace GameServer_Manager
         //===================================================================================//
         // Download Config Data via API                                                      //
         //===================================================================================//
-        public static string QUERY_DATA(string triggerName, string chosenProperty, string appID)
+        public static string QUERY_DATA(string valueToRetrieve, string appID)
         {
             using (var webClient = new System.Net.WebClient())
             {
-                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/" + triggerName + "/" + appID);
+                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/config/" + appID);
                 Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
-                var value = (string)o[chosenProperty];
+                var value = (string)o[valueToRetrieve];
                 return value;
+            }
+        }
+
+        //===================================================================================//
+        // Query Index Data via API                                                          //
+        //===================================================================================//
+        public static string QUERY_STEAM_APPID(string serverGiven)
+        {
+            using (var webClient = new System.Net.WebClient())
+            {
+                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
+                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
+
+                foreach (var serverAppIDLink in o)
+                {
+                    JToken value = serverAppIDLink.Value; //ServerName
+                    string name = serverAppIDLink.Key; //Steam appID
+
+                    if (value.ToString() == serverGiven)
+                    {
+                        return name; //appID
+                    }
+                }
+                return "NULL";
             }
         }
 

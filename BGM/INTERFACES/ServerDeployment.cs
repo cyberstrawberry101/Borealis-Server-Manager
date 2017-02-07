@@ -12,6 +12,7 @@ using System.Net.NetworkInformation;
 using System.IO;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Newtonsoft.Json.Linq;
 
 namespace GameServer_Manager
 
@@ -29,14 +30,24 @@ namespace GameServer_Manager
         //===================================================================================//
         private void ServerDeployment_Load(object sender, EventArgs e)
         {
-            //Query the gameserver_data.xml to list all servers in dropdown menu.
-            if (File.Exists(Environment.CurrentDirectory + @"\gameservers_data.xml"))
+            try
             {
-                var xdoc = XDocument.Load(Environment.CurrentDirectory + @"\gameservers_data.xml");
-                foreach (var child in xdoc.Elements("gameserver_listing").Elements("server").Elements("server_name"))
+                using (var webClient = new System.Net.WebClient())
                 {
-                    dropdownServerSelection.Items.Add(child.Value);
+                    var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
+                    Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
+
+                    foreach (var serverAppName in o)
+                    {
+                        JToken value = serverAppName.Value;
+                        dropdownServerSelection.Items.Add(value.ToString());
+                    }
                 }
+                dropdownServerSelection.PromptText = "< Select a gameserver to deploy >";
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(BorealisGameManager.ActiveForm, "Cannot communicate with http://sfo3.hauteclaire.me \nThis means that deployment at this time is impossible.", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -72,38 +83,38 @@ namespace GameServer_Manager
 
             //Inform the user what level of support BGM provides for the gameserver they are about to deploy.
             //NO CURRENT SUPPORT IMPLEMENTED
-            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "none")
+            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "none")
             {
                 if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
             }
 
             //PARTIAL SUPPORT IMPLEMENTED
-            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "partial")
+            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "partial")
             {
                 if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 
             }
 
             //FULL SUPPORT IMPLEMENTED
-            if (SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "bgm_integration") == "full")
+            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "full")
             {
                 if (MetroMessageBox.Show(BorealisGameManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 

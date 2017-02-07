@@ -22,18 +22,5 @@ namespace GameServer_Manager
         {
 
         }
-
-        private void btnQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                MetroMessageBox.Show(BorealisGameManager.ActiveForm, ServerAPI_Classes.QUERY_DATA(txtTriggerSearch.Text, txtPropertySearch.Text, txtappIDSearch.Text), "Query Result", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
-            catch (Exception)
-            {
-                MetroMessageBox.Show(BorealisGameManager.ActiveForm, "Cannot communicate with http://sfo3.hauteclaire.me", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
-        }
     }
 }

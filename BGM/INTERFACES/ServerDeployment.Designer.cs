@@ -113,7 +113,7 @@
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
             this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
-            this.dropdownServerSelection.PromptText = "<Select a gameserver to install>";
+            this.dropdownServerSelection.PromptText = "< Downloading GameServer Data... >";
             this.dropdownServerSelection.Size = new System.Drawing.Size(346, 29);
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;
@@ -370,7 +370,7 @@
             this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
             this.dropdownExistingServer.MaxDropDownItems = 100;
             this.dropdownExistingServer.Name = "dropdownExistingServer";
-            this.dropdownExistingServer.PromptText = "<Select an existing server>";
+            this.dropdownExistingServer.PromptText = "< Select an existing server >";
             this.dropdownExistingServer.Size = new System.Drawing.Size(346, 29);
             this.dropdownExistingServer.Sorted = true;
             this.dropdownExistingServer.TabIndex = 44;
