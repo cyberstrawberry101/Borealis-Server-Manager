@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerDeployment));
-            this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.progressbarDownloadProgressOverall = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dropdownServerSelection = new MetroFramework.Controls.MetroComboBox();
             this.lblDownloadProgressDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -40,7 +39,6 @@
             this.txtboxDestinationFolder = new System.Windows.Forms.TextBox();
             this.lblDestination = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblSelectServerDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblSelectServer = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -52,43 +50,9 @@
             this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
+            this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.SuspendLayout();
-            // 
-            // btnCancelDeployGameserver
-            // 
-            this.btnCancelDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnCancelDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.btnCancelDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnCancelDeployGameserver.BorderRadius = 0;
-            this.btnCancelDeployGameserver.ButtonText = "   Cancel";
-            this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
-            this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnCancelDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCancelDeployGameserver.Iconimage = global::Borealis_Game_Manager.Properties.Resources.STOP_ICON;
-            this.btnCancelDeployGameserver.Iconimage_right = null;
-            this.btnCancelDeployGameserver.Iconimage_right_Selected = null;
-            this.btnCancelDeployGameserver.Iconimage_Selected = null;
-            this.btnCancelDeployGameserver.IconMarginLeft = 0;
-            this.btnCancelDeployGameserver.IconMarginRight = 0;
-            this.btnCancelDeployGameserver.IconRightVisible = true;
-            this.btnCancelDeployGameserver.IconRightZoom = 0D;
-            this.btnCancelDeployGameserver.IconVisible = true;
-            this.btnCancelDeployGameserver.IconZoom = 45D;
-            this.btnCancelDeployGameserver.IsTab = false;
-            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(378, 473);
-            this.btnCancelDeployGameserver.Name = "btnCancelDeployGameserver";
-            this.btnCancelDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.btnCancelDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
-            this.btnCancelDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnCancelDeployGameserver.selected = false;
-            this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
-            this.btnCancelDeployGameserver.TabIndex = 41;
-            this.btnCancelDeployGameserver.Text = "   Cancel";
-            this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
-            this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelDeployGameserver.Visible = false;
             // 
             // progressbarDownloadProgressOverall
             // 
@@ -246,50 +210,13 @@
             this.lblSelectServerDetails.TabIndex = 12;
             this.lblSelectServerDetails.Text = "Which gameserver do you want to install?";
             // 
-            // btnDeployGameserver
-            // 
-            this.btnDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeployGameserver.BorderRadius = 0;
-            this.btnDeployGameserver.ButtonText = "Deploy";
-            this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
-            this.btnDeployGameserver.Enabled = false;
-            this.btnDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDeployGameserver.Iconimage")));
-            this.btnDeployGameserver.Iconimage_right = null;
-            this.btnDeployGameserver.Iconimage_right_Selected = null;
-            this.btnDeployGameserver.Iconimage_Selected = null;
-            this.btnDeployGameserver.IconMarginLeft = 0;
-            this.btnDeployGameserver.IconMarginRight = 0;
-            this.btnDeployGameserver.IconRightVisible = true;
-            this.btnDeployGameserver.IconRightZoom = 0D;
-            this.btnDeployGameserver.IconVisible = true;
-            this.btnDeployGameserver.IconZoom = 90D;
-            this.btnDeployGameserver.IsTab = false;
-            this.btnDeployGameserver.Location = new System.Drawing.Point(537, 473);
-            this.btnDeployGameserver.Name = "btnDeployGameserver";
-            this.btnDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnDeployGameserver.selected = false;
-            this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
-            this.btnDeployGameserver.TabIndex = 14;
-            this.btnDeployGameserver.Text = "Deploy";
-            this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
-            this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeployGameserver.Click += new System.EventHandler(this.btnDeployGameserver_Click);
-            // 
             // bunifuCustomLabel5
             // 
             this.bunifuCustomLabel5.AutoSize = true;
             this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(12, 40);
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(12, 42);
             this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
             this.bunifuCustomLabel5.Size = new System.Drawing.Size(295, 19);
             this.bunifuCustomLabel5.TabIndex = 11;
@@ -341,7 +268,7 @@
             // 
             // chkSeparateConfig
             // 
-            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.chkSeparateConfig.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkSeparateConfig.Checked = false;
             this.chkSeparateConfig.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -418,6 +345,79 @@
             this.txtServerGivenName.Size = new System.Drawing.Size(346, 29);
             this.txtServerGivenName.TabIndex = 48;
             this.txtServerGivenName.Visible = false;
+            // 
+            // btnDeployGameserver
+            // 
+            this.btnDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDeployGameserver.BorderRadius = 0;
+            this.btnDeployGameserver.ButtonText = "Deploy";
+            this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDeployGameserver.Enabled = false;
+            this.btnDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDeployGameserver.Iconimage")));
+            this.btnDeployGameserver.Iconimage_right = null;
+            this.btnDeployGameserver.Iconimage_right_Selected = null;
+            this.btnDeployGameserver.Iconimage_Selected = null;
+            this.btnDeployGameserver.IconMarginLeft = 0;
+            this.btnDeployGameserver.IconMarginRight = 0;
+            this.btnDeployGameserver.IconRightVisible = true;
+            this.btnDeployGameserver.IconRightZoom = 0D;
+            this.btnDeployGameserver.IconVisible = true;
+            this.btnDeployGameserver.IconZoom = 90D;
+            this.btnDeployGameserver.IsTab = false;
+            this.btnDeployGameserver.Location = new System.Drawing.Point(537, 473);
+            this.btnDeployGameserver.Name = "btnDeployGameserver";
+            this.btnDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDeployGameserver.selected = false;
+            this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
+            this.btnDeployGameserver.TabIndex = 14;
+            this.btnDeployGameserver.Text = "Deploy";
+            this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
+            this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeployGameserver.Click += new System.EventHandler(this.btnDeployGameserver_Click);
+            // 
+            // btnCancelDeployGameserver
+            // 
+            this.btnCancelDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnCancelDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.btnCancelDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCancelDeployGameserver.BorderRadius = 0;
+            this.btnCancelDeployGameserver.ButtonText = "   Cancel";
+            this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnCancelDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnCancelDeployGameserver.Iconimage = global::Borealis_Game_Manager.Properties.Resources.STOP_ICON;
+            this.btnCancelDeployGameserver.Iconimage_right = null;
+            this.btnCancelDeployGameserver.Iconimage_right_Selected = null;
+            this.btnCancelDeployGameserver.Iconimage_Selected = null;
+            this.btnCancelDeployGameserver.IconMarginLeft = 0;
+            this.btnCancelDeployGameserver.IconMarginRight = 0;
+            this.btnCancelDeployGameserver.IconRightVisible = true;
+            this.btnCancelDeployGameserver.IconRightZoom = 0D;
+            this.btnCancelDeployGameserver.IconVisible = true;
+            this.btnCancelDeployGameserver.IconZoom = 45D;
+            this.btnCancelDeployGameserver.IsTab = false;
+            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(378, 473);
+            this.btnCancelDeployGameserver.Name = "btnCancelDeployGameserver";
+            this.btnCancelDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.btnCancelDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            this.btnCancelDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnCancelDeployGameserver.selected = false;
+            this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
+            this.btnCancelDeployGameserver.TabIndex = 41;
+            this.btnCancelDeployGameserver.Text = "   Cancel";
+            this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
+            this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelDeployGameserver.Visible = false;
             // 
             // ServerDeployment
             // 

@@ -29,7 +29,7 @@ namespace GameServer_Manager
         }
 
         //===================================================================================//
-        // Query Index Data via API                                                          //
+        // Query STEAM_APPID Data via API                                                    //
         //===================================================================================//
         public static string QUERY_STEAM_APPID(string serverGiven)
         {
@@ -51,18 +51,5 @@ namespace GameServer_Manager
                 return "NULL";
             }
         }
-
-        //===================================================================================//
-        // Store Config Data into 2-Dimensional Array                                        //
-        //===================================================================================//
-        /*
-        public static class ServerAPI_DataArray
-        {
-            //"name" | "steam_authrequired" | "default_launchscript" | "deployment_parameters" | "server_config_file" | "bgm_integration"
-
-            //ServerAPI_Classes.ServerAPI_DataArray.ServerDataArray2D[1, 1] = "25"; //ADDS A VALUE TO ONE OF THE INDEXES OF THE 2D ARRAY
-            public static string[,] ServerDataArray2D = new string[120, 6];
-        }
-        */
     }
 }

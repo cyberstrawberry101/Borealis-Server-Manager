@@ -85,6 +85,12 @@
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\SettingsManagement.cs" />
+    <Compile Include="INTERFACES\WelcomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INTERFACES\WelcomeScreen.Designer.cs">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="INTERFACES\ServerDashboard.resx">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INTERFACES\WelcomeScreen.resx">
+      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

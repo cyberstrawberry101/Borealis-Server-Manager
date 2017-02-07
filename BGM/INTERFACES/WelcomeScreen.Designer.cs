@@ -1,6 +1,6 @@
 ﻿namespace GameServer_Manager
 {
-    partial class Experimental_Area
+    partial class WelcomeScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -40,9 +40,10 @@
             this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 42);
             this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
-            this.bunifuCustomLabel14.Size = new System.Drawing.Size(294, 19);
-            this.bunifuCustomLabel14.TabIndex = 13;
-            this.bunifuCustomLabel14.Text = "Bleeding-edge barely-tested code and functions.";
+            this.bunifuCustomLabel14.Size = new System.Drawing.Size(466, 19);
+            this.bunifuCustomLabel14.TabIndex = 15;
+            this.bunifuCustomLabel14.Text = "This is where you will initially set up all of the necessary parameters of Boreal" +
+    "is.";
             // 
             // bunifuCustomLabel16
             // 
@@ -51,22 +52,21 @@
             this.bunifuCustomLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel16.Location = new System.Drawing.Point(10, 10);
             this.bunifuCustomLabel16.Name = "bunifuCustomLabel16";
-            this.bunifuCustomLabel16.Size = new System.Drawing.Size(198, 32);
-            this.bunifuCustomLabel16.TabIndex = 12;
-            this.bunifuCustomLabel16.Text = "Experimental Area";
+            this.bunifuCustomLabel16.Size = new System.Drawing.Size(256, 32);
+            this.bunifuCustomLabel16.TabIndex = 14;
+            this.bunifuCustomLabel16.Text = "First-Time Configuration";
             // 
-            // Experimental_Area
+            // WelcomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(700, 537);
             this.Controls.Add(this.bunifuCustomLabel14);
             this.Controls.Add(this.bunifuCustomLabel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Experimental_Area";
-            this.Text = "Experimental_Area";
-            this.Load += new System.EventHandler(this.Experimental_Area_Load);
+            this.Name = "WelcomeScreen";
+            this.Text = "WelcomeScreen";
+            this.Load += new System.EventHandler(this.WelcomeScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

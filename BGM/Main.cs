@@ -69,13 +69,34 @@ namespace GameServer_Manager
                 }
             }
 
-            //------- Launch Startup Dashboard Panel -------
-            //Render child MDI form---------------------------------------------
-            ServerDashboard Dashboard_ChildInstance = new ServerDashboard();
-            Dashboard_ChildInstance.MdiParent = this;
-            Dashboard_ChildInstance.AutoScroll = false;
-            Dashboard_ChildInstance.Dock = DockStyle.Fill;
-            Dashboard_ChildInstance.Show();
+            bool FIRST_TIME_SETUP = false; //DEBUG DEBUG DEBUG
+
+            if (FIRST_TIME_SETUP == true)
+            {
+                panelTabDashboard.Visible = false;
+                panelTabDeployment.Visible = false;
+                panelTabManagement.Visible = false;
+                panelTabControl.Visible = false;
+                panelTabExperimental.Visible = false;
+                toggleExperimentalMode.Visible = false;
+                lblAutoRestart.Visible = false;
+
+                //Render child MDI form---------------------------------------------
+                WelcomeScreen ChildInstance = new WelcomeScreen();
+                ChildInstance.MdiParent = this;
+                ChildInstance.AutoScroll = false;
+                ChildInstance.Dock = DockStyle.Fill;
+                ChildInstance.Show();
+            }
+            else
+            {
+                //Render child MDI form---------------------------------------------
+                ServerDashboard ChildInstance = new ServerDashboard();
+                ChildInstance.MdiParent = this;
+                ChildInstance.AutoScroll = false;
+                ChildInstance.Dock = DockStyle.Fill;
+                ChildInstance.Show();
+            }
 
             //Display current product version.
             lblVersion.Text = "Version " + Application.ProductVersion;
@@ -91,23 +112,23 @@ namespace GameServer_Manager
         {
             //Deselect all tabs
             indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            tabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            tabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            tabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Select Tab
-            tabDashboard.Textcolor = Color.FromArgb(67, 181, 129);
-            tabDashboard.Activecolor = Color.FromArgb(16, 22, 30);
-            tabDashboard.BackColor = Color.FromArgb(16, 22, 30);
+            panelTabDashboard.Textcolor = Color.FromArgb(67, 181, 129);
+            panelTabDashboard.Activecolor = Color.FromArgb(16, 22, 30);
+            panelTabDashboard.BackColor = Color.FromArgb(16, 22, 30);
             indicatorTabDashboard.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerDashboard ServerDashboard_ChildInstance = new ServerDashboard();
-            DisposeAllButThis(ServerDashboard_ChildInstance); //Destroy all other MDI child forms.
-            ServerDashboard_ChildInstance.MdiParent = this;
-            ServerDashboard_ChildInstance.AutoScroll = false;
-            ServerDashboard_ChildInstance.Dock = DockStyle.Fill;
-            ServerDashboard_ChildInstance.Show();
+            ServerDashboard ChildInstance = new ServerDashboard();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -117,9 +138,9 @@ namespace GameServer_Manager
         {
             //Deselect all tabs
             indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            tabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental .Textcolor = Color.FromArgb(145, 155, 166);
-            tabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            tabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental .Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabDeployGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -128,12 +149,12 @@ namespace GameServer_Manager
             indicatorTabDeployment.Visible = true;
             
             //Render child MDI form---------------------------------------------
-            ServerDeployment ServerDeployment_ChildInstance = new ServerDeployment();
-            DisposeAllButThis(ServerDeployment_ChildInstance); //Destroy all other MDI child forms.
-            ServerDeployment_ChildInstance.MdiParent = this;
-            ServerDeployment_ChildInstance.AutoScroll = false;
-            ServerDeployment_ChildInstance.Dock = DockStyle.Fill;
-            ServerDeployment_ChildInstance.Show();
+            ServerDeployment ChildInstance = new ServerDeployment();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -143,9 +164,9 @@ namespace GameServer_Manager
         {
             //Deselect all tabs
             indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            tabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            tabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            tabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabManageGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -154,12 +175,12 @@ namespace GameServer_Manager
             indicatorTabManagement.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerManagement ServerManagement_ChildInstance = new ServerManagement();
-            DisposeAllButThis(ServerManagement_ChildInstance); //Destroy all other MDI child forms.
-            ServerManagement_ChildInstance.MdiParent = this;
-            ServerManagement_ChildInstance.AutoScroll = false;
-            ServerManagement_ChildInstance.Dock = DockStyle.Fill;
-            ServerManagement_ChildInstance.Show();
+            ServerManagement ChildInstance = new ServerManagement();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -169,9 +190,9 @@ namespace GameServer_Manager
         {
             //Deselect all tabs
             indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            tabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            tabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            tabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabControlGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -180,12 +201,12 @@ namespace GameServer_Manager
             indicatorTabControl.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerControl ServerControl_ChildInstance = new ServerControl();
-            DisposeAllButThis(ServerControl_ChildInstance); //Destroy all other MDI child forms.
-            ServerControl_ChildInstance.MdiParent = this;
-            ServerControl_ChildInstance.AutoScroll = false;
-            ServerControl_ChildInstance.Dock = DockStyle.Fill;
-            ServerControl_ChildInstance.Show();
+            ServerControl ChildInstance = new ServerControl();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
         
         //===================================================================================//
@@ -195,9 +216,9 @@ namespace GameServer_Manager
         {
             //Deselect all tabs
             indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            tabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            tabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            tabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabExperimental.Textcolor = Color.FromArgb(67, 181, 129);
@@ -206,12 +227,12 @@ namespace GameServer_Manager
             indicatorTabExperimental.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            Experimental_Area Experimental_Area_ChildInstance = new Experimental_Area();
-            DisposeAllButThis(Experimental_Area_ChildInstance); //Destroy all other MDI child forms.
-            Experimental_Area_ChildInstance.MdiParent = this;
-            Experimental_Area_ChildInstance.AutoScroll = false;
-            Experimental_Area_ChildInstance.Dock = DockStyle.Fill;
-            Experimental_Area_ChildInstance.Show();
+            Experimental_Area ChildInstance = new Experimental_Area();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
         //===================================================================================//
@@ -236,11 +257,11 @@ namespace GameServer_Manager
         {
             if (toggleExperimentalMode.Value == true)
             {
-                panelExperimental.Visible = true;
+                panelTabExperimental.Visible = true;
             }
             else
             {
-                panelExperimental.Visible = false;
+                panelTabExperimental.Visible = false;
             }
         }
     }

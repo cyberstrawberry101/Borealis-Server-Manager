@@ -166,7 +166,7 @@
             this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 40);
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 42);
             this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(276, 19);
             this.bunifuCustomLabel4.TabIndex = 11;

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerControl));
             this.panelTechServices = new System.Windows.Forms.Panel();
+            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.panelTechServices.SuspendLayout();
             this.consoleViewport.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +54,6 @@
             this.panelTechServices.Controls.Add(this.chkAutoRestart);
             this.panelTechServices.Controls.Add(this.bunifuCustomLabel1);
             this.panelTechServices.Controls.Add(this.comboboxGameserverList);
-            this.panelTechServices.Controls.Add(this.txtboxIssueCommand);
             this.panelTechServices.Controls.Add(this.lblAutoRestart);
             this.panelTechServices.Controls.Add(this.btnStartServer);
             this.panelTechServices.Controls.Add(this.consoleViewport);
@@ -66,6 +65,20 @@
             this.panelTechServices.Name = "panelTechServices";
             this.panelTechServices.Size = new System.Drawing.Size(700, 537);
             this.panelTechServices.TabIndex = 20;
+            // 
+            // chkAutoRestart
+            // 
+            this.chkAutoRestart.BackColor = System.Drawing.Color.Transparent;
+            this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
+            this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
+            this.chkAutoRestart.Name = "chkAutoRestart";
+            this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
+            this.chkAutoRestart.TabIndex = 42;
+            this.chkAutoRestart.Value = true;
             // 
             // bunifuCustomLabel1
             // 
@@ -99,13 +112,14 @@
             // 
             this.txtboxIssueCommand.BackColor = System.Drawing.Color.White;
             this.txtboxIssueCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txtboxIssueCommand.Enabled = false;
             this.txtboxIssueCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxIssueCommand.Location = new System.Drawing.Point(16, 424);
+            this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 320);
             this.txtboxIssueCommand.Multiline = true;
             this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(664, 32);
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(662, 32);
             this.txtboxIssueCommand.TabIndex = 33;
             this.txtboxIssueCommand.Text = "> Server is not running";
             this.txtboxIssueCommand.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtboxIssueCommand_MouseClick);
@@ -164,6 +178,7 @@
             this.consoleViewport.BorderRadius = 5;
             this.consoleViewport.BottomSahddow = true;
             this.consoleViewport.color = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.consoleViewport.Controls.Add(this.txtboxIssueCommand);
             this.consoleViewport.Controls.Add(this.txtboxConsoleOutput);
             this.consoleViewport.LeftSahddow = false;
             this.consoleViewport.Location = new System.Drawing.Point(16, 66);
@@ -234,7 +249,7 @@
             this.bunifuCustomLabel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.bunifuCustomLabel14.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
-            this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 40);
+            this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 42);
             this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
             this.bunifuCustomLabel14.Size = new System.Drawing.Size(233, 19);
             this.bunifuCustomLabel14.TabIndex = 11;
@@ -276,20 +291,6 @@
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
-            // chkAutoRestart
-            // 
-            this.chkAutoRestart.BackColor = System.Drawing.Color.Transparent;
-            this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
-            this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
-            this.chkAutoRestart.Name = "chkAutoRestart";
-            this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
-            this.chkAutoRestart.TabIndex = 42;
-            this.chkAutoRestart.Value = true;
-            // 
             // ServerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -302,6 +303,7 @@
             this.panelTechServices.ResumeLayout(false);
             this.panelTechServices.PerformLayout();
             this.consoleViewport.ResumeLayout(false);
+            this.consoleViewport.PerformLayout();
             this.ResumeLayout(false);
 
         }

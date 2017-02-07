@@ -34,20 +34,20 @@
             this.toggleExperimentalMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblAutoRestart = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblAttribution = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panelExperimental = new System.Windows.Forms.Panel();
+            this.panelTabExperimental = new System.Windows.Forms.Panel();
             this.tabExperimental = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabExperimental = new System.Windows.Forms.Panel();
-            this.panelTabTechServices = new System.Windows.Forms.Panel();
+            this.panelTabControl = new System.Windows.Forms.Panel();
             this.tabControlGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabControl = new System.Windows.Forms.Panel();
-            this.panelTabCustomerInformation = new System.Windows.Forms.Panel();
+            this.panelTabManagement = new System.Windows.Forms.Panel();
             this.tabManageGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabManagement = new System.Windows.Forms.Panel();
-            this.panelTabAuthentication = new System.Windows.Forms.Panel();
+            this.panelTabDeployment = new System.Windows.Forms.Panel();
             this.tabDeployGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabDeployment = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tabDashboard = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panelDashboard = new System.Windows.Forms.Panel();
+            this.panelTabDashboard = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabDashboard = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
@@ -59,11 +59,11 @@
             this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.sidemenu.SuspendLayout();
-            this.panelExperimental.SuspendLayout();
-            this.panelTabTechServices.SuspendLayout();
-            this.panelTabCustomerInformation.SuspendLayout();
-            this.panelTabAuthentication.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.panelTabExperimental.SuspendLayout();
+            this.panelTabControl.SuspendLayout();
+            this.panelTabManagement.SuspendLayout();
+            this.panelTabDeployment.SuspendLayout();
+            this.panelDashboard.SuspendLayout();
             this.header.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
@@ -75,11 +75,11 @@
             this.sidemenu.Controls.Add(this.toggleExperimentalMode);
             this.sidemenu.Controls.Add(this.lblAutoRestart);
             this.sidemenu.Controls.Add(this.lblAttribution);
-            this.sidemenu.Controls.Add(this.panelExperimental);
-            this.sidemenu.Controls.Add(this.panelTabTechServices);
-            this.sidemenu.Controls.Add(this.panelTabCustomerInformation);
-            this.sidemenu.Controls.Add(this.panelTabAuthentication);
-            this.sidemenu.Controls.Add(this.panel1);
+            this.sidemenu.Controls.Add(this.panelTabExperimental);
+            this.sidemenu.Controls.Add(this.panelTabControl);
+            this.sidemenu.Controls.Add(this.panelTabManagement);
+            this.sidemenu.Controls.Add(this.panelTabDeployment);
+            this.sidemenu.Controls.Add(this.panelDashboard);
             this.sidemenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidemenu.Location = new System.Drawing.Point(0, 45);
             this.sidemenu.Name = "sidemenu";
@@ -128,16 +128,16 @@
             this.lblAttribution.MouseLeave += new System.EventHandler(this.lblAttribution_MouseLeave);
             this.lblAttribution.MouseHover += new System.EventHandler(this.lblAttribution_MouseHover);
             // 
-            // panelExperimental
+            // panelTabExperimental
             // 
-            this.panelExperimental.Controls.Add(this.tabExperimental);
-            this.panelExperimental.Controls.Add(this.indicatorTabExperimental);
-            this.panelExperimental.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelExperimental.Location = new System.Drawing.Point(0, 192);
-            this.panelExperimental.Name = "panelExperimental";
-            this.panelExperimental.Size = new System.Drawing.Size(260, 48);
-            this.panelExperimental.TabIndex = 31;
-            this.panelExperimental.Visible = false;
+            this.panelTabExperimental.Controls.Add(this.tabExperimental);
+            this.panelTabExperimental.Controls.Add(this.indicatorTabExperimental);
+            this.panelTabExperimental.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTabExperimental.Location = new System.Drawing.Point(0, 192);
+            this.panelTabExperimental.Name = "panelTabExperimental";
+            this.panelTabExperimental.Size = new System.Drawing.Size(260, 48);
+            this.panelTabExperimental.TabIndex = 31;
+            this.panelTabExperimental.Visible = false;
             // 
             // tabExperimental
             // 
@@ -186,15 +186,15 @@
             this.indicatorTabExperimental.TabIndex = 18;
             this.indicatorTabExperimental.Visible = false;
             // 
-            // panelTabTechServices
+            // panelTabControl
             // 
-            this.panelTabTechServices.Controls.Add(this.tabControlGameservers);
-            this.panelTabTechServices.Controls.Add(this.indicatorTabControl);
-            this.panelTabTechServices.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTabTechServices.Location = new System.Drawing.Point(0, 144);
-            this.panelTabTechServices.Name = "panelTabTechServices";
-            this.panelTabTechServices.Size = new System.Drawing.Size(260, 48);
-            this.panelTabTechServices.TabIndex = 30;
+            this.panelTabControl.Controls.Add(this.tabControlGameservers);
+            this.panelTabControl.Controls.Add(this.indicatorTabControl);
+            this.panelTabControl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTabControl.Location = new System.Drawing.Point(0, 144);
+            this.panelTabControl.Name = "panelTabControl";
+            this.panelTabControl.Size = new System.Drawing.Size(260, 48);
+            this.panelTabControl.TabIndex = 30;
             // 
             // tabControlGameservers
             // 
@@ -243,15 +243,15 @@
             this.indicatorTabControl.TabIndex = 18;
             this.indicatorTabControl.Visible = false;
             // 
-            // panelTabCustomerInformation
+            // panelTabManagement
             // 
-            this.panelTabCustomerInformation.Controls.Add(this.tabManageGameservers);
-            this.panelTabCustomerInformation.Controls.Add(this.indicatorTabManagement);
-            this.panelTabCustomerInformation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTabCustomerInformation.Location = new System.Drawing.Point(0, 96);
-            this.panelTabCustomerInformation.Name = "panelTabCustomerInformation";
-            this.panelTabCustomerInformation.Size = new System.Drawing.Size(260, 48);
-            this.panelTabCustomerInformation.TabIndex = 29;
+            this.panelTabManagement.Controls.Add(this.tabManageGameservers);
+            this.panelTabManagement.Controls.Add(this.indicatorTabManagement);
+            this.panelTabManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTabManagement.Location = new System.Drawing.Point(0, 96);
+            this.panelTabManagement.Name = "panelTabManagement";
+            this.panelTabManagement.Size = new System.Drawing.Size(260, 48);
+            this.panelTabManagement.TabIndex = 29;
             // 
             // tabManageGameservers
             // 
@@ -300,15 +300,15 @@
             this.indicatorTabManagement.TabIndex = 18;
             this.indicatorTabManagement.Visible = false;
             // 
-            // panelTabAuthentication
+            // panelTabDeployment
             // 
-            this.panelTabAuthentication.Controls.Add(this.tabDeployGameservers);
-            this.panelTabAuthentication.Controls.Add(this.indicatorTabDeployment);
-            this.panelTabAuthentication.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTabAuthentication.Location = new System.Drawing.Point(0, 48);
-            this.panelTabAuthentication.Name = "panelTabAuthentication";
-            this.panelTabAuthentication.Size = new System.Drawing.Size(260, 48);
-            this.panelTabAuthentication.TabIndex = 28;
+            this.panelTabDeployment.Controls.Add(this.tabDeployGameservers);
+            this.panelTabDeployment.Controls.Add(this.indicatorTabDeployment);
+            this.panelTabDeployment.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTabDeployment.Location = new System.Drawing.Point(0, 48);
+            this.panelTabDeployment.Name = "panelTabDeployment";
+            this.panelTabDeployment.Size = new System.Drawing.Size(260, 48);
+            this.panelTabDeployment.TabIndex = 28;
             // 
             // tabDeployGameservers
             // 
@@ -357,53 +357,53 @@
             this.indicatorTabDeployment.TabIndex = 17;
             this.indicatorTabDeployment.Visible = false;
             // 
-            // panel1
+            // panelDashboard
             // 
-            this.panel1.Controls.Add(this.tabDashboard);
-            this.panel1.Controls.Add(this.indicatorTabDashboard);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 48);
-            this.panel1.TabIndex = 27;
+            this.panelDashboard.Controls.Add(this.panelTabDashboard);
+            this.panelDashboard.Controls.Add(this.indicatorTabDashboard);
+            this.panelDashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelDashboard.Location = new System.Drawing.Point(0, 0);
+            this.panelDashboard.Name = "panelDashboard";
+            this.panelDashboard.Size = new System.Drawing.Size(260, 48);
+            this.panelDashboard.TabIndex = 27;
             // 
-            // tabDashboard
+            // panelTabDashboard
             // 
-            this.tabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.tabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.tabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabDashboard.BorderRadius = 0;
-            this.tabDashboard.ButtonText = "    Dashboard";
-            this.tabDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabDashboard.DisabledColor = System.Drawing.Color.Gray;
-            this.tabDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabDashboard.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabDashboard.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabDashboard.Iconimage = global::Borealis_Game_Manager.Properties.Resources.DASHBOARD_ICON;
-            this.tabDashboard.Iconimage_right = null;
-            this.tabDashboard.Iconimage_right_Selected = null;
-            this.tabDashboard.Iconimage_Selected = null;
-            this.tabDashboard.IconMarginLeft = 0;
-            this.tabDashboard.IconMarginRight = 0;
-            this.tabDashboard.IconRightVisible = true;
-            this.tabDashboard.IconRightZoom = 0D;
-            this.tabDashboard.IconVisible = true;
-            this.tabDashboard.IconZoom = 55D;
-            this.tabDashboard.IsTab = true;
-            this.tabDashboard.Location = new System.Drawing.Point(0, 0);
-            this.tabDashboard.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
-            this.tabDashboard.Name = "tabDashboard";
-            this.tabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.tabDashboard.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabDashboard.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabDashboard.selected = false;
-            this.tabDashboard.Size = new System.Drawing.Size(255, 48);
-            this.tabDashboard.TabIndex = 18;
-            this.tabDashboard.Text = "    Dashboard";
-            this.tabDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabDashboard.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabDashboard.Click += new System.EventHandler(this.tabDashboard_Click_1);
+            this.panelTabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTabDashboard.BorderRadius = 0;
+            this.panelTabDashboard.ButtonText = "    Dashboard";
+            this.panelTabDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panelTabDashboard.DisabledColor = System.Drawing.Color.Gray;
+            this.panelTabDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTabDashboard.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.panelTabDashboard.Iconcolor = System.Drawing.Color.Transparent;
+            this.panelTabDashboard.Iconimage = global::Borealis_Game_Manager.Properties.Resources.DASHBOARD_ICON;
+            this.panelTabDashboard.Iconimage_right = null;
+            this.panelTabDashboard.Iconimage_right_Selected = null;
+            this.panelTabDashboard.Iconimage_Selected = null;
+            this.panelTabDashboard.IconMarginLeft = 0;
+            this.panelTabDashboard.IconMarginRight = 0;
+            this.panelTabDashboard.IconRightVisible = true;
+            this.panelTabDashboard.IconRightZoom = 0D;
+            this.panelTabDashboard.IconVisible = true;
+            this.panelTabDashboard.IconZoom = 55D;
+            this.panelTabDashboard.IsTab = true;
+            this.panelTabDashboard.Location = new System.Drawing.Point(0, 0);
+            this.panelTabDashboard.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
+            this.panelTabDashboard.Name = "panelTabDashboard";
+            this.panelTabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.panelTabDashboard.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panelTabDashboard.selected = false;
+            this.panelTabDashboard.Size = new System.Drawing.Size(255, 48);
+            this.panelTabDashboard.TabIndex = 18;
+            this.panelTabDashboard.Text = "    Dashboard";
+            this.panelTabDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panelTabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panelTabDashboard.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTabDashboard.Click += new System.EventHandler(this.tabDashboard_Click_1);
             // 
             // indicatorTabDashboard
             // 
@@ -510,11 +510,11 @@
             this.Load += new System.EventHandler(this.BorealisGameManager_Load);
             this.sidemenu.ResumeLayout(false);
             this.sidemenu.PerformLayout();
-            this.panelExperimental.ResumeLayout(false);
-            this.panelTabTechServices.ResumeLayout(false);
-            this.panelTabCustomerInformation.ResumeLayout(false);
-            this.panelTabAuthentication.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.panelTabExperimental.ResumeLayout(false);
+            this.panelTabControl.ResumeLayout(false);
+            this.panelTabManagement.ResumeLayout(false);
+            this.panelTabDeployment.ResumeLayout(false);
+            this.panelDashboard.ResumeLayout(false);
             this.header.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -528,18 +528,18 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblAttribution;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.Panel panelTabTechServices;
-        private System.Windows.Forms.Panel panelTabCustomerInformation;
-        private System.Windows.Forms.Panel panelTabAuthentication;
+        private System.Windows.Forms.Panel panelTabControl;
+        private System.Windows.Forms.Panel panelTabManagement;
+        private System.Windows.Forms.Panel panelTabDeployment;
         private System.Windows.Forms.Panel indicatorTabDeployment;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelDashboard;
         private System.Windows.Forms.Panel indicatorTabDashboard;
         private System.Windows.Forms.Panel indicatorTabControl;
         private Bunifu.Framework.UI.BunifuFlatButton tabControlGameservers;
         private Bunifu.Framework.UI.BunifuFlatButton tabManageGameservers;
         private System.Windows.Forms.Panel indicatorTabManagement;
         private Bunifu.Framework.UI.BunifuFlatButton tabDeployGameservers;
-        private Bunifu.Framework.UI.BunifuFlatButton tabDashboard;
+        private Bunifu.Framework.UI.BunifuFlatButton panelTabDashboard;
         private System.Windows.Forms.Panel header;
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
@@ -547,7 +547,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
         private Bunifu.Framework.UI.BunifuFormFadeTransition fadingTransition;
         private System.Windows.Forms.HelpProvider helpProvider1;
-        private System.Windows.Forms.Panel panelExperimental;
+        private System.Windows.Forms.Panel panelTabExperimental;
         private Bunifu.Framework.UI.BunifuFlatButton tabExperimental;
         private System.Windows.Forms.Panel indicatorTabExperimental;
         private Bunifu.Framework.UI.BunifuiOSSwitch toggleExperimentalMode;
