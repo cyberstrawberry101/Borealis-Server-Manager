@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerControl));
             this.panelTechServices = new System.Windows.Forms.Panel();
+            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.panelTechServices.SuspendLayout();
             this.consoleViewport.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +66,20 @@
             this.panelTechServices.Name = "panelTechServices";
             this.panelTechServices.Size = new System.Drawing.Size(700, 537);
             this.panelTechServices.TabIndex = 20;
+            // 
+            // chkAutoRestart
+            // 
+            this.chkAutoRestart.BackColor = System.Drawing.Color.Transparent;
+            this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
+            this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
+            this.chkAutoRestart.Name = "chkAutoRestart";
+            this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
+            this.chkAutoRestart.TabIndex = 42;
+            this.chkAutoRestart.Value = true;
             // 
             // bunifuCustomLabel1
             // 
@@ -181,11 +195,7 @@
             this.txtboxConsoleOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxConsoleOutput.FormattingEnabled = true;
             this.txtboxConsoleOutput.Items.AddRange(new object[] {
-            "",
-            "Example console output will be displayed here.",
-            "Pretty much whatever you normally would see is here.",
-            "",
-            "Yep, pretty boring in this white box."});
+            ""});
             this.txtboxConsoleOutput.Location = new System.Drawing.Point(0, 0);
             this.txtboxConsoleOutput.Name = "txtboxConsoleOutput";
             this.txtboxConsoleOutput.Size = new System.Drawing.Size(664, 352);
@@ -275,20 +285,6 @@
             // 
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
-            // 
-            // chkAutoRestart
-            // 
-            this.chkAutoRestart.BackColor = System.Drawing.Color.Transparent;
-            this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
-            this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
-            this.chkAutoRestart.Name = "chkAutoRestart";
-            this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
-            this.chkAutoRestart.TabIndex = 42;
-            this.chkAutoRestart.Value = true;
             // 
             // ServerControl
             // 

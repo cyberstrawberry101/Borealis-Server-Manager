@@ -39,7 +39,7 @@ namespace GameServer_Manager
                     System.IO.File.Delete(DestinationFolder + @"\SteamCMD.zip");
 
                     //Execute SteamCMD to download files from Valve.
-                    ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", false);
+                    ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", null);
                 }
             }
             catch (Exception)
