@@ -78,7 +78,7 @@ namespace GameServer_Manager
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), null);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
             }
@@ -90,7 +90,7 @@ namespace GameServer_Manager
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), null);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 
@@ -103,11 +103,13 @@ namespace GameServer_Manager
                 {
                     //Indicate what gameserver is currently being downloaded.
                     lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), false);
+                    ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "deployment_parameters"), null);
                     MetroMessageBox.Show(BorealisGameManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
 
             }
+
+            SettingsManagement_Classes.WriteGameServerXMLData( txtServerGivenName.Text, "installation_folder", txtboxDestinationFolder.Text + @"\steamapps\common\" + SettingsManagement_Classes.GameServerXMLData(dropdownServerSelection.Text, "server_name") );
 
             //Finish up the process!
             lblDownloadProgressDetails.Text = "Status: Idle";
