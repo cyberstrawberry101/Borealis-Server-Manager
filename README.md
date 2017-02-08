@@ -7,7 +7,7 @@
 * .NET Framework 4.6.1
 * Windows Operating System
 
-**Dependancies (Included)**
+**Dependencies (Included)**
 * **Icons:** https://icons8.com/web-app
 * **MetroFramework:** https://github.com/thielj/MetroFramework
 * **BunifuFramework:** https://devtools.bunifu.co.ke/
