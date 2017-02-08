@@ -72,6 +72,12 @@
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
     <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
+    <Compile Include="INTERFACES\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INTERFACES\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="INTERFACES\Experimental_Area.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     <Compile Include="INTERFACES\ServerControl.Designer.cs">
       <DependentUpon>ServerControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="INTERFACES\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="INTERFACES\Experimental_Area.resx">
       <DependentUpon>Experimental_Area.cs</DependentUpon>
     </EmbeddedResource>

@@ -236,11 +236,23 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // ATTRIBUTION AND CREDITS DIALOG BOX                                                //
+        // ATTRIBUTION AND CREDITS TAB                                                       //
         //===================================================================================//
         private void lblAttribution_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Software Designer: Nicole Rappe \nIcons: https://icons8.com/web-app \nContributions by: Mezarith\nMetroFramework: https://github.com/thielj/MetroFramework \nBunifuFramework: https://devtools.bunifu.co.ke/", "About GameServerManager", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            //Deselect all tabs
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+
+            //Render child MDI form---------------------------------------------
+            About_DialogBox ChildInstance = new About_DialogBox();
+            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
         //===================================================================================//

@@ -1,13 +1,10 @@
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Bunifu_UI_v1.52.dll
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\MetroFramework.dll
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\BorealisServerManager.csprojResolveAssemblyReference.cache
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\BorealisServerManager.csproj.GenerateResource.Cache
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Borealis.exe.config
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Borealis.exe
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Borealis.pdb
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.exe
-C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.pdb
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\Bunifu_UI_v1.52.dll
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\bin\Debug\MetroFramework.dll
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.About_DialogBox.resources
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.Experimental_Area.resources
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.ServerDashboard.resources
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.WelcomeScreen.resources
@@ -16,3 +13,7 @@ C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis_Default_N
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.ServerDeployment.resources
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.ServerManagement.resources
 C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.ServerControl.resources
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\BorealisServerManager.csproj.GenerateResource.Cache
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.exe
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\Borealis.pdb
+C:\Users\Nicole\Desktop\Borealis-Server-Manager\BSM\obj\Debug\BorealisServerManager.csprojResolveAssemblyReference.cache
