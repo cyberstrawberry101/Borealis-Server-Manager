@@ -58,6 +58,7 @@
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.mainIcon = new System.Windows.Forms.PictureBox();
             this.sidemenu.SuspendLayout();
             this.panelTabExperimental.SuspendLayout();
             this.panelTabControl.SuspendLayout();
@@ -67,6 +68,7 @@
             this.header.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // sidemenu
@@ -151,7 +153,7 @@
             this.tabExperimental.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabExperimental.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.tabExperimental.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabExperimental.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.EXPERIMENT_ICON;
+            this.tabExperimental.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabExperimental.Iconimage")));
             this.tabExperimental.Iconimage_right = null;
             this.tabExperimental.Iconimage_right_Selected = null;
             this.tabExperimental.Iconimage_Selected = null;
@@ -208,7 +210,7 @@
             this.tabControlGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.tabControlGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabControlGameservers.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.CONSOLE_ICON;
+            this.tabControlGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabControlGameservers.Iconimage")));
             this.tabControlGameservers.Iconimage_right = null;
             this.tabControlGameservers.Iconimage_right_Selected = null;
             this.tabControlGameservers.Iconimage_Selected = null;
@@ -265,7 +267,7 @@
             this.tabManageGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabManageGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.tabManageGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabManageGameservers.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.MANAGEMENT_ICON;
+            this.tabManageGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabManageGameservers.Iconimage")));
             this.tabManageGameservers.Iconimage_right = null;
             this.tabManageGameservers.Iconimage_right_Selected = null;
             this.tabManageGameservers.Iconimage_Selected = null;
@@ -322,7 +324,7 @@
             this.tabDeployGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabDeployGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.tabDeployGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabDeployGameservers.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.DEPLOY_ICON;
+            this.tabDeployGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabDeployGameservers.Iconimage")));
             this.tabDeployGameservers.Iconimage_right = null;
             this.tabDeployGameservers.Iconimage_right_Selected = null;
             this.tabDeployGameservers.Iconimage_Selected = null;
@@ -379,7 +381,7 @@
             this.panelTabDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTabDashboard.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.panelTabDashboard.Iconcolor = System.Drawing.Color.Transparent;
-            this.panelTabDashboard.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.DASHBOARD_ICON;
+            this.panelTabDashboard.Iconimage = ((System.Drawing.Image)(resources.GetObject("panelTabDashboard.Iconimage")));
             this.panelTabDashboard.Iconimage_right = null;
             this.panelTabDashboard.Iconimage_right_Selected = null;
             this.panelTabDashboard.Iconimage_Selected = null;
@@ -435,6 +437,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel2.Controls.Add(this.mainIcon);
             this.panel2.Controls.Add(this.lblVersion);
             this.panel2.Controls.Add(this.bunifuCustomLabel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -449,7 +452,7 @@
             this.lblVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI Light", 7F);
             this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblVersion.Location = new System.Drawing.Point(7, 28);
+            this.lblVersion.Location = new System.Drawing.Point(44, 26);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(66, 12);
             this.lblVersion.TabIndex = 31;
@@ -460,7 +463,7 @@
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(4, 6);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(41, 4);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(218, 25);
             this.bunifuCustomLabel1.TabIndex = 2;
@@ -491,6 +494,16 @@
             // 
             this.fadingTransition.Delay = 1;
             // 
+            // mainIcon
+            // 
+            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
+            this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainIcon.Location = new System.Drawing.Point(9, 6);
+            this.mainIcon.Name = "mainIcon";
+            this.mainIcon.Size = new System.Drawing.Size(30, 30);
+            this.mainIcon.TabIndex = 45;
+            this.mainIcon.TabStop = false;
+            // 
             // BorealisServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +532,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -552,6 +566,7 @@
         private System.Windows.Forms.Panel indicatorTabExperimental;
         private Bunifu.Framework.UI.BunifuiOSSwitch toggleExperimentalMode;
         private Bunifu.Framework.UI.BunifuCustomLabel lblAutoRestart;
+        private System.Windows.Forms.PictureBox mainIcon;
     }
 }
 

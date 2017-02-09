@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>BOREALIS.ico</ApplicationIcon>
+    <ApplicationIcon>BSM.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -174,28 +174,23 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BOREALIS.ico" />
-    <Content Include="RESOURCES\BOREALIS.ico" />
-    <None Include="RESOURCES\EXPERIMENT_ICON.png" />
-    <None Include="RESOURCES\USERS_ICON.png" />
-    <None Include="RESOURCES\TIME_ICON.png" />
-    <None Include="RESOURCES\SERVER_ICON.png" />
-    <None Include="RESOURCES\SCHEDULE_ICON.png" />
-    <None Include="RESOURCES\DASHBOARD_ICON.png" />
-    <None Include="RESOURCES\STOP_ICON.png" />
-    <None Include="RESOURCES\INDICATOR_WARNING.png" />
-    <None Include="RESOURCES\INDICATOR_QUESTION.png" />
-    <None Include="RESOURCES\INDICATOR_EXCLAMATION.png" />
-    <None Include="RESOURCES\INDICATOR_CHECK.png" />
-    <None Include="RESOURCES\EXIT_PROGRAM_ICON.png" />
-    <None Include="RESOURCES\DEPLOY_ICON.png" />
-    <None Include="RESOURCES\CONSOLE_ICON.png" />
-    <None Include="RESOURCES\MANAGEMENT_ICON.png" />
+    <None Include="RESOURCES\MISC_ICONS\System Task Filled-100.png" />
+    <None Include="RESOURCES\TAB_ICONS\MANAGEMENT_ICON.png" />
+    <None Include="RESOURCES\TAB_ICONS\EXPERIMENT_ICON.png" />
+    <None Include="RESOURCES\TAB_ICONS\DEPLOY_ICON.png" />
+    <None Include="RESOURCES\TAB_ICONS\DASHBOARD_ICON.png" />
+    <None Include="RESOURCES\TAB_ICONS\CONSOLE_ICON.png" />
+    <None Include="RESOURCES\MISC_ICONS\STOP_ICON.png" />
+    <None Include="RESOURCES\MISC_ICONS\EXIT_PROGRAM_ICON.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>9.0.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BOREALIS.ico" />
+    <Content Include="BSM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
