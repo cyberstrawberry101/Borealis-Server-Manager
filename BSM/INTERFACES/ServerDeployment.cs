@@ -94,6 +94,10 @@ namespace Borealis
                         ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     }
+                    else
+                    {
+                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
+                    }
                 }
             }
 
@@ -112,6 +116,10 @@ namespace Borealis
                         lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                         ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
                     }
                 }
 
@@ -132,6 +140,10 @@ namespace Borealis
                         lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
                         ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                    else
+                    {
+                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
                     }
                 }
 
