@@ -268,7 +268,7 @@
             // 
             // chkSeparateConfig
             // 
-            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkSeparateConfig.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.chkSeparateConfig.Checked = false;
             this.chkSeparateConfig.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -394,7 +394,7 @@
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnCancelDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnCancelDeployGameserver.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.STOP_ICON;
+            this.btnCancelDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelDeployGameserver.Iconimage")));
             this.btnCancelDeployGameserver.Iconimage_right = null;
             this.btnCancelDeployGameserver.Iconimage_right_Selected = null;
             this.btnCancelDeployGameserver.Iconimage_Selected = null;

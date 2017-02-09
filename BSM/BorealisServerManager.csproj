@@ -189,7 +189,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BOREALIS.ico" />
     <Content Include="BSM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
