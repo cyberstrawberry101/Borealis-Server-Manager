@@ -76,10 +76,11 @@ namespace Borealis
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             btnCancelDeployGameserver.Visible = true;
- 
-            //Inform the user what level of support BGM provides for the gameserver they are about to deploy.
-            //NO CURRENT SUPPORT IMPLEMENTED
-            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "none")
+
+            //===================================================================================//
+            // --> NO CURRENT BSM SUPPORT IMPLEMENTED <--                                        //
+            //===================================================================================//
+            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "none")
             {
                 if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                 {
@@ -101,8 +102,10 @@ namespace Borealis
                 }
             }
 
-            //PARTIAL SUPPORT IMPLEMENTED
-            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "partial")
+            //===================================================================================//
+            // --> PARTIAL BSM SUPPORT IMPLEMENTED <--                                           //
+            //===================================================================================//
+            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "partial")
             {
                 if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                 {
@@ -125,8 +128,10 @@ namespace Borealis
 
             }
 
-            //FULL SUPPORT IMPLEMENTED
-            if (ServerAPI_Classes.QUERY_DATA("bgm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "full")
+            //===================================================================================//
+            // --> FULL BSM SUPPORT IMPLEMENTED <--                                              //
+            //===================================================================================//
+            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "full")
             {
                 if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
