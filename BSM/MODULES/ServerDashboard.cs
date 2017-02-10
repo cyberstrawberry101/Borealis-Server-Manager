@@ -9,14 +9,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Timers;
+using System.Threading;
 
 namespace Borealis
 {
     public partial class ServerDashboard : Form
     {
+        private DashboardInfo _dashboardInfo;
+
         public ServerDashboard()
         {
             InitializeComponent();
+            _dashboardInfo = new DashboardInfo();
         }
 
         //===================================================================================//
@@ -24,20 +28,10 @@ namespace Borealis
         //===================================================================================//
         private void GSM_Performance_Dashboard_Load(object sender, EventArgs e)
         {
-            MonitoringFunctions Monitoring_Instance = new MonitoringFunctions();
-            //OVERALL RAM USAGE
-            //progressRAMUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveRAMUsage(true, false));
-            //lblDetailedRAMUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveRAMUsage(true, false));
+            _dashboardInfo = GetInfo();
+            RefreshUI(_dashboardInfo);
 
-            //OVERALL STORAGE USAGE (DISABLED FOR NOW)
-            //progressDISKUsage.Value = Convert.ToInt32(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, false, true));
-            //lblDetailedDISKUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveDISKInfo(@"C:\", false, true, false) + "GB" + " / " + Monitoring_Instance.RetrieveDISKInfo("C:\\", true, false, false) + "GB");
-
-            //OVERALL CPU USAGE
-            //progressCPUUsage.Value = Monitoring_Instance.RetrieveCPUUsage(true, false);
-            //lblDetailedCPUUsage.Text = Convert.ToString(Monitoring_Instance.RetrieveCPUUsage(true, false) + "%" + " @ " + Environment.ProcessorCount + "-Cores");
-
-            //backgroundMetrics.RunWorkerAsync(); //DISABLED FOR NOW
+            backgroundMetrics.RunWorkerAsync(); //DISABLED FOR NOW
 
             // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
             overallServerStatsGrid.Rows.Add("TestServer01", "1.0GB", "2.00GB", "5.0%", "15 Kb/s", "Running", "Yes");
@@ -54,18 +48,53 @@ namespace Borealis
         private void backgroundMetrics_DoWork(object sender, DoWorkEventArgs e)
         {
             //Instance Function from MonitoringFunctions Class
-            //GSM_MonitoringFunctions Monitoring_Instance = new GSM_MonitoringFunctions();
-            //BackgroundWorker worker = (BackgroundWorker)sender;
-            //while (!worker.CancellationPending)
-            //{
-                //Task.Delay(1000);
 
-                //BeginInvoke((MethodInvoker)delegate
-                //{
-                    //BACKGROUNDWORKER CODE
-                //});
-                //worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
-            //} 
+            BackgroundWorker worker = (BackgroundWorker)sender;
+            while (!worker.CancellationPending)
+            {
+                Thread.Sleep(10);
+                _dashboardInfo = GetInfo();
+                worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
+            }
         }
+
+        private void RefreshUI(DashboardInfo info)
+        {
+            progressRAMUsage.Value = (int)((info.RAM / (double)info.TotalRAM) * 100);
+            lblDetailedRAMUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.RAM / 1024.0, info.TotalRAM / 1024.0);
+
+            progressDISKUsage.Value = (int)(info.DiskUsed / info.DiskTotal * 100);
+            lblDetailedDISKUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.DiskUsed, info.DiskTotal);
+
+            progressCPUUsage.Value = (int)(info.CPU);
+            lblDetailedCPUUsage.Text = string.Format("{0}% @ {1}-Cores", info.CPU, Environment.ProcessorCount);
+        }
+
+        private DashboardInfo GetInfo()
+        {
+            var monitoring = new MonitoringFunctions();
+            var rtn = new DashboardInfo();
+            rtn.TotalRAM = monitoring.RetreiveTotalAvailableRAM();
+            rtn.RAM = monitoring.RetreiveTotalAvailableRAM() - monitoring.RetreiveFreeRAM();
+            rtn.DiskUsed = monitoring.RetrieveDISKInfo(@"C:\", false, true, false);
+            rtn.DiskTotal = monitoring.RetrieveDISKInfo("C:\\", true, false, false);
+            rtn.CPU = monitoring.RetrieveCPUUsage();
+
+            return rtn;
+        }
+
+        private void backgroundMetrics_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            RefreshUI(_dashboardInfo);
+        }
+    }
+
+    public class DashboardInfo
+    {
+        public long RAM { get; set; }
+        public long TotalRAM { get; set; }
+        public double DiskUsed { get; set; }
+        public double DiskTotal { get; set; }
+        public int CPU { get; set; }
     }
 }

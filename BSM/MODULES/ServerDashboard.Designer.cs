@@ -42,11 +42,6 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
-            this.panelMemoryUsage = new System.Windows.Forms.Panel();
-            this.panelDiskUsage = new System.Windows.Forms.Panel();
-            this.panelCPUUsage = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,9 +49,14 @@
             this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.progressDISKUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.progressCPUUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
+            this.panelMemoryUsage = new System.Windows.Forms.Panel();
             this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.panelDiskUsage = new System.Windows.Forms.Panel();
+            this.progressDISKUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.panelCPUUsage = new System.Windows.Forms.Panel();
+            this.progressCPUUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -225,52 +225,6 @@
             this.overallServerStatsGrid.Size = new System.Drawing.Size(700, 223);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
-            // backgroundMetrics
-            // 
-            this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
-            // 
-            // panelMemoryUsage
-            // 
-            this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
-            this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
-            this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
-            this.panelMemoryUsage.Location = new System.Drawing.Point(23, 68);
-            this.panelMemoryUsage.Name = "panelMemoryUsage";
-            this.panelMemoryUsage.Size = new System.Drawing.Size(200, 205);
-            this.panelMemoryUsage.TabIndex = 61;
-            // 
-            // panelDiskUsage
-            // 
-            this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
-            this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
-            this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
-            this.panelDiskUsage.Location = new System.Drawing.Point(248, 68);
-            this.panelDiskUsage.Name = "panelDiskUsage";
-            this.panelDiskUsage.Size = new System.Drawing.Size(200, 205);
-            this.panelDiskUsage.TabIndex = 62;
-            // 
-            // panelCPUUsage
-            // 
-            this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
-            this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
-            this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
-            this.panelCPUUsage.Location = new System.Drawing.Point(472, 68);
-            this.panelCPUUsage.Name = "panelCPUUsage";
-            this.panelCPUUsage.Size = new System.Drawing.Size(200, 205);
-            this.panelCPUUsage.TabIndex = 62;
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.Red;
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(257, 20);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(293, 19);
-            this.bunifuCustomLabel3.TabIndex = 63;
-            this.bunifuCustomLabel3.Text = "(Disabled at the moment due to a memory leak)";
-            // 
             // columnGameServerName
             // 
             this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -320,6 +274,54 @@
             this.columnRestartFlag.Name = "columnRestartFlag";
             this.columnRestartFlag.ReadOnly = true;
             // 
+            // backgroundMetrics
+            // 
+            this.backgroundMetrics.WorkerReportsProgress = true;
+            this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
+            this.backgroundMetrics.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundMetrics_ProgressChanged);
+            // 
+            // panelMemoryUsage
+            // 
+            this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
+            this.panelMemoryUsage.Location = new System.Drawing.Point(23, 68);
+            this.panelMemoryUsage.Name = "panelMemoryUsage";
+            this.panelMemoryUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelMemoryUsage.TabIndex = 61;
+            // 
+            // progressRAMUsage
+            // 
+            this.progressRAMUsage.animated = true;
+            this.progressRAMUsage.animationIterval = 1;
+            this.progressRAMUsage.animationSpeed = 60;
+            this.progressRAMUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.progressRAMUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressRAMUsage.BackgroundImage")));
+            this.progressRAMUsage.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.progressRAMUsage.LabelVisible = true;
+            this.progressRAMUsage.LineProgressThickness = 8;
+            this.progressRAMUsage.LineThickness = 5;
+            this.progressRAMUsage.Location = new System.Drawing.Point(23, 1);
+            this.progressRAMUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.progressRAMUsage.MaxValue = 100;
+            this.progressRAMUsage.Name = "progressRAMUsage";
+            this.progressRAMUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
+            this.progressRAMUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.progressRAMUsage.Size = new System.Drawing.Size(155, 155);
+            this.progressRAMUsage.TabIndex = 49;
+            this.progressRAMUsage.Value = 0;
+            // 
+            // panelDiskUsage
+            // 
+            this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
+            this.panelDiskUsage.Location = new System.Drawing.Point(248, 68);
+            this.panelDiskUsage.Name = "panelDiskUsage";
+            this.panelDiskUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelDiskUsage.TabIndex = 62;
+            // 
             // progressDISKUsage
             // 
             this.progressDISKUsage.animated = true;
@@ -341,6 +343,16 @@
             this.progressDISKUsage.Size = new System.Drawing.Size(155, 155);
             this.progressDISKUsage.TabIndex = 52;
             this.progressDISKUsage.Value = 0;
+            // 
+            // panelCPUUsage
+            // 
+            this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
+            this.panelCPUUsage.Location = new System.Drawing.Point(472, 68);
+            this.panelCPUUsage.Name = "panelCPUUsage";
+            this.panelCPUUsage.Size = new System.Drawing.Size(200, 205);
+            this.panelCPUUsage.TabIndex = 62;
             // 
             // progressCPUUsage
             // 
@@ -364,27 +376,17 @@
             this.progressCPUUsage.TabIndex = 55;
             this.progressCPUUsage.Value = 0;
             // 
-            // progressRAMUsage
+            // bunifuCustomLabel3
             // 
-            this.progressRAMUsage.animated = true;
-            this.progressRAMUsage.animationIterval = 1;
-            this.progressRAMUsage.animationSpeed = 60;
-            this.progressRAMUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.progressRAMUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressRAMUsage.BackgroundImage")));
-            this.progressRAMUsage.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.progressRAMUsage.LabelVisible = true;
-            this.progressRAMUsage.LineProgressThickness = 8;
-            this.progressRAMUsage.LineThickness = 5;
-            this.progressRAMUsage.Location = new System.Drawing.Point(23, 1);
-            this.progressRAMUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.progressRAMUsage.MaxValue = 100;
-            this.progressRAMUsage.Name = "progressRAMUsage";
-            this.progressRAMUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressRAMUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressRAMUsage.Size = new System.Drawing.Size(155, 155);
-            this.progressRAMUsage.TabIndex = 49;
-            this.progressRAMUsage.Value = 0;
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.Red;
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(257, 20);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(293, 19);
+            this.bunifuCustomLabel3.TabIndex = 63;
+            this.bunifuCustomLabel3.Text = "(Disabled at the moment due to a memory leak)";
             // 
             // ServerDashboard
             // 
