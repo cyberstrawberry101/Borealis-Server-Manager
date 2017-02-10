@@ -184,12 +184,12 @@
     <None Include="RESOURCES\MISC_ICONS\EXIT_PROGRAM_ICON.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BSM.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>9.0.1</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BSM.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
