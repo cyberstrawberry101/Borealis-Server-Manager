@@ -86,17 +86,21 @@ namespace Borealis
         public int RetrieveCPUUsage()
         {
             // http://stackoverflow.com/questions/9777661/returning-cpu-usage-in-wmi-using-c-sharp
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor");
-
-            var count = 0;
-            var mean = 0;
-            foreach (ManagementObject obj in searcher.Get())
+            using (var searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor"))
             {
-                //We only care about the first value
-                mean += Convert.ToInt32(obj["PercentProcessorTime"]);
-                count++;
+                var count = 0;
+                var mean = 0;
+                var collection = searcher.Get();
+                foreach (ManagementObject obj in collection)
+                {
+                    //We only care about the first value
+                    mean += Convert.ToInt32(obj["PercentProcessorTime"]);
+                    count++;
+                    obj.Dispose();
+                }
+                collection.Dispose();
+                return mean / count;
             }
-            return mean / count;
         }
     }
 }
