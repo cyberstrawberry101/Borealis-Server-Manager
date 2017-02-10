@@ -52,7 +52,7 @@ namespace Borealis
             BackgroundWorker worker = (BackgroundWorker)sender;
             while (!worker.CancellationPending)
             {
-                Thread.Sleep(10);
+                Thread.Sleep(500);
                 _dashboardInfo = GetInfo();
                 worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
             }
