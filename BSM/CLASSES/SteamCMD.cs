@@ -19,27 +19,27 @@ namespace Borealis
             try
             {
                 ServerDeployment ServerDeploymentDelegate = new ServerDeployment();
-                if (System.IO.File.Exists(DestinationFolder + @"\steamcmd.exe") == false)
+                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\steamcmd.exe") == false)
                 {
                     //Create Server Directory for SteamCMD
-                    System.IO.FileInfo file = new System.IO.FileInfo(DestinationFolder);
+                    System.IO.FileInfo file = new System.IO.FileInfo(Environment.CurrentDirectory);
                     file.Directory.Create();
 
                     //Download SteamCMD.zip to Server Directory
                     using (System.Net.WebClient client = new System.Net.WebClient())
                     {
                         client.DownloadFile(new Uri("https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"),
-                        DestinationFolder + @"\SteamCMD.zip");
+                        Environment.CurrentDirectory + @"\SteamCMD.zip");
                     }
 
                     //Extract SteamCMD.zip to Server Directory
-                    ZipFile.ExtractToDirectory(DestinationFolder + @"\SteamCMD.zip", DestinationFolder);
+                    ZipFile.ExtractToDirectory(Environment.CurrentDirectory + @"\SteamCMD.zip", Environment.CurrentDirectory);
 
                     //Delete old zip file.
-                    System.IO.File.Delete(DestinationFolder + @"\SteamCMD.zip");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\SteamCMD.zip");
 
-                    //Execute SteamCMD to download files from Valve.
-                    ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", false);
+                    //Execute SteamCMD to download files from Valve.  //THIS CODE IS NO LONGER NEEDED SINCE IT IS IMPLIED WHEN YOU DEPLOY A SERVER
+                    //ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", false);
                 }
             }
             catch (Exception)

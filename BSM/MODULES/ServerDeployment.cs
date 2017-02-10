@@ -73,90 +73,113 @@ namespace Borealis
         //===================================================================================//
         // DEPLOY A GAMESERVER                                                               //
         //===================================================================================//
+        public static class DeploymentValues
+        {
+            //Variables to be used during deployment:
+            public static string steamcmd_required { get; set; }
+            public static string bsm_integration { get; set; }
+            public static string deployment_parameters { get; set; }
+            public static string deployment_directory { get; set; }
+        }
+
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
-            btnCancelDeployGameserver.Visible = true;
+            //btnCancelDeployGameserver.Visible = true;
+            lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
 
-            //===================================================================================//
-            // --> NO CURRENT BSM SUPPORT IMPLEMENTED <--                                        //
-            //===================================================================================//
-            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "none")
-            {
-                if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+            //Assign Static Values:
+            DeploymentValues.bsm_integration = ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
+            DeploymentValues.steamcmd_required = ServerAPI_Classes.QUERY_DATA("steamcmd_required", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
+            DeploymentValues.deployment_parameters = ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
+            if (txtboxDestinationFolder.Text == "")
                 {
-                    if (ServerAPI_Classes.QUERY_DATA("steamcmd_required", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "true")
-                    {
-                        //Download and prepare SteamCMD
-                        lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
-                        SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
-
-                        //Indicate what gameserver is currently being downloaded.
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                        ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
-                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    }
-                    else
-                    {
-                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
-                    }
+                    DeploymentValues.deployment_directory = Environment.CurrentDirectory;
                 }
+            else
+                {
+                    DeploymentValues.deployment_directory = txtboxDestinationFolder.Text;
+                }
+            MessageBox.Show(string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit")); ///DEBUG
+            //Deploy the gameserver:
+            switch (DeploymentValues.bsm_integration)
+            {
+                case "none":
+                    {
+                        switch (DeploymentValues.steamcmd_required)
+                        {
+                            case "True":
+                                {
+                                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+                                    {
+                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
+                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                                    }
+                                }
+                                break;
+
+                            case "False":
+                                {
+                                    //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
+                case "partial":
+                    {
+                        switch (DeploymentValues.steamcmd_required)
+                        {
+                            case "True":
+                                {
+                                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                                    {
+                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
+                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                                    }
+                                }
+                                break;
+
+                            case "False":
+                                {
+                                    //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
+                case "full":
+                    {
+                        switch (DeploymentValues.steamcmd_required)
+                        {
+                            case "True":
+                                {
+                                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                    {
+                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
+                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                                    }
+                                }
+                                break;
+
+                            case "False":
+                                {
+                                    //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
+                                }
+                                break;
+                        }
+                    }
+                    break;
             }
 
-            //===================================================================================//
-            // --> PARTIAL BSM SUPPORT IMPLEMENTED <--                                           //
-            //===================================================================================//
-            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "partial")
-            {
-                if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                {
-                    if (ServerAPI_Classes.QUERY_DATA("steamcmd_required", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "true")
-                    {
-                        //Download and prepare SteamCMD
-                        lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
-                        SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
-
-                        //Indicate what gameserver is currently being downloaded.
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                        ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
-                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    }
-                    else
-                    {
-                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
-                    }
-                }
-
-            }
-
-            //===================================================================================//
-            // --> FULL BSM SUPPORT IMPLEMENTED <--                                              //
-            //===================================================================================//
-            if (ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "full")
-            {
-                if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, dropdownServerSelection.Text, "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    if (ServerAPI_Classes.QUERY_DATA("steamcmd_required", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)) == "true")
-                    {
-                        //Download and prepare SteamCMD
-                        lblDownloadProgressDetails.Text = "Status: Downloading / Installing SteamCMD...";
-                        SteamCMD_Classes.DownloadSteamCMD(txtboxDestinationFolder.Text);
-
-                        //Indicate what gameserver is currently being downloaded.
-                        lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-                        ExternalExecution_Classes.LaunchExternalProgram(txtboxDestinationFolder.Text + @"\steamcmd.exe", ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text)), false);
-                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    }
-                    else
-                    {
-                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
-                    }
-                }
-
-            }
 
             //Finish up the process!
+            //btnCancelDeployGameserver.Visible = false;
             lblDownloadProgressDetails.Text = "Status: Idle";
-            btnCancelDeployGameserver.Visible = false;
         }
 
         //===================================================================================//
@@ -167,6 +190,7 @@ namespace Borealis
             //Enable the option to choose where to install the server.
             lblDestination.Visible = true;
             lblDestinationDetails.Visible = true;
+            lblDestinationDetailsSubtext.Visible = true;
             txtboxDestinationFolder.Visible = true;
             btnBrowseDestination.Visible = true;
             chkSeparateConfig.Visible = true;

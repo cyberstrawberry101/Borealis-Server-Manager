@@ -72,29 +72,29 @@
     <Compile Include="CLASSES\MonitoringFunctions.cs" />
     <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
-    <Compile Include="INTERFACES\About.cs">
+    <Compile Include="MODULES\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\About.Designer.cs">
+    <Compile Include="MODULES\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\Experimental_Area.cs">
+    <Compile Include="MODULES\Experimental_Area.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\Experimental_Area.Designer.cs">
+    <Compile Include="MODULES\Experimental_Area.Designer.cs">
       <DependentUpon>Experimental_Area.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\ServerDashboard.cs">
+    <Compile Include="MODULES\ServerDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\ServerDashboard.Designer.cs">
+    <Compile Include="MODULES\ServerDashboard.Designer.cs">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\SettingsManagement.cs" />
-    <Compile Include="INTERFACES\WelcomeScreen.cs">
+    <Compile Include="MODULES\WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\WelcomeScreen.Designer.cs">
+    <Compile Include="MODULES\WelcomeScreen.Designer.cs">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
@@ -105,34 +105,34 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="INTERFACES\ServerDeployment.cs">
+    <Compile Include="MODULES\ServerDeployment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\ServerDeployment.Designer.cs">
+    <Compile Include="MODULES\ServerDeployment.Designer.cs">
       <DependentUpon>ServerDeployment.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\ServerManagement.cs">
+    <Compile Include="MODULES\ServerManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\ServerManagement.Designer.cs">
+    <Compile Include="MODULES\ServerManagement.Designer.cs">
       <DependentUpon>ServerManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="INTERFACES\ServerControl.cs">
+    <Compile Include="MODULES\ServerControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="INTERFACES\ServerControl.Designer.cs">
+    <Compile Include="MODULES\ServerControl.Designer.cs">
       <DependentUpon>ServerControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="INTERFACES\About.resx">
+    <EmbeddedResource Include="MODULES\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\Experimental_Area.resx">
+    <EmbeddedResource Include="MODULES\Experimental_Area.resx">
       <DependentUpon>Experimental_Area.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\ServerDashboard.resx">
+    <EmbeddedResource Include="MODULES\ServerDashboard.resx">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\WelcomeScreen.resx">
+    <EmbeddedResource Include="MODULES\WelcomeScreen.resx">
       <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
@@ -143,13 +143,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\ServerDeployment.resx">
+    <EmbeddedResource Include="MODULES\ServerDeployment.resx">
       <DependentUpon>ServerDeployment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\ServerManagement.resx">
+    <EmbeddedResource Include="MODULES\ServerManagement.resx">
       <DependentUpon>ServerManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="INTERFACES\ServerControl.resx">
+    <EmbeddedResource Include="MODULES\ServerControl.resx">
       <DependentUpon>ServerControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />

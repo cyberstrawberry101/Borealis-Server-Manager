@@ -52,6 +52,7 @@
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblDestinationDetailsSubtext = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SuspendLayout();
             // 
             // progressbarDownloadProgressOverall
@@ -108,9 +109,9 @@
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetails.Location = new System.Drawing.Point(13, 203);
             this.lblDestinationDetails.Name = "lblDestinationDetails";
-            this.lblDestinationDetails.Size = new System.Drawing.Size(234, 13);
+            this.lblDestinationDetails.Size = new System.Drawing.Size(299, 13);
             this.lblDestinationDetails.TabIndex = 37;
-            this.lblDestinationDetails.Text = "Choose where you want to install the gameserver";
+            this.lblDestinationDetails.Text = "Choose where you want to install the gameserver (e.g. C:\\BSM\\)";
             this.lblDestinationDetails.Visible = false;
             // 
             // lblDownloadProgress
@@ -183,7 +184,6 @@
             this.txtboxDestinationFolder.Name = "txtboxDestinationFolder";
             this.txtboxDestinationFolder.Size = new System.Drawing.Size(346, 29);
             this.txtboxDestinationFolder.TabIndex = 32;
-            this.txtboxDestinationFolder.Text = "C:\\BGM\\";
             this.txtboxDestinationFolder.Visible = false;
             // 
             // lblDestination
@@ -288,12 +288,6 @@
             this.dropdownExistingServer.FormattingEnabled = true;
             this.dropdownExistingServer.IntegralHeight = false;
             this.dropdownExistingServer.ItemHeight = 23;
-            this.dropdownExistingServer.Items.AddRange(new object[] {
-            "TestServer01",
-            "TestServer02",
-            "TestServer03",
-            "TestServer04",
-            "TestServer05"});
             this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
             this.dropdownExistingServer.MaxDropDownItems = 100;
             this.dropdownExistingServer.Name = "dropdownExistingServer";
@@ -419,12 +413,26 @@
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelDeployGameserver.Visible = false;
             // 
+            // lblDestinationDetailsSubtext
+            // 
+            this.lblDestinationDetailsSubtext.AutoSize = true;
+            this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 257);
+            this.lblDestinationDetailsSubtext.Name = "lblDestinationDetailsSubtext";
+            this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
+            this.lblDestinationDetailsSubtext.TabIndex = 49;
+            this.lblDestinationDetailsSubtext.Text = " (Leave blank if you want it installed in the same directory as BSM)";
+            this.lblDestinationDetailsSubtext.Visible = false;
+            // 
             // ServerDeployment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(700, 537);
+            this.Controls.Add(this.lblDestinationDetailsSubtext);
             this.Controls.Add(this.txtServerGivenName);
             this.Controls.Add(this.lblServerNameDetails);
             this.Controls.Add(this.lblServerName);
@@ -473,12 +481,13 @@
         private MetroFramework.Controls.MetroComboBox dropdownServerSelection;
         private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgressOverall;
         private System.ComponentModel.BackgroundWorker serverDeploymentWorker;
-        private Bunifu.Framework.UI.BunifuFlatButton btnCancelDeployGameserver;
         private Bunifu.Framework.UI.BunifuCustomLabel lblSeparateConfig;
         private Bunifu.Framework.UI.BunifuCheckbox chkSeparateConfig;
         private MetroFramework.Controls.MetroComboBox dropdownExistingServer;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerNameDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerName;
         private System.Windows.Forms.TextBox txtServerGivenName;
+        private Bunifu.Framework.UI.BunifuFlatButton btnCancelDeployGameserver;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblDestinationDetailsSubtext;
     }
 }
