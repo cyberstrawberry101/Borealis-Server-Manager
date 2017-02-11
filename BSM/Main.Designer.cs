@@ -52,13 +52,13 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.mainIcon = new System.Windows.Forms.PictureBox();
             this.sidemenu.SuspendLayout();
             this.panelTabExperimental.SuspendLayout();
             this.panelTabControl.SuspendLayout();
@@ -67,8 +67,8 @@
             this.panelDashboard.SuspendLayout();
             this.header.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.SuspendLayout();
             // 
             // sidemenu
@@ -446,6 +446,16 @@
             this.panel2.Size = new System.Drawing.Size(260, 45);
             this.panel2.TabIndex = 5;
             // 
+            // mainIcon
+            // 
+            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
+            this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainIcon.Location = new System.Drawing.Point(9, 6);
+            this.mainIcon.Name = "mainIcon";
+            this.mainIcon.Size = new System.Drawing.Size(30, 30);
+            this.mainIcon.TabIndex = 45;
+            this.mainIcon.TabStop = false;
+            // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
@@ -494,16 +504,6 @@
             // 
             this.fadingTransition.Delay = 1;
             // 
-            // mainIcon
-            // 
-            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
-            this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainIcon.Location = new System.Drawing.Point(9, 6);
-            this.mainIcon.Name = "mainIcon";
-            this.mainIcon.Size = new System.Drawing.Size(30, 30);
-            this.mainIcon.TabIndex = 45;
-            this.mainIcon.TabStop = false;
-            // 
             // BorealisServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,7 +519,7 @@
             this.Name = "BorealisServerManager";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GameServerManager v0.1";
+            this.Text = "Borealis Server Manager";
             this.Load += new System.EventHandler(this.BorealisServerManager_Load);
             this.sidemenu.ResumeLayout(false);
             this.sidemenu.PerformLayout();
@@ -531,8 +531,8 @@
             this.header.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.ResumeLayout(false);
 
         }
