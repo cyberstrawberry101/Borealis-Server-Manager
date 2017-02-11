@@ -1,10 +1,11 @@
-# Borealis Game Manager #
-* Utility designed to facilitate the deployment, management, and control of various kinds of dedicated gameservers.
+# Borealis Server Manager #
+* Utility designed to facilitate the deployment, management, and control of various kinds of dedicated gameservers.  Primarily focusing on SteamCMD-supported servers.
 
 **Designed by:** Nicole Rappe
+**API Designed by:** Hunter Nakagawa
 
 **Requirements:**
-* .NET Framework 4.6.1
+* .NET Framework 4.5+
 * Windows Operating System
 
 **Dependencies (Included)**
