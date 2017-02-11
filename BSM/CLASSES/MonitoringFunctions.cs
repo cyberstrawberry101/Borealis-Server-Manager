@@ -7,6 +7,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Timers;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.Devices;
+using System.Threading;
+using System.Management;
+
+using System.Linq;
 
 namespace Borealis
 {
@@ -15,11 +20,16 @@ namespace Borealis
         //===================================================================================//
         // RAM UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
-        public string RetrieveRAMUsage(bool OverallUsage, bool IndividualUsage)
+        public long RetreiveFreeRAM()
         {
-            PerformanceCounter ramCounter;
-            ramCounter = new PerformanceCounter("Memory", "Available MBytes");
-            return Convert.ToString(ramCounter.NextValue());
+            var info = new ComputerInfo();
+            return (long)(info.AvailablePhysicalMemory / 1024 / 1024);
+        }
+
+        public long RetreiveTotalAvailableRAM()
+        {
+            var info = new ComputerInfo();
+            return (long)(info.TotalPhysicalMemory / 1024 / 1024);
         }
 
         //===================================================================================//
@@ -73,15 +83,24 @@ namespace Borealis
         //===================================================================================//
         // CPU UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
-        public int RetrieveCPUUsage(bool OverallUsage, bool IndividualUsage)
+        public int RetrieveCPUUsage()
         {
-            PerformanceCounter cpuCounter;
-            cpuCounter = new PerformanceCounter();
-            cpuCounter.CategoryName = "Processor";
-            cpuCounter.CounterName = "% Processor Time";
-            cpuCounter.InstanceName = "_Total";
-            return (int)cpuCounter.NextValue();
+            // http://stackoverflow.com/questions/9777661/returning-cpu-usage-in-wmi-using-c-sharp
+            using (var searcher = new ManagementObjectSearcher("select * from Win32_PerfFormattedData_PerfOS_Processor"))
+            {
+                var count = 0;
+                var mean = 0;
+                var collection = searcher.Get();
+                foreach (ManagementObject obj in collection)
+                {
+                    //We only care about the first value
+                    mean += Convert.ToInt32(obj["PercentProcessorTime"]);
+                    count++;
+                    obj.Dispose();
+                }
+                collection.Dispose();
+                return mean / count;
+            }
         }
-
     }
 }
