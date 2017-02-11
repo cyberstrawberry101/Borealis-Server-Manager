@@ -14,13 +14,8 @@
 * **BunifuFramework:** https://devtools.bunifu.co.ke/
 
 **Notable Contributors**
-* **Capsup**
-https://github.com/Capsup
-**Helped assist with more professionally structuring the project.**
-
-* **CyrilPaulus**
-https://github.com/CyrilPaulus
-**Helped code the dashboard widgets to work properly.**
+* **Capsup:** https://github.com/Capsup **Helped assist with more professionally structuring the project.**
+* **CyrilPaulus:** https://github.com/CyrilPaulus **Helped code the dashboard widgets to work properly.**
 
 
 **Dashboard Panel**
