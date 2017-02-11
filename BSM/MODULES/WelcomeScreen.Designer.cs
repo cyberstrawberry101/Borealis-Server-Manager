@@ -65,9 +65,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 508);
+            this.panel1.Location = new System.Drawing.Point(0, 528);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(700, 29);
+            this.panel1.Size = new System.Drawing.Size(725, 29);
             this.panel1.TabIndex = 46;
             // 
             // label1
@@ -86,7 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 537);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.bunifuCustomLabel14);
             this.Controls.Add(this.bunifuCustomLabel16);

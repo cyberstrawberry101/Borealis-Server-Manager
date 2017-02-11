@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerDashboard));
             this.lblDetailedCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -161,23 +161,23 @@
             this.overallServerStatsGrid.AllowUserToOrderColumns = true;
             this.overallServerStatsGrid.AllowUserToResizeColumns = false;
             this.overallServerStatsGrid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.overallServerStatsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.overallServerStatsGrid.BackgroundColor = System.Drawing.Color.White;
             this.overallServerStatsGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.overallServerStatsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.overallServerStatsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.overallServerStatsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.overallServerStatsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.overallServerStatsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnGameServerName,
@@ -188,40 +188,40 @@
             this.columnStatus,
             this.columnRestartFlag});
             this.overallServerStatsGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.overallServerStatsGrid.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.overallServerStatsGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.overallServerStatsGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.overallServerStatsGrid.DoubleBuffered = false;
             this.overallServerStatsGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
             this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 314);
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 334);
             this.overallServerStatsGrid.MultiSelect = false;
             this.overallServerStatsGrid.Name = "overallServerStatsGrid";
             this.overallServerStatsGrid.ReadOnly = true;
             this.overallServerStatsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.overallServerStatsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.overallServerStatsGrid.RowHeadersVisible = false;
             this.overallServerStatsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.overallServerStatsGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.overallServerStatsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.overallServerStatsGrid.ShowCellToolTips = false;
             this.overallServerStatsGrid.ShowEditingIcon = false;
-            this.overallServerStatsGrid.Size = new System.Drawing.Size(700, 223);
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 223);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
             // columnGameServerName
@@ -284,7 +284,7 @@
             this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
             this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
             this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
-            this.panelMemoryUsage.Location = new System.Drawing.Point(23, 68);
+            this.panelMemoryUsage.Location = new System.Drawing.Point(37, 68);
             this.panelMemoryUsage.Name = "panelMemoryUsage";
             this.panelMemoryUsage.Size = new System.Drawing.Size(200, 205);
             this.panelMemoryUsage.TabIndex = 61;
@@ -316,7 +316,7 @@
             this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
             this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
             this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
-            this.panelDiskUsage.Location = new System.Drawing.Point(248, 68);
+            this.panelDiskUsage.Location = new System.Drawing.Point(262, 68);
             this.panelDiskUsage.Name = "panelDiskUsage";
             this.panelDiskUsage.Size = new System.Drawing.Size(200, 205);
             this.panelDiskUsage.TabIndex = 62;
@@ -348,7 +348,7 @@
             this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
             this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
             this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
-            this.panelCPUUsage.Location = new System.Drawing.Point(472, 68);
+            this.panelCPUUsage.Location = new System.Drawing.Point(486, 68);
             this.panelCPUUsage.Name = "panelCPUUsage";
             this.panelCPUUsage.Size = new System.Drawing.Size(200, 205);
             this.panelCPUUsage.TabIndex = 62;
@@ -380,7 +380,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(700, 537);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.panelDiskUsage);
             this.Controls.Add(this.panelCPUUsage);
             this.Controls.Add(this.panelMemoryUsage);

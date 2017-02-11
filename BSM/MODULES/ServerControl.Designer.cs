@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerControl));
-            this.panelTechServices = new System.Windows.Forms.Panel();
             this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
@@ -44,28 +43,8 @@
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.panelTechServices.SuspendLayout();
             this.consoleViewport.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelTechServices
-            // 
-            this.panelTechServices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.panelTechServices.Controls.Add(this.chkAutoRestart);
-            this.panelTechServices.Controls.Add(this.bunifuCustomLabel1);
-            this.panelTechServices.Controls.Add(this.comboboxGameserverList);
-            this.panelTechServices.Controls.Add(this.lblAutoRestart);
-            this.panelTechServices.Controls.Add(this.btnStartServer);
-            this.panelTechServices.Controls.Add(this.consoleViewport);
-            this.panelTechServices.Controls.Add(this.btnStopServer);
-            this.panelTechServices.Controls.Add(this.bunifuCustomLabel14);
-            this.panelTechServices.Controls.Add(this.bunifuCustomLabel16);
-            this.panelTechServices.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTechServices.Location = new System.Drawing.Point(0, 0);
-            this.panelTechServices.Name = "panelTechServices";
-            this.panelTechServices.Size = new System.Drawing.Size(700, 537);
-            this.panelTechServices.TabIndex = 20;
-            this.panelTechServices.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTechServices_Paint);
             // 
             // chkAutoRestart
             // 
@@ -87,7 +66,7 @@
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(383, 8);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(414, 10);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(142, 19);
             this.bunifuCustomLabel1.TabIndex = 41;
@@ -99,7 +78,7 @@
             this.comboboxGameserverList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.comboboxGameserverList.FormattingEnabled = true;
             this.comboboxGameserverList.ItemHeight = 23;
-            this.comboboxGameserverList.Location = new System.Drawing.Point(387, 30);
+            this.comboboxGameserverList.Location = new System.Drawing.Point(418, 32);
             this.comboboxGameserverList.Name = "comboboxGameserverList";
             this.comboboxGameserverList.Size = new System.Drawing.Size(293, 29);
             this.comboboxGameserverList.Sorted = true;
@@ -143,7 +122,7 @@
             this.btnStartServer.IconVisible = true;
             this.btnStartServer.IconZoom = 90D;
             this.btnStartServer.IsTab = false;
-            this.btnStartServer.Location = new System.Drawing.Point(378, 473);
+            this.btnStartServer.Location = new System.Drawing.Point(413, 493);
             this.btnStartServer.Name = "btnStartServer";
             this.btnStartServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnStartServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -170,7 +149,7 @@
             this.consoleViewport.Name = "consoleViewport";
             this.consoleViewport.RightSahddow = true;
             this.consoleViewport.ShadowDepth = 20;
-            this.consoleViewport.Size = new System.Drawing.Size(664, 352);
+            this.consoleViewport.Size = new System.Drawing.Size(695, 352);
             this.consoleViewport.TabIndex = 15;
             // 
             // txtboxIssueCommand
@@ -184,7 +163,7 @@
             this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 320);
             this.txtboxIssueCommand.Multiline = true;
             this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(664, 32);
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(695, 32);
             this.txtboxIssueCommand.TabIndex = 33;
             this.txtboxIssueCommand.Text = "> Server is not running";
             this.txtboxIssueCommand.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtboxIssueCommand_MouseClick);
@@ -204,7 +183,7 @@
             "Yep, pretty boring in this white box."});
             this.txtboxConsoleOutput.Location = new System.Drawing.Point(0, 0);
             this.txtboxConsoleOutput.Name = "txtboxConsoleOutput";
-            this.txtboxConsoleOutput.Size = new System.Drawing.Size(664, 352);
+            this.txtboxConsoleOutput.Size = new System.Drawing.Size(695, 352);
             this.txtboxConsoleOutput.TabIndex = 2;
             // 
             // btnStopServer
@@ -230,7 +209,7 @@
             this.btnStopServer.IconVisible = true;
             this.btnStopServer.IconZoom = 45D;
             this.btnStopServer.IsTab = false;
-            this.btnStopServer.Location = new System.Drawing.Point(537, 473);
+            this.btnStopServer.Location = new System.Drawing.Point(568, 493);
             this.btnStopServer.Name = "btnStopServer";
             this.btnStopServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnStopServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
@@ -296,22 +275,27 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 537);
-            this.Controls.Add(this.panelTechServices);
+            this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.chkAutoRestart);
+            this.Controls.Add(this.bunifuCustomLabel1);
+            this.Controls.Add(this.bunifuCustomLabel16);
+            this.Controls.Add(this.comboboxGameserverList);
+            this.Controls.Add(this.bunifuCustomLabel14);
+            this.Controls.Add(this.lblAutoRestart);
+            this.Controls.Add(this.btnStopServer);
+            this.Controls.Add(this.btnStartServer);
+            this.Controls.Add(this.consoleViewport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerControl";
             this.Text = "Toolkit_TechServices_Panel";
-            this.panelTechServices.ResumeLayout(false);
-            this.panelTechServices.PerformLayout();
             this.consoleViewport.ResumeLayout(false);
             this.consoleViewport.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelTechServices;
         private Bunifu.Framework.UI.BunifuFlatButton btnStopServer;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel14;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;

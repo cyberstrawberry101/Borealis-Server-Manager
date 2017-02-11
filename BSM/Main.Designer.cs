@@ -85,7 +85,7 @@
             this.sidemenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidemenu.Location = new System.Drawing.Point(0, 45);
             this.sidemenu.Name = "sidemenu";
-            this.sidemenu.Size = new System.Drawing.Size(260, 537);
+            this.sidemenu.Size = new System.Drawing.Size(260, 554);
             this.sidemenu.TabIndex = 0;
             // 
             // toggleExperimentalMode
@@ -94,7 +94,7 @@
             this.toggleExperimentalMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toggleExperimentalMode.BackgroundImage")));
             this.toggleExperimentalMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.toggleExperimentalMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleExperimentalMode.Location = new System.Drawing.Point(9, 502);
+            this.toggleExperimentalMode.Location = new System.Drawing.Point(9, 518);
             this.toggleExperimentalMode.Name = "toggleExperimentalMode";
             this.toggleExperimentalMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.toggleExperimentalMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -109,7 +109,7 @@
             this.lblAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblAutoRestart.Location = new System.Drawing.Point(58, 508);
+            this.lblAutoRestart.Location = new System.Drawing.Point(58, 524);
             this.lblAutoRestart.Name = "lblAutoRestart";
             this.lblAutoRestart.Size = new System.Drawing.Size(124, 19);
             this.lblAutoRestart.TabIndex = 43;
@@ -121,7 +121,7 @@
             this.lblAttribution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.lblAttribution.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblAttribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblAttribution.Location = new System.Drawing.Point(220, 514);
+            this.lblAttribution.Location = new System.Drawing.Point(217, 530);
             this.lblAttribution.Name = "lblAttribution";
             this.lblAttribution.Size = new System.Drawing.Size(35, 13);
             this.lblAttribution.TabIndex = 23;
@@ -431,7 +431,7 @@
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(957, 45);
+            this.header.Size = new System.Drawing.Size(985, 45);
             this.header.TabIndex = 1;
             // 
             // panel2
@@ -484,7 +484,7 @@
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(923, 9);
+            this.btnExitProgram.Location = new System.Drawing.Point(949, 9);
             this.btnExitProgram.Name = "btnExitProgram";
             this.btnExitProgram.Size = new System.Drawing.Size(26, 26);
             this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -509,7 +509,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(957, 582);
+            this.ClientSize = new System.Drawing.Size(985, 599);
             this.Controls.Add(this.sidemenu);
             this.Controls.Add(this.header);
             this.DoubleBuffered = true;

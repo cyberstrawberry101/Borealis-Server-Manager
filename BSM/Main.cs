@@ -123,12 +123,12 @@ namespace Borealis
             indicatorTabDashboard.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerDashboard ChildInstance = new ServerDashboard();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            ServerDashboard ChildInstance_Dashboard = new ServerDashboard();
+            DisposeAllButThis(ChildInstance_Dashboard); //Destroy all other MDI child forms.
+            ChildInstance_Dashboard.MdiParent = this;
+            ChildInstance_Dashboard.AutoScroll = false;
+            ChildInstance_Dashboard.Dock = DockStyle.Fill;
+            ChildInstance_Dashboard.Show();
         }
 
         //===================================================================================//
@@ -149,12 +149,12 @@ namespace Borealis
             indicatorTabDeployment.Visible = true;
             
             //Render child MDI form---------------------------------------------
-            ServerDeployment ChildInstance = new ServerDeployment();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            ServerDeployment ChildInstance_Deployment = new ServerDeployment();
+            DisposeAllButThis(ChildInstance_Deployment); //Destroy all other MDI child forms.
+            ChildInstance_Deployment.MdiParent = this;
+            ChildInstance_Deployment.AutoScroll = false;
+            ChildInstance_Deployment.Dock = DockStyle.Fill;
+            ChildInstance_Deployment.Show();
         }
 
         //===================================================================================//
@@ -175,12 +175,12 @@ namespace Borealis
             indicatorTabManagement.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerManagement ChildInstance = new ServerManagement();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            ServerManagement ChildInstance_Management = new ServerManagement();
+            DisposeAllButThis(ChildInstance_Management); //Destroy all other MDI child forms.
+            ChildInstance_Management.MdiParent = this;
+            ChildInstance_Management.AutoScroll = false;
+            ChildInstance_Management.Dock = DockStyle.Fill;
+            ChildInstance_Management.Show();
         }
 
         //===================================================================================//
@@ -201,12 +201,12 @@ namespace Borealis
             indicatorTabControl.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            ServerControl ChildInstance = new ServerControl();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            ServerControl ChildInstance_Control = new ServerControl();
+            DisposeAllButThis(ChildInstance_Control); //Destroy all other MDI child forms.
+            ChildInstance_Control.MdiParent = this;
+            ChildInstance_Control.AutoScroll = false;
+            ChildInstance_Control.Dock = DockStyle.Fill;
+            ChildInstance_Control.Show();
         }
         
         //===================================================================================//
@@ -227,12 +227,12 @@ namespace Borealis
             indicatorTabExperimental.Visible = true;
 
             //Render child MDI form---------------------------------------------
-            Experimental_Area ChildInstance = new Experimental_Area();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            Experimental_Area ChildInstance_Experimental = new Experimental_Area();
+            DisposeAllButThis(ChildInstance_Experimental); //Destroy all other MDI child forms.
+            ChildInstance_Experimental.MdiParent = this;
+            ChildInstance_Experimental.AutoScroll = false;
+            ChildInstance_Experimental.Dock = DockStyle.Fill;
+            ChildInstance_Experimental.Show();
         }
 
         //===================================================================================//
@@ -247,12 +247,12 @@ namespace Borealis
             panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
 
             //Render child MDI form---------------------------------------------
-            About_DialogBox ChildInstance = new About_DialogBox();
-            DisposeAllButThis(ChildInstance); //Destroy all other MDI child forms.
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+            About_DialogBox ChildInstance_Attribution = new About_DialogBox();
+            DisposeAllButThis(ChildInstance_Attribution); //Destroy all other MDI child forms.
+            ChildInstance_Attribution.MdiParent = this;
+            ChildInstance_Attribution.AutoScroll = false;
+            ChildInstance_Attribution.Dock = DockStyle.Fill;
+            ChildInstance_Attribution.Show();
         }
 
         //===================================================================================//

@@ -60,7 +60,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(700, 537);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.bunifuCustomLabel14);
             this.Controls.Add(this.bunifuCustomLabel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

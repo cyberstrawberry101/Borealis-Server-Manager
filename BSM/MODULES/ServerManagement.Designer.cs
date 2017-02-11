@@ -64,7 +64,7 @@
             this.btnBrowseDestination.IconVisible = true;
             this.btnBrowseDestination.IconZoom = 90D;
             this.btnBrowseDestination.IsTab = false;
-            this.btnBrowseDestination.Location = new System.Drawing.Point(387, 65);
+            this.btnBrowseDestination.Location = new System.Drawing.Point(418, 72);
             this.btnBrowseDestination.Name = "btnBrowseDestination";
             this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -83,7 +83,7 @@
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(383, 8);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(414, 10);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(142, 19);
             this.bunifuCustomLabel1.TabIndex = 43;
@@ -95,7 +95,7 @@
             this.comboboxGameserverList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.comboboxGameserverList.FormattingEnabled = true;
             this.comboboxGameserverList.ItemHeight = 23;
-            this.comboboxGameserverList.Location = new System.Drawing.Point(387, 30);
+            this.comboboxGameserverList.Location = new System.Drawing.Point(418, 32);
             this.comboboxGameserverList.Name = "comboboxGameserverList";
             this.comboboxGameserverList.Size = new System.Drawing.Size(293, 29);
             this.comboboxGameserverList.Sorted = true;
@@ -146,7 +146,7 @@
             this.btnUpdateServerConfig.IconVisible = true;
             this.btnUpdateServerConfig.IconZoom = 90D;
             this.btnUpdateServerConfig.IsTab = false;
-            this.btnUpdateServerConfig.Location = new System.Drawing.Point(537, 473);
+            this.btnUpdateServerConfig.Location = new System.Drawing.Point(568, 493);
             this.btnUpdateServerConfig.Name = "btnUpdateServerConfig";
             this.btnUpdateServerConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnUpdateServerConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -203,7 +203,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(700, 537);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btnBrowseDestination);
             this.Controls.Add(this.comboboxGameserverList);

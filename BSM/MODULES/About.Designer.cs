@@ -37,10 +37,10 @@
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -146,33 +146,21 @@
             this.panel3.Size = new System.Drawing.Size(296, 94);
             this.panel3.TabIndex = 23;
             // 
-            // bunifuCustomLabel5
+            // linkLabel3
             // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(1, 1);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(140, 17);
-            this.bunifuCustomLabel5.TabIndex = 14;
-            this.bunifuCustomLabel5.Text = "Resource Attribution:";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            this.linkLabel1.Location = new System.Drawing.Point(1, 18);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(218, 19);
-            this.linkLabel1.TabIndex = 16;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "BunifuUI Framework (User Controls)";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel3.Location = new System.Drawing.Point(1, 68);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(92, 19);
+            this.linkLabel3.TabIndex = 18;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Interface Icons";
+            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel2
             // 
@@ -190,28 +178,40 @@
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
-            // linkLabel3
+            // linkLabel1
             // 
-            this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            this.linkLabel3.Location = new System.Drawing.Point(1, 68);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(92, 19);
-            this.linkLabel3.TabIndex = 18;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Interface Icons";
-            this.linkLabel3.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel1.Location = new System.Drawing.Point(1, 18);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(218, 19);
+            this.linkLabel1.TabIndex = 16;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "BunifuUI Framework (User Controls)";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // bunifuCustomLabel5
+            // 
+            this.bunifuCustomLabel5.AutoSize = true;
+            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
+            this.bunifuCustomLabel5.Location = new System.Drawing.Point(1, 1);
+            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
+            this.bunifuCustomLabel5.Size = new System.Drawing.Size(140, 17);
+            this.bunifuCustomLabel5.TabIndex = 14;
+            this.bunifuCustomLabel5.Text = "Resource Attribution:";
             // 
             // About_DialogBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.ClientSize = new System.Drawing.Size(700, 537);
+            this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
