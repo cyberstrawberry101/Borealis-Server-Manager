@@ -37,14 +37,11 @@ namespace Borealis
 
                     //Delete old zip file.
                     System.IO.File.Delete(Environment.CurrentDirectory + @"\SteamCMD.zip");
-
-                    //Execute SteamCMD to download files from Valve.  //THIS CODE IS NO LONGER NEEDED SINCE IT IS IMPLIED WHEN YOU DEPLOY A SERVER
-                    //ExternalExecution_Classes.LaunchExternalProgram(DestinationFolder + @"\steamcmd.exe", "+quit", false);
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("It appears that either you have no internet connection, or you are unable to connect to Valve's servers.", "Unable to Connect");
+                MessageBox.Show("It appears that either you have no internet connection, or you are unable to connect to Valve's servers to download SteamCMD.", "Unable to Connect");
             }
         }
     }
