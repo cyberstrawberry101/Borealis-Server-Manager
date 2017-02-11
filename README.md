@@ -8,27 +8,11 @@
 * **.NET Framework 4.5+**
 * **Windows Operating System**
 
-**Dependencies (Included)**
+**Dependencies (Included):**
 * **Icons:** https://icons8.com/web-app
 * **MetroFramework:** https://github.com/thielj/MetroFramework
 * **BunifuFramework:** https://devtools.bunifu.co.ke/
 
-**Notable Contributors**
+**Notable Contributors:**
 * **Capsup:** https://github.com/Capsup **Helped assist with more professionally structuring the project.**
 * **CyrilPaulus:** https://github.com/CyrilPaulus **Helped code the dashboard widgets to work properly.**
-
-
-**Dashboard Panel**
-![ScreenShot](Screenshots/Screenshot01.png)
-
-**Deployment Panel**
-![ScreenShot](Screenshots/Screenshot02.png)
-
-**Deployment Panel (Extended)**
-![ScreenShot](Screenshots/Screenshot03.png)
-
-**Management Panel**
-![ScreenShot](Screenshots/Screenshot04.png)
-
-**Control Panel**
-![ScreenShot](Screenshots/Screenshot05.png)
