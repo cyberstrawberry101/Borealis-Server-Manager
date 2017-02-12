@@ -57,8 +57,6 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.sidemenu.SuspendLayout();
             this.panelTabExperimental.SuspendLayout();
             this.panelTabControl.SuspendLayout();
@@ -500,10 +498,6 @@
             this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
             this.notifyIcon1.Visible = true;
             // 
-            // fadingTransition
-            // 
-            this.fadingTransition.Delay = 1;
-            // 
             // BorealisServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -559,8 +553,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel panel2;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
-        private Bunifu.Framework.UI.BunifuFormFadeTransition fadingTransition;
-        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.Panel panelTabExperimental;
         private Bunifu.Framework.UI.BunifuFlatButton tabExperimental;
         private System.Windows.Forms.Panel indicatorTabExperimental;

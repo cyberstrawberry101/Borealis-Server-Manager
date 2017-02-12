@@ -100,9 +100,6 @@ namespace Borealis
 
             //Display current product version.
             lblVersion.Text = "Version " + Application.ProductVersion;
-
-            //Fade In
-            fadingTransition.ShowAsyc(ActiveForm);
         }
 
         //===================================================================================//
