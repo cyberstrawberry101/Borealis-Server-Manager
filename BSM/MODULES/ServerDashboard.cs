@@ -34,11 +34,11 @@ namespace Borealis
             backgroundMetrics.RunWorkerAsync(); //DISABLED FOR NOW
 
             // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
-            overallServerStatsGrid.Rows.Add("TestServer01", "1.0GB", "2.00GB", "5.0%", "15 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("TestServer02", "3.0GB", "5.00GB", "2.0%", "56 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("TestServer03", "0.0GB", "3.1GB", "0.0%", "0 Kb/s", "Stopped", "No");
-            overallServerStatsGrid.Rows.Add("TestServer04", "4.0GB", "8.2GB", "13.0%", "572 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("TestServer05", "0.0GB", "5.9GB", "0.0%", "0 Kb/s", "Stopped", "No");
+            overallServerStatsGrid.Rows.Add("FakeServer01", "1.0GB", "2.00GB", "5.0%", "15 Kb/s", "Running", "Yes");
+            overallServerStatsGrid.Rows.Add("FakeServer02", "3.0GB", "5.00GB", "2.0%", "56 Kb/s", "Running", "Yes");
+            overallServerStatsGrid.Rows.Add("FakeServer03", "0.0GB", "3.1GB", "0.0%", "0 Kb/s", "Stopped", "No");
+            overallServerStatsGrid.Rows.Add("FakeServer04", "4.0GB", "8.2GB", "13.0%", "572 Kb/s", "Running", "Yes");
+            overallServerStatsGrid.Rows.Add("FakeServer05", "0.0GB", "5.9GB", "0.0%", "0 Kb/s", "Stopped", "No");
             // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
         }
 

@@ -14,7 +14,7 @@ namespace Borealis
         //===================================================================================//
         // Download | Extract | First-Run SteamCMD                                           //
         //===================================================================================//
-        public static void DownloadSteamCMD(string DestinationFolder)
+        public static void DownloadSteamCMD()
         {
             try
             {

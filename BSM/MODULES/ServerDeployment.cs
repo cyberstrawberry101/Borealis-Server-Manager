@@ -78,7 +78,7 @@ namespace Borealis
             //Variables to be used during deployment:
             public static string steamcmd_required { get; set; }
             public static string bsm_integration { get; set; }
-            public static string deployment_parameters { get; set; }
+            public static string steam_authrequired { get; set; }
             public static string deployment_directory { get; set; }
         }
 
@@ -90,7 +90,7 @@ namespace Borealis
             //Assign Static Values:
             DeploymentValues.bsm_integration = ServerAPI_Classes.QUERY_DATA("bsm_integration", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
             DeploymentValues.steamcmd_required = ServerAPI_Classes.QUERY_DATA("steamcmd_required", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
-            DeploymentValues.deployment_parameters = ServerAPI_Classes.QUERY_DATA("deployment_parameters", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
+            DeploymentValues.steam_authrequired = ServerAPI_Classes.QUERY_DATA("steam_authrequired", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
             if (txtboxDestinationFolder.Text == "")
                 {
                     DeploymentValues.deployment_directory = Environment.CurrentDirectory;
@@ -99,7 +99,7 @@ namespace Borealis
                 {
                     DeploymentValues.deployment_directory = txtboxDestinationFolder.Text;
                 }
-            MessageBox.Show(string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit")); ///DEBUG
+            
             //Deploy the gameserver:
             switch (DeploymentValues.bsm_integration)
             {
@@ -111,8 +111,17 @@ namespace Borealis
                                 {
                                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                                     {
-                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
-                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        SteamCMD_Classes.DownloadSteamCMD();
+                                        switch (DeploymentValues.steam_authrequired)
+                                        {
+                                            case "True":
+                                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                break;
+
+                                            case "False":
+                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ",ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                break;
+                                        }
                                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
@@ -135,8 +144,17 @@ namespace Borealis
                                 {
                                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                                     {
-                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
-                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        SteamCMD_Classes.DownloadSteamCMD();
+                                        switch (DeploymentValues.steam_authrequired)
+                                        {
+                                            case "True":
+                                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                break;
+
+                                            case "False":
+                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                break;
+                                        }
                                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
@@ -159,8 +177,17 @@ namespace Borealis
                                 {
                                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                     {
-                                        SteamCMD_Classes.DownloadSteamCMD(Environment.CurrentDirectory);
-                                        ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat(DeploymentValues.deployment_parameters, " +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +quit"), false);
+                                        SteamCMD_Classes.DownloadSteamCMD();
+                                        switch (DeploymentValues.steam_authrequired)
+                                        {
+                                            case "True":
+                                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                break;
+
+                                            case "False":
+                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                break;
+                                        }
                                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
