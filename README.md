@@ -2,7 +2,6 @@
 * Utility designed to facilitate the deployment, management, and control of various kinds of dedicated gameservers.  Primarily focusing on SteamCMD-supported servers.
 
 **Designed by:** Nicole Rappe
-**API Designed by:** Hunter Nakagawa
 
 **Requirements:**
 * **.NET Framework 4.5+**
@@ -16,3 +15,4 @@
 **Notable Contributors:**
 * **Capsup:** https://github.com/Capsup **Helped assist with more professionally structuring the project.**
 * **CyrilPaulus:** https://github.com/CyrilPaulus **Helped code the dashboard widgets to work properly.**
+* **Mezarith:** https://github.com/Mezarith **Designed the server NodeJS data querying back-end.**
