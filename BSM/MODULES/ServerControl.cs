@@ -69,5 +69,15 @@ namespace Borealis
         {
 
         }
+
+        private void ServerControl_Load(object sender, EventArgs e)
+        {
+            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            foreach (var jsonString in SettingsManagement_Classes.GetConfigJsonStrings())
+            {
+                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
+                comboboxGameserverList.Items.Add((string)o["server_name"]);
+            }
+        }
     }
 }

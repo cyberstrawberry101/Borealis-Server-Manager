@@ -15,16 +15,36 @@ namespace Borealis
     public class ServerAPI_Classes
     {
         //===================================================================================//
-        // Download Config Data via API                                                      //
+        // Class to store JSON data during deployment                                        //
         //===================================================================================//
-        public static string QUERY_DATA(string valueToRetrieve, string appID)
+        public static class QUERY_JOBJECT
+        {
+            //Variables to be used during deployment:
+            public static string name { get; set; }
+            public static string steam_authrequired { get; set; }
+            public static string steamcmd_required { get; set; }
+            public static string server_executable_location { get; set; }
+            public static string default_launch_arguments { get; set; }
+            public static string server_config_file { get; set; }
+            public static string bsm_integration { get; set; }
+        }
+
+        //===================================================================================//
+        // Download Config Data via API into Memory                                          //
+        //===================================================================================//
+        public static void QUERY_DATA(string appID)
         {
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://sfo3.hauteclaire.me/config/" + appID);
                 Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
-                var value = (string)o[valueToRetrieve];
-                return value;
+                QUERY_JOBJECT.name = (string)o["name"];
+                QUERY_JOBJECT.steam_authrequired = (string)o["steam_authrequired"];
+                QUERY_JOBJECT.steamcmd_required = (string)o["steamcmd_required"];
+                QUERY_JOBJECT.server_executable_location = (string)o["server_executable_location"];
+                QUERY_JOBJECT.default_launch_arguments = (string)o["default_launch_arguments"];
+                QUERY_JOBJECT.server_config_file = (string)o["server_config_file"];
+                QUERY_JOBJECT.bsm_integration = (string)o["bsm_integration"];
             }
         }
 

@@ -52,7 +52,7 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Location = new System.Drawing.Point(16, 496);
+            this.chkAutoRestart.Location = new System.Drawing.Point(16, 516);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -94,7 +94,7 @@
             this.lblAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblAutoRestart.Location = new System.Drawing.Point(65, 502);
+            this.lblAutoRestart.Location = new System.Drawing.Point(65, 522);
             this.lblAutoRestart.Name = "lblAutoRestart";
             this.lblAutoRestart.Size = new System.Drawing.Size(189, 19);
             this.lblAutoRestart.TabIndex = 18;
@@ -288,6 +288,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerControl";
             this.Text = "Toolkit_TechServices_Panel";
+            this.Load += new System.EventHandler(this.ServerControl_Load);
             this.consoleViewport.ResumeLayout(false);
             this.consoleViewport.PerformLayout();
             this.ResumeLayout(false);

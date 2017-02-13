@@ -74,7 +74,7 @@
   <ItemGroup>
     <Compile Include="CLASSES\ExternalExecution_Classes.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
-    <Compile Include="CLASSES\MonitoringFunctions.cs" />
+    <Compile Include="CLASSES\System_Monitoring.cs" />
     <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="MODULES\About.cs">
@@ -95,7 +95,7 @@
     <Compile Include="MODULES\ServerDashboard.Designer.cs">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="CLASSES\SettingsManagement.cs" />
+    <Compile Include="CLASSES\Settings.cs" />
     <Compile Include="MODULES\WelcomeScreen.cs">
       <SubType>Form</SubType>
     </Compile>

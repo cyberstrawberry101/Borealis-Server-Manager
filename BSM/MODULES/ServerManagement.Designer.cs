@@ -33,10 +33,8 @@
             this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
-            this.txtCustomerName = new Bunifu.Framework.UI.BunifuMaterialTextbox();
             this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.SuspendLayout();
@@ -104,25 +102,7 @@
             this.comboboxGameserverList.UseCustomBackColor = true;
             this.comboboxGameserverList.UseCustomForeColor = true;
             this.comboboxGameserverList.UseSelectable = true;
-            // 
-            // txtCustomerName
-            // 
-            this.txtCustomerName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCustomerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.txtCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtCustomerName.HintForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtCustomerName.HintText = "";
-            this.txtCustomerName.isPassword = false;
-            this.txtCustomerName.LineFocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.txtCustomerName.LineIdleColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.txtCustomerName.LineMouseHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.txtCustomerName.LineThickness = 3;
-            this.txtCustomerName.Location = new System.Drawing.Point(16, 106);
-            this.txtCustomerName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.Size = new System.Drawing.Size(221, 30);
-            this.txtCustomerName.TabIndex = 19;
-            this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.comboboxGameserverList.SelectedIndexChanged += new System.EventHandler(this.comboboxGameserverList_SelectedIndexChanged);
             // 
             // btnUpdateServerConfig
             // 
@@ -172,17 +152,6 @@
             this.bunifuCustomLabel4.TabIndex = 11;
             this.bunifuCustomLabel4.Text = "Here you can manage individual gameservers";
             // 
-            // bunifuCustomLabel6
-            // 
-            this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel6.Location = new System.Drawing.Point(10, 80);
-            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
-            this.bunifuCustomLabel6.Size = new System.Drawing.Size(100, 21);
-            this.bunifuCustomLabel6.TabIndex = 5;
-            this.bunifuCustomLabel6.Text = "Server Name:";
-            // 
             // bunifuCustomLabel7
             // 
             this.bunifuCustomLabel7.AutoSize = true;
@@ -210,8 +179,6 @@
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.btnUpdateServerConfig);
-            this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.bunifuCustomLabel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerManagement";
             this.Text = "Toolkit_CustomerInformation_Panel";
@@ -222,10 +189,8 @@
         }
 
         #endregion
-        private Bunifu.Framework.UI.BunifuMaterialTextbox txtCustomerName;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdateServerConfig;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
