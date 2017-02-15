@@ -324,6 +324,7 @@ namespace Borealis
                 //Kill program being used to deploy a server.
             }
             btnDeployGameserver.Enabled = true;
+            progressbarDownloadProgressOverall.Value = 0;
         }
     }
  }
