@@ -117,13 +117,13 @@ namespace Borealis
                     //Do nothing
                 }
                 
-                
-
+                //SteamCMD error and success handler.
                 if (ServerAPI_Classes.QUERY_JOBJECT.steamcmd_required == "True")
                 {
                     if (e.Data == "Success! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed.")
                     {
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                         btnCancelDeployGameserver.Visible = false;
                     }
                     else if (e.Data == "Error! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job.")
@@ -160,7 +160,6 @@ namespace Borealis
 
                             case "False":
                                 ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
-                                SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                                 break;
                         }
                     }
