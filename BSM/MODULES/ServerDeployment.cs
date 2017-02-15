@@ -138,7 +138,46 @@ namespace Borealis
             }
         }
 
-        private void VerifyDeploymentMessage()
+        //===================================================================================//
+        // STAND-ALONE DEPLOYMENT CODE                                                       //
+        //===================================================================================//
+        private void DeployGameServer()
+        {
+            //Enable cancel button to terminate deployment process if needed.
+            lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
+            btnCancelDeployGameserver.Visible = true;
+
+            switch (ServerAPI_Classes.QUERY_JOBJECT.steamcmd_required)
+            {
+                case "True":
+                    {
+                        SteamCMD_Classes.DownloadSteamCMD();
+                        switch (ServerAPI_Classes.QUERY_JOBJECT.steam_authrequired)
+                        {
+                            case "True":
+                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+
+                            case "False":
+                                ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
+                                SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
+                                break;
+                        }
+                    }
+                    break;
+
+                case "False":
+                    {
+                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
+                    }
+                    break;
+            }      
+        }
+
+        //===================================================================================//
+        // QUERY THE USER TO VERIFY DEPLOYMENT BEFORE BEGINNING SERVER DEPLOYMENT            //
+        //===================================================================================//
+        private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             //Query specific appID for all required data.
             ServerAPI_Classes.QUERY_DATA(ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text));
@@ -184,44 +223,6 @@ namespace Borealis
                     }
                     break;
             }
-        }
-
-        private void DeployGameServer()
-        {
-            //Enable cancel button to terminate deployment process if needed.
-            lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-            btnCancelDeployGameserver.Visible = true;
-
-            switch (ServerAPI_Classes.QUERY_JOBJECT.steamcmd_required)
-            {
-                case "True":
-                    {
-                        SteamCMD_Classes.DownloadSteamCMD();
-                        switch (ServerAPI_Classes.QUERY_JOBJECT.steam_authrequired)
-                        {
-                            case "True":
-                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                break;
-
-                            case "False":
-                                ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
-                                SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
-                                break;
-                        }
-                    }
-                    break;
-
-                case "False":
-                    {
-                        //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
-                    }
-                    break;
-            }      
-        }
-
-        private void btnDeployGameserver_Click(object sender, EventArgs e)
-        {
-            VerifyDeploymentMessage();
         }
 
         //===================================================================================//
