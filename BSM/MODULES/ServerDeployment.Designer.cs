@@ -61,11 +61,11 @@
             // 
             this.progressbarDownloadProgressOverall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgressOverall.BorderRadius = 5;
-            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(7, 39);
+            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(11, 39);
             this.progressbarDownloadProgressOverall.MaximumValue = 100;
             this.progressbarDownloadProgressOverall.Name = "progressbarDownloadProgressOverall";
             this.progressbarDownloadProgressOverall.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressbarDownloadProgressOverall.Size = new System.Drawing.Size(682, 10);
+            this.progressbarDownloadProgressOverall.Size = new System.Drawing.Size(695, 10);
             this.progressbarDownloadProgressOverall.TabIndex = 40;
             this.progressbarDownloadProgressOverall.Value = 0;
             // 
@@ -97,7 +97,7 @@
             this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDownloadProgressDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDownloadProgressDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(4, 22);
+            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(8, 23);
             this.lblDownloadProgressDetails.Name = "lblDownloadProgressDetails";
             this.lblDownloadProgressDetails.Size = new System.Drawing.Size(55, 13);
             this.lblDownloadProgressDetails.TabIndex = 38;
@@ -121,7 +121,7 @@
             this.lblDownloadProgress.AutoSize = true;
             this.lblDownloadProgress.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDownloadProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDownloadProgress.Location = new System.Drawing.Point(3, 1);
+            this.lblDownloadProgress.Location = new System.Drawing.Point(7, 2);
             this.lblDownloadProgress.Name = "lblDownloadProgress";
             this.lblDownloadProgress.Size = new System.Drawing.Size(230, 21);
             this.lblDownloadProgress.TabIndex = 36;
@@ -343,9 +343,9 @@
             this.panelProgress.Controls.Add(this.lblDownloadProgress);
             this.panelProgress.Controls.Add(this.lblDownloadProgressDetails);
             this.panelProgress.Controls.Add(this.progressbarDownloadProgressOverall);
-            this.panelProgress.Location = new System.Drawing.Point(16, 428);
+            this.panelProgress.Location = new System.Drawing.Point(5, 428);
             this.panelProgress.Name = "panelProgress";
-            this.panelProgress.Size = new System.Drawing.Size(695, 56);
+            this.panelProgress.Size = new System.Drawing.Size(717, 56);
             this.panelProgress.TabIndex = 50;
             this.panelProgress.Visible = false;
             // 
