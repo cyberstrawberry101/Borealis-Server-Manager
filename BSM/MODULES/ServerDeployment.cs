@@ -125,9 +125,12 @@ namespace Borealis
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                         btnCancelDeployGameserver.Visible = false;
+                        btnDeployGameserver.Enabled = true;
                     }
                     else if (e.Data == "Error! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job.")
                     {
+                        btnDeployGameserver.Enabled = false;
+                        btnCancelDeployGameserver.Visible = true;
                         DeployGameServer();
                     }
                 }
@@ -145,12 +148,12 @@ namespace Borealis
         {
             //Enable cancel button to terminate deployment process if needed.
             lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
-            btnCancelDeployGameserver.Visible = true;
 
             switch (ServerAPI_Classes.QUERY_JOBJECT.steamcmd_required)
             {
                 case "True":
                     {
+                        lblDownloadProgressDetails.Text = "Status: Downloading / Initializing SteamCMD...";
                         SteamCMD_Classes.DownloadSteamCMD();
                         switch (ServerAPI_Classes.QUERY_JOBJECT.steam_authrequired)
                         {
@@ -170,7 +173,7 @@ namespace Borealis
                         //RUN OTHER CODE TO DEPLOY THE NON-STEAMCMD GAMESERVER
                     }
                     break;
-            }      
+            }
         }
 
         //===================================================================================//
@@ -206,18 +209,24 @@ namespace Borealis
                 case "none":
                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has NO BGM support.\nYou can deploy it, but BGM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                     {
+                        btnCancelDeployGameserver.Visible = true;
+                        btnDeployGameserver.Enabled = false;
                         DeployGameServer();
                     }
                     break;
                 case "partial":
                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BGM support.\nYou can deploy it, but BGM can only configure it at this time, you have no ability to control it directly through BGM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                     {
+                        btnCancelDeployGameserver.Visible = true;
+                        btnDeployGameserver.Enabled = false;
                         DeployGameServer();
                     }
                     break;
                 case "full":
                     if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.deployment_directory + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
+                        btnCancelDeployGameserver.Visible = true;
+                        btnDeployGameserver.Enabled = false;
                         DeployGameServer();
                     }
                     break;
