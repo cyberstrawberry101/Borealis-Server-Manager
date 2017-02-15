@@ -72,7 +72,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASSES\ExternalExecution_Classes.cs" />
+    <Compile Include="CLASSES\Execution_Classes.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\System_Monitoring.cs" />
     <Compile Include="CLASSES\ServerAPI.cs" />
@@ -96,12 +96,6 @@
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="CLASSES\Settings.cs" />
-    <Compile Include="MODULES\WelcomeScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MODULES\WelcomeScreen.Designer.cs">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +130,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MODULES\ServerDashboard.resx">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\WelcomeScreen.resx">
-      <DependentUpon>WelcomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

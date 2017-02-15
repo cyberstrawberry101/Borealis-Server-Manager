@@ -11,8 +11,6 @@ using Microsoft.VisualBasic.Devices;
 using System.Threading;
 using System.Management;
 
-using System.Linq;
-
 namespace Borealis
 {
     public class MonitoringFunctions

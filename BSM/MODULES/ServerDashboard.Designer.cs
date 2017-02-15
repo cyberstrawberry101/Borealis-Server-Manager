@@ -42,13 +42,6 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
             this.panelMemoryUsage = new System.Windows.Forms.Panel();
             this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
@@ -60,6 +53,14 @@
             this.bunifuCircleProgressbar1 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -170,7 +171,7 @@
             this.overallServerStatsGrid.AllowUserToResizeColumns = false;
             this.overallServerStatsGrid.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             this.overallServerStatsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.overallServerStatsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -180,7 +181,7 @@
             this.overallServerStatsGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -189,6 +190,7 @@
             this.overallServerStatsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.overallServerStatsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.columnGameServerName,
+            this.columnServerType,
             this.columnGameServerRAM,
             this.columnGameServerDISK,
             this.columnGameServerCPU,
@@ -198,8 +200,8 @@
             this.overallServerStatsGrid.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -217,8 +219,8 @@
             this.overallServerStatsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -231,55 +233,6 @@
             this.overallServerStatsGrid.ShowEditingIcon = false;
             this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 223);
             this.overallServerStatsGrid.TabIndex = 43;
-            // 
-            // columnGameServerName
-            // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerName.HeaderText = "Name";
-            this.columnGameServerName.Name = "columnGameServerName";
-            this.columnGameServerName.ReadOnly = true;
-            // 
-            // columnGameServerRAM
-            // 
-            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerRAM.HeaderText = "Memory";
-            this.columnGameServerRAM.Name = "columnGameServerRAM";
-            this.columnGameServerRAM.ReadOnly = true;
-            // 
-            // columnGameServerDISK
-            // 
-            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerDISK.HeaderText = "Disk";
-            this.columnGameServerDISK.Name = "columnGameServerDISK";
-            this.columnGameServerDISK.ReadOnly = true;
-            // 
-            // columnGameServerCPU
-            // 
-            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerCPU.HeaderText = "CPU";
-            this.columnGameServerCPU.Name = "columnGameServerCPU";
-            this.columnGameServerCPU.ReadOnly = true;
-            // 
-            // columnNetworkUsage
-            // 
-            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnNetworkUsage.HeaderText = "Network";
-            this.columnNetworkUsage.Name = "columnNetworkUsage";
-            this.columnNetworkUsage.ReadOnly = true;
-            // 
-            // columnStatus
-            // 
-            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnStatus.HeaderText = "Status";
-            this.columnStatus.Name = "columnStatus";
-            this.columnStatus.ReadOnly = true;
-            // 
-            // columnRestartFlag
-            // 
-            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnRestartFlag.HeaderText = "Auto-Restart";
-            this.columnRestartFlag.Name = "columnRestartFlag";
-            this.columnRestartFlag.ReadOnly = true;
             // 
             // backgroundMetrics
             // 
@@ -439,6 +392,69 @@
             this.bunifuCustomLabel3.Text = "0 Kb/s RX / 0 Kb/s TX\r\n0Kb/s / 1000Mbps";
             this.bunifuCustomLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // columnGameServerName
+            // 
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerName.HeaderText = "Name";
+            this.columnGameServerName.Name = "columnGameServerName";
+            this.columnGameServerName.ReadOnly = true;
+            // 
+            // columnServerType
+            // 
+            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnServerType.HeaderText = "Server Type";
+            this.columnServerType.Name = "columnServerType";
+            this.columnServerType.ReadOnly = true;
+            this.columnServerType.Width = 90;
+            // 
+            // columnGameServerRAM
+            // 
+            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerRAM.HeaderText = "Memory";
+            this.columnGameServerRAM.Name = "columnGameServerRAM";
+            this.columnGameServerRAM.ReadOnly = true;
+            this.columnGameServerRAM.Width = 75;
+            // 
+            // columnGameServerDISK
+            // 
+            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerDISK.HeaderText = "Disk";
+            this.columnGameServerDISK.Name = "columnGameServerDISK";
+            this.columnGameServerDISK.ReadOnly = true;
+            this.columnGameServerDISK.Width = 52;
+            // 
+            // columnGameServerCPU
+            // 
+            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerCPU.HeaderText = "CPU";
+            this.columnGameServerCPU.Name = "columnGameServerCPU";
+            this.columnGameServerCPU.ReadOnly = true;
+            this.columnGameServerCPU.Width = 53;
+            // 
+            // columnNetworkUsage
+            // 
+            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnNetworkUsage.HeaderText = "Network";
+            this.columnNetworkUsage.Name = "columnNetworkUsage";
+            this.columnNetworkUsage.ReadOnly = true;
+            this.columnNetworkUsage.Width = 75;
+            // 
+            // columnStatus
+            // 
+            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnStatus.HeaderText = "Status";
+            this.columnStatus.Name = "columnStatus";
+            this.columnStatus.ReadOnly = true;
+            this.columnStatus.Width = 62;
+            // 
+            // columnRestartFlag
+            // 
+            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnRestartFlag.HeaderText = "Auto-Restart";
+            this.columnRestartFlag.Name = "columnRestartFlag";
+            this.columnRestartFlag.ReadOnly = true;
+            this.columnRestartFlag.Width = 97;
+            // 
             // ServerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,16 +504,17 @@
         private System.Windows.Forms.Panel panelMemoryUsage;
         private System.Windows.Forms.Panel panelDiskUsage;
         private System.Windows.Forms.Panel panelCPUUsage;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerRAM;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerDISK;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerCPU;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNetworkUsage;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnRestartFlag;
-        private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
     }
 }

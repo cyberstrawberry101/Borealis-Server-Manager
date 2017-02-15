@@ -30,16 +30,14 @@ namespace Borealis
         {
             _dashboardInfo = GetInfo();
             RefreshUI(_dashboardInfo);
+            backgroundMetrics.RunWorkerAsync();
 
-            backgroundMetrics.RunWorkerAsync(); //DISABLED FOR NOW
-
-            // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
-            overallServerStatsGrid.Rows.Add("FakeServer01", "1.0GB", "2.00GB", "5.0%", "15 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("FakeServer02", "3.0GB", "5.00GB", "2.0%", "56 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("FakeServer03", "0.0GB", "3.1GB", "0.0%", "0 Kb/s", "Stopped", "No");
-            overallServerStatsGrid.Rows.Add("FakeServer04", "4.0GB", "8.2GB", "13.0%", "572 Kb/s", "Running", "Yes");
-            overallServerStatsGrid.Rows.Add("FakeServer05", "0.0GB", "5.9GB", "0.0%", "0 Kb/s", "Stopped", "No");
-            // PLACEHOLDER DATA /////////////////////////////////////////////////////////////////////////////
+            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            foreach (var jsonString in SettingsManagement_Classes.GetConfigJsonStrings())
+            {
+                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
+                overallServerStatsGrid.Rows.Add((string)o["server_name"], (string)o["server_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", "Stopped", "No");
+            }
         }
 
         //===================================================================================//
@@ -48,10 +46,12 @@ namespace Borealis
         private void backgroundMetrics_DoWork(object sender, DoWorkEventArgs e)
         {
             //Instance Function from MonitoringFunctions Class
-
+            var monitoring = new MonitoringFunctions();
             BackgroundWorker worker = (BackgroundWorker)sender;
+
             while (!worker.CancellationPending)
             {
+                //overallServerStatsGrid.Rows.Clear();
                 Thread.Sleep(500);
                 _dashboardInfo = GetInfo();
                 worker.ReportProgress(0, "AN OBJECT TO PASS TO THE UI-THREAD");
@@ -77,7 +77,7 @@ namespace Borealis
             rtn.TotalRAM = monitoring.RetreiveTotalAvailableRAM();
             rtn.RAM = monitoring.RetreiveTotalAvailableRAM() - monitoring.RetreiveFreeRAM();
             rtn.DiskUsed = monitoring.RetrieveDISKInfo(@"C:\", false, true, false);
-            rtn.DiskTotal = monitoring.RetrieveDISKInfo("C:\\", true, false, false);
+            rtn.DiskTotal = monitoring.RetrieveDISKInfo(@"C:\", true, false, false);
             rtn.CPU = monitoring.RetrieveCPUUsage();
 
             return rtn;

@@ -31,32 +31,32 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
             this.sidemenu = new System.Windows.Forms.Panel();
-            this.toggleExperimentalMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblAutoRestart = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblAttribution = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelTabExperimental = new System.Windows.Forms.Panel();
-            this.tabExperimental = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabExperimental = new System.Windows.Forms.Panel();
             this.panelTabControl = new System.Windows.Forms.Panel();
-            this.tabControlGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabControl = new System.Windows.Forms.Panel();
             this.panelTabManagement = new System.Windows.Forms.Panel();
-            this.tabManageGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabManagement = new System.Windows.Forms.Panel();
             this.panelTabDeployment = new System.Windows.Forms.Panel();
-            this.tabDeployGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabDeployment = new System.Windows.Forms.Panel();
             this.panelDashboard = new System.Windows.Forms.Panel();
-            this.panelTabDashboard = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabDashboard = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.toggleExperimentalMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.tabExperimental = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.tabControlGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.tabManageGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.tabDeployGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panelTabDashboard = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.mainIcon = new System.Windows.Forms.PictureBox();
+            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.sidemenu.SuspendLayout();
             this.panelTabExperimental.SuspendLayout();
             this.panelTabControl.SuspendLayout();
@@ -85,21 +85,6 @@
             this.sidemenu.Name = "sidemenu";
             this.sidemenu.Size = new System.Drawing.Size(260, 554);
             this.sidemenu.TabIndex = 0;
-            // 
-            // toggleExperimentalMode
-            // 
-            this.toggleExperimentalMode.BackColor = System.Drawing.Color.Transparent;
-            this.toggleExperimentalMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toggleExperimentalMode.BackgroundImage")));
-            this.toggleExperimentalMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toggleExperimentalMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleExperimentalMode.Location = new System.Drawing.Point(9, 518);
-            this.toggleExperimentalMode.Name = "toggleExperimentalMode";
-            this.toggleExperimentalMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.toggleExperimentalMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.toggleExperimentalMode.Size = new System.Drawing.Size(43, 25);
-            this.toggleExperimentalMode.TabIndex = 44;
-            this.toggleExperimentalMode.Value = false;
-            this.toggleExperimentalMode.OnValueChange += new System.EventHandler(this.toggleExperimentalMode_OnValueChange);
             // 
             // lblAutoRestart
             // 
@@ -139,43 +124,6 @@
             this.panelTabExperimental.TabIndex = 31;
             this.panelTabExperimental.Visible = false;
             // 
-            // tabExperimental
-            // 
-            this.tabExperimental.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabExperimental.BorderRadius = 0;
-            this.tabExperimental.ButtonText = "    Experimental Area";
-            this.tabExperimental.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabExperimental.DisabledColor = System.Drawing.Color.Gray;
-            this.tabExperimental.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabExperimental.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabExperimental.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabExperimental.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabExperimental.Iconimage")));
-            this.tabExperimental.Iconimage_right = null;
-            this.tabExperimental.Iconimage_right_Selected = null;
-            this.tabExperimental.Iconimage_Selected = null;
-            this.tabExperimental.IconMarginLeft = 0;
-            this.tabExperimental.IconMarginRight = 0;
-            this.tabExperimental.IconRightVisible = true;
-            this.tabExperimental.IconRightZoom = 0D;
-            this.tabExperimental.IconVisible = true;
-            this.tabExperimental.IconZoom = 58D;
-            this.tabExperimental.IsTab = true;
-            this.tabExperimental.Location = new System.Drawing.Point(0, 0);
-            this.tabExperimental.Name = "tabExperimental";
-            this.tabExperimental.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabExperimental.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabExperimental.selected = false;
-            this.tabExperimental.Size = new System.Drawing.Size(255, 48);
-            this.tabExperimental.TabIndex = 19;
-            this.tabExperimental.Text = "    Experimental Area";
-            this.tabExperimental.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabExperimental.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.tabExperimental.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabExperimental.Click += new System.EventHandler(this.tabExperimental_Click);
-            // 
             // indicatorTabExperimental
             // 
             this.indicatorTabExperimental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -195,43 +143,6 @@
             this.panelTabControl.Name = "panelTabControl";
             this.panelTabControl.Size = new System.Drawing.Size(260, 48);
             this.panelTabControl.TabIndex = 30;
-            // 
-            // tabControlGameservers
-            // 
-            this.tabControlGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabControlGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabControlGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabControlGameservers.BorderRadius = 0;
-            this.tabControlGameservers.ButtonText = "    Control GameServers";
-            this.tabControlGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabControlGameservers.DisabledColor = System.Drawing.Color.Gray;
-            this.tabControlGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabControlGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabControlGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabControlGameservers.Iconimage")));
-            this.tabControlGameservers.Iconimage_right = null;
-            this.tabControlGameservers.Iconimage_right_Selected = null;
-            this.tabControlGameservers.Iconimage_Selected = null;
-            this.tabControlGameservers.IconMarginLeft = 0;
-            this.tabControlGameservers.IconMarginRight = 0;
-            this.tabControlGameservers.IconRightVisible = true;
-            this.tabControlGameservers.IconRightZoom = 0D;
-            this.tabControlGameservers.IconVisible = true;
-            this.tabControlGameservers.IconZoom = 45D;
-            this.tabControlGameservers.IsTab = true;
-            this.tabControlGameservers.Location = new System.Drawing.Point(0, 0);
-            this.tabControlGameservers.Name = "tabControlGameservers";
-            this.tabControlGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabControlGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabControlGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabControlGameservers.selected = false;
-            this.tabControlGameservers.Size = new System.Drawing.Size(255, 48);
-            this.tabControlGameservers.TabIndex = 19;
-            this.tabControlGameservers.Text = "    Control GameServers";
-            this.tabControlGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabControlGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.tabControlGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControlGameservers.Click += new System.EventHandler(this.tabControlGameservers_Click);
             // 
             // indicatorTabControl
             // 
@@ -253,43 +164,6 @@
             this.panelTabManagement.Size = new System.Drawing.Size(260, 48);
             this.panelTabManagement.TabIndex = 29;
             // 
-            // tabManageGameservers
-            // 
-            this.tabManageGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabManageGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabManageGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabManageGameservers.BorderRadius = 0;
-            this.tabManageGameservers.ButtonText = "    Manage GameServers";
-            this.tabManageGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabManageGameservers.DisabledColor = System.Drawing.Color.Gray;
-            this.tabManageGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabManageGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabManageGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabManageGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabManageGameservers.Iconimage")));
-            this.tabManageGameservers.Iconimage_right = null;
-            this.tabManageGameservers.Iconimage_right_Selected = null;
-            this.tabManageGameservers.Iconimage_Selected = null;
-            this.tabManageGameservers.IconMarginLeft = 0;
-            this.tabManageGameservers.IconMarginRight = 0;
-            this.tabManageGameservers.IconRightVisible = true;
-            this.tabManageGameservers.IconRightZoom = 0D;
-            this.tabManageGameservers.IconVisible = true;
-            this.tabManageGameservers.IconZoom = 50D;
-            this.tabManageGameservers.IsTab = true;
-            this.tabManageGameservers.Location = new System.Drawing.Point(0, 0);
-            this.tabManageGameservers.Name = "tabManageGameservers";
-            this.tabManageGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabManageGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabManageGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabManageGameservers.selected = false;
-            this.tabManageGameservers.Size = new System.Drawing.Size(255, 48);
-            this.tabManageGameservers.TabIndex = 19;
-            this.tabManageGameservers.Text = "    Manage GameServers";
-            this.tabManageGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabManageGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.tabManageGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabManageGameservers.Click += new System.EventHandler(this.tabManageGameservers_Click);
-            // 
             // indicatorTabManagement
             // 
             this.indicatorTabManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -310,43 +184,6 @@
             this.panelTabDeployment.Size = new System.Drawing.Size(260, 48);
             this.panelTabDeployment.TabIndex = 28;
             // 
-            // tabDeployGameservers
-            // 
-            this.tabDeployGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabDeployGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabDeployGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabDeployGameservers.BorderRadius = 0;
-            this.tabDeployGameservers.ButtonText = "    Deploy GameServers";
-            this.tabDeployGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabDeployGameservers.DisabledColor = System.Drawing.Color.Gray;
-            this.tabDeployGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabDeployGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabDeployGameservers.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabDeployGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabDeployGameservers.Iconimage")));
-            this.tabDeployGameservers.Iconimage_right = null;
-            this.tabDeployGameservers.Iconimage_right_Selected = null;
-            this.tabDeployGameservers.Iconimage_Selected = null;
-            this.tabDeployGameservers.IconMarginLeft = 0;
-            this.tabDeployGameservers.IconMarginRight = 0;
-            this.tabDeployGameservers.IconRightVisible = true;
-            this.tabDeployGameservers.IconRightZoom = 0D;
-            this.tabDeployGameservers.IconVisible = true;
-            this.tabDeployGameservers.IconZoom = 55D;
-            this.tabDeployGameservers.IsTab = true;
-            this.tabDeployGameservers.Location = new System.Drawing.Point(0, 0);
-            this.tabDeployGameservers.Name = "tabDeployGameservers";
-            this.tabDeployGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabDeployGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabDeployGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabDeployGameservers.selected = false;
-            this.tabDeployGameservers.Size = new System.Drawing.Size(255, 48);
-            this.tabDeployGameservers.TabIndex = 18;
-            this.tabDeployGameservers.Text = "    Deploy GameServers";
-            this.tabDeployGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabDeployGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.tabDeployGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabDeployGameservers.Click += new System.EventHandler(this.tabDeployGameservers_Click_1);
-            // 
             // indicatorTabDeployment
             // 
             this.indicatorTabDeployment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -366,44 +203,6 @@
             this.panelDashboard.Name = "panelDashboard";
             this.panelDashboard.Size = new System.Drawing.Size(260, 48);
             this.panelDashboard.TabIndex = 27;
-            // 
-            // panelTabDashboard
-            // 
-            this.panelTabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.panelTabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.panelTabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelTabDashboard.BorderRadius = 0;
-            this.panelTabDashboard.ButtonText = "    Dashboard";
-            this.panelTabDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panelTabDashboard.DisabledColor = System.Drawing.Color.Gray;
-            this.panelTabDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelTabDashboard.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.panelTabDashboard.Iconcolor = System.Drawing.Color.Transparent;
-            this.panelTabDashboard.Iconimage = ((System.Drawing.Image)(resources.GetObject("panelTabDashboard.Iconimage")));
-            this.panelTabDashboard.Iconimage_right = null;
-            this.panelTabDashboard.Iconimage_right_Selected = null;
-            this.panelTabDashboard.Iconimage_Selected = null;
-            this.panelTabDashboard.IconMarginLeft = 0;
-            this.panelTabDashboard.IconMarginRight = 0;
-            this.panelTabDashboard.IconRightVisible = true;
-            this.panelTabDashboard.IconRightZoom = 0D;
-            this.panelTabDashboard.IconVisible = true;
-            this.panelTabDashboard.IconZoom = 55D;
-            this.panelTabDashboard.IsTab = true;
-            this.panelTabDashboard.Location = new System.Drawing.Point(0, 0);
-            this.panelTabDashboard.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
-            this.panelTabDashboard.Name = "panelTabDashboard";
-            this.panelTabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
-            this.panelTabDashboard.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.panelTabDashboard.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panelTabDashboard.selected = false;
-            this.panelTabDashboard.Size = new System.Drawing.Size(255, 48);
-            this.panelTabDashboard.TabIndex = 18;
-            this.panelTabDashboard.Text = "    Dashboard";
-            this.panelTabDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.panelTabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panelTabDashboard.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelTabDashboard.Click += new System.EventHandler(this.tabDashboard_Click_1);
             // 
             // indicatorTabDashboard
             // 
@@ -444,16 +243,6 @@
             this.panel2.Size = new System.Drawing.Size(260, 45);
             this.panel2.TabIndex = 5;
             // 
-            // mainIcon
-            // 
-            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
-            this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainIcon.Location = new System.Drawing.Point(9, 6);
-            this.mainIcon.Name = "mainIcon";
-            this.mainIcon.Size = new System.Drawing.Size(30, 30);
-            this.mainIcon.TabIndex = 45;
-            this.mainIcon.TabStop = false;
-            // 
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
@@ -477,6 +266,224 @@
             this.bunifuCustomLabel1.TabIndex = 2;
             this.bunifuCustomLabel1.Text = "Borealis Server Manager";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.BalloonTipText = "Advanced Tech Toolkit 4.0";
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
+            this.notifyIcon1.Visible = true;
+            // 
+            // toggleExperimentalMode
+            // 
+            this.toggleExperimentalMode.BackColor = System.Drawing.Color.Transparent;
+            this.toggleExperimentalMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toggleExperimentalMode.BackgroundImage")));
+            this.toggleExperimentalMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.toggleExperimentalMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.toggleExperimentalMode.Location = new System.Drawing.Point(9, 518);
+            this.toggleExperimentalMode.Name = "toggleExperimentalMode";
+            this.toggleExperimentalMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.toggleExperimentalMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.toggleExperimentalMode.Size = new System.Drawing.Size(43, 25);
+            this.toggleExperimentalMode.TabIndex = 44;
+            this.toggleExperimentalMode.Value = false;
+            this.toggleExperimentalMode.OnValueChange += new System.EventHandler(this.toggleExperimentalMode_OnValueChange);
+            // 
+            // tabExperimental
+            // 
+            this.tabExperimental.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabExperimental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabExperimental.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabExperimental.BorderRadius = 0;
+            this.tabExperimental.ButtonText = "    Experimental Area";
+            this.tabExperimental.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabExperimental.DisabledColor = System.Drawing.Color.Gray;
+            this.tabExperimental.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabExperimental.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.tabExperimental.Iconcolor = System.Drawing.Color.Transparent;
+            this.tabExperimental.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabExperimental.Iconimage")));
+            this.tabExperimental.Iconimage_right = null;
+            this.tabExperimental.Iconimage_right_Selected = null;
+            this.tabExperimental.Iconimage_Selected = null;
+            this.tabExperimental.IconMarginLeft = 0;
+            this.tabExperimental.IconMarginRight = 0;
+            this.tabExperimental.IconRightVisible = true;
+            this.tabExperimental.IconRightZoom = 0D;
+            this.tabExperimental.IconVisible = true;
+            this.tabExperimental.IconZoom = 58D;
+            this.tabExperimental.IsTab = true;
+            this.tabExperimental.Location = new System.Drawing.Point(0, 0);
+            this.tabExperimental.Name = "tabExperimental";
+            this.tabExperimental.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabExperimental.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.tabExperimental.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.tabExperimental.selected = false;
+            this.tabExperimental.Size = new System.Drawing.Size(255, 48);
+            this.tabExperimental.TabIndex = 19;
+            this.tabExperimental.Text = "    Experimental Area";
+            this.tabExperimental.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tabExperimental.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.tabExperimental.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabExperimental.Click += new System.EventHandler(this.tabExperimental_Click);
+            // 
+            // tabControlGameservers
+            // 
+            this.tabControlGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabControlGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabControlGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabControlGameservers.BorderRadius = 0;
+            this.tabControlGameservers.ButtonText = "    Control GameServers";
+            this.tabControlGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControlGameservers.DisabledColor = System.Drawing.Color.Gray;
+            this.tabControlGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.tabControlGameservers.Iconcolor = System.Drawing.Color.Transparent;
+            this.tabControlGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabControlGameservers.Iconimage")));
+            this.tabControlGameservers.Iconimage_right = null;
+            this.tabControlGameservers.Iconimage_right_Selected = null;
+            this.tabControlGameservers.Iconimage_Selected = null;
+            this.tabControlGameservers.IconMarginLeft = 0;
+            this.tabControlGameservers.IconMarginRight = 0;
+            this.tabControlGameservers.IconRightVisible = true;
+            this.tabControlGameservers.IconRightZoom = 0D;
+            this.tabControlGameservers.IconVisible = true;
+            this.tabControlGameservers.IconZoom = 45D;
+            this.tabControlGameservers.IsTab = true;
+            this.tabControlGameservers.Location = new System.Drawing.Point(0, 0);
+            this.tabControlGameservers.Name = "tabControlGameservers";
+            this.tabControlGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabControlGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.tabControlGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.tabControlGameservers.selected = false;
+            this.tabControlGameservers.Size = new System.Drawing.Size(255, 48);
+            this.tabControlGameservers.TabIndex = 19;
+            this.tabControlGameservers.Text = "    Control GameServers";
+            this.tabControlGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tabControlGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.tabControlGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControlGameservers.Click += new System.EventHandler(this.tabControlGameservers_Click);
+            // 
+            // tabManageGameservers
+            // 
+            this.tabManageGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabManageGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabManageGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabManageGameservers.BorderRadius = 0;
+            this.tabManageGameservers.ButtonText = "    Manage GameServers";
+            this.tabManageGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabManageGameservers.DisabledColor = System.Drawing.Color.Gray;
+            this.tabManageGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabManageGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.tabManageGameservers.Iconcolor = System.Drawing.Color.Transparent;
+            this.tabManageGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabManageGameservers.Iconimage")));
+            this.tabManageGameservers.Iconimage_right = null;
+            this.tabManageGameservers.Iconimage_right_Selected = null;
+            this.tabManageGameservers.Iconimage_Selected = null;
+            this.tabManageGameservers.IconMarginLeft = 0;
+            this.tabManageGameservers.IconMarginRight = 0;
+            this.tabManageGameservers.IconRightVisible = true;
+            this.tabManageGameservers.IconRightZoom = 0D;
+            this.tabManageGameservers.IconVisible = true;
+            this.tabManageGameservers.IconZoom = 50D;
+            this.tabManageGameservers.IsTab = true;
+            this.tabManageGameservers.Location = new System.Drawing.Point(0, 0);
+            this.tabManageGameservers.Name = "tabManageGameservers";
+            this.tabManageGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabManageGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.tabManageGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.tabManageGameservers.selected = false;
+            this.tabManageGameservers.Size = new System.Drawing.Size(255, 48);
+            this.tabManageGameservers.TabIndex = 19;
+            this.tabManageGameservers.Text = "    Manage GameServers";
+            this.tabManageGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tabManageGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.tabManageGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabManageGameservers.Click += new System.EventHandler(this.tabManageGameservers_Click);
+            // 
+            // tabDeployGameservers
+            // 
+            this.tabDeployGameservers.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabDeployGameservers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabDeployGameservers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabDeployGameservers.BorderRadius = 0;
+            this.tabDeployGameservers.ButtonText = "    Deploy GameServers";
+            this.tabDeployGameservers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabDeployGameservers.DisabledColor = System.Drawing.Color.Gray;
+            this.tabDeployGameservers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabDeployGameservers.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.tabDeployGameservers.Iconcolor = System.Drawing.Color.Transparent;
+            this.tabDeployGameservers.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabDeployGameservers.Iconimage")));
+            this.tabDeployGameservers.Iconimage_right = null;
+            this.tabDeployGameservers.Iconimage_right_Selected = null;
+            this.tabDeployGameservers.Iconimage_Selected = null;
+            this.tabDeployGameservers.IconMarginLeft = 0;
+            this.tabDeployGameservers.IconMarginRight = 0;
+            this.tabDeployGameservers.IconRightVisible = true;
+            this.tabDeployGameservers.IconRightZoom = 0D;
+            this.tabDeployGameservers.IconVisible = true;
+            this.tabDeployGameservers.IconZoom = 55D;
+            this.tabDeployGameservers.IsTab = true;
+            this.tabDeployGameservers.Location = new System.Drawing.Point(0, 0);
+            this.tabDeployGameservers.Name = "tabDeployGameservers";
+            this.tabDeployGameservers.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.tabDeployGameservers.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.tabDeployGameservers.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.tabDeployGameservers.selected = false;
+            this.tabDeployGameservers.Size = new System.Drawing.Size(255, 48);
+            this.tabDeployGameservers.TabIndex = 18;
+            this.tabDeployGameservers.Text = "    Deploy GameServers";
+            this.tabDeployGameservers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tabDeployGameservers.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.tabDeployGameservers.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabDeployGameservers.Click += new System.EventHandler(this.tabDeployGameservers_Click_1);
+            // 
+            // panelTabDashboard
+            // 
+            this.panelTabDashboard.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelTabDashboard.BorderRadius = 0;
+            this.panelTabDashboard.ButtonText = "    Dashboard";
+            this.panelTabDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panelTabDashboard.DisabledColor = System.Drawing.Color.Gray;
+            this.panelTabDashboard.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTabDashboard.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.panelTabDashboard.Iconcolor = System.Drawing.Color.Transparent;
+            this.panelTabDashboard.Iconimage = ((System.Drawing.Image)(resources.GetObject("panelTabDashboard.Iconimage")));
+            this.panelTabDashboard.Iconimage_right = null;
+            this.panelTabDashboard.Iconimage_right_Selected = null;
+            this.panelTabDashboard.Iconimage_Selected = null;
+            this.panelTabDashboard.IconMarginLeft = 0;
+            this.panelTabDashboard.IconMarginRight = 0;
+            this.panelTabDashboard.IconRightVisible = true;
+            this.panelTabDashboard.IconRightZoom = 0D;
+            this.panelTabDashboard.IconVisible = true;
+            this.panelTabDashboard.IconZoom = 55D;
+            this.panelTabDashboard.IsTab = true;
+            this.panelTabDashboard.Location = new System.Drawing.Point(0, 0);
+            this.panelTabDashboard.Margin = new System.Windows.Forms.Padding(50, 3, 3, 3);
+            this.panelTabDashboard.Name = "panelTabDashboard";
+            this.panelTabDashboard.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(22)))), ((int)(((byte)(30)))));
+            this.panelTabDashboard.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.panelTabDashboard.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panelTabDashboard.selected = false;
+            this.panelTabDashboard.Size = new System.Drawing.Size(255, 48);
+            this.panelTabDashboard.TabIndex = 18;
+            this.panelTabDashboard.Text = "    Dashboard";
+            this.panelTabDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panelTabDashboard.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panelTabDashboard.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panelTabDashboard.Click += new System.EventHandler(this.tabDashboard_Click_1);
+            // 
+            // mainIcon
+            // 
+            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
+            this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainIcon.Location = new System.Drawing.Point(9, 6);
+            this.mainIcon.Name = "mainIcon";
+            this.mainIcon.Size = new System.Drawing.Size(30, 30);
+            this.mainIcon.TabIndex = 45;
+            this.mainIcon.TabStop = false;
+            // 
             // btnExitProgram
             // 
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
@@ -490,13 +497,6 @@
             this.btnExitProgram.TabStop = false;
             this.btnExitProgram.Zoom = 20;
             this.btnExitProgram.Click += new System.EventHandler(this.btnExitProgram_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.BalloonTipText = "Advanced Tech Toolkit 4.0";
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Advanced Tech Toolkit 4.0";
-            this.notifyIcon1.Visible = true;
             // 
             // BorealisServerManager
             // 

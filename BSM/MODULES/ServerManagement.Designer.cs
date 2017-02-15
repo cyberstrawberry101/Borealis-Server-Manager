@@ -33,10 +33,10 @@
             this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
-            this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
+            this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.SuspendLayout();
             // 
             // btnBrowseDestination
@@ -104,6 +104,33 @@
             this.comboboxGameserverList.UseSelectable = true;
             this.comboboxGameserverList.SelectedIndexChanged += new System.EventHandler(this.comboboxGameserverList_SelectedIndexChanged);
             // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 42);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(276, 19);
+            this.bunifuCustomLabel4.TabIndex = 11;
+            this.bunifuCustomLabel4.Text = "Here you can manage individual gameservers";
+            // 
+            // bunifuCustomLabel7
+            // 
+            this.bunifuCustomLabel7.AutoSize = true;
+            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel7.Location = new System.Drawing.Point(10, 10);
+            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(280, 32);
+            this.bunifuCustomLabel7.TabIndex = 4;
+            this.bunifuCustomLabel7.Text = "GameServer Management";
+            // 
+            // fadingTransition
+            // 
+            this.fadingTransition.Delay = 1;
+            // 
             // btnUpdateServerConfig
             // 
             this.btnUpdateServerConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -139,33 +166,6 @@
             this.btnUpdateServerConfig.Textcolor = System.Drawing.Color.White;
             this.btnUpdateServerConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdateServerConfig.Click += new System.EventHandler(this.btnUpdateServerConfig_Click);
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 42);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(276, 19);
-            this.bunifuCustomLabel4.TabIndex = 11;
-            this.bunifuCustomLabel4.Text = "Here you can manage individual gameservers";
-            // 
-            // bunifuCustomLabel7
-            // 
-            this.bunifuCustomLabel7.AutoSize = true;
-            this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel7.Location = new System.Drawing.Point(10, 10);
-            this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(280, 32);
-            this.bunifuCustomLabel7.TabIndex = 4;
-            this.bunifuCustomLabel7.Text = "GameServer Management";
-            // 
-            // fadingTransition
-            // 
-            this.fadingTransition.Delay = 1;
             // 
             // ServerManagement
             // 

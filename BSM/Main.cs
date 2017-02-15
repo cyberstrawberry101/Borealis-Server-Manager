@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
+using System.IO;
 
 namespace Borealis
 {
@@ -47,6 +48,12 @@ namespace Borealis
         //===================================================================================//
         private void BorealisServerManager_Load(object sender, EventArgs e)
         {
+            //Create blank config.json
+            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json") == false)
+            {
+                File.Create(Environment.CurrentDirectory + @"\config.json").Dispose();
+            }
+
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
             MdiClient ctlMDI;
@@ -69,34 +76,11 @@ namespace Borealis
                 }
             }
 
-            bool FIRST_TIME_SETUP = false; //DEBUG DEBUG DEBUG
-
-            if (FIRST_TIME_SETUP == true)
-            {
-                panelTabDashboard.Visible = false;
-                panelTabDeployment.Visible = false;
-                panelTabManagement.Visible = false;
-                panelTabControl.Visible = false;
-                panelTabExperimental.Visible = false;
-                toggleExperimentalMode.Visible = false;
-                lblAutoRestart.Visible = false;
-
-                //Render child MDI form---------------------------------------------
-                WelcomeScreen ChildInstance = new WelcomeScreen();
-                ChildInstance.MdiParent = this;
-                ChildInstance.AutoScroll = false;
-                ChildInstance.Dock = DockStyle.Fill;
-                ChildInstance.Show();
-            }
-            else
-            {
-                //Render child MDI form---------------------------------------------
                 ServerDashboard ChildInstance = new ServerDashboard();
                 ChildInstance.MdiParent = this;
                 ChildInstance.AutoScroll = false;
                 ChildInstance.Dock = DockStyle.Fill;
                 ChildInstance.Show();
-            }
 
             //Display current product version.
             lblVersion.Text = "Version " + Application.ProductVersion;

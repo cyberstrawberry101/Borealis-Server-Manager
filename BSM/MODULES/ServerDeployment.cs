@@ -13,6 +13,9 @@ using System.IO;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using Newtonsoft.Json.Linq;
+using System.Threading;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace Borealis
 
@@ -56,7 +59,6 @@ namespace Borealis
         //===================================================================================//
         public void updateProgressStatus(int currentProgress, int overallProgress, string progressDetails)
         {
-            progressbarDownloadProgress.Value = currentProgress;
             progressbarDownloadProgressOverall.Value = overallProgress;
             lblDownloadProgressDetails.Text = progressDetails;
         }
@@ -76,10 +78,63 @@ namespace Borealis
         public static class DeploymentValues
         {
             public static string deployment_directory { get; set; }
+            public static string verify_integrity { get; set; }
+        }
+
+        public void ExecuteWithRedirect(string argProgramName, string argParameters)
+        {
+            var proc = new Process();
+            proc.StartInfo.Arguments = argParameters;
+            proc.StartInfo.FileName = argProgramName;
+            proc.StartInfo.UseShellExecute = false;
+
+            // set up output redirection
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.EnableRaisingEvents = true;
+            proc.StartInfo.CreateNoWindow = true;
+            // see below for output handler
+            proc.ErrorDataReceived += proc_DataReceived;
+            proc.OutputDataReceived += proc_DataReceived;
+
+            proc.Start();
+
+            proc.BeginErrorReadLine();
+            proc.BeginOutputReadLine();
+        }
+
+        void proc_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            if (e.Data != null)
+            {
+                lblDownloadProgressDetails.Text = e.Data;
+                try
+                {
+                    progressbarDownloadProgressOverall.Value = Convert.ToInt32(Double.Parse(Regex.Match(e.Data, @"\:([^)]*)\(").Groups[1].Value));
+                }
+                catch (Exception)
+                {
+                    //Do nothing
+                }
+                
+                
+
+                if (ServerAPI_Classes.QUERY_JOBJECT.steamcmd_required == "True")
+                {
+                    if (e.Data == "Success! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed.")
+                    {
+                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    }
+                }
+                else
+                {
+                    //RUN OTHER CODE FOR NON-STEAMCMD GAMESERVER
+                }
+            }
         }
 
         private void btnDeployGameserver_Click(object sender, EventArgs e)
-        {
+        {            
             //Determine where to deploy the server based on user input.
             if (txtboxDestinationFolder.Text == "")
             {
@@ -88,6 +143,16 @@ namespace Borealis
             else
             {
                 DeploymentValues.deployment_directory = txtboxDestinationFolder.Text;
+            }
+
+            //Determine whether or not to verify integrity of the installation.
+            if (chkVerifyIntegrity.Value == true)
+            {
+                DeploymentValues.verify_integrity = " +validate";
+            }
+            else
+            {
+                DeploymentValues.verify_integrity = "";
             }
 
             //btnCancelDeployGameserver.Visible = true;
@@ -115,11 +180,10 @@ namespace Borealis
                                                 break;
 
                                             case "False":
-                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ",ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ",ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
                                                 SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location,ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments,ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                                                 break;
                                         }
-                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
                                 break;
@@ -149,11 +213,10 @@ namespace Borealis
                                                 break;
 
                                             case "False":
-                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
                                                 SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                                                 break;
                                         }
-                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
                                 break;
@@ -183,11 +246,10 @@ namespace Borealis
                                                 break;
 
                                             case "False":
-                                                ExternalExecution_Classes.LaunchExternalProgram(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), " +quit"), false);
+                                                ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", DeploymentValues.deployment_directory, "\"", " +app_update ", ServerAPI_Classes.QUERY_STEAM_APPID(dropdownServerSelection.Text), DeploymentValues.verify_integrity, " +quit"));
                                                 SettingsManagement_Classes.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI_Classes.QUERY_JOBJECT.server_executable_location, ServerAPI_Classes.QUERY_JOBJECT.default_launch_arguments, ServerAPI_Classes.QUERY_JOBJECT.server_config_file);
                                                 break;
                                         }
-                                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                                     }
                                 }
                                 break;
@@ -221,6 +283,9 @@ namespace Borealis
             btnBrowseDestination.Visible = true;
             chkSeparateConfig.Visible = true;
             lblSeparateConfig.Visible = true;
+            chkVerifyIntegrity.Visible = true;
+            lblVerifyIntegrity.Visible = true;
+            panelProgress.Visible = true;
 
             //Server Name Controls
             lblServerName.Visible = true;
@@ -276,7 +341,7 @@ namespace Borealis
         {
             if (chkSeparateConfig.Checked == true)
             {
-                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance01";
+                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance";
             }
             else
             {

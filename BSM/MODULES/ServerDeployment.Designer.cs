@@ -34,7 +34,6 @@
             this.lblDownloadProgressDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDestinationDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDownloadProgress = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.progressbarDownloadProgress = new Bunifu.Framework.UI.BunifuProgressBar();
             this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtboxDestinationFolder = new System.Windows.Forms.TextBox();
             this.lblDestination = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -43,27 +42,30 @@
             this.lblSelectServer = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.browseDestinationFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.serverDeploymentWorker = new System.ComponentModel.BackgroundWorker();
             this.lblSeparateConfig = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkSeparateConfig = new Bunifu.Framework.UI.BunifuCheckbox();
             this.dropdownExistingServer = new MetroFramework.Controls.MetroComboBox();
             this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
+            this.lblDestinationDetailsSubtext = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panelProgress = new System.Windows.Forms.Panel();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.lblDestinationDetailsSubtext = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.lblVerifyIntegrity = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressbarDownloadProgressOverall
             // 
             this.progressbarDownloadProgressOverall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgressOverall.BorderRadius = 5;
-            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(16, 472);
+            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(7, 39);
             this.progressbarDownloadProgressOverall.MaximumValue = 100;
             this.progressbarDownloadProgressOverall.Name = "progressbarDownloadProgressOverall";
             this.progressbarDownloadProgressOverall.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressbarDownloadProgressOverall.Size = new System.Drawing.Size(695, 10);
+            this.progressbarDownloadProgressOverall.Size = new System.Drawing.Size(682, 10);
             this.progressbarDownloadProgressOverall.TabIndex = 40;
             this.progressbarDownloadProgressOverall.Value = 0;
             // 
@@ -95,7 +97,7 @@
             this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.lblDownloadProgressDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDownloadProgressDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(13, 436);
+            this.lblDownloadProgressDetails.Location = new System.Drawing.Point(4, 22);
             this.lblDownloadProgressDetails.Name = "lblDownloadProgressDetails";
             this.lblDownloadProgressDetails.Size = new System.Drawing.Size(55, 13);
             this.lblDownloadProgressDetails.TabIndex = 38;
@@ -119,23 +121,11 @@
             this.lblDownloadProgress.AutoSize = true;
             this.lblDownloadProgress.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDownloadProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDownloadProgress.Location = new System.Drawing.Point(12, 415);
+            this.lblDownloadProgress.Location = new System.Drawing.Point(3, 1);
             this.lblDownloadProgress.Name = "lblDownloadProgress";
             this.lblDownloadProgress.Size = new System.Drawing.Size(230, 21);
             this.lblDownloadProgress.TabIndex = 36;
             this.lblDownloadProgress.Text = "Download / Installation Progress:";
-            // 
-            // progressbarDownloadProgress
-            // 
-            this.progressbarDownloadProgress.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressbarDownloadProgress.BorderRadius = 5;
-            this.progressbarDownloadProgress.Location = new System.Drawing.Point(16, 456);
-            this.progressbarDownloadProgress.MaximumValue = 100;
-            this.progressbarDownloadProgress.Name = "progressbarDownloadProgress";
-            this.progressbarDownloadProgress.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressbarDownloadProgress.Size = new System.Drawing.Size(695, 10);
-            this.progressbarDownloadProgress.TabIndex = 35;
-            this.progressbarDownloadProgress.Value = 0;
             // 
             // btnBrowseDestination
             // 
@@ -248,11 +238,6 @@
             // 
             this.browseDestinationFolder.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // serverDeploymentWorker
-            // 
-            this.serverDeploymentWorker.WorkerReportsProgress = true;
-            this.serverDeploymentWorker.WorkerSupportsCancellation = true;
-            // 
             // lblSeparateConfig
             // 
             this.lblSeparateConfig.AutoSize = true;
@@ -340,6 +325,30 @@
             this.txtServerGivenName.TabIndex = 48;
             this.txtServerGivenName.Visible = false;
             // 
+            // lblDestinationDetailsSubtext
+            // 
+            this.lblDestinationDetailsSubtext.AutoSize = true;
+            this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 257);
+            this.lblDestinationDetailsSubtext.Name = "lblDestinationDetailsSubtext";
+            this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
+            this.lblDestinationDetailsSubtext.TabIndex = 49;
+            this.lblDestinationDetailsSubtext.Text = " (Leave blank if you want it installed in the same directory as BSM)";
+            this.lblDestinationDetailsSubtext.Visible = false;
+            // 
+            // panelProgress
+            // 
+            this.panelProgress.Controls.Add(this.lblDownloadProgress);
+            this.panelProgress.Controls.Add(this.lblDownloadProgressDetails);
+            this.panelProgress.Controls.Add(this.progressbarDownloadProgressOverall);
+            this.panelProgress.Location = new System.Drawing.Point(16, 428);
+            this.panelProgress.Name = "panelProgress";
+            this.panelProgress.Size = new System.Drawing.Size(695, 56);
+            this.panelProgress.TabIndex = 50;
+            this.panelProgress.Visible = false;
+            // 
             // btnDeployGameserver
             // 
             this.btnDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -413,18 +422,33 @@
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelDeployGameserver.Visible = false;
             // 
-            // lblDestinationDetailsSubtext
+            // chkVerifyIntegrity
             // 
-            this.lblDestinationDetailsSubtext.AutoSize = true;
-            this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 257);
-            this.lblDestinationDetailsSubtext.Name = "lblDestinationDetailsSubtext";
-            this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
-            this.lblDestinationDetailsSubtext.TabIndex = 49;
-            this.lblDestinationDetailsSubtext.Text = " (Leave blank if you want it installed in the same directory as BSM)";
-            this.lblDestinationDetailsSubtext.Visible = false;
+            this.chkVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
+            this.chkVerifyIntegrity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkVerifyIntegrity.BackgroundImage")));
+            this.chkVerifyIntegrity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkVerifyIntegrity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 516);
+            this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
+            this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
+            this.chkVerifyIntegrity.TabIndex = 52;
+            this.chkVerifyIntegrity.Value = false;
+            this.chkVerifyIntegrity.Visible = false;
+            // 
+            // lblVerifyIntegrity
+            // 
+            this.lblVerifyIntegrity.AutoSize = true;
+            this.lblVerifyIntegrity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblVerifyIntegrity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblVerifyIntegrity.Location = new System.Drawing.Point(65, 522);
+            this.lblVerifyIntegrity.Name = "lblVerifyIntegrity";
+            this.lblVerifyIntegrity.Size = new System.Drawing.Size(128, 19);
+            this.lblVerifyIntegrity.TabIndex = 51;
+            this.lblVerifyIntegrity.Text = "Verify Install Integrity";
+            this.lblVerifyIntegrity.Visible = false;
             // 
             // ServerDeployment
             // 
@@ -432,6 +456,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.chkVerifyIntegrity);
+            this.Controls.Add(this.lblVerifyIntegrity);
+            this.Controls.Add(this.panelProgress);
             this.Controls.Add(this.lblDestinationDetailsSubtext);
             this.Controls.Add(this.txtServerGivenName);
             this.Controls.Add(this.lblServerNameDetails);
@@ -441,12 +468,8 @@
             this.Controls.Add(this.chkSeparateConfig);
             this.Controls.Add(this.btnDeployGameserver);
             this.Controls.Add(this.btnCancelDeployGameserver);
-            this.Controls.Add(this.progressbarDownloadProgressOverall);
             this.Controls.Add(this.bunifuCustomLabel2);
-            this.Controls.Add(this.progressbarDownloadProgress);
-            this.Controls.Add(this.lblDownloadProgressDetails);
             this.Controls.Add(this.dropdownServerSelection);
-            this.Controls.Add(this.lblDownloadProgress);
             this.Controls.Add(this.lblDestinationDetails);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.btnBrowseDestination);
@@ -459,6 +482,8 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Toolkit_Authentication_Panel";
             this.Load += new System.EventHandler(this.ServerDeployment_Load);
+            this.panelProgress.ResumeLayout(false);
+            this.panelProgress.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,11 +501,9 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblDownloadProgressDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblDestinationDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblDownloadProgress;
-        private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgress;
         private System.Windows.Forms.FolderBrowserDialog browseDestinationFolder;
         private MetroFramework.Controls.MetroComboBox dropdownServerSelection;
         private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgressOverall;
-        private System.ComponentModel.BackgroundWorker serverDeploymentWorker;
         private Bunifu.Framework.UI.BunifuCustomLabel lblSeparateConfig;
         private Bunifu.Framework.UI.BunifuCheckbox chkSeparateConfig;
         private MetroFramework.Controls.MetroComboBox dropdownExistingServer;
@@ -489,5 +512,8 @@
         private System.Windows.Forms.TextBox txtServerGivenName;
         private Bunifu.Framework.UI.BunifuFlatButton btnCancelDeployGameserver;
         private Bunifu.Framework.UI.BunifuCustomLabel lblDestinationDetailsSubtext;
+        private System.Windows.Forms.Panel panelProgress;
+        private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
     }
 }
