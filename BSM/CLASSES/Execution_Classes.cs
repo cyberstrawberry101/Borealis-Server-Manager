@@ -17,7 +17,7 @@ namespace Borealis
         //===================================================================================//
         // LAUNCH EXTERNAL PROGRAM WITH GIVEN ARGUMENTS                                      //
         //===================================================================================//
-        public static void Execute(string argProgramName, string argParameters, bool argRedirectOutput)
+        public static void Execute(string argProgramName, string argParameters)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.Arguments = argParameters;
