@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic.Devices;
 using System.Threading;
 using System.Management;
+using System.Net.NetworkInformation;
 
 namespace Borealis
 {
-    public class MonitoringFunctions
+    public class System_Monitoring
     {
         //===================================================================================//
         // RAM UTILIZATION INFO FUNCTIONS                                                    //
@@ -99,6 +100,35 @@ namespace Borealis
                 collection.Dispose();
                 return mean / count;
             }
+        }
+
+        //===================================================================================//
+        // LAN UTILIZATION INFO FUNCTIONS                                                    //
+        //===================================================================================//
+        public long RetrieveLANUsage(bool bytesIn, bool bytesOut)
+        {
+            if (!NetworkInterface.GetIsNetworkAvailable())
+            {
+                NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
+
+                if (bytesIn == true)
+                {
+                    foreach (NetworkInterface ni in interfaces)
+                    {
+                        return ni.GetIPv4Statistics().BytesReceived;
+                    }
+                }
+
+                if (bytesOut == true)
+                {
+                    foreach (NetworkInterface ni in interfaces)
+                    {
+                        return ni.GetIPv4Statistics().BytesSent;
+                    }
+                }
+                return 0;
+            }
+            return 0;
         }
     }
 }

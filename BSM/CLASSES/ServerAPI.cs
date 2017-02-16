@@ -12,7 +12,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
-    public class ServerAPI_Classes
+    public class ServerAPI
     {
         //===================================================================================//
         // Class to store JSON data during deployment                                        //

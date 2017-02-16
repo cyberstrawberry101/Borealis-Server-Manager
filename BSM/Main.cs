@@ -249,17 +249,5 @@ namespace Borealis
         {
             lblAttribution.ForeColor = Color.FromArgb(145, 155, 166);
         }
-
-        private void toggleExperimentalMode_OnValueChange(object sender, EventArgs e)
-        {
-            if (toggleExperimentalMode.Value == true)
-            {
-                panelTabExperimental.Visible = true;
-            }
-            else
-            {
-                panelTabExperimental.Visible = false;
-            }
-        }
     }
 }

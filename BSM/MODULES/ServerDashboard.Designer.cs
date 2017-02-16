@@ -42,17 +42,6 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
-            this.panelMemoryUsage = new System.Windows.Forms.Panel();
-            this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.panelDiskUsage = new System.Windows.Forms.Panel();
-            this.progressDISKUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.panelCPUUsage = new System.Windows.Forms.Panel();
-            this.progressCPUUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuCircleProgressbar1 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +50,17 @@
             this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
+            this.panelMemoryUsage = new System.Windows.Forms.Panel();
+            this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.panelDiskUsage = new System.Windows.Forms.Panel();
+            this.progressDISKUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.panelCPUUsage = new System.Windows.Forms.Panel();
+            this.progressCPUUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.progressLANUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblDetailedLANUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -234,164 +234,6 @@
             this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 223);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
-            // backgroundMetrics
-            // 
-            this.backgroundMetrics.WorkerReportsProgress = true;
-            this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
-            this.backgroundMetrics.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundMetrics_ProgressChanged);
-            // 
-            // panelMemoryUsage
-            // 
-            this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
-            this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
-            this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
-            this.panelMemoryUsage.Location = new System.Drawing.Point(11, 68);
-            this.panelMemoryUsage.Name = "panelMemoryUsage";
-            this.panelMemoryUsage.Size = new System.Drawing.Size(171, 205);
-            this.panelMemoryUsage.TabIndex = 61;
-            // 
-            // progressRAMUsage
-            // 
-            this.progressRAMUsage.animated = true;
-            this.progressRAMUsage.animationIterval = 1;
-            this.progressRAMUsage.animationSpeed = 60;
-            this.progressRAMUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.progressRAMUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressRAMUsage.BackgroundImage")));
-            this.progressRAMUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.progressRAMUsage.LabelVisible = true;
-            this.progressRAMUsage.LineProgressThickness = 8;
-            this.progressRAMUsage.LineThickness = 5;
-            this.progressRAMUsage.Location = new System.Drawing.Point(15, 1);
-            this.progressRAMUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.progressRAMUsage.MaxValue = 100;
-            this.progressRAMUsage.Name = "progressRAMUsage";
-            this.progressRAMUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressRAMUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressRAMUsage.Size = new System.Drawing.Size(140, 140);
-            this.progressRAMUsage.TabIndex = 49;
-            this.progressRAMUsage.Value = 0;
-            // 
-            // panelDiskUsage
-            // 
-            this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
-            this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
-            this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
-            this.panelDiskUsage.Location = new System.Drawing.Point(188, 68);
-            this.panelDiskUsage.Name = "panelDiskUsage";
-            this.panelDiskUsage.Size = new System.Drawing.Size(171, 205);
-            this.panelDiskUsage.TabIndex = 62;
-            // 
-            // progressDISKUsage
-            // 
-            this.progressDISKUsage.animated = true;
-            this.progressDISKUsage.animationIterval = 1;
-            this.progressDISKUsage.animationSpeed = 60;
-            this.progressDISKUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.progressDISKUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressDISKUsage.BackgroundImage")));
-            this.progressDISKUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.progressDISKUsage.LabelVisible = true;
-            this.progressDISKUsage.LineProgressThickness = 8;
-            this.progressDISKUsage.LineThickness = 5;
-            this.progressDISKUsage.Location = new System.Drawing.Point(15, 1);
-            this.progressDISKUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.progressDISKUsage.MaxValue = 100;
-            this.progressDISKUsage.Name = "progressDISKUsage";
-            this.progressDISKUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressDISKUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressDISKUsage.Size = new System.Drawing.Size(140, 140);
-            this.progressDISKUsage.TabIndex = 52;
-            this.progressDISKUsage.Value = 0;
-            // 
-            // panelCPUUsage
-            // 
-            this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
-            this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
-            this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
-            this.panelCPUUsage.Location = new System.Drawing.Point(365, 68);
-            this.panelCPUUsage.Name = "panelCPUUsage";
-            this.panelCPUUsage.Size = new System.Drawing.Size(171, 205);
-            this.panelCPUUsage.TabIndex = 62;
-            // 
-            // progressCPUUsage
-            // 
-            this.progressCPUUsage.animated = true;
-            this.progressCPUUsage.animationIterval = 1;
-            this.progressCPUUsage.animationSpeed = 60;
-            this.progressCPUUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.progressCPUUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressCPUUsage.BackgroundImage")));
-            this.progressCPUUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.progressCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.progressCPUUsage.LabelVisible = true;
-            this.progressCPUUsage.LineProgressThickness = 8;
-            this.progressCPUUsage.LineThickness = 5;
-            this.progressCPUUsage.Location = new System.Drawing.Point(15, 1);
-            this.progressCPUUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.progressCPUUsage.MaxValue = 100;
-            this.progressCPUUsage.Name = "progressCPUUsage";
-            this.progressCPUUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.progressCPUUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.progressCPUUsage.Size = new System.Drawing.Size(140, 140);
-            this.progressCPUUsage.TabIndex = 55;
-            this.progressCPUUsage.Value = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.bunifuCircleProgressbar1);
-            this.panel1.Controls.Add(this.bunifuCustomLabel1);
-            this.panel1.Controls.Add(this.bunifuCustomLabel3);
-            this.panel1.Location = new System.Drawing.Point(542, 68);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 205);
-            this.panel1.TabIndex = 63;
-            // 
-            // bunifuCircleProgressbar1
-            // 
-            this.bunifuCircleProgressbar1.animated = true;
-            this.bunifuCircleProgressbar1.animationIterval = 1;
-            this.bunifuCircleProgressbar1.animationSpeed = 60;
-            this.bunifuCircleProgressbar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCircleProgressbar1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuCircleProgressbar1.BackgroundImage")));
-            this.bunifuCircleProgressbar1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCircleProgressbar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCircleProgressbar1.LabelVisible = true;
-            this.bunifuCircleProgressbar1.LineProgressThickness = 8;
-            this.bunifuCircleProgressbar1.LineThickness = 5;
-            this.bunifuCircleProgressbar1.Location = new System.Drawing.Point(16, 1);
-            this.bunifuCircleProgressbar1.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.bunifuCircleProgressbar1.MaxValue = 100;
-            this.bunifuCircleProgressbar1.Name = "bunifuCircleProgressbar1";
-            this.bunifuCircleProgressbar1.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
-            this.bunifuCircleProgressbar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuCircleProgressbar1.Size = new System.Drawing.Size(140, 140);
-            this.bunifuCircleProgressbar1.TabIndex = 55;
-            this.bunifuCircleProgressbar1.Value = 0;
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(22, 134);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(128, 32);
-            this.bunifuCustomLabel1.TabIndex = 56;
-            this.bunifuCustomLabel1.Text = "LAN Usage";
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(18, 165);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(133, 38);
-            this.bunifuCustomLabel3.TabIndex = 57;
-            this.bunifuCustomLabel3.Text = "0 Kb/s RX / 0 Kb/s TX\r\n0Kb/s / 1000Mbps";
-            this.bunifuCustomLabel3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // columnGameServerName
             // 
             this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -455,6 +297,164 @@
             this.columnRestartFlag.ReadOnly = true;
             this.columnRestartFlag.Width = 97;
             // 
+            // backgroundMetrics
+            // 
+            this.backgroundMetrics.WorkerReportsProgress = true;
+            this.backgroundMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundMetrics_DoWork);
+            this.backgroundMetrics.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundMetrics_ProgressChanged);
+            // 
+            // panelMemoryUsage
+            // 
+            this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
+            this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
+            this.panelMemoryUsage.Location = new System.Drawing.Point(11, 68);
+            this.panelMemoryUsage.Name = "panelMemoryUsage";
+            this.panelMemoryUsage.Size = new System.Drawing.Size(171, 188);
+            this.panelMemoryUsage.TabIndex = 61;
+            // 
+            // progressRAMUsage
+            // 
+            this.progressRAMUsage.animated = true;
+            this.progressRAMUsage.animationIterval = 1;
+            this.progressRAMUsage.animationSpeed = 60;
+            this.progressRAMUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.progressRAMUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressRAMUsage.BackgroundImage")));
+            this.progressRAMUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.progressRAMUsage.LabelVisible = true;
+            this.progressRAMUsage.LineProgressThickness = 8;
+            this.progressRAMUsage.LineThickness = 5;
+            this.progressRAMUsage.Location = new System.Drawing.Point(15, 1);
+            this.progressRAMUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.progressRAMUsage.MaxValue = 100;
+            this.progressRAMUsage.Name = "progressRAMUsage";
+            this.progressRAMUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
+            this.progressRAMUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.progressRAMUsage.Size = new System.Drawing.Size(140, 140);
+            this.progressRAMUsage.TabIndex = 49;
+            this.progressRAMUsage.Value = 0;
+            // 
+            // panelDiskUsage
+            // 
+            this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
+            this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
+            this.panelDiskUsage.Location = new System.Drawing.Point(188, 68);
+            this.panelDiskUsage.Name = "panelDiskUsage";
+            this.panelDiskUsage.Size = new System.Drawing.Size(171, 188);
+            this.panelDiskUsage.TabIndex = 62;
+            // 
+            // progressDISKUsage
+            // 
+            this.progressDISKUsage.animated = true;
+            this.progressDISKUsage.animationIterval = 1;
+            this.progressDISKUsage.animationSpeed = 60;
+            this.progressDISKUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.progressDISKUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressDISKUsage.BackgroundImage")));
+            this.progressDISKUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.progressDISKUsage.LabelVisible = true;
+            this.progressDISKUsage.LineProgressThickness = 8;
+            this.progressDISKUsage.LineThickness = 5;
+            this.progressDISKUsage.Location = new System.Drawing.Point(15, 1);
+            this.progressDISKUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.progressDISKUsage.MaxValue = 100;
+            this.progressDISKUsage.Name = "progressDISKUsage";
+            this.progressDISKUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
+            this.progressDISKUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.progressDISKUsage.Size = new System.Drawing.Size(140, 140);
+            this.progressDISKUsage.TabIndex = 52;
+            this.progressDISKUsage.Value = 0;
+            // 
+            // panelCPUUsage
+            // 
+            this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
+            this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
+            this.panelCPUUsage.Location = new System.Drawing.Point(365, 68);
+            this.panelCPUUsage.Name = "panelCPUUsage";
+            this.panelCPUUsage.Size = new System.Drawing.Size(171, 188);
+            this.panelCPUUsage.TabIndex = 62;
+            // 
+            // progressCPUUsage
+            // 
+            this.progressCPUUsage.animated = true;
+            this.progressCPUUsage.animationIterval = 1;
+            this.progressCPUUsage.animationSpeed = 60;
+            this.progressCPUUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.progressCPUUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressCPUUsage.BackgroundImage")));
+            this.progressCPUUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.progressCPUUsage.LabelVisible = true;
+            this.progressCPUUsage.LineProgressThickness = 8;
+            this.progressCPUUsage.LineThickness = 5;
+            this.progressCPUUsage.Location = new System.Drawing.Point(15, 1);
+            this.progressCPUUsage.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.progressCPUUsage.MaxValue = 100;
+            this.progressCPUUsage.Name = "progressCPUUsage";
+            this.progressCPUUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
+            this.progressCPUUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.progressCPUUsage.Size = new System.Drawing.Size(140, 140);
+            this.progressCPUUsage.TabIndex = 55;
+            this.progressCPUUsage.Value = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.progressLANUsage);
+            this.panel1.Controls.Add(this.bunifuCustomLabel1);
+            this.panel1.Controls.Add(this.lblDetailedLANUsage);
+            this.panel1.Location = new System.Drawing.Point(542, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(171, 188);
+            this.panel1.TabIndex = 63;
+            // 
+            // progressLANUsage
+            // 
+            this.progressLANUsage.animated = true;
+            this.progressLANUsage.animationIterval = 1;
+            this.progressLANUsage.animationSpeed = 60;
+            this.progressLANUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.progressLANUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressLANUsage.BackgroundImage")));
+            this.progressLANUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressLANUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.progressLANUsage.LabelVisible = true;
+            this.progressLANUsage.LineProgressThickness = 8;
+            this.progressLANUsage.LineThickness = 5;
+            this.progressLANUsage.Location = new System.Drawing.Point(16, 1);
+            this.progressLANUsage.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.progressLANUsage.MaxValue = 100;
+            this.progressLANUsage.Name = "progressLANUsage";
+            this.progressLANUsage.ProgressBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
+            this.progressLANUsage.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.progressLANUsage.Size = new System.Drawing.Size(140, 140);
+            this.progressLANUsage.TabIndex = 55;
+            this.progressLANUsage.Value = 0;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(22, 134);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(128, 32);
+            this.bunifuCustomLabel1.TabIndex = 56;
+            this.bunifuCustomLabel1.Text = "LAN Usage";
+            // 
+            // lblDetailedLANUsage
+            // 
+            this.lblDetailedLANUsage.AutoSize = true;
+            this.lblDetailedLANUsage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDetailedLANUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblDetailedLANUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.lblDetailedLANUsage.Location = new System.Drawing.Point(18, 165);
+            this.lblDetailedLANUsage.Name = "lblDetailedLANUsage";
+            this.lblDetailedLANUsage.Size = new System.Drawing.Size(133, 19);
+            this.lblDetailedLANUsage.TabIndex = 57;
+            this.lblDetailedLANUsage.Text = "0 Kb/s RX / 0 Kb/s TX";
+            this.lblDetailedLANUsage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // ServerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,9 +505,9 @@
         private System.Windows.Forms.Panel panelDiskUsage;
         private System.Windows.Forms.Panel panelCPUUsage;
         private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar1;
+        private Bunifu.Framework.UI.BunifuCircleProgressbar progressLANUsage;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblDetailedLANUsage;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerRAM;

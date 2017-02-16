@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
-    public class SteamCMD_Classes
+    public class SteamCMD
     {
         //===================================================================================//
         // Download | Extract | First-Run SteamCMD                                           //

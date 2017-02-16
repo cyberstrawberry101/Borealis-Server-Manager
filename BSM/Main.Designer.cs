@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
             this.sidemenu = new System.Windows.Forms.Panel();
-            this.toggleExperimentalMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.lblAutoRestart = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblAttribution = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelTabExperimental = new System.Windows.Forms.Panel();
             this.tabExperimental = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -51,7 +49,6 @@
             this.indicatorTabDashboard = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -64,7 +61,6 @@
             this.panelTabDeployment.SuspendLayout();
             this.panelDashboard.SuspendLayout();
             this.header.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.SuspendLayout();
@@ -72,8 +68,6 @@
             // sidemenu
             // 
             this.sidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.sidemenu.Controls.Add(this.toggleExperimentalMode);
-            this.sidemenu.Controls.Add(this.lblAutoRestart);
             this.sidemenu.Controls.Add(this.lblAttribution);
             this.sidemenu.Controls.Add(this.panelTabExperimental);
             this.sidemenu.Controls.Add(this.panelTabControl);
@@ -86,40 +80,13 @@
             this.sidemenu.Size = new System.Drawing.Size(260, 554);
             this.sidemenu.TabIndex = 0;
             // 
-            // toggleExperimentalMode
-            // 
-            this.toggleExperimentalMode.BackColor = System.Drawing.Color.Transparent;
-            this.toggleExperimentalMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("toggleExperimentalMode.BackgroundImage")));
-            this.toggleExperimentalMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.toggleExperimentalMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.toggleExperimentalMode.Location = new System.Drawing.Point(9, 518);
-            this.toggleExperimentalMode.Name = "toggleExperimentalMode";
-            this.toggleExperimentalMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.toggleExperimentalMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.toggleExperimentalMode.Size = new System.Drawing.Size(43, 25);
-            this.toggleExperimentalMode.TabIndex = 44;
-            this.toggleExperimentalMode.Value = false;
-            this.toggleExperimentalMode.OnValueChange += new System.EventHandler(this.toggleExperimentalMode_OnValueChange);
-            // 
-            // lblAutoRestart
-            // 
-            this.lblAutoRestart.AutoSize = true;
-            this.lblAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblAutoRestart.Location = new System.Drawing.Point(58, 524);
-            this.lblAutoRestart.Name = "lblAutoRestart";
-            this.lblAutoRestart.Size = new System.Drawing.Size(124, 19);
-            this.lblAutoRestart.TabIndex = 43;
-            this.lblAutoRestart.Text = "Experimental Mode";
-            // 
             // lblAttribution
             // 
             this.lblAttribution.AutoSize = true;
             this.lblAttribution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.lblAttribution.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblAttribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblAttribution.Location = new System.Drawing.Point(217, 530);
+            this.lblAttribution.Location = new System.Drawing.Point(6, 532);
             this.lblAttribution.Name = "lblAttribution";
             this.lblAttribution.Size = new System.Drawing.Size(35, 13);
             this.lblAttribution.TabIndex = 23;
@@ -423,8 +390,10 @@
             // 
             // header
             // 
-            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
-            this.header.Controls.Add(this.panel2);
+            this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.header.Controls.Add(this.mainIcon);
+            this.header.Controls.Add(this.lblVersion);
+            this.header.Controls.Add(this.bunifuCustomLabel1);
             this.header.Controls.Add(this.btnExitProgram);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
@@ -432,23 +401,11 @@
             this.header.Size = new System.Drawing.Size(985, 45);
             this.header.TabIndex = 1;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Controls.Add(this.mainIcon);
-            this.panel2.Controls.Add(this.lblVersion);
-            this.panel2.Controls.Add(this.bunifuCustomLabel1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 45);
-            this.panel2.TabIndex = 5;
-            // 
             // mainIcon
             // 
-            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.System_Task_Filled_100;
+            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.TitleIcon_WHITE;
             this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainIcon.Location = new System.Drawing.Point(9, 6);
+            this.mainIcon.Location = new System.Drawing.Point(10, 7);
             this.mainIcon.Name = "mainIcon";
             this.mainIcon.Size = new System.Drawing.Size(30, 30);
             this.mainIcon.TabIndex = 45;
@@ -457,10 +414,10 @@
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.lblVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI Light", 7F);
-            this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblVersion.Location = new System.Drawing.Point(44, 26);
+            this.lblVersion.ForeColor = System.Drawing.Color.White;
+            this.lblVersion.Location = new System.Drawing.Point(45, 27);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(66, 12);
             this.lblVersion.TabIndex = 31;
@@ -470,8 +427,8 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(41, 4);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(42, 5);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
             this.bunifuCustomLabel1.Size = new System.Drawing.Size(218, 25);
             this.bunifuCustomLabel1.TabIndex = 2;
@@ -479,7 +436,7 @@
             // 
             // btnExitProgram
             // 
-            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(72)))), ((int)(((byte)(77)))));
+            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
             this.btnExitProgram.Location = new System.Drawing.Point(949, 9);
@@ -523,8 +480,7 @@
             this.panelTabDeployment.ResumeLayout(false);
             this.panelDashboard.ResumeLayout(false);
             this.header.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.header.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.ResumeLayout(false);
@@ -551,13 +507,10 @@
         private System.Windows.Forms.Panel header;
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
-        private System.Windows.Forms.Panel panel2;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
         private System.Windows.Forms.Panel panelTabExperimental;
         private Bunifu.Framework.UI.BunifuFlatButton tabExperimental;
         private System.Windows.Forms.Panel indicatorTabExperimental;
-        private Bunifu.Framework.UI.BunifuiOSSwitch toggleExperimentalMode;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblAutoRestart;
         private System.Windows.Forms.PictureBox mainIcon;
     }
 }

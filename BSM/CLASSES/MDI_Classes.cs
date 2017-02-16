@@ -11,7 +11,7 @@ namespace Borealis
     //===================================================================================//
     // MDI CONTAINER PAINTING OVERRIDE: Makes MDI child forms have no border             //
     //===================================================================================//
-    public static class MDIClientSupport
+    public static class MDI_Classes
         {
             [DllImport("user32.dll")]
             private static extern int GetWindowLong(IntPtr hWnd, int nIndex);

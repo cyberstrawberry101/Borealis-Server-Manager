@@ -355,7 +355,7 @@
             this.btnDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDeployGameserver.BorderRadius = 0;
-            this.btnDeployGameserver.ButtonText = "Deploy";
+            this.btnDeployGameserver.ButtonText = "y";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnDeployGameserver.Enabled = false;
@@ -380,7 +380,7 @@
             this.btnDeployGameserver.selected = false;
             this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnDeployGameserver.TabIndex = 14;
-            this.btnDeployGameserver.Text = "Deploy";
+            this.btnDeployGameserver.Text = "y";
             this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -446,9 +446,9 @@
             this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblVerifyIntegrity.Location = new System.Drawing.Point(65, 522);
             this.lblVerifyIntegrity.Name = "lblVerifyIntegrity";
-            this.lblVerifyIntegrity.Size = new System.Drawing.Size(128, 19);
+            this.lblVerifyIntegrity.Size = new System.Drawing.Size(125, 19);
             this.lblVerifyIntegrity.TabIndex = 51;
-            this.lblVerifyIntegrity.Text = "Verify Install Integrity";
+            this.lblVerifyIntegrity.Text = "Validate Server Files";
             this.lblVerifyIntegrity.Visible = false;
             // 
             // ServerDeployment

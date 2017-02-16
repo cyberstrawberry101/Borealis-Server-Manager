@@ -10,7 +10,7 @@ using Newtonsoft.Json;
 
 namespace Borealis
 {
-    public class SettingsManagement_Classes
+    public class Settings
     {
         //=====================================================================================//
         // Deploy Gameserver                                                                   //
