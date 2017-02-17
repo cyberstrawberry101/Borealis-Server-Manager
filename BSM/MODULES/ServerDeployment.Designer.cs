@@ -355,7 +355,7 @@
             this.btnDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDeployGameserver.BorderRadius = 0;
-            this.btnDeployGameserver.ButtonText = "y";
+            this.btnDeployGameserver.ButtonText = "Deploy";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnDeployGameserver.Enabled = false;
@@ -380,7 +380,7 @@
             this.btnDeployGameserver.selected = false;
             this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnDeployGameserver.TabIndex = 14;
-            this.btnDeployGameserver.Text = "y";
+            this.btnDeployGameserver.Text = "Deploy";
             this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -120,7 +120,7 @@ namespace Borealis
                 //SteamCMD error and success handler.
                 if (ServerAPI.QUERY_JOBJECT.steamcmd_required == "True")
                 {
-                    if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed.")
+                    if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching...")
                     {
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         Settings.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI.QUERY_JOBJECT.server_executable_location, ServerAPI.QUERY_JOBJECT.default_launch_arguments, ServerAPI.QUERY_JOBJECT.server_config_file);

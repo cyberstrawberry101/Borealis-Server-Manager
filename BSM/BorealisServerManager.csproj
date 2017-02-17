@@ -43,15 +43,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DEPENDENCIES\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework, Version=1.3.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>DEPENDENCIES\MetroFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -185,6 +177,9 @@
     <None Include="RESOURCES\MISC_ICONS\TitleIcon_WHITE.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MetroModernUI">
+      <Version>1.4.0</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>9.0.1</Version>
     </PackageReference>
