@@ -32,9 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
             this.sidemenu = new System.Windows.Forms.Panel();
             this.lblAttribution = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panelTabExperimental = new System.Windows.Forms.Panel();
-            this.tabExperimental = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.indicatorTabExperimental = new System.Windows.Forms.Panel();
             this.panelTabControl = new System.Windows.Forms.Panel();
             this.tabControlGameservers = new Bunifu.Framework.UI.BunifuFlatButton();
             this.indicatorTabControl = new System.Windows.Forms.Panel();
@@ -49,18 +46,19 @@
             this.indicatorTabDashboard = new System.Windows.Forms.Panel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
+            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.sidemenu.SuspendLayout();
-            this.panelTabExperimental.SuspendLayout();
             this.panelTabControl.SuspendLayout();
             this.panelTabManagement.SuspendLayout();
             this.panelTabDeployment.SuspendLayout();
             this.panelDashboard.SuspendLayout();
             this.header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +67,6 @@
             // 
             this.sidemenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.sidemenu.Controls.Add(this.lblAttribution);
-            this.sidemenu.Controls.Add(this.panelTabExperimental);
             this.sidemenu.Controls.Add(this.panelTabControl);
             this.sidemenu.Controls.Add(this.panelTabManagement);
             this.sidemenu.Controls.Add(this.panelTabDeployment);
@@ -86,72 +83,10 @@
             this.lblAttribution.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.lblAttribution.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblAttribution.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.lblAttribution.Location = new System.Drawing.Point(6, 532);
+            this.lblAttribution.Location = new System.Drawing.Point(220, 532);
             this.lblAttribution.Name = "lblAttribution";
-            this.lblAttribution.Size = new System.Drawing.Size(35, 13);
+            this.lblAttribution.Size = new System.Drawing.Size(0, 13);
             this.lblAttribution.TabIndex = 23;
-            this.lblAttribution.Text = "About";
-            this.lblAttribution.Click += new System.EventHandler(this.lblAttribution_Click);
-            this.lblAttribution.MouseLeave += new System.EventHandler(this.lblAttribution_MouseLeave);
-            this.lblAttribution.MouseHover += new System.EventHandler(this.lblAttribution_MouseHover);
-            // 
-            // panelTabExperimental
-            // 
-            this.panelTabExperimental.Controls.Add(this.tabExperimental);
-            this.panelTabExperimental.Controls.Add(this.indicatorTabExperimental);
-            this.panelTabExperimental.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTabExperimental.Location = new System.Drawing.Point(0, 192);
-            this.panelTabExperimental.Name = "panelTabExperimental";
-            this.panelTabExperimental.Size = new System.Drawing.Size(260, 48);
-            this.panelTabExperimental.TabIndex = 31;
-            this.panelTabExperimental.Visible = false;
-            // 
-            // tabExperimental
-            // 
-            this.tabExperimental.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tabExperimental.BorderRadius = 0;
-            this.tabExperimental.ButtonText = "    Experimental Area";
-            this.tabExperimental.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.tabExperimental.DisabledColor = System.Drawing.Color.Gray;
-            this.tabExperimental.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabExperimental.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.tabExperimental.Iconcolor = System.Drawing.Color.Transparent;
-            this.tabExperimental.Iconimage = ((System.Drawing.Image)(resources.GetObject("tabExperimental.Iconimage")));
-            this.tabExperimental.Iconimage_right = null;
-            this.tabExperimental.Iconimage_right_Selected = null;
-            this.tabExperimental.Iconimage_Selected = null;
-            this.tabExperimental.IconMarginLeft = 0;
-            this.tabExperimental.IconMarginRight = 0;
-            this.tabExperimental.IconRightVisible = true;
-            this.tabExperimental.IconRightZoom = 0D;
-            this.tabExperimental.IconVisible = true;
-            this.tabExperimental.IconZoom = 58D;
-            this.tabExperimental.IsTab = true;
-            this.tabExperimental.Location = new System.Drawing.Point(0, 0);
-            this.tabExperimental.Name = "tabExperimental";
-            this.tabExperimental.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tabExperimental.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.tabExperimental.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.tabExperimental.selected = false;
-            this.tabExperimental.Size = new System.Drawing.Size(255, 48);
-            this.tabExperimental.TabIndex = 19;
-            this.tabExperimental.Text = "    Experimental Area";
-            this.tabExperimental.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.tabExperimental.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.tabExperimental.TextFont = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabExperimental.Click += new System.EventHandler(this.tabExperimental_Click);
-            // 
-            // indicatorTabExperimental
-            // 
-            this.indicatorTabExperimental.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.indicatorTabExperimental.Dock = System.Windows.Forms.DockStyle.Right;
-            this.indicatorTabExperimental.Location = new System.Drawing.Point(255, 0);
-            this.indicatorTabExperimental.Name = "indicatorTabExperimental";
-            this.indicatorTabExperimental.Size = new System.Drawing.Size(5, 48);
-            this.indicatorTabExperimental.TabIndex = 18;
-            this.indicatorTabExperimental.Visible = false;
             // 
             // panelTabControl
             // 
@@ -391,6 +326,7 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.header.Controls.Add(this.bunifuImageButton1);
             this.header.Controls.Add(this.mainIcon);
             this.header.Controls.Add(this.lblVersion);
             this.header.Controls.Add(this.bunifuCustomLabel1);
@@ -400,6 +336,20 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(985, 45);
             this.header.TabIndex = 1;
+            // 
+            // bunifuImageButton1
+            // 
+            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.bunifuImageButton1.Image = global::Borealis_Default_Namespace.Properties.Resources.HELP_ICON;
+            this.bunifuImageButton1.ImageActive = null;
+            this.bunifuImageButton1.Location = new System.Drawing.Point(914, 9);
+            this.bunifuImageButton1.Name = "bunifuImageButton1";
+            this.bunifuImageButton1.Size = new System.Drawing.Size(26, 26);
+            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bunifuImageButton1.TabIndex = 46;
+            this.bunifuImageButton1.TabStop = false;
+            this.bunifuImageButton1.Zoom = 20;
+            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
             // 
             // mainIcon
             // 
@@ -474,13 +424,13 @@
             this.Load += new System.EventHandler(this.BorealisServerManager_Load);
             this.sidemenu.ResumeLayout(false);
             this.sidemenu.PerformLayout();
-            this.panelTabExperimental.ResumeLayout(false);
             this.panelTabControl.ResumeLayout(false);
             this.panelTabManagement.ResumeLayout(false);
             this.panelTabDeployment.ResumeLayout(false);
             this.panelDashboard.ResumeLayout(false);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.ResumeLayout(false);
@@ -508,10 +458,8 @@
         private Bunifu.Framework.UI.BunifuImageButton btnExitProgram;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
-        private System.Windows.Forms.Panel panelTabExperimental;
-        private Bunifu.Framework.UI.BunifuFlatButton tabExperimental;
-        private System.Windows.Forms.Panel indicatorTabExperimental;
         private System.Windows.Forms.PictureBox mainIcon;
+        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
     }
 }
 

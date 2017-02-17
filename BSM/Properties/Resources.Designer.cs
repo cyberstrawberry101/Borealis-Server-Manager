@@ -63,6 +63,16 @@ namespace Borealis_Default_Namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ABOUT_ICON {
+            get {
+                object obj = ResourceManager.GetObject("ABOUT_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CONSOLE_ICON {
             get {
                 object obj = ResourceManager.GetObject("CONSOLE_ICON", resourceCulture);
@@ -106,6 +116,16 @@ namespace Borealis_Default_Namespace.Properties {
         internal static System.Drawing.Bitmap EXPERIMENT_ICON {
             get {
                 object obj = ResourceManager.GetObject("EXPERIMENT_ICON", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap HELP_ICON {
+            get {
+                object obj = ResourceManager.GetObject("HELP_ICON", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

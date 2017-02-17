@@ -93,10 +93,10 @@ namespace Borealis
         private void tabDashboard_Click_1(object sender, EventArgs e)
         {
             //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
 
             //Select Tab
             panelTabDashboard.Textcolor = Color.FromArgb(67, 181, 129);
@@ -119,10 +119,10 @@ namespace Borealis
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
             //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental .Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabDeployGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -145,10 +145,10 @@ namespace Borealis
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
             //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabManageGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -171,10 +171,10 @@ namespace Borealis
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
             //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
 
             //Selected Tab
             tabControlGameservers.Textcolor = Color.FromArgb(67, 181, 129);
@@ -190,43 +190,17 @@ namespace Borealis
             ChildInstance_Control.Dock = DockStyle.Fill;
             ChildInstance_Control.Show();
         }
-        
-        //===================================================================================//
-        // EXPERIMENTAL AREA TAB                                                             //
-        //===================================================================================//
-        private void tabExperimental_Click(object sender, EventArgs e)
-        {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
-
-            //Selected Tab
-            tabExperimental.Textcolor = Color.FromArgb(67, 181, 129);
-            tabExperimental.Activecolor = Color.FromArgb(16, 22, 30);
-            tabExperimental.BackColor = Color.FromArgb(16, 22, 30);
-            indicatorTabExperimental.Visible = true;
-
-            //Render child MDI form---------------------------------------------
-            Experimental_Area ChildInstance_Experimental = new Experimental_Area();
-            DisposeAllButThis(ChildInstance_Experimental); //Destroy all other MDI child forms.
-            ChildInstance_Experimental.MdiParent = this;
-            ChildInstance_Experimental.AutoScroll = false;
-            ChildInstance_Experimental.Dock = DockStyle.Fill;
-            ChildInstance_Experimental.Show();
-        }
 
         //===================================================================================//
         // ATTRIBUTION AND CREDITS TAB                                                       //
         //===================================================================================//
-        private void lblAttribution_Click(object sender, EventArgs e)
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = indicatorTabExperimental.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = tabExperimental.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = tabExperimental.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = tabExperimental.BackColor = Color.FromArgb(26, 32, 40);
+            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
+            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
+            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
+            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
 
             //Render child MDI form---------------------------------------------
             About_DialogBox ChildInstance_Attribution = new About_DialogBox();
@@ -235,19 +209,6 @@ namespace Borealis
             ChildInstance_Attribution.AutoScroll = false;
             ChildInstance_Attribution.Dock = DockStyle.Fill;
             ChildInstance_Attribution.Show();
-        }
-
-        //===================================================================================//
-        // MISCELLANIOUS UI CODE                                                             //
-        //===================================================================================//
-        private void lblAttribution_MouseHover(object sender, EventArgs e)
-        {
-            lblAttribution.ForeColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void lblAttribution_MouseLeave(object sender, EventArgs e)
-        {
-            lblAttribution.ForeColor = Color.FromArgb(145, 155, 166);
         }
     }
 }
