@@ -77,5 +77,10 @@ namespace Borealis
                 comboboxGameserverList.Items.Add((string)o["server_name"]);
             }
         }
+
+        private void txtboxIssueCommand_Enter(object sender, EventArgs e)
+        {
+            txtboxIssueCommand.Text = "";
+        }
     }
 }

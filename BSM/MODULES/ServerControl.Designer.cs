@@ -228,7 +228,7 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Location = new System.Drawing.Point(0, 0);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(701, 371);
+            this.listBox1.Size = new System.Drawing.Size(692, 371);
             this.listBox1.TabIndex = 43;
             // 
             // txtboxIssueCommand
@@ -240,18 +240,19 @@
             this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 371);
             this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(701, 29);
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(692, 29);
             this.txtboxIssueCommand.TabIndex = 49;
             this.txtboxIssueCommand.Text = " > Server is Not Running";
             this.txtboxIssueCommand.Visible = false;
+            this.txtboxIssueCommand.Enter += new System.EventHandler(this.txtboxIssueCommand_Enter);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.listBox1);
             this.panel1.Controls.Add(this.txtboxIssueCommand);
-            this.panel1.Location = new System.Drawing.Point(10, 80);
+            this.panel1.Location = new System.Drawing.Point(18, 80);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 400);
+            this.panel1.Size = new System.Drawing.Size(692, 400);
             this.panel1.TabIndex = 50;
             // 
             // ServerControl
