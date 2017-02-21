@@ -238,7 +238,7 @@
             this.serverPropertiesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.serverPropertiesTable.ShowCellToolTips = false;
             this.serverPropertiesTable.ShowEditingIcon = false;
-            this.serverPropertiesTable.Size = new System.Drawing.Size(693, 158);
+            this.serverPropertiesTable.Size = new System.Drawing.Size(693, 209);
             this.serverPropertiesTable.TabIndex = 45;
             // 
             // columnGameServerName

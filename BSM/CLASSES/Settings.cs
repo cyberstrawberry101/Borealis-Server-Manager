@@ -60,12 +60,6 @@ namespace Borealis
             return JsonItems;
         }
 
-        public static void RetrieveGameserver(string name)
-        {
-
-        }
-
-
         //=====================================================================================//
         // Destroy Gameserver                                                                  //
         //=====================================================================================//

@@ -28,9 +28,8 @@ namespace Borealis
             btnStopServer.Enabled = true;
             chkAutoRestart.Visible = false;
             lblAutoRestart.Visible = false;
-            txtboxIssueCommand.Enabled = true;
-            txtboxIssueCommand.Text = "> Type a command";
-            consoleViewport.color = Color.FromArgb(255, 67, 181, 129);
+            txtboxIssueCommand.Visible = true;
+            txtboxIssueCommand.Text = " > Enter a Command";
             backgroundWorker01.RunWorkerAsync();
 
         }
@@ -44,9 +43,8 @@ namespace Borealis
             btnStartServer.Enabled = true;
             chkAutoRestart.Visible = true;
             lblAutoRestart.Visible = true;
-            txtboxIssueCommand.Enabled = false;
-            txtboxIssueCommand.Text = "> Server is not running";
-            consoleViewport.color = Color.FromArgb(255, 191, 75, 96);
+            txtboxIssueCommand.Visible = false;
+            txtboxIssueCommand.Text = " > Server is Not Running";
         }
 
         //===================================================================================//

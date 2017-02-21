@@ -34,16 +34,16 @@
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.lblAutoRestart = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnStartServer = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.consoleViewport = new Bunifu.Framework.UI.BunifuCards();
-            this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
-            this.txtboxConsoleOutput = new System.Windows.Forms.ListBox();
             this.btnStopServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.consoleViewport.SuspendLayout();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chkAutoRestart
@@ -136,56 +136,6 @@
             this.btnStartServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
-            // consoleViewport
-            // 
-            this.consoleViewport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.consoleViewport.BorderRadius = 5;
-            this.consoleViewport.BottomSahddow = true;
-            this.consoleViewport.color = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.consoleViewport.Controls.Add(this.txtboxIssueCommand);
-            this.consoleViewport.Controls.Add(this.txtboxConsoleOutput);
-            this.consoleViewport.LeftSahddow = false;
-            this.consoleViewport.Location = new System.Drawing.Point(16, 66);
-            this.consoleViewport.Name = "consoleViewport";
-            this.consoleViewport.RightSahddow = true;
-            this.consoleViewport.ShadowDepth = 20;
-            this.consoleViewport.Size = new System.Drawing.Size(695, 352);
-            this.consoleViewport.TabIndex = 15;
-            // 
-            // txtboxIssueCommand
-            // 
-            this.txtboxIssueCommand.BackColor = System.Drawing.Color.White;
-            this.txtboxIssueCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtboxIssueCommand.Enabled = false;
-            this.txtboxIssueCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 320);
-            this.txtboxIssueCommand.Multiline = true;
-            this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(695, 32);
-            this.txtboxIssueCommand.TabIndex = 33;
-            this.txtboxIssueCommand.Text = "> Server is not running";
-            this.txtboxIssueCommand.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtboxIssueCommand_MouseClick);
-            // 
-            // txtboxConsoleOutput
-            // 
-            this.txtboxConsoleOutput.BackColor = System.Drawing.Color.White;
-            this.txtboxConsoleOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtboxConsoleOutput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtboxConsoleOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxConsoleOutput.FormattingEnabled = true;
-            this.txtboxConsoleOutput.Items.AddRange(new object[] {
-            "",
-            "Example console output will be displayed here.",
-            "Pretty much whatever you normally would see is here.",
-            "",
-            "Yep, pretty boring in this white box."});
-            this.txtboxConsoleOutput.Location = new System.Drawing.Point(0, 0);
-            this.txtboxConsoleOutput.Name = "txtboxConsoleOutput";
-            this.txtboxConsoleOutput.Size = new System.Drawing.Size(695, 352);
-            this.txtboxConsoleOutput.TabIndex = 2;
-            // 
             // btnStopServer
             // 
             this.btnStopServer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
@@ -271,11 +221,45 @@
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
+            // listBox1
+            // 
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(0, 0);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(701, 371);
+            this.listBox1.TabIndex = 43;
+            // 
+            // txtboxIssueCommand
+            // 
+            this.txtboxIssueCommand.BackColor = System.Drawing.Color.White;
+            this.txtboxIssueCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtboxIssueCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 371);
+            this.txtboxIssueCommand.Name = "txtboxIssueCommand";
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(701, 29);
+            this.txtboxIssueCommand.TabIndex = 49;
+            this.txtboxIssueCommand.Text = " > Server is Not Running";
+            this.txtboxIssueCommand.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.txtboxIssueCommand);
+            this.panel1.Location = new System.Drawing.Point(10, 80);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(701, 400);
+            this.panel1.TabIndex = 50;
+            // 
             // ServerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.bunifuCustomLabel16);
@@ -284,13 +268,12 @@
             this.Controls.Add(this.lblAutoRestart);
             this.Controls.Add(this.btnStopServer);
             this.Controls.Add(this.btnStartServer);
-            this.Controls.Add(this.consoleViewport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerControl";
             this.Text = "Toolkit_TechServices_Panel";
             this.Load += new System.EventHandler(this.ServerControl_Load);
-            this.consoleViewport.ResumeLayout(false);
-            this.consoleViewport.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,16 +283,16 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnStopServer;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel14;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
-        private Bunifu.Framework.UI.BunifuCards consoleViewport;
         private Bunifu.Framework.UI.BunifuCustomLabel lblAutoRestart;
         private Bunifu.Framework.UI.BunifuFlatButton btnStartServer;
-        private System.Windows.Forms.TextBox txtboxIssueCommand;
-        private System.Windows.Forms.ListBox txtboxConsoleOutput;
         private System.Diagnostics.Process serverProcess01;
         private System.Diagnostics.Process serverProcess02;
         private System.ComponentModel.BackgroundWorker backgroundWorker01;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox txtboxIssueCommand;
+        private System.Windows.Forms.Panel panel1;
     }
 }
