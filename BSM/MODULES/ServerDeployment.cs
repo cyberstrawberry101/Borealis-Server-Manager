@@ -123,7 +123,7 @@ namespace Borealis
                     {
                         GameServer_Management DeployConfig = new GameServer_Management();
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        DeployConfig.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI.QUERY_JOBJECT.server_executable_location, ServerAPI.QUERY_JOBJECT.default_launch_arguments, ServerAPI.QUERY_JOBJECT.server_config_file, false);
+                        DeployConfig.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI.QUERY_JOBJECT.server_executable_location, ServerAPI.QUERY_JOBJECT.default_launch_arguments, ServerAPI.QUERY_JOBJECT.server_config_file, false, false);
                         btnCancelDeployGameserver.Visible = false;
                         btnDeployGameserver.Enabled = true;
                     }

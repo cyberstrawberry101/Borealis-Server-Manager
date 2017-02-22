@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
@@ -213,6 +214,25 @@ namespace Borealis
             ChildInstance_Attribution.AutoScroll = false;
             ChildInstance_Attribution.Dock = DockStyle.Fill;
             ChildInstance_Attribution.Show();
+        }
+
+        private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Write data in memory to disk into config.json
+            if (GameServer_Management.server_collection != null)
+            {
+                //Delete existing config.json
+                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json"))
+                {
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\config.json");
+                }
+
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    GameServer_Management WriteConfigOnClose = new GameServer_Management();
+                    WriteConfigOnClose.DeployGameserver((string)gameserver["server_name"], (string)gameserver["server_type"], (string)gameserver["install_dir"], (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"], (string)gameserver["server_config_file"], (bool)gameserver["running_status"], true);
+                }
+            }
         }
     }
 }

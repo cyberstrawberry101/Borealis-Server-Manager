@@ -68,7 +68,7 @@ namespace Borealis
         //=====================================================================================//
         // Method to deploy gameserver data into config.json                                   //
         //=====================================================================================//
-        public void DeployGameserver(string server_name, string server_type, string install_dir, string executable_dir, string launch_arguments, string server_config_file, bool running_status)
+        public void DeployGameserver(string server_name, string server_type, string install_dir, string executable_dir, string launch_arguments, string server_config_file, bool running_status, bool borealis_closing)
         {
             dynamic serverData = new JObject();
             serverData.server_name = server_name;
@@ -78,7 +78,11 @@ namespace Borealis
             serverData.launch_arguments = launch_arguments;
             serverData.server_config_file = server_config_file;
             serverData.running_status = running_status;
-            addServer(serverData);
+
+            if (borealis_closing == false)  //Only add data to active JObject list if its not the closing event triggering it.
+            {
+                addServer(serverData);
+            }
 
             // Write JSON directly to config.json in the event of a crash
             using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\config.json"))

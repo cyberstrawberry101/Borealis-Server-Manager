@@ -421,6 +421,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Borealis Server Manager";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BorealisServerManager_FormClosed);
             this.Load += new System.EventHandler(this.BorealisServerManager_Load);
             this.sidemenu.ResumeLayout(false);
             this.sidemenu.PerformLayout();
