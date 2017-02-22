@@ -36,10 +36,9 @@ namespace Borealis
         //=====================================================================================//
         // Method to add a gameserver JObject to the collection                                //
         //=====================================================================================//
-        public void addServer(Newtonsoft.Json.Linq.JObject gameserver_object)
+        public void addServer(JObject gameserver_object)
         {
             server_collection.Add(gameserver_object);
-
         }
 
         //=====================================================================================//
@@ -60,8 +59,7 @@ namespace Borealis
 
                 if (BracketCount == 0 && c != ' ')
                 {
-                    Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(Json.ToString());
-                    addServer(o);
+                    addServer(JObject.Parse(Json.ToString()));
                     Json = new StringBuilder();
                 }
             }
@@ -70,7 +68,7 @@ namespace Borealis
         //=====================================================================================//
         // Method to deploy gameserver data into config.json                                   //
         //=====================================================================================//
-        public static void DeployGameserver(string server_name, string server_type, string install_dir, string executable_dir, string launch_arguments, string server_config_file, bool running_status)
+        public void DeployGameserver(string server_name, string server_type, string install_dir, string executable_dir, string launch_arguments, string server_config_file, bool running_status)
         {
             dynamic serverData = new JObject();
             serverData.server_name = server_name;
@@ -80,8 +78,9 @@ namespace Borealis
             serverData.launch_arguments = launch_arguments;
             serverData.server_config_file = server_config_file;
             serverData.running_status = running_status;
+            addServer(serverData);
 
-            // Write JSON directly to config.json
+            // Write JSON directly to config.json in the event of a crash
             using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\config.json"))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {

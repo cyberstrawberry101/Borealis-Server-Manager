@@ -28,7 +28,7 @@ namespace Borealis
         {
             if (GameServer_Management.server_collection != null)
             {
-                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
                     comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
                 }
@@ -45,7 +45,7 @@ namespace Borealis
 
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+            foreach (JObject gameserver in GameServer_Management.server_collection)
             {
                 if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
                 {

@@ -37,7 +37,7 @@ namespace Borealis
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://sfo3.hauteclaire.me/config/" + appID);
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
+                JObject o = JObject.Parse(json);
                 QUERY_JOBJECT.name = (string)o["name"];
                 QUERY_JOBJECT.steam_authrequired = (string)o["steam_authrequired"];
                 QUERY_JOBJECT.steamcmd_required = (string)o["steamcmd_required"];
@@ -56,7 +56,7 @@ namespace Borealis
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
+                JObject o = JObject.Parse(json);
 
                 foreach (var serverAppIDLink in o)
                 {

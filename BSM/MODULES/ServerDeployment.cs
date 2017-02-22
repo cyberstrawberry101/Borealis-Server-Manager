@@ -38,9 +38,8 @@ namespace Borealis
                 using (var webClient = new System.Net.WebClient())
                 {
                     var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
-                    Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(json);
 
-                    foreach (var serverAppName in o)
+                    foreach (var serverAppName in JObject.Parse(json))
                     {
                         JToken value = serverAppName.Value;
                         dropdownServerSelection.Items.Add(value.ToString());
@@ -122,8 +121,9 @@ namespace Borealis
                 {
                     if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching...")
                     {
+                        GameServer_Management DeployConfig = new GameServer_Management();
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        GameServer_Management.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI.QUERY_JOBJECT.server_executable_location, ServerAPI.QUERY_JOBJECT.default_launch_arguments, ServerAPI.QUERY_JOBJECT.server_config_file, false);
+                        DeployConfig.DeployGameserver(txtServerGivenName.Text, dropdownServerSelection.Text, DeploymentValues.deployment_directory, ServerAPI.QUERY_JOBJECT.server_executable_location, ServerAPI.QUERY_JOBJECT.default_launch_arguments, ServerAPI.QUERY_JOBJECT.server_config_file, false);
                         btnCancelDeployGameserver.Visible = false;
                         btnDeployGameserver.Enabled = true;
                     }

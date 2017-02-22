@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
@@ -73,7 +74,7 @@ namespace Borealis
             //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
-                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
                     comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
                 }
