@@ -77,7 +77,7 @@ namespace Borealis
             }
 
             //Display current product version.
-            lblVersion.Text = "Version " + Application.ProductVersion;
+            lblVersion.Text = "Version " + Application.ProductVersion + " Alpha";
 
             //Store all gameservers into memory to be used by Borealis.
             GameServer_Management PullConfig = new GameServer_Management();

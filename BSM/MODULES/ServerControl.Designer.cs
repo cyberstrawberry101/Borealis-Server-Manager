@@ -39,7 +39,6 @@
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
-            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
             this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -87,6 +86,7 @@
             this.comboboxGameserverList.UseCustomBackColor = true;
             this.comboboxGameserverList.UseCustomForeColor = true;
             this.comboboxGameserverList.UseSelectable = true;
+            this.comboboxGameserverList.SelectedValueChanged += new System.EventHandler(this.comboboxGameserverList_SelectedValueChanged);
             // 
             // lblAutoRestart
             // 
@@ -216,11 +216,6 @@
             this.serverProcess02.StartInfo.UserName = "";
             this.serverProcess02.SynchronizingObject = this;
             // 
-            // backgroundWorker01
-            // 
-            this.backgroundWorker01.WorkerSupportsCancellation = true;
-            this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
-            // 
             // consoleOutputList
             // 
             this.consoleOutputList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -288,7 +283,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnStartServer;
         private System.Diagnostics.Process serverProcess01;
         private System.Diagnostics.Process serverProcess02;
-        private System.ComponentModel.BackgroundWorker backgroundWorker01;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
