@@ -76,14 +76,18 @@ namespace Borealis
                 }
             }
 
-                ServerDashboard ChildInstance = new ServerDashboard();
-                ChildInstance.MdiParent = this;
-                ChildInstance.AutoScroll = false;
-                ChildInstance.Dock = DockStyle.Fill;
-                ChildInstance.Show();
-
             //Display current product version.
             lblVersion.Text = "Version " + Application.ProductVersion;
+
+            //Store all gameservers into memory to be used by Borealis.
+            GameServer_Management PullConfig = new GameServer_Management();
+            PullConfig.addAllServers_fromConfig();
+
+            ServerDashboard ChildInstance = new ServerDashboard();
+            ChildInstance.MdiParent = this;
+            ChildInstance.AutoScroll = false;
+            ChildInstance.Dock = DockStyle.Fill;
+            ChildInstance.Show();
         }
 
 

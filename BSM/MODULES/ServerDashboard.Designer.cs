@@ -42,14 +42,6 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
             this.panelMemoryUsage = new System.Windows.Forms.Panel();
             this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
@@ -61,6 +53,14 @@
             this.progressLANUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedLANUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -234,69 +234,6 @@
             this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 223);
             this.overallServerStatsGrid.TabIndex = 43;
             // 
-            // columnGameServerName
-            // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerName.HeaderText = "Name";
-            this.columnGameServerName.Name = "columnGameServerName";
-            this.columnGameServerName.ReadOnly = true;
-            // 
-            // columnServerType
-            // 
-            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnServerType.HeaderText = "Server Type";
-            this.columnServerType.Name = "columnServerType";
-            this.columnServerType.ReadOnly = true;
-            this.columnServerType.Width = 90;
-            // 
-            // columnGameServerRAM
-            // 
-            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerRAM.HeaderText = "Memory";
-            this.columnGameServerRAM.Name = "columnGameServerRAM";
-            this.columnGameServerRAM.ReadOnly = true;
-            this.columnGameServerRAM.Width = 75;
-            // 
-            // columnGameServerDISK
-            // 
-            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerDISK.HeaderText = "Disk";
-            this.columnGameServerDISK.Name = "columnGameServerDISK";
-            this.columnGameServerDISK.ReadOnly = true;
-            this.columnGameServerDISK.Width = 52;
-            // 
-            // columnGameServerCPU
-            // 
-            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerCPU.HeaderText = "CPU";
-            this.columnGameServerCPU.Name = "columnGameServerCPU";
-            this.columnGameServerCPU.ReadOnly = true;
-            this.columnGameServerCPU.Width = 53;
-            // 
-            // columnNetworkUsage
-            // 
-            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnNetworkUsage.HeaderText = "Network";
-            this.columnNetworkUsage.Name = "columnNetworkUsage";
-            this.columnNetworkUsage.ReadOnly = true;
-            this.columnNetworkUsage.Width = 75;
-            // 
-            // columnStatus
-            // 
-            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnStatus.HeaderText = "Status";
-            this.columnStatus.Name = "columnStatus";
-            this.columnStatus.ReadOnly = true;
-            this.columnStatus.Width = 62;
-            // 
-            // columnRestartFlag
-            // 
-            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnRestartFlag.HeaderText = "Auto-Restart";
-            this.columnRestartFlag.Name = "columnRestartFlag";
-            this.columnRestartFlag.ReadOnly = true;
-            this.columnRestartFlag.Width = 97;
-            // 
             // backgroundMetrics
             // 
             this.backgroundMetrics.WorkerReportsProgress = true;
@@ -454,6 +391,69 @@
             this.lblDetailedLANUsage.TabIndex = 57;
             this.lblDetailedLANUsage.Text = "0 Kb/s RX / 0 Kb/s TX";
             this.lblDetailedLANUsage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // columnGameServerName
+            // 
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerName.HeaderText = "Name";
+            this.columnGameServerName.Name = "columnGameServerName";
+            this.columnGameServerName.ReadOnly = true;
+            // 
+            // columnServerType
+            // 
+            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnServerType.HeaderText = "Server Type";
+            this.columnServerType.Name = "columnServerType";
+            this.columnServerType.ReadOnly = true;
+            this.columnServerType.Width = 90;
+            // 
+            // columnGameServerRAM
+            // 
+            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerRAM.HeaderText = "Memory";
+            this.columnGameServerRAM.Name = "columnGameServerRAM";
+            this.columnGameServerRAM.ReadOnly = true;
+            this.columnGameServerRAM.Width = 75;
+            // 
+            // columnGameServerDISK
+            // 
+            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerDISK.HeaderText = "Disk";
+            this.columnGameServerDISK.Name = "columnGameServerDISK";
+            this.columnGameServerDISK.ReadOnly = true;
+            this.columnGameServerDISK.Width = 52;
+            // 
+            // columnGameServerCPU
+            // 
+            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerCPU.HeaderText = "CPU";
+            this.columnGameServerCPU.Name = "columnGameServerCPU";
+            this.columnGameServerCPU.ReadOnly = true;
+            this.columnGameServerCPU.Width = 53;
+            // 
+            // columnNetworkUsage
+            // 
+            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnNetworkUsage.HeaderText = "Network";
+            this.columnNetworkUsage.Name = "columnNetworkUsage";
+            this.columnNetworkUsage.ReadOnly = true;
+            this.columnNetworkUsage.Width = 75;
+            // 
+            // columnStatus
+            // 
+            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnStatus.HeaderText = "Running";
+            this.columnStatus.Name = "columnStatus";
+            this.columnStatus.ReadOnly = true;
+            this.columnStatus.Width = 75;
+            // 
+            // columnRestartFlag
+            // 
+            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnRestartFlag.HeaderText = "Auto-Restart";
+            this.columnRestartFlag.Name = "columnRestartFlag";
+            this.columnRestartFlag.ReadOnly = true;
+            this.columnRestartFlag.Width = 97;
             // 
             // ServerDashboard
             // 

@@ -31,12 +31,13 @@ namespace Borealis
             _dashboardInfo = GetInfo();
             RefreshUI(_dashboardInfo);
             backgroundMetrics.RunWorkerAsync();
-
             //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
-            foreach (var jsonString in Settings.GetConfigJsonStrings())
+            if (GameServer_Management.server_collection != null)
             {
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
-                overallServerStatsGrid.Rows.Add((string)o["server_name"], (string)o["server_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", "Stopped", "No");
+                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                {
+                    overallServerStatsGrid.Rows.Add((string)gameserver["server_name"], (string)gameserver["server_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (string)gameserver["running_status"], "No");
+                }
             }
         }
 

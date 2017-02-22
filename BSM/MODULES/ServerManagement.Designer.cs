@@ -111,7 +111,6 @@
             this.comboboxGameserverList.UseCustomBackColor = true;
             this.comboboxGameserverList.UseCustomForeColor = true;
             this.comboboxGameserverList.UseSelectable = true;
-            this.comboboxGameserverList.SelectedIndexChanged += new System.EventHandler(this.comboboxGameserverList_SelectedIndexChanged);
             this.comboboxGameserverList.SelectedValueChanged += new System.EventHandler(this.comboboxGameserverList_SelectedValueChanged);
             // 
             // bunifuCustomLabel4

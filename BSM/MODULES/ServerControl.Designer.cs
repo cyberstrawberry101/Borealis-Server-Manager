@@ -40,7 +40,7 @@
             this.serverProcess01 = new System.Diagnostics.Process();
             this.serverProcess02 = new System.Diagnostics.Process();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -221,15 +221,15 @@
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
-            // listBox1
+            // consoleOutputList
             // 
-            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(692, 371);
-            this.listBox1.TabIndex = 43;
+            this.consoleOutputList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.consoleOutputList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consoleOutputList.FormattingEnabled = true;
+            this.consoleOutputList.Location = new System.Drawing.Point(0, 0);
+            this.consoleOutputList.Name = "consoleOutputList";
+            this.consoleOutputList.Size = new System.Drawing.Size(692, 371);
+            this.consoleOutputList.TabIndex = 43;
             // 
             // txtboxIssueCommand
             // 
@@ -248,7 +248,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.consoleOutputList);
             this.panel1.Controls.Add(this.txtboxIssueCommand);
             this.panel1.Location = new System.Drawing.Point(18, 80);
             this.panel1.Name = "panel1";
@@ -292,7 +292,7 @@
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox consoleOutputList;
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.Panel panel1;
     }

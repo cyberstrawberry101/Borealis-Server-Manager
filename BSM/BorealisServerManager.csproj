@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="CLASSES\Execution_Classes.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
+    <Compile Include="CLASSES\GameServer_Management.cs" />
     <Compile Include="CLASSES\System_Monitoring.cs" />
     <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
@@ -87,7 +88,6 @@
     <Compile Include="MODULES\ServerDashboard.Designer.cs">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="CLASSES\Settings.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>

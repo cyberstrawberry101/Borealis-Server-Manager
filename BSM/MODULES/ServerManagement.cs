@@ -22,49 +22,16 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // Class to store JSON data during management                                        //
-        //===================================================================================//
-        public static class MANAGED_OBJECT
-        {
-            //Variables to be used during deployment:
-            public static string server_name { get; set; }
-            public static string server_type { get; set; }
-            public static string install_dir { get; set; }
-            public static string executable_dir { get; set; }
-            public static string launch_arguments { get; set; }
-            public static string server_config_file { get; set; }
-        }
-
-        //===================================================================================//
-        // QUERY AND STORE LOCAL DATA TO BE MODIFIED                                         //
-        //===================================================================================//
-        private void Prepare_Config_Data()
-        {
-            foreach (var jsonString in Settings.GetConfigJsonStrings())
-            {
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
-                if ((string)o["server_name"] == comboboxGameserverList.Text)
-                {
-                    MANAGED_OBJECT.server_name = (string)o["server_name"];
-                    MANAGED_OBJECT.server_type = (string)o["server_type"];
-                    MANAGED_OBJECT.install_dir = (string)o["install_dir"];
-                    MANAGED_OBJECT.executable_dir = (string)o["executable_dir"];
-                    MANAGED_OBJECT.launch_arguments = (string)o["launch_arguments"];
-                    MANAGED_OBJECT.server_config_file = (string)o["server_config_file"];
-                }
-            }
-        }
-
-        //===================================================================================//
         // STARTUP                                                                           //
         //===================================================================================//
         private void GSM_Management_Load(object sender, EventArgs e)
         {
-            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
-            foreach (var jsonString in Settings.GetConfigJsonStrings())
+            if (GameServer_Management.server_collection != null)
             {
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
-                comboboxGameserverList.Items.Add((string)o["server_name"]);
+                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                {
+                    comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
+                }
             }
         }
 
@@ -76,53 +43,31 @@ namespace Borealis
             MetroMessageBox.Show(this, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-
-
-        private void comboboxGameserverList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*
-            foreach (var jsonString in SettingsManagement_Classes.GetConfigJsonStrings())
-            {
-                foreach (var serverAppIDLink in jsonString)
-                {
-                    JToken value = serverAppIDLink.Value; //ServerName
-                    string name = serverAppIDLink.Key; //Steam appID
-
-                    if (value.ToString() == serverGiven)
-                    {
-                        return name; //appID
-                    }
-                }
-                Newtonsoft.Json.Linq.JObject o = Newtonsoft.Json.Linq.JObject.Parse(jsonString);
-                comboboxGameserverList.Items.Add((string)o["server_name"]);
-            }
-            */
-        }
-
-        //===================================================================================//
-        // Class to store JSON data during management                                        //
-        //===================================================================================//
-        public static class Management_JObject
-        {
-            //Variables to be used during management:
-            public static string server_name { get; set; }
-            public static string server_type { get; set; }
-            public static string install_dir { get; set; }
-            public static string executable_dir { get; set; }
-            public static string launch_arguments { get; set; }
-            public static string server_config_file { get; set; }
-        }
-
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            Prepare_Config_Data();
-            serverPropertiesTable.Rows.Clear();
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.server_name);
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.server_type);
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.install_dir);
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.executable_dir);
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.launch_arguments);
-            serverPropertiesTable.Rows.Add(MANAGED_OBJECT.server_config_file);
+            foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+            {
+                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                {
+                    GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
+                    Management_Instance.server_name = (string)gameserver["server_name"];
+                    Management_Instance.server_type = (string)gameserver["server_type"];
+                    Management_Instance.install_dir = (string)gameserver["install_dir"];
+                    Management_Instance.executable_dir = (string)gameserver["executable_dir"];
+                    Management_Instance.launch_arguments = (string)gameserver["launch_arguments"];
+                    Management_Instance.server_config_file = (string)gameserver["server_config_file"];
+                    Management_Instance.running_status = (bool)gameserver["running_status"];
+
+                    serverPropertiesTable.Rows.Clear();
+                    serverPropertiesTable.Rows.Add(Management_Instance.server_name);
+                    serverPropertiesTable.Rows.Add(Management_Instance.server_type);
+                    serverPropertiesTable.Rows.Add(Management_Instance.install_dir);
+                    serverPropertiesTable.Rows.Add(Management_Instance.executable_dir);
+                    serverPropertiesTable.Rows.Add(Management_Instance.launch_arguments);
+                    serverPropertiesTable.Rows.Add(Management_Instance.server_config_file);
+                    serverPropertiesTable.Rows.Add(Management_Instance.running_status);
+                }
+            }
         }
     }
 }
