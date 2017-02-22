@@ -59,13 +59,13 @@ namespace Borealis
                     Management_Instance.running_status = (bool)gameserver["running_status"];
 
                     serverPropertiesTable.Rows.Clear();
-                    serverPropertiesTable.Rows.Add(Management_Instance.server_name);
-                    serverPropertiesTable.Rows.Add(Management_Instance.server_type);
-                    serverPropertiesTable.Rows.Add(Management_Instance.install_dir);
-                    serverPropertiesTable.Rows.Add(Management_Instance.executable_dir);
-                    serverPropertiesTable.Rows.Add(Management_Instance.launch_arguments);
-                    serverPropertiesTable.Rows.Add(Management_Instance.server_config_file);
-                    serverPropertiesTable.Rows.Add(Management_Instance.running_status);
+                    serverPropertiesTable.Rows.Add("server_name", Management_Instance.server_name);
+                    serverPropertiesTable.Rows.Add("server_type", Management_Instance.server_type);
+                    serverPropertiesTable.Rows.Add("install_dir", Management_Instance.install_dir);
+                    serverPropertiesTable.Rows.Add("executable_dir", Management_Instance.executable_dir);
+                    serverPropertiesTable.Rows.Add("launch_arguments", Management_Instance.launch_arguments);
+                    serverPropertiesTable.Rows.Add("server_config_file", Management_Instance.server_config_file);
+                    serverPropertiesTable.Rows.Add("running_status", Management_Instance.running_status);
                 }
             }
         }
