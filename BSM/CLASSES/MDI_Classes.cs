@@ -67,35 +67,4 @@ namespace Borealis
                 return false;
             }
     }
-
-    public static class ShowHide
-    {
-        public static void openForm<T>(this T frm, Form parent) where T : Form, new()
-        {
-            bool found = false;
-            foreach (Form childForm in parent.MdiChildren)
-            {
-                if (childForm.GetType() == typeof(T))
-                {
-                    childForm.Visible = found = true;
-                }
-                else
-                {
-                    childForm.Visible = false;
-                };
-            }
-            if (!found)
-            {
-                // etc...
-            }
-
-            frm = new T();
-            frm.MdiParent = parent;
-            frm.AutoScroll = false;
-            frm.MaximizeBox = false;
-            frm.MinimizeBox = false;
-            frm.Dock = DockStyle.Fill;
-            frm.Show();
-        }
-    }
 }
