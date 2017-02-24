@@ -298,7 +298,7 @@ namespace Borealis
             {
                 lblDestination.Text = "Step 2: Destination";
                 lblDestinationDetails.Text = "Choose where you want to install the server";
-                txtboxDestinationFolder.Text = @"C:\GSM\";
+                txtboxDestinationFolder.Text = @"C:\BSM\";
                 txtboxDestinationFolder.Visible = true;
                 dropdownExistingServer.Visible = false;
             }
