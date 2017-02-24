@@ -1,6 +1,8 @@
 # Borealis Server Manager #
 * Utility designed to facilitate the deployment, management, and control of various kinds of dedicated gameservers.  Primarily focusing on SteamCMD-supported servers.
 
+![alt tag](https://i.imgur.com/T4I93M0.png)
+
 **Designed by:** Nicole Rappe
 
 **Requirements:**
