@@ -257,7 +257,7 @@
             this.Controls.Add(this.bunifuCustomLabel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "About_DialogBox";
-            this.Text = "Experimental_Area";
+            this.Text = "About";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

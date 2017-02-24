@@ -189,6 +189,7 @@
             this.serverPropertiesTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.serverPropertiesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.serverPropertiesTable.BackgroundColor = System.Drawing.Color.White;
+            this.serverPropertiesTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.serverPropertiesTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.serverPropertiesTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -305,7 +306,7 @@
             this.Controls.Add(this.btnUpdateServerConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerManagement";
-            this.Text = "Toolkit_CustomerInformation_Panel";
+            this.Text = "ServerManagement";
             this.Load += new System.EventHandler(this.GSM_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).EndInit();
             this.ResumeLayout(false);

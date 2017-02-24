@@ -481,7 +481,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerDeployment";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "Toolkit_Authentication_Panel";
+            this.Text = "ServerDeployment";
             this.Load += new System.EventHandler(this.ServerDeployment_Load);
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();

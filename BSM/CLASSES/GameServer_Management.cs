@@ -79,7 +79,7 @@ namespace Borealis
             serverData.server_config_file = server_config_file;
             serverData.running_status = running_status;
 
-            if (borealis_closing == false)  //Only add data to active JObject list if its not the closing event triggering it.
+            if (borealis_closing == false)  //Only add data to active JObject list if it isn't being triggered by the closing event triggering it.
             {
                 addServer(serverData);
             }

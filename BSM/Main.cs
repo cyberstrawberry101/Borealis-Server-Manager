@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MetroFramework;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System.Collections;
 
 namespace Borealis
 {
@@ -47,7 +48,7 @@ namespace Borealis
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
-        private void BorealisServerManager_Load(object sender, EventArgs e)
+        public void BorealisServerManager_Load(object sender, EventArgs e)
         {
             //Create blank config.json
             if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json") == false)
@@ -84,38 +85,83 @@ namespace Borealis
             GameServer_Management PullConfig = new GameServer_Management();
             PullConfig.addAllServers_fromConfig();
 
-            ServerDashboard ChildInstance = new ServerDashboard();
-            ChildInstance.MdiParent = this;
-            ChildInstance.AutoScroll = false;
-            ChildInstance.Dock = DockStyle.Fill;
-            ChildInstance.Show();
+
+            //Instanciate all Panels Immediately
+
+            //TAB INDEX 0
+            ServerDeployment ChildInstance_Deployment = new ServerDeployment();
+            ChildInstance_Deployment.MdiParent = this;
+            ChildInstance_Deployment.AutoScroll = false;
+            ChildInstance_Deployment.Dock = DockStyle.Fill;
+            ChildInstance_Deployment.Show();
+
+            //TAB INDEX 1
+            ServerManagement ChildInstance_Management = new ServerManagement();
+            ChildInstance_Management.MdiParent = this;
+            ChildInstance_Management.AutoScroll = false;
+            ChildInstance_Management.Dock = DockStyle.Fill;
+            ChildInstance_Management.Show();
+
+            //TAB INDEX 2
+            ServerControl ChildInstance_Control = new ServerControl();
+            ChildInstance_Control.MdiParent = this;
+            ChildInstance_Control.AutoScroll = false;
+            ChildInstance_Control.Dock = DockStyle.Fill;
+            ChildInstance_Control.Show();
+
+            //TAB INDEX 3
+            About_DialogBox ChildInstance_Attribution = new About_DialogBox();
+            ChildInstance_Attribution.MdiParent = this;
+            ChildInstance_Attribution.AutoScroll = false;
+            ChildInstance_Attribution.Dock = DockStyle.Fill;
+            ChildInstance_Attribution.Show();
+
+            //TAB INDEX 4
+            Experimental_Area ChildInstance_ExperimentalArea = new Experimental_Area();
+            ChildInstance_ExperimentalArea.MdiParent = this;
+            ChildInstance_ExperimentalArea.AutoScroll = false;
+            ChildInstance_ExperimentalArea.Dock = DockStyle.Fill;
+            ChildInstance_ExperimentalArea.Show();
+
+            //TAB INDEX 5
+            ServerDashboard ChildInstance_Dashboard = new ServerDashboard();
+            ChildInstance_Dashboard.MdiParent = this;
+            ChildInstance_Dashboard.AutoScroll = false;
+            ChildInstance_Dashboard.Dock = DockStyle.Fill;
+            ChildInstance_Dashboard.Show();
+
+            MDI_SHIELD.Visible = false;
         }
 
+        //===================================================================================//
+        // TAB ANIMATION-HANDLING CODE                                                       //
+        //===================================================================================//
+        public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton SelectedTab, Panel SelectedIndicator, bool SelectNewTab)
+        {
+            //Deactivate all other tabs
+            dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = experiment_indicator.Visible = false;
+            dashboard_tab.Textcolor = deployment_tab.Textcolor = management_tab.Textcolor = control_tab.Textcolor = experiment_tab.Textcolor = Color.FromArgb(145, 155, 166);
+            dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = experiment_tab.Activecolor = Color.FromArgb(26, 32, 40);
+            dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = experiment_tab.BackColor = Color.FromArgb(26, 32, 40);
+
+            if (SelectNewTab == true)
+            {
+                //Make selected tab active
+                SelectedTab.Textcolor = Color.FromArgb(67, 181, 129);
+                SelectedTab.Activecolor = Color.FromArgb(16, 22, 30);
+                SelectedTab.BackColor = Color.FromArgb(16, 22, 30);
+                SelectedIndicator.Visible = true;
+            }
+
+        }
 
         //===================================================================================//
         // DASHBOARD PANEL                                                                   //
         //===================================================================================//
         private void tabDashboard_Click_1(object sender, EventArgs e)
         {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
-
-            //Select Tab
-            panelTabDashboard.Textcolor = Color.FromArgb(67, 181, 129);
-            panelTabDashboard.Activecolor = Color.FromArgb(16, 22, 30);
-            panelTabDashboard.BackColor = Color.FromArgb(16, 22, 30);
-            indicatorTabDashboard.Visible = true;
-
-            //Render child MDI form---------------------------------------------
-            ServerDashboard ChildInstance_Dashboard = new ServerDashboard();
-            DisposeAllButThis(ChildInstance_Dashboard); //Destroy all other MDI child forms.
-            ChildInstance_Dashboard.MdiParent = this;
-            ChildInstance_Dashboard.AutoScroll = false;
-            ChildInstance_Dashboard.Dock = DockStyle.Fill;
-            ChildInstance_Dashboard.Show();
+            tab_animate(dashboard_tab, dashboard_indicator, true);
+            tabForms.SelectedIndex = 5;
         }
 
         //===================================================================================//
@@ -123,25 +169,8 @@ namespace Borealis
         //===================================================================================//
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
-
-            //Selected Tab
-            tabDeployGameservers.Textcolor = Color.FromArgb(67, 181, 129);
-            tabDeployGameservers.Activecolor = Color.FromArgb(16, 22, 30);
-            tabDeployGameservers.BackColor = Color.FromArgb(16, 22, 30);
-            indicatorTabDeployment.Visible = true;
-            
-            //Render child MDI form---------------------------------------------
-            ServerDeployment ChildInstance_Deployment = new ServerDeployment();
-            DisposeAllButThis(ChildInstance_Deployment); //Destroy all other MDI child forms.
-            ChildInstance_Deployment.MdiParent = this;
-            ChildInstance_Deployment.AutoScroll = false;
-            ChildInstance_Deployment.Dock = DockStyle.Fill;
-            ChildInstance_Deployment.Show();
+            tab_animate(deployment_tab, deployment_indicator, true);
+            tabForms.SelectedIndex = 0;
         }
 
         //===================================================================================//
@@ -149,25 +178,8 @@ namespace Borealis
         //===================================================================================//
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
-
-            //Selected Tab
-            tabManageGameservers.Textcolor = Color.FromArgb(67, 181, 129);
-            tabManageGameservers.Activecolor = Color.FromArgb(16, 22, 30);
-            tabManageGameservers.BackColor = Color.FromArgb(16, 22, 30);
-            indicatorTabManagement.Visible = true;
-
-            //Render child MDI form---------------------------------------------
-            ServerManagement ChildInstance_Management = new ServerManagement();
-            DisposeAllButThis(ChildInstance_Management); //Destroy all other MDI child forms.
-            ChildInstance_Management.MdiParent = this;
-            ChildInstance_Management.AutoScroll = false;
-            ChildInstance_Management.Dock = DockStyle.Fill;
-            ChildInstance_Management.Show();
+            tab_animate(management_tab, management_indicator, true);
+            tabForms.SelectedIndex = 1;
         }
 
         //===================================================================================//
@@ -175,25 +187,8 @@ namespace Borealis
         //===================================================================================//
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
-
-            //Selected Tab
-            tabControlGameservers.Textcolor = Color.FromArgb(67, 181, 129);
-            tabControlGameservers.Activecolor = Color.FromArgb(16, 22, 30);
-            tabControlGameservers.BackColor = Color.FromArgb(16, 22, 30);
-            indicatorTabControl.Visible = true;
-
-            //Render child MDI form---------------------------------------------
-            ServerControl ChildInstance_Control = new ServerControl();
-            DisposeAllButThis(ChildInstance_Control); //Destroy all other MDI child forms.
-            ChildInstance_Control.MdiParent = this;
-            ChildInstance_Control.AutoScroll = false;
-            ChildInstance_Control.Dock = DockStyle.Fill;
-            ChildInstance_Control.Show();
+            tab_animate(control_tab, control_indicator, true);
+            tabForms.SelectedIndex = 2;
         }
 
         //===================================================================================//
@@ -201,19 +196,17 @@ namespace Borealis
         //===================================================================================//
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            //Deselect all tabs
-            indicatorTabDashboard.Visible = indicatorTabDeployment.Visible = indicatorTabManagement.Visible = indicatorTabControl.Visible = false;
-            panelTabDashboard.Textcolor = tabDeployGameservers.Textcolor = tabManageGameservers.Textcolor = tabControlGameservers.Textcolor = Color.FromArgb(145, 155, 166);
-            panelTabDashboard.Activecolor = tabDeployGameservers.Activecolor = tabManageGameservers.Activecolor = tabControlGameservers.Activecolor = Color.FromArgb(26, 32, 40);
-            panelTabDashboard.BackColor = tabDeployGameservers.BackColor = tabManageGameservers.BackColor = tabControlGameservers.BackColor = Color.FromArgb(26, 32, 40);
+            tab_animate(null, null, false);
+            tabForms.SelectedIndex = 3;
+        }
 
-            //Render child MDI form---------------------------------------------
-            About_DialogBox ChildInstance_Attribution = new About_DialogBox();
-            DisposeAllButThis(ChildInstance_Attribution); //Destroy all other MDI child forms.
-            ChildInstance_Attribution.MdiParent = this;
-            ChildInstance_Attribution.AutoScroll = false;
-            ChildInstance_Attribution.Dock = DockStyle.Fill;
-            ChildInstance_Attribution.Show();
+        //===================================================================================//
+        // EXPERIMENTAL AREA TAB                                                             //
+        //===================================================================================//
+        private void tabExperimentalArea_Click(object sender, EventArgs e)
+        {
+            tab_animate(experiment_tab, experiment_indicator, true);
+            tabForms.SelectedIndex = 4;
         }
 
         private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
@@ -233,6 +226,31 @@ namespace Borealis
                     WriteConfigOnClose.DeployGameserver((string)gameserver["server_name"], (string)gameserver["server_type"], (string)gameserver["install_dir"], (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"], (string)gameserver["server_config_file"], (bool)gameserver["running_status"], true);
                 }
             }
+        }
+
+
+        private void BorealisServerManager_MdiChildActivate(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                // If child form is new and no has tabPage, create new tabPage
+                if (this.ActiveMdiChild.Tag == null)
+                {
+                    // Add a tabPage to tabControl with child form caption
+                    TabPage tp = new TabPage(this.ActiveMdiChild.Text);
+                    tp.Tag = this.ActiveMdiChild;
+                    tp.Parent = tabForms;
+                    tabForms.SelectedTab = tp;
+
+                    this.ActiveMdiChild.Tag = tp;
+                }
+            }
+        }
+
+        private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
+                (tabForms.SelectedTab.Tag as Form).Select();
         }
     }
 }

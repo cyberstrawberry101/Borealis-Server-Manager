@@ -28,6 +28,7 @@ namespace Borealis
         {
             serverPropertiesTable.BorderStyle = BorderStyle.FixedSingle; //Override painting method.
 
+
             if (GameServer_Management.server_collection != null)
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)

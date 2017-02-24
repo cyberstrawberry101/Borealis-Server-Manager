@@ -266,7 +266,7 @@
             this.Controls.Add(this.btnStartServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerControl";
-            this.Text = "Toolkit_TechServices_Panel";
+            this.Text = "ServerControl";
             this.Load += new System.EventHandler(this.ServerControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
