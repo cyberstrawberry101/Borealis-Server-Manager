@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MetroFramework;
-using MetroFramework.Forms;
-using System.Diagnostics;
-using System.Windows.Forms;
-using System.IO;
+﻿using System.Diagnostics;
 
 namespace Borealis
 {

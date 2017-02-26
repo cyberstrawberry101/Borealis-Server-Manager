@@ -85,8 +85,9 @@
     <Compile Include="CLASSES\Execution_Classes.cs" />
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\GameServer_Management.cs" />
+    <Compile Include="CLASSES\Server_API.cs" />
+    <Compile Include="CLASSES\WebUI_API.cs" />
     <Compile Include="CLASSES\System_Monitoring.cs" />
-    <Compile Include="CLASSES\ServerAPI.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="MODULES\About.cs">
       <SubType>Form</SubType>
@@ -159,7 +160,9 @@
       <DependentUpon>ServerControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

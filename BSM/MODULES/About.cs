@@ -1,12 +1,4 @@
-﻿using MetroFramework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Borealis
@@ -31,6 +23,11 @@ namespace Borealis
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://icons8.com/web-app");
+        }
+
+        private void About_DialogBox_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

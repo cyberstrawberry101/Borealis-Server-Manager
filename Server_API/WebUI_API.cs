@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.IO.Compression;
-using System.Windows.Forms;
-using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
-    public class ServerAPI
+    public class WebUI_API
     {
         //===================================================================================//
         // Class to store JSON data during deployment                                        //
