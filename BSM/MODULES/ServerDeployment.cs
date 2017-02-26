@@ -37,7 +37,7 @@ namespace Borealis
             {
                 using (var webClient = new System.Net.WebClient())
                 {
-                    var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
+                    var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/index");
 
                     foreach (var serverAppName in JObject.Parse(json))
                     {

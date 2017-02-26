@@ -29,6 +29,7 @@ namespace Borealis
             public static string bsm_integration { get; set; }
         }
 
+
         //===================================================================================//
         // Download Config Data via API into Memory                                          //
         //===================================================================================//
@@ -36,7 +37,7 @@ namespace Borealis
         {
             using (var webClient = new System.Net.WebClient())
             {
-                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/config/" + appID);
+                var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/config/" + appID);
                 JObject o = JObject.Parse(json);
                 QUERY_JOBJECT.name = (string)o["name"];
                 QUERY_JOBJECT.steam_authrequired = (string)o["steam_authrequired"];
@@ -55,7 +56,7 @@ namespace Borealis
         {
             using (var webClient = new System.Net.WebClient())
             {
-                var json = webClient.DownloadString("http://sfo3.hauteclaire.me/index");
+                var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/index");
                 JObject o = JObject.Parse(json);
 
                 foreach (var serverAppIDLink in o)

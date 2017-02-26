@@ -72,5 +72,42 @@ namespace Borealis
                 }
             }
         }
+
+        private void btnLoadConfig_Click(object sender, EventArgs e)
+        {
+            foreach (JObject gameserver in GameServer_Management.server_collection)
+            {
+                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                {
+                    GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
+                    openFileDialog1.InitialDirectory = (string)gameserver["install_dir"];
+                }
+            }
+
+            // Show the dialog and get result.
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK) // Test result.
+            {
+                int counter = 0;
+                string line;
+                serverPropertiesTable.Rows.Clear();
+
+                try
+                {
+                    // Read the file and display it line by line.
+                    System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog1.FileName);
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        serverPropertiesTable.Rows.Add(line);
+                        counter++;
+                    }
+
+                    file.Close();
+                }
+                catch (IOException)
+                {
+                }
+            }
+        }
     }
 }

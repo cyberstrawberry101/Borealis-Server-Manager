@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,12 +38,12 @@
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.fadingTransition = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.serverPropertiesTable = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,10 +134,6 @@
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(280, 32);
             this.bunifuCustomLabel7.TabIndex = 4;
             this.bunifuCustomLabel7.Text = "GameServer Management";
-            // 
-            // fadingTransition
-            // 
-            this.fadingTransition.Delay = 1;
             // 
             // btnUpdateServerConfig
             // 
@@ -242,53 +237,59 @@
             // 
             // columnGameServerName
             // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.columnGameServerName.HeaderText = "Server Property";
             this.columnGameServerName.Name = "columnGameServerName";
             this.columnGameServerName.ReadOnly = true;
+            this.columnGameServerName.Width = 150;
             // 
             // columnServerType
             // 
-            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.columnServerType.HeaderText = "Value";
             this.columnServerType.Name = "columnServerType";
             this.columnServerType.ReadOnly = true;
-            this.columnServerType.Width = 58;
             // 
-            // bunifuFlatButton1
+            // btnLoadConfig
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "      Browse";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = null;
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = false;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(18, 72);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(72, 29);
-            this.bunifuFlatButton1.TabIndex = 46;
-            this.bunifuFlatButton1.Text = "      Browse";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnLoadConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnLoadConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLoadConfig.BorderRadius = 0;
+            this.btnLoadConfig.ButtonText = "      Load Config";
+            this.btnLoadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoadConfig.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLoadConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnLoadConfig.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLoadConfig.Iconimage = null;
+            this.btnLoadConfig.Iconimage_right = null;
+            this.btnLoadConfig.Iconimage_right_Selected = null;
+            this.btnLoadConfig.Iconimage_Selected = null;
+            this.btnLoadConfig.IconMarginLeft = 0;
+            this.btnLoadConfig.IconMarginRight = 0;
+            this.btnLoadConfig.IconRightVisible = true;
+            this.btnLoadConfig.IconRightZoom = 0D;
+            this.btnLoadConfig.IconVisible = true;
+            this.btnLoadConfig.IconZoom = 90D;
+            this.btnLoadConfig.IsTab = false;
+            this.btnLoadConfig.Location = new System.Drawing.Point(18, 72);
+            this.btnLoadConfig.Name = "btnLoadConfig";
+            this.btnLoadConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnLoadConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnLoadConfig.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLoadConfig.selected = false;
+            this.btnLoadConfig.Size = new System.Drawing.Size(100, 29);
+            this.btnLoadConfig.TabIndex = 46;
+            this.btnLoadConfig.Text = "      Load Config";
+            this.btnLoadConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLoadConfig.Textcolor = System.Drawing.Color.White;
+            this.btnLoadConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadConfig.Click += new System.EventHandler(this.btnLoadConfig_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "config.ini / config.txt / server.ini / etc...";
+            this.openFileDialog1.Filter = "Server Config Files|*.cfg;*.ini;|All Files|*.*";
             // 
             // ServerManagement
             // 
@@ -296,7 +297,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.bunifuFlatButton1);
+            this.Controls.Add(this.btnLoadConfig);
             this.Controls.Add(this.serverPropertiesTable);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.btnBrowseDestination);
@@ -321,10 +322,10 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuFlatButton btnBrowseDestination;
-        private Bunifu.Framework.UI.BunifuFormFadeTransition fadingTransition;
         private Bunifu.Framework.UI.BunifuCustomDataGrid serverPropertiesTable;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnLoadConfig;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

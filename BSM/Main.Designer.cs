@@ -42,7 +42,6 @@
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel19 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.experiment_indicator = new System.Windows.Forms.Panel();
@@ -62,14 +61,14 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.tabForms = new System.Windows.Forms.TabControl();
             this.MDI_SHIELD = new System.Windows.Forms.Panel();
+            this.tabForms = new System.Windows.Forms.TabControl();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel19.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -78,6 +77,7 @@
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel19.SuspendLayout();
             this.SuspendLayout();
             // 
             // control_tab
@@ -316,17 +316,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 554);
             this.tableLayoutPanel1.TabIndex = 28;
-            // 
-            // panel19
-            // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel19.Controls.Add(this.tabForms);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(0, 360);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(260, 194);
-            this.panel19.TabIndex = 49;
             // 
             // panel17
             // 
@@ -597,15 +586,6 @@
             this.bunifuCustomLabel5.TabIndex = 48;
             this.bunifuCustomLabel5.Text = "Main";
             // 
-            // tabForms
-            // 
-            this.tabForms.Location = new System.Drawing.Point(0, 200);
-            this.tabForms.Name = "tabForms";
-            this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(62, 25);
-            this.tabForms.TabIndex = 30;
-            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
-            // 
             // MDI_SHIELD
             // 
             this.MDI_SHIELD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
@@ -614,6 +594,26 @@
             this.MDI_SHIELD.Name = "MDI_SHIELD";
             this.MDI_SHIELD.Size = new System.Drawing.Size(725, 554);
             this.MDI_SHIELD.TabIndex = 32;
+            // 
+            // tabForms
+            // 
+            this.tabForms.Location = new System.Drawing.Point(3, 308);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(29, 25);
+            this.tabForms.TabIndex = 30;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel19.Controls.Add(this.tabForms);
+            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel19.Location = new System.Drawing.Point(0, 360);
+            this.panel19.Margin = new System.Windows.Forms.Padding(0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(260, 194);
+            this.panel19.TabIndex = 49;
             // 
             // BorealisServerManager
             // 
@@ -641,7 +641,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -653,6 +652,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel19.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -688,10 +688,10 @@
         private System.Windows.Forms.Panel experiment_indicator;
         private Bunifu.Framework.UI.BunifuFlatButton experiment_tab;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.TabControl tabForms;
         private System.Windows.Forms.Panel MDI_SHIELD;
+        private System.Windows.Forms.TabControl tabForms;
+        private System.Windows.Forms.Panel panel19;
     }
 }
 
