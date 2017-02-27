@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,6 +68,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -86,7 +89,6 @@
     <Compile Include="CLASSES\MDI_Classes.cs" />
     <Compile Include="CLASSES\GameServer_Management.cs" />
     <Compile Include="CLASSES\Server_API.cs" />
-    <Compile Include="CLASSES\WebUI_API.cs" />
     <Compile Include="CLASSES\System_Monitoring.cs" />
     <Compile Include="CLASSES\SteamCMD.cs" />
     <Compile Include="MODULES\About.cs">
@@ -107,11 +109,11 @@
     <Compile Include="MODULES\ServerDashboard.Designer.cs">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Borealis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Borealis.Designer.cs">
+      <DependentUpon>Borealis.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -142,8 +144,8 @@
     <EmbeddedResource Include="MODULES\ServerDashboard.resx">
       <DependentUpon>ServerDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Borealis.resx">
+      <DependentUpon>Borealis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
