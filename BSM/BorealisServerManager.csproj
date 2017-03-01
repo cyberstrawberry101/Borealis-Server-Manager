@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BSM.ico" />
+    <None Include="RESOURCES\MISC_ICONS\TIME_ICON.png" />
     <None Include="RESOURCES\MISC_ICONS\HELP_ICON.png" />
     <None Include="RESOURCES\MISC_ICONS\ABOUT_ICON.png" />
     <None Include="RESOURCES\MISC_ICONS\TitleIcon_WHITE.png" />

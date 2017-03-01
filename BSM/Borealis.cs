@@ -226,5 +226,10 @@ namespace Borealis
                 }
             }
         }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(this, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }

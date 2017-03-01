@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
-            this.control_tab = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.deployment_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.formHeaderDragger = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
             this.attribution_tab = new Bunifu.Framework.UI.BunifuImageButton();
@@ -42,6 +39,9 @@
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
             this.tabForms = new System.Windows.Forms.TabControl();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -50,11 +50,11 @@
             this.panel13 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.control_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.control_indicator = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.management_indicator = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.deployment_indicator = new System.Windows.Forms.Panel();
+            this.deployment_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dashboard_indicator = new System.Windows.Forms.Panel();
             this.dashboard_tab = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -62,136 +62,26 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.management_indicator = new System.Windows.Forms.Panel();
             this.MDI_SHIELD = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.DO_NOT_DELETE.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // control_tab
-            // 
-            this.control_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.control_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.control_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.control_tab.BorderRadius = 0;
-            this.control_tab.ButtonText = "   Control GameServers";
-            this.control_tab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.control_tab.DisabledColor = System.Drawing.Color.Gray;
-            this.control_tab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.control_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.control_tab.Iconcolor = System.Drawing.Color.Transparent;
-            this.control_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("control_tab.Iconimage")));
-            this.control_tab.Iconimage_right = null;
-            this.control_tab.Iconimage_right_Selected = null;
-            this.control_tab.Iconimage_Selected = null;
-            this.control_tab.IconMarginLeft = 10;
-            this.control_tab.IconMarginRight = 0;
-            this.control_tab.IconRightVisible = false;
-            this.control_tab.IconRightZoom = 0D;
-            this.control_tab.IconVisible = true;
-            this.control_tab.IconZoom = 45D;
-            this.control_tab.IsTab = true;
-            this.control_tab.Location = new System.Drawing.Point(0, 0);
-            this.control_tab.Margin = new System.Windows.Forms.Padding(0);
-            this.control_tab.Name = "control_tab";
-            this.control_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.control_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.control_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.control_tab.selected = true;
-            this.control_tab.Size = new System.Drawing.Size(255, 40);
-            this.control_tab.TabIndex = 19;
-            this.control_tab.Text = "   Control GameServers";
-            this.control_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.control_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.control_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.control_tab.Click += new System.EventHandler(this.tabControlGameservers_Click);
-            // 
-            // management_tab
-            // 
-            this.management_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.management_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.management_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.management_tab.BorderRadius = 0;
-            this.management_tab.ButtonText = "   Manage GameServers";
-            this.management_tab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.management_tab.DisabledColor = System.Drawing.Color.Gray;
-            this.management_tab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.management_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.management_tab.Iconcolor = System.Drawing.Color.Transparent;
-            this.management_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("management_tab.Iconimage")));
-            this.management_tab.Iconimage_right = null;
-            this.management_tab.Iconimage_right_Selected = null;
-            this.management_tab.Iconimage_Selected = null;
-            this.management_tab.IconMarginLeft = 10;
-            this.management_tab.IconMarginRight = 0;
-            this.management_tab.IconRightVisible = false;
-            this.management_tab.IconRightZoom = 0D;
-            this.management_tab.IconVisible = true;
-            this.management_tab.IconZoom = 50D;
-            this.management_tab.IsTab = true;
-            this.management_tab.Location = new System.Drawing.Point(0, 0);
-            this.management_tab.Margin = new System.Windows.Forms.Padding(0);
-            this.management_tab.Name = "management_tab";
-            this.management_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.management_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.management_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.management_tab.selected = true;
-            this.management_tab.Size = new System.Drawing.Size(260, 40);
-            this.management_tab.TabIndex = 19;
-            this.management_tab.Text = "   Manage GameServers";
-            this.management_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.management_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.management_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.management_tab.Click += new System.EventHandler(this.tabManageGameservers_Click);
-            // 
-            // deployment_tab
-            // 
-            this.deployment_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.deployment_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.deployment_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.deployment_tab.BorderRadius = 0;
-            this.deployment_tab.ButtonText = "   Deploy GameServers";
-            this.deployment_tab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.deployment_tab.DisabledColor = System.Drawing.Color.Gray;
-            this.deployment_tab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deployment_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.deployment_tab.Iconcolor = System.Drawing.Color.Transparent;
-            this.deployment_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("deployment_tab.Iconimage")));
-            this.deployment_tab.Iconimage_right = null;
-            this.deployment_tab.Iconimage_right_Selected = null;
-            this.deployment_tab.Iconimage_Selected = null;
-            this.deployment_tab.IconMarginLeft = 10;
-            this.deployment_tab.IconMarginRight = 0;
-            this.deployment_tab.IconRightVisible = false;
-            this.deployment_tab.IconRightZoom = 0D;
-            this.deployment_tab.IconVisible = true;
-            this.deployment_tab.IconZoom = 55D;
-            this.deployment_tab.IsTab = true;
-            this.deployment_tab.Location = new System.Drawing.Point(0, 0);
-            this.deployment_tab.Margin = new System.Windows.Forms.Padding(0);
-            this.deployment_tab.Name = "deployment_tab";
-            this.deployment_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.deployment_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.deployment_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.deployment_tab.selected = true;
-            this.deployment_tab.Size = new System.Drawing.Size(260, 40);
-            this.deployment_tab.TabIndex = 18;
-            this.deployment_tab.Text = "   Deploy GameServers";
-            this.deployment_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deployment_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.deployment_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.deployment_tab.Click += new System.EventHandler(this.tabDeployGameservers_Click_1);
             // 
             // formHeaderDragger
             // 
@@ -286,12 +176,12 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
@@ -300,7 +190,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 10;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -310,18 +200,81 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 554);
             this.tableLayoutPanel1.TabIndex = 28;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Controls.Add(this.bunifuFlatButton1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 320);
+            this.panel4.Margin = new System.Windows.Forms.Padding(0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(260, 40);
+            this.panel4.TabIndex = 50;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(255, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(5, 40);
+            this.panel5.TabIndex = 44;
+            this.panel5.Visible = false;
+            // 
+            // bunifuFlatButton1
+            // 
+            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuFlatButton1.BorderRadius = 0;
+            this.bunifuFlatButton1.ButtonText = "   Scheduled Tasks";
+            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
+            this.bunifuFlatButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuFlatButton1.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
+            this.bunifuFlatButton1.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.TIME_ICON;
+            this.bunifuFlatButton1.Iconimage_right = null;
+            this.bunifuFlatButton1.Iconimage_right_Selected = null;
+            this.bunifuFlatButton1.Iconimage_Selected = null;
+            this.bunifuFlatButton1.IconMarginLeft = 10;
+            this.bunifuFlatButton1.IconMarginRight = 0;
+            this.bunifuFlatButton1.IconRightVisible = false;
+            this.bunifuFlatButton1.IconRightZoom = 0D;
+            this.bunifuFlatButton1.IconVisible = true;
+            this.bunifuFlatButton1.IconZoom = 60D;
+            this.bunifuFlatButton1.IsTab = true;
+            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 0);
+            this.bunifuFlatButton1.Margin = new System.Windows.Forms.Padding(0);
+            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
+            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.bunifuFlatButton1.selected = true;
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(260, 40);
+            this.bunifuFlatButton1.TabIndex = 21;
+            this.bunifuFlatButton1.Text = "   Scheduled Tasks";
+            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.bunifuFlatButton1.Click += new System.EventHandler(this.bunifuFlatButton1_Click);
             // 
             // DO_NOT_DELETE
             // 
             this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.DO_NOT_DELETE.Controls.Add(this.tabForms);
             this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
+            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 360);
             this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
             this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
-            this.DO_NOT_DELETE.Size = new System.Drawing.Size(260, 234);
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(260, 194);
             this.DO_NOT_DELETE.TabIndex = 49;
             // 
             // tabForms
@@ -429,6 +382,44 @@
             this.panel11.Size = new System.Drawing.Size(260, 40);
             this.panel11.TabIndex = 41;
             // 
+            // control_tab
+            // 
+            this.control_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.control_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.control_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.control_tab.BorderRadius = 0;
+            this.control_tab.ButtonText = "   Control GameServers";
+            this.control_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.control_tab.DisabledColor = System.Drawing.Color.Gray;
+            this.control_tab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.control_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.control_tab.Iconcolor = System.Drawing.Color.Transparent;
+            this.control_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("control_tab.Iconimage")));
+            this.control_tab.Iconimage_right = null;
+            this.control_tab.Iconimage_right_Selected = null;
+            this.control_tab.Iconimage_Selected = null;
+            this.control_tab.IconMarginLeft = 10;
+            this.control_tab.IconMarginRight = 0;
+            this.control_tab.IconRightVisible = false;
+            this.control_tab.IconRightZoom = 0D;
+            this.control_tab.IconVisible = true;
+            this.control_tab.IconZoom = 45D;
+            this.control_tab.IsTab = true;
+            this.control_tab.Location = new System.Drawing.Point(0, 0);
+            this.control_tab.Margin = new System.Windows.Forms.Padding(0);
+            this.control_tab.Name = "control_tab";
+            this.control_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.control_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.control_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.control_tab.selected = true;
+            this.control_tab.Size = new System.Drawing.Size(255, 40);
+            this.control_tab.TabIndex = 19;
+            this.control_tab.Text = "   Control GameServers";
+            this.control_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.control_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.control_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.control_tab.Click += new System.EventHandler(this.tabControlGameservers_Click);
+            // 
             // control_indicator
             // 
             this.control_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -439,29 +430,6 @@
             this.control_indicator.Size = new System.Drawing.Size(5, 40);
             this.control_indicator.TabIndex = 42;
             this.control_indicator.Visible = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel9.Controls.Add(this.management_indicator);
-            this.panel9.Controls.Add(this.management_tab);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 160);
-            this.panel9.Margin = new System.Windows.Forms.Padding(0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(260, 40);
-            this.panel9.TabIndex = 39;
-            // 
-            // management_indicator
-            // 
-            this.management_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.management_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.management_indicator.Location = new System.Drawing.Point(255, 0);
-            this.management_indicator.Margin = new System.Windows.Forms.Padding(0);
-            this.management_indicator.Name = "management_indicator";
-            this.management_indicator.Size = new System.Drawing.Size(5, 40);
-            this.management_indicator.TabIndex = 40;
-            this.management_indicator.Visible = false;
             // 
             // panel7
             // 
@@ -485,6 +453,44 @@
             this.deployment_indicator.Size = new System.Drawing.Size(5, 40);
             this.deployment_indicator.TabIndex = 38;
             this.deployment_indicator.Visible = false;
+            // 
+            // deployment_tab
+            // 
+            this.deployment_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.deployment_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.deployment_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deployment_tab.BorderRadius = 0;
+            this.deployment_tab.ButtonText = "   Deploy GameServers";
+            this.deployment_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deployment_tab.DisabledColor = System.Drawing.Color.Gray;
+            this.deployment_tab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deployment_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.deployment_tab.Iconcolor = System.Drawing.Color.Transparent;
+            this.deployment_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("deployment_tab.Iconimage")));
+            this.deployment_tab.Iconimage_right = null;
+            this.deployment_tab.Iconimage_right_Selected = null;
+            this.deployment_tab.Iconimage_Selected = null;
+            this.deployment_tab.IconMarginLeft = 10;
+            this.deployment_tab.IconMarginRight = 0;
+            this.deployment_tab.IconRightVisible = false;
+            this.deployment_tab.IconRightZoom = 0D;
+            this.deployment_tab.IconVisible = true;
+            this.deployment_tab.IconZoom = 55D;
+            this.deployment_tab.IsTab = true;
+            this.deployment_tab.Location = new System.Drawing.Point(0, 0);
+            this.deployment_tab.Margin = new System.Windows.Forms.Padding(0);
+            this.deployment_tab.Name = "deployment_tab";
+            this.deployment_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.deployment_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.deployment_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.deployment_tab.selected = true;
+            this.deployment_tab.Size = new System.Drawing.Size(260, 40);
+            this.deployment_tab.TabIndex = 18;
+            this.deployment_tab.Text = "   Deploy GameServers";
+            this.deployment_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deployment_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.deployment_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.deployment_tab.Click += new System.EventHandler(this.tabDeployGameservers_Click_1);
             // 
             // panel3
             // 
@@ -592,6 +598,66 @@
             this.bunifuCustomLabel5.TabIndex = 48;
             this.bunifuCustomLabel5.Text = "Main";
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panel9.Controls.Add(this.management_tab);
+            this.panel9.Controls.Add(this.management_indicator);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 160);
+            this.panel9.Margin = new System.Windows.Forms.Padding(0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(260, 40);
+            this.panel9.TabIndex = 39;
+            // 
+            // management_tab
+            // 
+            this.management_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.management_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.management_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.management_tab.BorderRadius = 0;
+            this.management_tab.ButtonText = "   Manage GameServers";
+            this.management_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.management_tab.DisabledColor = System.Drawing.Color.Gray;
+            this.management_tab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.management_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.management_tab.Iconcolor = System.Drawing.Color.Transparent;
+            this.management_tab.Iconimage = ((System.Drawing.Image)(resources.GetObject("management_tab.Iconimage")));
+            this.management_tab.Iconimage_right = null;
+            this.management_tab.Iconimage_right_Selected = null;
+            this.management_tab.Iconimage_Selected = null;
+            this.management_tab.IconMarginLeft = 10;
+            this.management_tab.IconMarginRight = 0;
+            this.management_tab.IconRightVisible = false;
+            this.management_tab.IconRightZoom = 0D;
+            this.management_tab.IconVisible = true;
+            this.management_tab.IconZoom = 50D;
+            this.management_tab.IsTab = true;
+            this.management_tab.Location = new System.Drawing.Point(0, 0);
+            this.management_tab.Margin = new System.Windows.Forms.Padding(0);
+            this.management_tab.Name = "management_tab";
+            this.management_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.management_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
+            this.management_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.management_tab.selected = true;
+            this.management_tab.Size = new System.Drawing.Size(255, 40);
+            this.management_tab.TabIndex = 19;
+            this.management_tab.Text = "   Manage GameServers";
+            this.management_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.management_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
+            this.management_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
+            this.management_tab.Click += new System.EventHandler(this.tabManageGameservers_Click);
+            // 
+            // management_indicator
+            // 
+            this.management_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.management_indicator.Location = new System.Drawing.Point(255, 0);
+            this.management_indicator.Margin = new System.Windows.Forms.Padding(0);
+            this.management_indicator.Name = "management_indicator";
+            this.management_indicator.Size = new System.Drawing.Size(5, 40);
+            this.management_indicator.TabIndex = 40;
+            this.management_indicator.Visible = false;
+            // 
             // MDI_SHIELD
             // 
             this.MDI_SHIELD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
@@ -627,18 +693,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.DO_NOT_DELETE.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel11.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel9.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -675,8 +742,11 @@
         private Bunifu.Framework.UI.BunifuFlatButton experiment_tab;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private System.Windows.Forms.Panel MDI_SHIELD;
-        private System.Windows.Forms.TabControl tabForms;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel5;
+        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
         private System.Windows.Forms.Panel DO_NOT_DELETE;
+        private System.Windows.Forms.TabControl tabForms;
     }
 }
 
