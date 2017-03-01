@@ -6,9 +6,7 @@ using System.Diagnostics;
 using System.Text.RegularExpressions;
 
 namespace Borealis
-
 {
-
     public partial class ServerDeployment : Form
     {
         public ServerDeployment()

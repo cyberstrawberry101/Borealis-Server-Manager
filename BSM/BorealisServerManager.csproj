@@ -85,28 +85,27 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASSES\CLASS_EXECUTION.cs" />
     <Compile Include="CLASSES\CLASS_MDICONTROL.cs" />
     <Compile Include="CLASSES\CLASS_GAMESERVERS.cs" />
     <Compile Include="CLASSES\CLASS_ServerAPI.cs" />
     <Compile Include="CLASSES\CLASS_MONITORING.cs" />
     <Compile Include="CLASSES\CLASS_SteamCMD.cs" />
-    <Compile Include="MODULES\TAB_About.cs">
+    <Compile Include="TABS\TAB_About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_About.Designer.cs">
+    <Compile Include="TABS\TAB_About.Designer.cs">
       <DependentUpon>TAB_About.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\TAB_Experimental.cs">
+    <Compile Include="TABS\TAB_Experimental.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_Experimental.Designer.cs">
+    <Compile Include="TABS\TAB_Experimental.Designer.cs">
       <DependentUpon>TAB_Experimental.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\TAB_Dashboard.cs">
+    <Compile Include="TABS\TAB_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_Dashboard.Designer.cs">
+    <Compile Include="TABS\TAB_Dashboard.Designer.cs">
       <DependentUpon>TAB_Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Borealis.cs">
@@ -117,31 +116,31 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MODULES\TAB_Deployment.cs">
+    <Compile Include="TABS\TAB_Deployment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_Deployment.Designer.cs">
+    <Compile Include="TABS\TAB_Deployment.Designer.cs">
       <DependentUpon>TAB_Deployment.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\TAB_Management.cs">
+    <Compile Include="TABS\TAB_Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_Management.Designer.cs">
+    <Compile Include="TABS\TAB_Management.Designer.cs">
       <DependentUpon>TAB_Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\TAB_Control.cs">
+    <Compile Include="TABS\TAB_Control.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\TAB_Control.Designer.cs">
+    <Compile Include="TABS\TAB_Control.Designer.cs">
       <DependentUpon>TAB_Control.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MODULES\TAB_About.resx">
+    <EmbeddedResource Include="TABS\TAB_About.resx">
       <DependentUpon>TAB_About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\TAB_Experimental.resx">
+    <EmbeddedResource Include="TABS\TAB_Experimental.resx">
       <DependentUpon>TAB_Experimental.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\TAB_Dashboard.resx">
+    <EmbeddedResource Include="TABS\TAB_Dashboard.resx">
       <DependentUpon>TAB_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Borealis.resx">
@@ -152,13 +151,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\TAB_Deployment.resx">
+    <EmbeddedResource Include="TABS\TAB_Deployment.resx">
       <DependentUpon>TAB_Deployment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\TAB_Management.resx">
+    <EmbeddedResource Include="TABS\TAB_Management.resx">
       <DependentUpon>TAB_Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\TAB_Control.resx">
+    <EmbeddedResource Include="TABS\TAB_Control.resx">
       <DependentUpon>TAB_Control.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
