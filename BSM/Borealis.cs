@@ -23,29 +23,6 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // MDI CHILD CLEANUP FUNCTION                                                        //
-        //===================================================================================//
-        public void DisposeAllButThis(Form form)
-        {
-            foreach (Form frm in this.MdiChildren)
-            {
-                if (frm.GetType() == form.GetType()
-                    && frm != form)
-                {
-                    frm.Close();
-                }
-            }
-        }
-
-        //===================================================================================//
-        // TOOLKIT EXIT BUTTON                                                              //
-        //===================================================================================//
-        private void btnExitProgram_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
         public void BorealisServerManager_Load(object sender, EventArgs e)
@@ -134,7 +111,7 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // TAB ANIMATION-HANDLING CODE                                                       //
+        // TAB ANIMATION AND SWITCHING CODE:                                                 //
         //===================================================================================//
         public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton SelectedTab, Panel SelectedIndicator, bool SelectNewTab)
         {
@@ -154,81 +131,57 @@ namespace Borealis
             }
 
         }
-
-        //===================================================================================//
-        // DASHBOARD PANEL                                                                   //
-        //===================================================================================//
         private void tabDashboard_Click_1(object sender, EventArgs e)
         {
             tab_animate(dashboard_tab, dashboard_indicator, true);
             tabForms.SelectedIndex = 5;
         }
-
-        //===================================================================================//
-        // DEPLOY GAMESERVERS TAB                                                            //
-        //===================================================================================//
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
             tab_animate(deployment_tab, deployment_indicator, true);
             tabForms.SelectedIndex = 0;
         }
-
-        //===================================================================================//
-        // MANAGE GAMESERVERS TAB                                                            //
-        //===================================================================================//
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
             tab_animate(management_tab, management_indicator, true);
             tabForms.SelectedIndex = 1;
         }
-
-        //===================================================================================//
-        // CONTROL GAMESERVERS TAB                                                           //
-        //===================================================================================//
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
             tab_animate(control_tab, control_indicator, true);
             tabForms.SelectedIndex = 2;
         }
-
-        //===================================================================================//
-        // ATTRIBUTION AND CREDITS TAB                                                       //
-        //===================================================================================//
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        private void attribution_tab_Click(object sender, EventArgs e)
         {
             tab_animate(null, null, false);
             tabForms.SelectedIndex = 3;
         }
-
-        //===================================================================================//
-        // EXPERIMENTAL AREA TAB                                                             //
-        //===================================================================================//
         private void tabExperimentalArea_Click(object sender, EventArgs e)
         {
             tab_animate(experiment_tab, experiment_indicator, true);
             tabForms.SelectedIndex = 4;
         }
 
-        private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
+        //===================================================================================//
+        // MDI HANDLING CODE:                                                                //
+        //===================================================================================//
+        //Add MDI Child to tabpages of tabControl
+        private void tabForms_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            //Write data in memory to disk into config.json
-            if (GameServer_Management.server_collection != null)
-            {
-                //Delete existing config.json
-                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json"))
-                {
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\config.json");
-                }
+            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
+                (tabForms.SelectedTab.Tag as Form).Select();
 
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+            /* TESTING DEBUG OPTIMIZATION CODE
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.GetType() == form.GetType()
+                    && frm != form)
                 {
-                    GameServer_Management WriteConfigOnClose = new GameServer_Management();
-                    WriteConfigOnClose.DeployGameserver((string)gameserver["server_name"], (string)gameserver["server_type"], (string)gameserver["install_dir"], (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"], (string)gameserver["server_config_file"], (bool)gameserver["running_status"], true);
+                    frm.Close();
                 }
             }
+            */
         }
-
-
         private void BorealisServerManager_MdiChildActivate(object sender, EventArgs e)
         {
             if (this.ActiveMdiChild != null)
@@ -247,10 +200,31 @@ namespace Borealis
             }
         }
 
-        private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+        //===================================================================================//
+        // CLOSING:                                                                          //
+        //===================================================================================//
+        private void btnExitProgram_Click(object sender, EventArgs e)
         {
-            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
-                (tabForms.SelectedTab.Tag as Form).Select();
+            notifyIcon1.Dispose(); //Dispose of Notification Tray Icon
+            this.Close();
+        }
+        private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Write data in memory to disk into config.json
+            if (GameServer_Management.server_collection != null)
+            {
+                //Delete existing config.json
+                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json"))
+                {
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\config.json");
+                }
+
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    GameServer_Management WriteConfigOnClose = new GameServer_Management();
+                    WriteConfigOnClose.DeployGameserver((string)gameserver["server_name"], (string)gameserver["server_type"], (string)gameserver["install_dir"], (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"], (string)gameserver["server_config_file"], (bool)gameserver["running_status"], true);
+                }
+            }
         }
     }
 }

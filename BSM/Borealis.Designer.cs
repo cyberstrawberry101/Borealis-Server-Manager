@@ -33,9 +33,9 @@
             this.control_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.deployment_tab = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.formHeaderDragger = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
-            this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.attribution_tab = new Bunifu.Framework.UI.BunifuImageButton();
             this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.labelBorealisTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -44,7 +44,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.tabForms = new System.Windows.Forms.TabControl();
-            this.panel17 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.experiment_indicator = new System.Windows.Forms.Panel();
             this.experiment_tab = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -65,7 +64,7 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.MDI_SHIELD = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -194,17 +193,17 @@
             this.deployment_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
             this.deployment_tab.Click += new System.EventHandler(this.tabDeployGameservers_Click_1);
             // 
-            // bunifuDragControl1
+            // formHeaderDragger
             // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.header;
-            this.bunifuDragControl1.Vertical = true;
+            this.formHeaderDragger.Fixed = true;
+            this.formHeaderDragger.Horizontal = true;
+            this.formHeaderDragger.TargetControl = this.header;
+            this.formHeaderDragger.Vertical = true;
             // 
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.header.Controls.Add(this.bunifuImageButton1);
+            this.header.Controls.Add(this.attribution_tab);
             this.header.Controls.Add(this.mainIcon);
             this.header.Controls.Add(this.lblVersion);
             this.header.Controls.Add(this.labelBorealisTitle);
@@ -215,19 +214,19 @@
             this.header.Size = new System.Drawing.Size(985, 45);
             this.header.TabIndex = 1;
             // 
-            // bunifuImageButton1
+            // attribution_tab
             // 
-            this.bunifuImageButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.bunifuImageButton1.Image = global::Borealis_Default_Namespace.Properties.Resources.HELP_ICON;
-            this.bunifuImageButton1.ImageActive = null;
-            this.bunifuImageButton1.Location = new System.Drawing.Point(914, 9);
-            this.bunifuImageButton1.Name = "bunifuImageButton1";
-            this.bunifuImageButton1.Size = new System.Drawing.Size(26, 26);
-            this.bunifuImageButton1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton1.TabIndex = 46;
-            this.bunifuImageButton1.TabStop = false;
-            this.bunifuImageButton1.Zoom = 20;
-            this.bunifuImageButton1.Click += new System.EventHandler(this.bunifuImageButton1_Click);
+            this.attribution_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.attribution_tab.Image = global::Borealis_Default_Namespace.Properties.Resources.HELP_ICON;
+            this.attribution_tab.ImageActive = null;
+            this.attribution_tab.Location = new System.Drawing.Point(914, 9);
+            this.attribution_tab.Name = "attribution_tab";
+            this.attribution_tab.Size = new System.Drawing.Size(26, 26);
+            this.attribution_tab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.attribution_tab.TabIndex = 46;
+            this.attribution_tab.TabStop = false;
+            this.attribution_tab.Zoom = 20;
+            this.attribution_tab.Click += new System.EventHandler(this.attribution_tab_Click);
             // 
             // mainIcon
             // 
@@ -258,9 +257,9 @@
             this.labelBorealisTitle.ForeColor = System.Drawing.Color.White;
             this.labelBorealisTitle.Location = new System.Drawing.Point(42, 5);
             this.labelBorealisTitle.Name = "labelBorealisTitle";
-            this.labelBorealisTitle.Size = new System.Drawing.Size(218, 25);
+            this.labelBorealisTitle.Size = new System.Drawing.Size(308, 25);
             this.labelBorealisTitle.TabIndex = 2;
-            this.labelBorealisTitle.Text = "Borealis Server Manager";
+            this.labelBorealisTitle.Text = "Borealis Dedicated Server Manager";
             // 
             // btnExitProgram
             // 
@@ -278,9 +277,8 @@
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.BalloonTipText = "Borealis Server Manager";
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "Borealis Server Manager";
+            this.notifyIcon1.Text = "Borealis Dedicated Server Manager";
             this.notifyIcon1.Visible = true;
             // 
             // tableLayoutPanel1
@@ -289,8 +287,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.panel19, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.panel17, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.panel19, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
@@ -303,8 +300,7 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -322,10 +318,10 @@
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel19.Controls.Add(this.tabForms);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(0, 360);
+            this.panel19.Location = new System.Drawing.Point(0, 320);
             this.panel19.Margin = new System.Windows.Forms.Padding(0);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(260, 194);
+            this.panel19.Size = new System.Drawing.Size(260, 234);
             this.panel19.TabIndex = 49;
             // 
             // tabForms
@@ -335,17 +331,7 @@
             this.tabForms.SelectedIndex = 0;
             this.tabForms.Size = new System.Drawing.Size(29, 25);
             this.tabForms.TabIndex = 30;
-            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
-            // 
-            // panel17
-            // 
-            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel17.Location = new System.Drawing.Point(0, 320);
-            this.panel17.Margin = new System.Windows.Forms.Padding(0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(260, 40);
-            this.panel17.TabIndex = 47;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged_1);
             // 
             // panel15
             // 
@@ -637,7 +623,7 @@
             this.MdiChildActivate += new System.EventHandler(this.BorealisServerManager_MdiChildActivate);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -658,7 +644,7 @@
         }
 
         #endregion
-        private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuDragControl formHeaderDragger;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private Bunifu.Framework.UI.BunifuFlatButton control_tab;
         private Bunifu.Framework.UI.BunifuFlatButton management_tab;
@@ -668,7 +654,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel labelBorealisTitle;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
         private System.Windows.Forms.PictureBox mainIcon;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton1;
+        private Bunifu.Framework.UI.BunifuImageButton attribution_tab;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
@@ -688,7 +674,6 @@
         private System.Windows.Forms.Panel experiment_indicator;
         private Bunifu.Framework.UI.BunifuFlatButton experiment_tab;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Panel MDI_SHIELD;
         private System.Windows.Forms.TabControl tabForms;
         private System.Windows.Forms.Panel panel19;

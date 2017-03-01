@@ -9,10 +9,5 @@ namespace Borealis
         {
             InitializeComponent();
         }
-
-        private void Experimental_Area_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

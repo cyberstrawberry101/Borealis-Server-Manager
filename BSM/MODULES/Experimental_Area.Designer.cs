@@ -28,15 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Experimental_Area));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.bunifuiOSSwitch1 = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel1.Controls.Add(this.bunifuiOSSwitch1);
             this.panel1.Controls.Add(this.bunifuCustomLabel16);
             this.panel1.Controls.Add(this.bunifuCustomLabel14);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -44,6 +50,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(725, 48);
             this.panel1.TabIndex = 67;
+            // 
+            // bunifuiOSSwitch1
+            // 
+            this.bunifuiOSSwitch1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuiOSSwitch1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuiOSSwitch1.BackgroundImage")));
+            this.bunifuiOSSwitch1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuiOSSwitch1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuiOSSwitch1.Location = new System.Drawing.Point(670, 12);
+            this.bunifuiOSSwitch1.Name = "bunifuiOSSwitch1";
+            this.bunifuiOSSwitch1.OffColor = System.Drawing.Color.Gray;
+            this.bunifuiOSSwitch1.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(161)))), ((int)(((byte)(109)))));
+            this.bunifuiOSSwitch1.Size = new System.Drawing.Size(43, 25);
+            this.bunifuiOSSwitch1.TabIndex = 68;
+            this.bunifuiOSSwitch1.Value = true;
             // 
             // bunifuCustomLabel16
             // 
@@ -68,6 +88,21 @@
             this.bunifuCustomLabel14.TabIndex = 13;
             this.bunifuCustomLabel14.Text = "Bleeding-edge barely-tested code and functions.";
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "CONSOLE_ICON.png");
+            this.imageList1.Images.SetKeyName(1, "DASHBOARD_ICON.png");
+            this.imageList1.Images.SetKeyName(2, "DEPLOY_ICON.png");
+            this.imageList1.Images.SetKeyName(3, "EXPERIMENT_ICON.png");
+            this.imageList1.Images.SetKeyName(4, "MANAGEMENT_ICON.png");
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "Hello!";
+            this.notifyIcon1.Visible = true;
+            // 
             // Experimental_Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -78,7 +113,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Experimental_Area";
             this.Text = "Experimental_Area";
-            this.Load += new System.EventHandler(this.Experimental_Area_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -89,5 +123,8 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel14;
+        private System.Windows.Forms.ImageList imageList1;
+        private Bunifu.Framework.UI.BunifuiOSSwitch bunifuiOSSwitch1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

@@ -13,6 +13,7 @@ namespace Borealis
             InitializeComponent();
         }
 
+        //Class to store the data regarding the currently managed server
         public class Managed_GameServer
         {
             public string server_name { get; set; }
@@ -24,15 +25,25 @@ namespace Borealis
             public bool running_status { get; set; }
         }
 
-        void proc_DataReceived(object sender, DataReceivedEventArgs e)
+        //===================================================================================//
+        // STARTUP:                                                                          //
+        //===================================================================================//
+        private void ServerControl_Load(object sender, EventArgs e)
         {
-            if (e.Data != null)
+            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            if (GameServer_Management.server_collection != null)
             {
-                consoleOutputList.Items.Add(e.Data);
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
+                }
             }
         }
 
-        public void ExecuteWithRedirect(string argProgramName, string argParameters)
+        //===================================================================================//
+        // CONTROL:                                                                          //
+        //===================================================================================//
+        private void ExecuteWithRedirect(string argProgramName, string argParameters)
         {
             try
             {
@@ -61,10 +72,6 @@ namespace Borealis
                 btnStopServer.Enabled = false;
             }
         }
-
-        //===================================================================================//
-        // START THE CURRENTLY STOPPED SELECTED GAMESERVER                                   //
-        //===================================================================================//
         private void btnStartServer_Click(object sender, EventArgs e)
         {
             btnStartServer.Enabled = false;
@@ -83,10 +90,6 @@ namespace Borealis
                 }
             }
         }
-
-        //===================================================================================//
-        // STOP THE CURRENTLY RUNNING SELECTED GAMESERVER                                    //
-        //===================================================================================//
         private void btnStopServer_Click(object sender, EventArgs e)
         {
             btnStopServer.Enabled = false;
@@ -97,37 +100,14 @@ namespace Borealis
             consoleOutputList.Items.Clear();
             txtboxIssueCommand.Text = " > Server is Not Running";
         }
-
-        //===================================================================================//
-        // ISSUE COMMAND TO SERVER VIA TEXTBOX                                               //
-        //===================================================================================//
         private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
         {
             txtboxIssueCommand.Text = "";
         }
-
-        private void panelTechServices_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void ServerControl_Load(object sender, EventArgs e)
-        {
-            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
-            if (GameServer_Management.server_collection != null)
-            {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
-                {
-                    comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
-                }
-            }
-        }
-
         private void txtboxIssueCommand_Enter(object sender, EventArgs e)
         {
             txtboxIssueCommand.Text = "";
         }
-
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
@@ -143,6 +123,13 @@ namespace Borealis
                     Controlled_GameServer.server_config_file = (string)gameserver["server_config_file"];
                     Controlled_GameServer.running_status = (bool)gameserver["running_status"];
                 }
+            }
+        }
+        private void proc_DataReceived(object sender, DataReceivedEventArgs e)
+        {
+            if (e.Data != null)
+            {
+                consoleOutputList.Items.Add(e.Data);
             }
         }
     }

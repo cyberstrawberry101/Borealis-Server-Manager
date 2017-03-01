@@ -17,10 +17,11 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // STARTUP                                                                           //
+        // STARTUP:                                                                          //
         //===================================================================================//
         private void ServerDeployment_Load(object sender, EventArgs e)
         {
+            //Populate gameserver list by querying the available configurations from the server.
             try
             {
                 using (var webClient = new System.Net.WebClient())
@@ -37,60 +38,27 @@ namespace Borealis
             }
             catch (Exception)
             {
-                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Cannot communicate with http://sfo3.hauteclaire.me \nThis means that deployment at this time is impossible.", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Cannot connect to http://phantom-net.duckdns.org:1337 \nThis means that deployment at this time is impossible.", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         //===================================================================================//
-        // REPORT PROGRESS UPDATES VIA THIS FUNCTION                                         //
+        // DEPLOYMENT:                                                                       //
         //===================================================================================//
-        public void updateProgressStatus(int currentProgress, int overallProgress, string progressDetails)
-        {
-            progressbarDownloadProgressOverall.Value = overallProgress;
-            lblDownloadProgressDetails.Text = progressDetails;
-        }
-
-        //===================================================================================//
-        // BROWSE FOR DIRECTORY USER WISHES TO DEPLOY SERVER TO                              //
-        //===================================================================================//
-        private void btnBrowseDestination_Click(object sender, EventArgs e)
-        {
-            browseDestinationFolder.ShowDialog();
-            txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
-        }
-
-        //===================================================================================//
-        // DEPLOY A GAMESERVER                                                               //
-        //===================================================================================//
-        public static class DeploymentValues
+        //Class to store relevant deployment values during deployment
+        private static class DeploymentValues
         {
             public static string deployment_directory { get; set; }
             public static string verify_integrity { get; set; }
         }
 
-        public void ExecuteWithRedirect(string argProgramName, string argParameters)
+        //Methods that handle reporting progress back to the UI
+        private void updateProgressStatus(int currentProgress, int overallProgress, string progressDetails)
         {
-            var proc = new Process();
-            proc.StartInfo.Arguments = argParameters;
-            proc.StartInfo.FileName = argProgramName;
-            proc.StartInfo.UseShellExecute = false;
-
-            // set up output redirection
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.EnableRaisingEvents = true;
-            proc.StartInfo.CreateNoWindow = true;
-            // see below for output handler
-            proc.ErrorDataReceived += proc_DataReceived;
-            proc.OutputDataReceived += proc_DataReceived;
-
-            proc.Start();
-
-            proc.BeginErrorReadLine();
-            proc.BeginOutputReadLine();
+            progressbarDownloadProgressOverall.Value = overallProgress;
+            lblDownloadProgressDetails.Text = progressDetails;
         }
-
-        void proc_DataReceived(object sender, DataReceivedEventArgs e)
+        private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {
             if (e.Data != null)
             {
@@ -103,7 +71,7 @@ namespace Borealis
                 {
                     //Do nothing
                 }
-                
+
                 //SteamCMD error and success handler.
                 if (ServerAPI.QUERY_JOBJECT.steamcmd_required == "True")
                 {
@@ -128,10 +96,96 @@ namespace Borealis
                 }
             }
         }
+        private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
+        {
+            //Enable the option to choose where to install the server.
+            lblDestination.Visible = true;
+            lblDestinationDetails.Visible = true;
+            lblDestinationDetailsSubtext.Visible = true;
+            txtboxDestinationFolder.Visible = true;
+            btnBrowseDestination.Visible = true;
+            chkSeparateConfig.Visible = true;
+            lblSeparateConfig.Visible = true;
+            chkVerifyIntegrity.Visible = true;
+            lblVerifyIntegrity.Visible = true;
+            panelProgress.Visible = true;
 
-        //===================================================================================//
-        // STAND-ALONE DEPLOYMENT CODE                                                       //
-        //===================================================================================//
+            //Server Name Controls
+            lblServerName.Visible = true;
+            lblServerNameDetails.Visible = true;
+            txtServerGivenName.Visible = true;
+
+            //Deployment Button
+            btnDeployGameserver.Enabled = true;
+
+            if (chkSeparateConfig.Checked == true)
+            {
+                lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
+            }
+
+            if (chkSeparateConfig.Checked == true)
+            {
+                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance01";
+            }
+            else
+            {
+                txtServerGivenName.Text = dropdownServerSelection.Text;
+            }
+        }
+        private void dropdownExistingServer_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (chkSeparateConfig.Checked == true)
+            {
+                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance";
+            }
+            else
+            {
+                txtServerGivenName.Text = dropdownServerSelection.Text;
+            }
+        }
+        private void chkSeparateConfig_OnChange_1(object sender, EventArgs e)
+        {
+            if (chkSeparateConfig.Checked == true)
+            {
+                lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
+                lblDestinationDetails.Text = "This will add a new configuration to an existing server to run a new instance of the server";
+                txtboxDestinationFolder.Text = "N/A";
+                txtboxDestinationFolder.Visible = false;
+                dropdownExistingServer.Visible = true;
+                txtServerGivenName.Text = "";
+            }
+            else
+            {
+                lblDestination.Text = "Step 2: Destination";
+                lblDestinationDetails.Text = "Choose where you want to install the server";
+                txtboxDestinationFolder.Text = @"C:\BSM\";
+                txtboxDestinationFolder.Visible = true;
+                dropdownExistingServer.Visible = false;
+            }
+        }
+
+        //Methods that handle deployment itself.
+        private void ExecuteWithRedirect(string argProgramName, string argParameters)
+        {
+            var proc = new Process();
+            proc.StartInfo.Arguments = argParameters;
+            proc.StartInfo.FileName = argProgramName;
+            proc.StartInfo.UseShellExecute = false;
+
+            // set up output redirection
+            proc.StartInfo.RedirectStandardOutput = true;
+            proc.StartInfo.RedirectStandardError = true;
+            proc.EnableRaisingEvents = true;
+            proc.StartInfo.CreateNoWindow = true;
+            // see below for output handler
+            proc.ErrorDataReceived += proc_DataReceived;
+            proc.OutputDataReceived += proc_DataReceived;
+
+            proc.Start();
+
+            proc.BeginErrorReadLine();
+            proc.BeginOutputReadLine();
+        }
         private void DeployGameServer()
         {
             //Enable cancel button to terminate deployment process if needed.
@@ -170,10 +224,11 @@ namespace Borealis
                     break;
             }
         }
-
-        //===================================================================================//
-        // QUERY THE USER TO VERIFY DEPLOYMENT BEFORE BEGINNING SERVER DEPLOYMENT            //
-        //===================================================================================//
+        private void btnBrowseDestination_Click(object sender, EventArgs e)
+        {
+            browseDestinationFolder.ShowDialog();
+            txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
+        }
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             //Query specific appID for all required data.
@@ -227,86 +282,6 @@ namespace Borealis
                     break;
             }
         }
-
-        //===================================================================================//
-        // UPDATE INTERFACE WHEN A GAMESERVER HAS BEEN CHOSEN FROM THE DROPDOWN LIST         //
-        //===================================================================================//
-        private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //Enable the option to choose where to install the server.
-            lblDestination.Visible = true;
-            lblDestinationDetails.Visible = true;
-            lblDestinationDetailsSubtext.Visible = true;
-            txtboxDestinationFolder.Visible = true;
-            btnBrowseDestination.Visible = true;
-            chkSeparateConfig.Visible = true;
-            lblSeparateConfig.Visible = true;
-            chkVerifyIntegrity.Visible = true;
-            lblVerifyIntegrity.Visible = true;
-            panelProgress.Visible = true;
-
-            //Server Name Controls
-            lblServerName.Visible = true;
-            lblServerNameDetails.Visible = true;
-            txtServerGivenName.Visible = true;
-
-            //Deployment Button
-            btnDeployGameserver.Enabled = true;
-
-            if (chkSeparateConfig.Checked == true)
-                {
-                    lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
-                }
-
-            if (chkSeparateConfig.Checked == true)
-            {
-                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance01";
-            }
-            else
-            {
-                txtServerGivenName.Text = dropdownServerSelection.Text;
-            }
-        }
-
-        //===================================================================================//
-        // UPDATE INTERFACE IF A USER WANTS TO DEPLOY A SEPARATE CONFIGURATION               //
-        //===================================================================================//
-        private void chkSeparateConfig_OnChange_1(object sender, EventArgs e)
-        {
-            if (chkSeparateConfig.Checked == true)
-            {
-                lblDestination.Text = "Step 2: Choose existing " + dropdownServerSelection.Text + " server";
-                lblDestinationDetails.Text = "This will add a new configuration to an existing server to run a new instance of the server";
-                txtboxDestinationFolder.Text = "N/A";
-                txtboxDestinationFolder.Visible = false;
-                dropdownExistingServer.Visible = true;
-                txtServerGivenName.Text = "";
-            }
-            else
-            {
-                lblDestination.Text = "Step 2: Destination";
-                lblDestinationDetails.Text = "Choose where you want to install the server";
-                txtboxDestinationFolder.Text = @"C:\BSM\";
-                txtboxDestinationFolder.Visible = true;
-                dropdownExistingServer.Visible = false;
-            }
-        }
-
-        //===================================================================================//
-        // AUTO-GENERATE A NAME FOR SERVERS AND SERVER CONFIGURATION INSTANCES               //
-        //===================================================================================//
-        private void dropdownExistingServer_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (chkSeparateConfig.Checked == true)
-            {
-                txtServerGivenName.Text = dropdownExistingServer.Text + " Instance";
-            }
-            else
-            {
-                txtServerGivenName.Text = dropdownServerSelection.Text;
-            }
-        }
-
         private void btnCancelDeployGameserver_Click(object sender, EventArgs e)
         {
             if (ServerAPI.QUERY_JOBJECT.steamcmd_required == "True")
