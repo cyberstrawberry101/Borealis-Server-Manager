@@ -42,7 +42,7 @@
             this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel19 = new System.Windows.Forms.Panel();
+            this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
             this.tabForms = new System.Windows.Forms.TabControl();
             this.panel15 = new System.Windows.Forms.Panel();
             this.experiment_indicator = new System.Windows.Forms.Panel();
@@ -68,7 +68,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel19.SuspendLayout();
+            this.DO_NOT_DELETE.SuspendLayout();
             this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -287,7 +287,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.panel19, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
@@ -313,16 +313,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 554);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
-            // panel19
+            // DO_NOT_DELETE
             // 
-            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel19.Controls.Add(this.tabForms);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel19.Location = new System.Drawing.Point(0, 320);
-            this.panel19.Margin = new System.Windows.Forms.Padding(0);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(260, 234);
-            this.panel19.TabIndex = 49;
+            this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.DO_NOT_DELETE.Controls.Add(this.tabForms);
+            this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
+            this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
+            this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(260, 234);
+            this.DO_NOT_DELETE.TabIndex = 49;
             // 
             // tabForms
             // 
@@ -627,7 +627,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel19.ResumeLayout(false);
+            this.DO_NOT_DELETE.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -676,7 +676,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private System.Windows.Forms.Panel MDI_SHIELD;
         private System.Windows.Forms.TabControl tabForms;
-        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel DO_NOT_DELETE;
     }
 }
 

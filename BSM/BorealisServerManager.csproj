@@ -85,29 +85,29 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASSES\Execution_Classes.cs" />
-    <Compile Include="CLASSES\MDI_Classes.cs" />
-    <Compile Include="CLASSES\GameServer_Management.cs" />
-    <Compile Include="CLASSES\Server_API.cs" />
-    <Compile Include="CLASSES\System_Monitoring.cs" />
-    <Compile Include="CLASSES\SteamCMD.cs" />
-    <Compile Include="MODULES\About.cs">
+    <Compile Include="CLASSES\CLASS_EXECUTION.cs" />
+    <Compile Include="CLASSES\CLASS_MDICONTROL.cs" />
+    <Compile Include="CLASSES\CLASS_GAMESERVERS.cs" />
+    <Compile Include="CLASSES\CLASS_ServerAPI.cs" />
+    <Compile Include="CLASSES\CLASS_MONITORING.cs" />
+    <Compile Include="CLASSES\CLASS_SteamCMD.cs" />
+    <Compile Include="MODULES\TAB_About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\About.Designer.cs">
-      <DependentUpon>About.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_About.Designer.cs">
+      <DependentUpon>TAB_About.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\Experimental_Area.cs">
+    <Compile Include="MODULES\TAB_Experimental.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\Experimental_Area.Designer.cs">
-      <DependentUpon>Experimental_Area.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_Experimental.Designer.cs">
+      <DependentUpon>TAB_Experimental.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\ServerDashboard.cs">
+    <Compile Include="MODULES\TAB_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\ServerDashboard.Designer.cs">
-      <DependentUpon>ServerDashboard.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_Dashboard.Designer.cs">
+      <DependentUpon>TAB_Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Borealis.cs">
       <SubType>Form</SubType>
@@ -117,32 +117,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MODULES\ServerDeployment.cs">
+    <Compile Include="MODULES\TAB_Deployment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\ServerDeployment.Designer.cs">
-      <DependentUpon>ServerDeployment.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_Deployment.Designer.cs">
+      <DependentUpon>TAB_Deployment.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\ServerManagement.cs">
+    <Compile Include="MODULES\TAB_Management.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\ServerManagement.Designer.cs">
-      <DependentUpon>ServerManagement.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_Management.Designer.cs">
+      <DependentUpon>TAB_Management.cs</DependentUpon>
     </Compile>
-    <Compile Include="MODULES\ServerControl.cs">
+    <Compile Include="MODULES\TAB_Control.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MODULES\ServerControl.Designer.cs">
-      <DependentUpon>ServerControl.cs</DependentUpon>
+    <Compile Include="MODULES\TAB_Control.Designer.cs">
+      <DependentUpon>TAB_Control.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MODULES\About.resx">
-      <DependentUpon>About.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_About.resx">
+      <DependentUpon>TAB_About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\Experimental_Area.resx">
-      <DependentUpon>Experimental_Area.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_Experimental.resx">
+      <DependentUpon>TAB_Experimental.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\ServerDashboard.resx">
-      <DependentUpon>ServerDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_Dashboard.resx">
+      <DependentUpon>TAB_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Borealis.resx">
       <DependentUpon>Borealis.cs</DependentUpon>
@@ -152,14 +152,14 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\ServerDeployment.resx">
-      <DependentUpon>ServerDeployment.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_Deployment.resx">
+      <DependentUpon>TAB_Deployment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\ServerManagement.resx">
-      <DependentUpon>ServerManagement.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_Management.resx">
+      <DependentUpon>TAB_Management.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MODULES\ServerControl.resx">
-      <DependentUpon>ServerControl.cs</DependentUpon>
+    <EmbeddedResource Include="MODULES\TAB_Control.resx">
+      <DependentUpon>TAB_Control.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config">
