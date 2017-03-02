@@ -102,7 +102,7 @@
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
-            this.header.Size = new System.Drawing.Size(985, 45);
+            this.header.Size = new System.Drawing.Size(965, 45);
             this.header.TabIndex = 1;
             // 
             // attribution_tab
@@ -110,7 +110,7 @@
             this.attribution_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.attribution_tab.Image = global::Borealis_Default_Namespace.Properties.Resources.HELP_ICON;
             this.attribution_tab.ImageActive = null;
-            this.attribution_tab.Location = new System.Drawing.Point(913, 9);
+            this.attribution_tab.Location = new System.Drawing.Point(893, 9);
             this.attribution_tab.Name = "attribution_tab";
             this.attribution_tab.Size = new System.Drawing.Size(26, 26);
             this.attribution_tab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -161,7 +161,7 @@
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(949, 9);
+            this.btnExitProgram.Location = new System.Drawing.Point(929, 9);
             this.btnExitProgram.Name = "btnExitProgram";
             this.btnExitProgram.Size = new System.Drawing.Size(26, 26);
             this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,7 +184,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
@@ -192,6 +191,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 9);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -208,7 +208,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(260, 554);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 554);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // panel4
@@ -220,14 +220,14 @@
             this.panel4.Location = new System.Drawing.Point(0, 320);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(260, 40);
+            this.panel4.Size = new System.Drawing.Size(240, 40);
             this.panel4.TabIndex = 50;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(255, 0);
+            this.panel5.Location = new System.Drawing.Point(235, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(5, 40);
@@ -264,7 +264,7 @@
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton1.selected = true;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(260, 40);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(240, 40);
             this.bunifuFlatButton1.TabIndex = 21;
             this.bunifuFlatButton1.Text = "   Scheduled Tasks";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -282,7 +282,7 @@
             this.panel9.Location = new System.Drawing.Point(0, 160);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(260, 40);
+            this.panel9.Size = new System.Drawing.Size(240, 40);
             this.panel9.TabIndex = 39;
             // 
             // management_tab
@@ -315,7 +315,7 @@
             this.management_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.management_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.management_tab.selected = true;
-            this.management_tab.Size = new System.Drawing.Size(255, 40);
+            this.management_tab.Size = new System.Drawing.Size(235, 40);
             this.management_tab.TabIndex = 19;
             this.management_tab.Text = "   Manage GameServers";
             this.management_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -328,7 +328,7 @@
             // 
             this.management_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.management_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.management_indicator.Location = new System.Drawing.Point(255, 0);
+            this.management_indicator.Location = new System.Drawing.Point(235, 0);
             this.management_indicator.Margin = new System.Windows.Forms.Padding(0);
             this.management_indicator.Name = "management_indicator";
             this.management_indicator.Size = new System.Drawing.Size(5, 40);
@@ -343,7 +343,7 @@
             this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 360);
             this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
             this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
-            this.DO_NOT_DELETE.Size = new System.Drawing.Size(260, 194);
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 194);
             this.DO_NOT_DELETE.TabIndex = 49;
             // 
             // tabForms
@@ -364,14 +364,14 @@
             this.panel15.Location = new System.Drawing.Point(0, 280);
             this.panel15.Margin = new System.Windows.Forms.Padding(0);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(260, 40);
+            this.panel15.Size = new System.Drawing.Size(240, 40);
             this.panel15.TabIndex = 45;
             // 
             // experiment_indicator
             // 
             this.experiment_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.experiment_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.experiment_indicator.Location = new System.Drawing.Point(255, 0);
+            this.experiment_indicator.Location = new System.Drawing.Point(235, 0);
             this.experiment_indicator.Margin = new System.Windows.Forms.Padding(0);
             this.experiment_indicator.Name = "experiment_indicator";
             this.experiment_indicator.Size = new System.Drawing.Size(5, 40);
@@ -408,7 +408,7 @@
             this.experiment_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.experiment_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.experiment_tab.selected = true;
-            this.experiment_tab.Size = new System.Drawing.Size(260, 40);
+            this.experiment_tab.Size = new System.Drawing.Size(240, 40);
             this.experiment_tab.TabIndex = 20;
             this.experiment_tab.Text = "   Experimental Area";
             this.experiment_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -426,7 +426,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 240);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(260, 40);
+            this.panel13.Size = new System.Drawing.Size(240, 40);
             this.panel13.TabIndex = 43;
             // 
             // bunifuCustomLabel3
@@ -450,7 +450,7 @@
             this.panel11.Location = new System.Drawing.Point(0, 200);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(260, 40);
+            this.panel11.Size = new System.Drawing.Size(240, 40);
             this.panel11.TabIndex = 41;
             // 
             // control_tab
@@ -483,7 +483,7 @@
             this.control_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.control_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.control_tab.selected = true;
-            this.control_tab.Size = new System.Drawing.Size(255, 40);
+            this.control_tab.Size = new System.Drawing.Size(235, 40);
             this.control_tab.TabIndex = 19;
             this.control_tab.Text = "   Control GameServers";
             this.control_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -496,7 +496,7 @@
             // 
             this.control_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.control_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.control_indicator.Location = new System.Drawing.Point(255, 0);
+            this.control_indicator.Location = new System.Drawing.Point(235, 0);
             this.control_indicator.Margin = new System.Windows.Forms.Padding(0);
             this.control_indicator.Name = "control_indicator";
             this.control_indicator.Size = new System.Drawing.Size(5, 40);
@@ -512,14 +512,14 @@
             this.panel7.Location = new System.Drawing.Point(0, 120);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(260, 40);
+            this.panel7.Size = new System.Drawing.Size(240, 40);
             this.panel7.TabIndex = 37;
             // 
             // deployment_indicator
             // 
             this.deployment_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.deployment_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.deployment_indicator.Location = new System.Drawing.Point(255, 0);
+            this.deployment_indicator.Location = new System.Drawing.Point(235, 0);
             this.deployment_indicator.Margin = new System.Windows.Forms.Padding(0);
             this.deployment_indicator.Name = "deployment_indicator";
             this.deployment_indicator.Size = new System.Drawing.Size(5, 40);
@@ -556,7 +556,7 @@
             this.deployment_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.deployment_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.deployment_tab.selected = true;
-            this.deployment_tab.Size = new System.Drawing.Size(260, 40);
+            this.deployment_tab.Size = new System.Drawing.Size(240, 40);
             this.deployment_tab.TabIndex = 18;
             this.deployment_tab.Text = "   Deploy GameServers";
             this.deployment_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -574,7 +574,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 40);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(260, 40);
+            this.panel3.Size = new System.Drawing.Size(240, 40);
             this.panel3.TabIndex = 33;
             // 
             // dashboard_tab
@@ -607,7 +607,7 @@
             this.dashboard_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.dashboard_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.dashboard_tab.selected = true;
-            this.dashboard_tab.Size = new System.Drawing.Size(255, 40);
+            this.dashboard_tab.Size = new System.Drawing.Size(235, 40);
             this.dashboard_tab.TabIndex = 18;
             this.dashboard_tab.Text = "   Dashboard";
             this.dashboard_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -621,7 +621,7 @@
             // 
             this.dashboard_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.dashboard_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dashboard_indicator.Location = new System.Drawing.Point(255, 0);
+            this.dashboard_indicator.Location = new System.Drawing.Point(235, 0);
             this.dashboard_indicator.Margin = new System.Windows.Forms.Padding(0);
             this.dashboard_indicator.Name = "dashboard_indicator";
             this.dashboard_indicator.Size = new System.Drawing.Size(5, 40);
@@ -635,7 +635,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 80);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(260, 40);
+            this.panel2.Size = new System.Drawing.Size(240, 40);
             this.panel2.TabIndex = 32;
             // 
             // bunifuCustomLabel2
@@ -658,7 +658,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(260, 40);
+            this.panel1.Size = new System.Drawing.Size(240, 40);
             this.panel1.TabIndex = 31;
             // 
             // bunifuCustomLabel5
@@ -677,7 +677,7 @@
             // 
             this.MDI_SHIELD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.MDI_SHIELD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MDI_SHIELD.Location = new System.Drawing.Point(260, 45);
+            this.MDI_SHIELD.Location = new System.Drawing.Point(240, 45);
             this.MDI_SHIELD.Name = "MDI_SHIELD";
             this.MDI_SHIELD.Size = new System.Drawing.Size(725, 554);
             this.MDI_SHIELD.TabIndex = 32;
@@ -696,7 +696,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(985, 599);
+            this.ClientSize = new System.Drawing.Size(965, 599);
             this.Controls.Add(this.MDI_SHIELD);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.header);
