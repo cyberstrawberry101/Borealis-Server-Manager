@@ -87,7 +87,7 @@
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;
             this.dropdownServerSelection.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.toolTip1.SetToolTip(this.dropdownServerSelection, "This retrieves a list of deployable gameservers using the server API.\r\nif you are" +
+            this.toolTip1.SetToolTip(this.dropdownServerSelection, "This retrieves a list of deployable gameservers using the server API.\r\nIf you are" +
         " unable to connect to http://phantom-net.duckdns.org:1337, you will be unable to" +
         " deploy any gameservers.");
             this.dropdownServerSelection.UseCustomBackColor = true;
