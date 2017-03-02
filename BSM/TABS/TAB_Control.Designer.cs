@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerControl));
             this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -42,6 +43,7 @@
             this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,8 @@
             this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
             this.chkAutoRestart.TabIndex = 42;
+            this.toolTip1.SetToolTip(this.chkAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
+        "omatically re-launched.");
             this.chkAutoRestart.Value = true;
             // 
             // bunifuCustomLabel1
@@ -83,6 +87,7 @@
             this.comboboxGameserverList.Sorted = true;
             this.comboboxGameserverList.TabIndex = 40;
             this.comboboxGameserverList.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.comboboxGameserverList, "Select a server that you have already deployed to start managing it.");
             this.comboboxGameserverList.UseCustomBackColor = true;
             this.comboboxGameserverList.UseCustomForeColor = true;
             this.comboboxGameserverList.UseSelectable = true;
@@ -99,6 +104,8 @@
             this.lblAutoRestart.Size = new System.Drawing.Size(189, 19);
             this.lblAutoRestart.TabIndex = 18;
             this.lblAutoRestart.Text = "Auto-restart server if it crashes";
+            this.toolTip1.SetToolTip(this.lblAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
+        "omatically re-launched.");
             // 
             // btnStartServer
             // 
@@ -134,6 +141,7 @@
             this.btnStartServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStartServer.Textcolor = System.Drawing.Color.White;
             this.btnStartServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnStartServer, "Start the server process in the background.");
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // btnStopServer
@@ -171,6 +179,7 @@
             this.btnStopServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnStopServer.Textcolor = System.Drawing.Color.White;
             this.btnStopServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnStopServer, "Forcefully terminate the process (not gracefully).");
             this.btnStopServer.Click += new System.EventHandler(this.btnStopServer_Click);
             // 
             // bunifuCustomLabel14
@@ -225,6 +234,7 @@
             this.consoleOutputList.Name = "consoleOutputList";
             this.consoleOutputList.Size = new System.Drawing.Size(692, 371);
             this.consoleOutputList.TabIndex = 43;
+            this.toolTip1.SetToolTip(this.consoleOutputList, "Here you can read the output from your currently running servers.");
             // 
             // txtboxIssueCommand
             // 
@@ -238,6 +248,7 @@
             this.txtboxIssueCommand.Size = new System.Drawing.Size(692, 29);
             this.txtboxIssueCommand.TabIndex = 49;
             this.txtboxIssueCommand.Text = " > Server is Not Running";
+            this.toolTip1.SetToolTip(this.txtboxIssueCommand, "You can issue commands to the actively selected gameserver here.");
             this.txtboxIssueCommand.Visible = false;
             this.txtboxIssueCommand.Enter += new System.EventHandler(this.txtboxIssueCommand_Enter);
             // 
@@ -249,6 +260,12 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(692, 400);
             this.panel1.TabIndex = 50;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // ServerControl
             // 
@@ -289,5 +306,6 @@
         private System.Windows.Forms.ListBox consoleOutputList;
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -44,6 +45,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -58,9 +60,9 @@
             this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 42);
             this.bunifuCustomLabel14.Name = "bunifuCustomLabel14";
-            this.bunifuCustomLabel14.Size = new System.Drawing.Size(427, 19);
+            this.bunifuCustomLabel14.Size = new System.Drawing.Size(443, 19);
             this.bunifuCustomLabel14.TabIndex = 13;
-            this.bunifuCustomLabel14.Text = "Proper attributions to everything that came together to make this utility.";
+            this.bunifuCustomLabel14.Text = "Proper attributions to everything that came together to make this solution.";
             // 
             // bunifuCustomLabel16
             // 
@@ -96,6 +98,7 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(88, 19);
             this.bunifuCustomLabel2.TabIndex = 15;
             this.bunifuCustomLabel2.Text = "Nicole Rappe";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel2, "The UI designer and back-end code developer.");
             // 
             // panel1
             // 
@@ -138,6 +141,8 @@
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(113, 19);
             this.bunifuCustomLabel4.TabIndex = 15;
             this.bunifuCustomLabel4.Text = "Hunter Nakagawa";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel4, "Designer of the Borealis server API. \r\nThe API is designed to retrieve server inf" +
+        "ormation regarding\r\ngameservers for use during management and deployment.");
             // 
             // panel3
             // 
@@ -163,6 +168,8 @@
             this.linkLabel3.TabIndex = 18;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Interface Icons";
+            this.toolTip1.SetToolTip(this.linkLabel3, "Accreditation towards the artists who created the icons used throughout Borealis." +
+        "");
             this.linkLabel3.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
@@ -179,6 +186,7 @@
             this.linkLabel2.TabIndex = 17;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "MetroFramework (User Controls)";
+            this.toolTip1.SetToolTip(this.linkLabel2, "A free library used to render special interface elements.");
             this.linkLabel2.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
@@ -195,6 +203,7 @@
             this.linkLabel1.TabIndex = 16;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "BunifuUI Framework (User Controls)";
+            this.toolTip1.SetToolTip(this.linkLabel1, "Used to render special non-standard user interface elements.");
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
@@ -242,6 +251,14 @@
             this.bunifuCustomLabel7.Size = new System.Drawing.Size(71, 38);
             this.bunifuCustomLabel7.TabIndex = 15;
             this.bunifuCustomLabel7.Text = "CyrilPaulus\r\nCapsup";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel7, "CyrilPaulus: Helped design the performance metrics back-end.\r\nCapsup: Provided ad" +
+        "vice on how to maintain the project professionally.");
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // About_DialogBox
             // 
@@ -289,5 +306,6 @@
         private System.Windows.Forms.Panel panel4;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

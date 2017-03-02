@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerDeployment));
             this.progressbarDownloadProgressOverall = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dropdownServerSelection = new MetroFramework.Controls.MetroComboBox();
@@ -54,6 +55,7 @@
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblVerifyIntegrity = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,9 @@
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;
             this.dropdownServerSelection.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.dropdownServerSelection, "This retrieves a list of deployable gameservers using the server API.\r\nif you are" +
+        " unable to connect to http://phantom-net.duckdns.org:1337, you will be unable to" +
+        " deploy any gameservers.");
             this.dropdownServerSelection.UseCustomBackColor = true;
             this.dropdownServerSelection.UseCustomForeColor = true;
             this.dropdownServerSelection.UseSelectable = true;
@@ -126,6 +131,7 @@
             this.lblDownloadProgress.Size = new System.Drawing.Size(230, 21);
             this.lblDownloadProgress.TabIndex = 36;
             this.lblDownloadProgress.Text = "Download / Installation Progress:";
+            this.toolTip1.SetToolTip(this.lblDownloadProgress, "Deployment progress reporting both download and installation progress.");
             // 
             // btnBrowseDestination
             // 
@@ -161,6 +167,8 @@
             this.btnBrowseDestination.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrowseDestination.Textcolor = System.Drawing.Color.White;
             this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnBrowseDestination, "Select where to deploy the new gameserver on  your system.\r\nThis location can be " +
+        "on the same disk or on another disk.");
             this.btnBrowseDestination.Visible = false;
             this.btnBrowseDestination.Click += new System.EventHandler(this.btnBrowseDestination_Click);
             // 
@@ -174,6 +182,7 @@
             this.txtboxDestinationFolder.Name = "txtboxDestinationFolder";
             this.txtboxDestinationFolder.Size = new System.Drawing.Size(346, 29);
             this.txtboxDestinationFolder.TabIndex = 32;
+            this.toolTip1.SetToolTip(this.txtboxDestinationFolder, "Select where you want to deploy your new gameserver.");
             this.txtboxDestinationFolder.Visible = false;
             // 
             // lblDestination
@@ -249,6 +258,8 @@
             this.lblSeparateConfig.Size = new System.Drawing.Size(231, 19);
             this.lblSeparateConfig.TabIndex = 43;
             this.lblSeparateConfig.Text = "Add separate config to existing server";
+            this.toolTip1.SetToolTip(this.lblSeparateConfig, "This will create a new set of configuration to essentially create another instanc" +
+        "e of your existing gameservers.");
             this.lblSeparateConfig.Visible = false;
             // 
             // chkSeparateConfig
@@ -262,6 +273,8 @@
             this.chkSeparateConfig.Name = "chkSeparateConfig";
             this.chkSeparateConfig.Size = new System.Drawing.Size(20, 20);
             this.chkSeparateConfig.TabIndex = 42;
+            this.toolTip1.SetToolTip(this.chkSeparateConfig, "This will create a new set of configuration to essentially create another instanc" +
+        "e of your existing gameservers.");
             this.chkSeparateConfig.Visible = false;
             this.chkSeparateConfig.OnChange += new System.EventHandler(this.chkSeparateConfig_OnChange_1);
             // 
@@ -281,6 +294,7 @@
             this.dropdownExistingServer.Sorted = true;
             this.dropdownExistingServer.TabIndex = 44;
             this.dropdownExistingServer.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.dropdownExistingServer, "Select which existing gameserver to add a new instance to.");
             this.dropdownExistingServer.UseCustomBackColor = true;
             this.dropdownExistingServer.UseCustomForeColor = true;
             this.dropdownExistingServer.UseSelectable = true;
@@ -323,6 +337,7 @@
             this.txtServerGivenName.Name = "txtServerGivenName";
             this.txtServerGivenName.Size = new System.Drawing.Size(346, 29);
             this.txtServerGivenName.TabIndex = 48;
+            this.toolTip1.SetToolTip(this.txtServerGivenName, "Give the server a user-friendly name to reference within Borealis.");
             this.txtServerGivenName.Visible = false;
             // 
             // lblDestinationDetailsSubtext
@@ -336,6 +351,8 @@
             this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
             this.lblDestinationDetailsSubtext.TabIndex = 49;
             this.lblDestinationDetailsSubtext.Text = " (Leave blank if you want it installed in the same directory as BSM)";
+            this.toolTip1.SetToolTip(this.lblDestinationDetailsSubtext, "If you leave this field blank, the server will be deployed directly alongside Bor" +
+        "ealis in a subdirectory.");
             this.lblDestinationDetailsSubtext.Visible = false;
             // 
             // panelProgress
@@ -384,6 +401,7 @@
             this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnDeployGameserver, "Deploy the gameserver using the current configuration.");
             this.btnDeployGameserver.Click += new System.EventHandler(this.btnDeployGameserver_Click);
             // 
             // btnCancelDeployGameserver
@@ -420,6 +438,7 @@
             this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnCancelDeployGameserver, "Forcefully terminate deployment (leftover files need to be manually cleaned up).");
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
@@ -435,6 +454,8 @@
             this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
             this.chkVerifyIntegrity.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.chkVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
+        "m server configurations)");
             this.chkVerifyIntegrity.Value = false;
             this.chkVerifyIntegrity.Visible = false;
             // 
@@ -449,7 +470,15 @@
             this.lblVerifyIntegrity.Size = new System.Drawing.Size(125, 19);
             this.lblVerifyIntegrity.TabIndex = 51;
             this.lblVerifyIntegrity.Text = "Validate Server Files";
+            this.toolTip1.SetToolTip(this.lblVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
+        "m server configurations)");
             this.lblVerifyIntegrity.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // ServerDeployment
             // 
@@ -516,5 +545,6 @@
         private System.Windows.Forms.Panel panelProgress;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

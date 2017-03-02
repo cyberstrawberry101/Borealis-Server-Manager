@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,6 +45,7 @@
             this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +84,7 @@
             this.btnBrowseDestination.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBrowseDestination.Textcolor = System.Drawing.Color.White;
             this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnBrowseDestination, "Not implemented yet.");
             // 
             // bunifuCustomLabel1
             // 
@@ -107,6 +110,7 @@
             this.comboboxGameserverList.Sorted = true;
             this.comboboxGameserverList.TabIndex = 42;
             this.comboboxGameserverList.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.comboboxGameserverList, "Select a deployed gameserver to configure.");
             this.comboboxGameserverList.UseCustomBackColor = true;
             this.comboboxGameserverList.UseCustomForeColor = true;
             this.comboboxGameserverList.UseSelectable = true;
@@ -169,6 +173,7 @@
             this.btnUpdateServerConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateServerConfig.Textcolor = System.Drawing.Color.White;
             this.btnUpdateServerConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnUpdateServerConfig, "Commit the changes to the associated configuration files.");
             this.btnUpdateServerConfig.Click += new System.EventHandler(this.btnUpdateServerConfig_Click);
             // 
             // serverPropertiesTable
@@ -234,6 +239,7 @@
             this.serverPropertiesTable.ShowEditingIcon = false;
             this.serverPropertiesTable.Size = new System.Drawing.Size(693, 209);
             this.serverPropertiesTable.TabIndex = 45;
+            this.toolTip1.SetToolTip(this.serverPropertiesTable, "Choose properties to change, and hit \'Update\' when you are done.");
             // 
             // columnGameServerName
             // 
@@ -284,12 +290,19 @@
             this.btnLoadConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLoadConfig.Textcolor = System.Drawing.Color.White;
             this.btnLoadConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnLoadConfig, "Manually open the config files associated with the selected gameserver.");
             this.btnLoadConfig.Click += new System.EventHandler(this.btnLoadConfig_Click);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "config.ini / config.txt / server.ini / etc...";
             this.openFileDialog1.Filter = "Server Config Files|*.cfg;*.ini;|All Files|*.*";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
             // 
             // ServerManagement
             // 
@@ -327,5 +340,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
