@@ -97,17 +97,16 @@ namespace Borealis
             serverData.srcds_server = srcds_server;                         //Determines if the server is based on SRCDS
             serverData.bsm_integration = bsm_integration;                   //Determines the support level of the gameserver in Borealis
 
-            if (borealis_closing == false)  //Only add data to active JObject list if it isn't being triggered by the closing event triggering it
+            if (borealis_closing == false)                                  //Only add data to active JObject list if it isn't being triggered by the closing event triggering it
             {
-                    addServer(serverData);              //Send the server to the gameserver list.
+                    addServer(serverData);                                  //Send the server to the gameserver list.
             }
 
-                // Write JSON directly to config.json in the event Borealis crashes
-                using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\config.json"))
-                using (JsonTextWriter writer = new JsonTextWriter(file))
-                {
-                    serverData.WriteTo(writer);
-                }
+            using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\config.json"))
+            using (JsonTextWriter writer = new JsonTextWriter(file))
+            {
+                writer.WriteRaw(JsonConvert.SerializeObject(serverData, Formatting.Indented));
+            }
         }
 
         //=====================================================================================//

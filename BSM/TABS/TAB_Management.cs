@@ -25,7 +25,7 @@ namespace Borealis
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name"]);
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
                 }
             }
         }
@@ -80,7 +80,7 @@ namespace Borealis
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
+                if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
                 {
                     GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
                     Management_Instance.SERVER_name = (string)gameserver["SERVER_name"];
