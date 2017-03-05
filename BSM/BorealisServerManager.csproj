@@ -96,12 +96,6 @@
     <Compile Include="TABS\TAB_About.Designer.cs">
       <DependentUpon>TAB_About.cs</DependentUpon>
     </Compile>
-    <Compile Include="TABS\TAB_Experimental.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TABS\TAB_Experimental.Designer.cs">
-      <DependentUpon>TAB_Experimental.cs</DependentUpon>
-    </Compile>
     <Compile Include="TABS\TAB_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,9 +130,6 @@
     </Compile>
     <EmbeddedResource Include="TABS\TAB_About.resx">
       <DependentUpon>TAB_About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TABS\TAB_Experimental.resx">
-      <DependentUpon>TAB_Experimental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TABS\TAB_Dashboard.resx">
       <DependentUpon>TAB_Dashboard.cs</DependentUpon>

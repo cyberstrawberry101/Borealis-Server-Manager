@@ -35,7 +35,7 @@ namespace Borealis
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name"]);
                 }
             }
         }
@@ -81,15 +81,19 @@ namespace Borealis
             txtboxIssueCommand.Visible = true;
             txtboxIssueCommand.Text = " > Enter a Command";
 
-            //CONSOLIDATE THIS CODE AS SOON AS POSSIBLE DUE TO ITS REDUNDANCY
-            foreach (JObject gameserver in GameServer_Management.server_collection)
+
+            if (GameServer_Management.server_collection != null)
             {
-                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    ExecuteWithRedirect(Environment.CurrentDirectory + (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"]);
+                    if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
+                    {
+                        ExecuteWithRedirect(Environment.CurrentDirectory + (string)gameserver["DIR_executable"], (string)gameserver["SERVER_launch_arguments"]);
+                    }
                 }
             }
         }
+
         private void btnStopServer_Click(object sender, EventArgs e)
         {
             btnStopServer.Enabled = false;
@@ -112,16 +116,17 @@ namespace Borealis
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
                 {
+                    //Decide what data to pull from the object at this point in time of development.
+                    
                     GameServer_Management.GameServer Controlled_GameServer = new GameServer_Management.GameServer();
-                    Controlled_GameServer.server_name = (string)gameserver["server_name"];
-                    Controlled_GameServer.server_type = (string)gameserver["server_type"];
-                    Controlled_GameServer.install_dir = (string)gameserver["install_dir"];
-                    Controlled_GameServer.executable_dir = (string)gameserver["executable_dir"];
-                    Controlled_GameServer.launch_arguments = (string)gameserver["launch_arguments"];
-                    Controlled_GameServer.server_config_file = (string)gameserver["server_config_file"];
-                    Controlled_GameServer.running_status = (bool)gameserver["running_status"];
+
+                    Controlled_GameServer.DIR_install_location = (string)gameserver["DIR_install_location"];
+                    Controlled_GameServer.DIR_executable = (string)gameserver["DIR_executable"];
+                    Controlled_GameServer.SERVER_launch_arguments = (string)gameserver["SERVER_launch_arguments"];
+                    Controlled_GameServer.SERVER_running_status = (bool)gameserver["SERVER_running_status"];
+                    
                 }
             }
         }

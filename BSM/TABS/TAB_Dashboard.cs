@@ -40,7 +40,7 @@ namespace Borealis
             {
                 foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
                 {
-                    overallServerStatsGrid.Rows.Add((string)gameserver["server_name"], (string)gameserver["server_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (string)gameserver["running_status"], "No");
+                    overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
                 }
             }
         }

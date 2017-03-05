@@ -255,9 +255,9 @@
             this.lblSeparateConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblSeparateConfig.Location = new System.Drawing.Point(390, 135);
             this.lblSeparateConfig.Name = "lblSeparateConfig";
-            this.lblSeparateConfig.Size = new System.Drawing.Size(231, 19);
+            this.lblSeparateConfig.Size = new System.Drawing.Size(265, 19);
             this.lblSeparateConfig.TabIndex = 43;
-            this.lblSeparateConfig.Text = "Add separate config to existing server";
+            this.lblSeparateConfig.Text = "Add separate config to existing gameserver";
             this.toolTip1.SetToolTip(this.lblSeparateConfig, "This will create a new set of configuration to essentially create another instanc" +
         "e of your existing gameservers.");
             this.lblSeparateConfig.Visible = false;

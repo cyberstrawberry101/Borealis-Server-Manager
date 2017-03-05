@@ -5,37 +5,17 @@ namespace Borealis
     public class ServerAPI
     {
         //===================================================================================//
-        // Class to store JSON data during deployment                                        //
-        //===================================================================================//
-        public static class QUERY_JOBJECT
-        {
-            //Variables to be used during deployment:
-            public static string name { get; set; }
-            public static string steam_authrequired { get; set; }
-            public static string steamcmd_required { get; set; }
-            public static string server_executable_location { get; set; }
-            public static string default_launch_arguments { get; set; }
-            public static string server_config_file { get; set; }
-            public static string bsm_integration { get; set; }
-        }
-
-
-        //===================================================================================//
         // Download Config Data via API into Memory                                          //
         //===================================================================================//
         public static void QUERY_DATA(string appID)
         {
+            GameServer_Management.deployment_server.Clear(); //Clear the deployment server list.
+            GameServer_Management.GameServer DeploymentServer = new GameServer_Management.GameServer();
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/config/" + appID);
-                JObject o = JObject.Parse(json);
-                QUERY_JOBJECT.name = (string)o["name"];
-                QUERY_JOBJECT.steam_authrequired = (string)o["steam_authrequired"];
-                QUERY_JOBJECT.steamcmd_required = (string)o["steamcmd_required"];
-                QUERY_JOBJECT.server_executable_location = (string)o["server_executable_location"];
-                QUERY_JOBJECT.default_launch_arguments = (string)o["default_launch_arguments"];
-                QUERY_JOBJECT.server_config_file = (string)o["server_config_file"];
-                QUERY_JOBJECT.bsm_integration = (string)o["bsm_integration"];
+                GameServer_Management Deploy = new GameServer_Management();
+                Deploy.addDeploymentServer(JObject.Parse(json));
             }
         }
 

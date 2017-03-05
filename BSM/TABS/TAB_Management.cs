@@ -25,7 +25,7 @@ namespace Borealis
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["server_name"]);
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name"]);
                 }
             }
         }
@@ -38,7 +38,7 @@ namespace Borealis
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
                 {
                     GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
                     openFileDialog1.InitialDirectory = (string)gameserver["install_dir"];
@@ -80,27 +80,43 @@ namespace Borealis
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["server_name"] == comboboxGameserverList.Text)
+                if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
                 {
                     GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
-                    Management_Instance.server_name = (string)gameserver["server_name"];
-                    Management_Instance.server_type = (string)gameserver["server_type"];
-                    Management_Instance.install_dir = (string)gameserver["install_dir"];
-                    Management_Instance.executable_dir = (string)gameserver["executable_dir"];
-                    Management_Instance.launch_arguments = (string)gameserver["launch_arguments"];
-                    Management_Instance.server_config_file = (string)gameserver["server_config_file"];
-                    Management_Instance.running_status = (bool)gameserver["running_status"];
+                    Management_Instance.SERVER_name = (string)gameserver["SERVER_name"];
+                    Management_Instance.SERVER_name_friendly = (string)gameserver["SERVER_name_friendly"];
+                    Management_Instance.SERVER_type = (string)gameserver["SERVER_type"];
+                    Management_Instance.SERVER_launch_arguments = (string)gameserver["SERVER_launch_arguments"];
+                    Management_Instance.SERVER_running_status = (bool)gameserver["SERVER_running_status"];
+                    Management_Instance.DIR_install_location = (string)gameserver["DIR_install_location"];
+                    Management_Instance.DIR_executable = (string)gameserver["DIR_executable"];
+                    Management_Instance.DIR_config = (string)gameserver["DIR_config"];
+                    Management_Instance.DIR_config_file = (string)gameserver["DIR_config_file"];
+                    Management_Instance.STEAM_authrequired = (bool)gameserver["STEAM_authrequired"];
+                    Management_Instance.STEAM_steamcmd_required = (bool)gameserver["STEAM_steamcmd_required"];
+                    Management_Instance.STEAM_workshop_enabled = (bool)gameserver["STEAM_workshop_enabled"];
+                    Management_Instance.srcds_server = (bool)gameserver["srcds_server"];
+                    Management_Instance.bsm_integration = (string)gameserver["bsm_integration"];
 
                     serverPropertiesTable.Rows.Clear();
-                    serverPropertiesTable.Rows.Add("server_name", Management_Instance.server_name);
-                    serverPropertiesTable.Rows.Add("server_type", Management_Instance.server_type);
-                    serverPropertiesTable.Rows.Add("install_dir", Management_Instance.install_dir);
-                    serverPropertiesTable.Rows.Add("executable_dir", Management_Instance.executable_dir);
-                    serverPropertiesTable.Rows.Add("launch_arguments", Management_Instance.launch_arguments);
-                    serverPropertiesTable.Rows.Add("server_config_file", Management_Instance.server_config_file);
-                    serverPropertiesTable.Rows.Add("running_status", Management_Instance.running_status);
+                    serverPropertiesTable.Rows.Add("SERVER_name", Management_Instance.SERVER_name);
+                    serverPropertiesTable.Rows.Add("SERVER_name_friendly", Management_Instance.SERVER_name_friendly);
+                    serverPropertiesTable.Rows.Add("SERVER_type", Management_Instance.SERVER_type);
+                    serverPropertiesTable.Rows.Add("SERVER_launch_arguments", Management_Instance.SERVER_launch_arguments);
+                    serverPropertiesTable.Rows.Add("SERVER_running_status", Management_Instance.SERVER_running_status);
+                    serverPropertiesTable.Rows.Add("DIR_install_location", Management_Instance.DIR_install_location);
+                    serverPropertiesTable.Rows.Add("DIR_executable", Management_Instance.DIR_executable);
+                    serverPropertiesTable.Rows.Add("DIR_config", Management_Instance.DIR_config);
+                    serverPropertiesTable.Rows.Add("DIR_config_file", Management_Instance.DIR_config_file);
+                    serverPropertiesTable.Rows.Add("STEAM_authrequired", Management_Instance.STEAM_authrequired);
+                    serverPropertiesTable.Rows.Add("STEAM_steamcmd_required", Management_Instance.STEAM_steamcmd_required);
+                    serverPropertiesTable.Rows.Add("STEAM_workshop_enabled", Management_Instance.STEAM_workshop_enabled);
+                    serverPropertiesTable.Rows.Add("srcds_server", Management_Instance.srcds_server);
+                    serverPropertiesTable.Rows.Add("bsm_integration", Management_Instance.bsm_integration);
                 }
             }
+
+            btnLoadConfig.Enabled = true;
         }
     }
 }

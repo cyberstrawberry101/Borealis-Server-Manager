@@ -94,13 +94,6 @@ namespace Borealis
             ChildInstance_Attribution.Show();
 
             //TAB INDEX 4
-            Experimental_Area ChildInstance_ExperimentalArea = new Experimental_Area();
-            ChildInstance_ExperimentalArea.MdiParent = this;
-            ChildInstance_ExperimentalArea.AutoScroll = false;
-            ChildInstance_ExperimentalArea.Dock = DockStyle.Fill;
-            ChildInstance_ExperimentalArea.Show();
-
-            //TAB INDEX 5
             ServerDashboard ChildInstance_Dashboard = new ServerDashboard();
             ChildInstance_Dashboard.MdiParent = this;
             ChildInstance_Dashboard.AutoScroll = false;
@@ -119,10 +112,10 @@ namespace Borealis
         public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton SelectedTab, Panel SelectedIndicator, bool SelectNewTab)
         {
             //Deactivate all other tabs
-            dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = experiment_indicator.Visible = false;
-            dashboard_tab.Textcolor = deployment_tab.Textcolor = management_tab.Textcolor = control_tab.Textcolor = experiment_tab.Textcolor = Color.FromArgb(145, 155, 166);
-            dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = experiment_tab.Activecolor = Color.FromArgb(26, 32, 40);
-            dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = experiment_tab.BackColor = Color.FromArgb(26, 32, 40);
+            dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = false;
+            dashboard_tab.Textcolor = deployment_tab.Textcolor = management_tab.Textcolor = control_tab.Textcolor = Color.FromArgb(145, 155, 166);
+            dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = Color.FromArgb(26, 32, 40);
+            dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = Color.FromArgb(26, 32, 40);
 
             if (SelectNewTab == true)
             {
@@ -133,11 +126,6 @@ namespace Borealis
                 SelectedIndicator.Visible = true;
             }
 
-        }
-        private void tabDashboard_Click_1(object sender, EventArgs e)
-        {
-            tab_animate(dashboard_tab, dashboard_indicator, true);
-            tabForms.SelectedIndex = 5;
         }
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
@@ -159,9 +147,10 @@ namespace Borealis
             tab_animate(null, null, false);
             tabForms.SelectedIndex = 3;
         }
-        private void tabExperimentalArea_Click(object sender, EventArgs e)
+
+        private void tabDashboard_Click_1(object sender, EventArgs e)
         {
-            tab_animate(experiment_tab, experiment_indicator, true);
+            tab_animate(dashboard_tab, dashboard_indicator, true);
             tabForms.SelectedIndex = 4;
         }
 
@@ -225,7 +214,31 @@ namespace Borealis
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
                     GameServer_Management WriteConfigOnClose = new GameServer_Management();
-                    WriteConfigOnClose.DeployGameserver((string)gameserver["server_name"], (string)gameserver["server_type"], (string)gameserver["install_dir"], (string)gameserver["executable_dir"], (string)gameserver["launch_arguments"], (string)gameserver["server_config_file"], (bool)gameserver["running_status"], true);
+                    WriteConfigOnClose.DeployGameserver(
+                        //Server-based Properties
+                        (string)gameserver["SERVER_name"], 
+                        (string)gameserver["SERVER_name_friendly"],
+                        (string)gameserver["SERVER_type"],
+                        (string)gameserver["SERVER_launch_arguments"],
+                        (bool)gameserver["SERVER_running_status"],
+
+                        //Directory-based Properties
+                        (string)gameserver["DIR_install_location"], 
+                        (string)gameserver["DIR_executable"],
+                        (string)gameserver["DIR_config"],
+                        (string)gameserver["DIR_config_file"],
+
+                        //Steam-based Properties
+                        (bool)gameserver["STEAM_authrequired"],
+                        (bool)gameserver["STEAM_steamcmd_required"],
+                        (bool)gameserver["STEAM_workshop_enabled"],
+
+                        //Miscellanious Properties
+                        (bool)gameserver["srcds_server"],
+                        (string)gameserver["bsm_integration"],
+
+                        //Deployment Property
+                        true);
                 }
             }
         }

@@ -45,11 +45,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.management_indicator = new System.Windows.Forms.Panel();
-            this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
-            this.tabForms = new System.Windows.Forms.TabControl();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.experiment_indicator = new System.Windows.Forms.Panel();
-            this.experiment_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -65,6 +60,8 @@
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
+            this.tabForms = new System.Windows.Forms.TabControl();
             this.MDI_SHIELD = new System.Windows.Forms.Panel();
             this.MENU_TOOLTIPS = new System.Windows.Forms.ToolTip(this.components);
             this.header.SuspendLayout();
@@ -74,14 +71,13 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.DO_NOT_DELETE.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.DO_NOT_DELETE.SuspendLayout();
             this.SuspendLayout();
             // 
             // formHeaderDragger
@@ -182,22 +178,20 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel15, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanel1.RowCount = 9;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
@@ -214,10 +208,10 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.bunifuFlatButton1);
+            this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 320);
+            this.panel4.Location = new System.Drawing.Point(0, 280);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(240, 40);
@@ -264,7 +258,7 @@
             this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
             this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.bunifuFlatButton1.selected = true;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(240, 40);
+            this.bunifuFlatButton1.Size = new System.Drawing.Size(235, 40);
             this.bunifuFlatButton1.TabIndex = 21;
             this.bunifuFlatButton1.Text = "   Scheduled Tasks";
             this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -334,89 +328,6 @@
             this.management_indicator.Size = new System.Drawing.Size(5, 40);
             this.management_indicator.TabIndex = 40;
             this.management_indicator.Visible = false;
-            // 
-            // DO_NOT_DELETE
-            // 
-            this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.DO_NOT_DELETE.Controls.Add(this.tabForms);
-            this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 360);
-            this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
-            this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
-            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 194);
-            this.DO_NOT_DELETE.TabIndex = 49;
-            // 
-            // tabForms
-            // 
-            this.tabForms.Location = new System.Drawing.Point(3, 308);
-            this.tabForms.Name = "tabForms";
-            this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(29, 25);
-            this.tabForms.TabIndex = 30;
-            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged_1);
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel15.Controls.Add(this.experiment_indicator);
-            this.panel15.Controls.Add(this.experiment_tab);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel15.Location = new System.Drawing.Point(0, 280);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(240, 40);
-            this.panel15.TabIndex = 45;
-            // 
-            // experiment_indicator
-            // 
-            this.experiment_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.experiment_indicator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.experiment_indicator.Location = new System.Drawing.Point(235, 0);
-            this.experiment_indicator.Margin = new System.Windows.Forms.Padding(0);
-            this.experiment_indicator.Name = "experiment_indicator";
-            this.experiment_indicator.Size = new System.Drawing.Size(5, 40);
-            this.experiment_indicator.TabIndex = 43;
-            this.experiment_indicator.Visible = false;
-            // 
-            // experiment_tab
-            // 
-            this.experiment_tab.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.experiment_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.experiment_tab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.experiment_tab.BorderRadius = 0;
-            this.experiment_tab.ButtonText = "   Experimental Area";
-            this.experiment_tab.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.experiment_tab.DisabledColor = System.Drawing.Color.Gray;
-            this.experiment_tab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.experiment_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.experiment_tab.Iconcolor = System.Drawing.Color.Transparent;
-            this.experiment_tab.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.EXPERIMENT_ICON;
-            this.experiment_tab.Iconimage_right = null;
-            this.experiment_tab.Iconimage_right_Selected = null;
-            this.experiment_tab.Iconimage_Selected = null;
-            this.experiment_tab.IconMarginLeft = 10;
-            this.experiment_tab.IconMarginRight = 0;
-            this.experiment_tab.IconRightVisible = false;
-            this.experiment_tab.IconRightZoom = 0D;
-            this.experiment_tab.IconVisible = true;
-            this.experiment_tab.IconZoom = 60D;
-            this.experiment_tab.IsTab = true;
-            this.experiment_tab.Location = new System.Drawing.Point(0, 0);
-            this.experiment_tab.Margin = new System.Windows.Forms.Padding(0);
-            this.experiment_tab.Name = "experiment_tab";
-            this.experiment_tab.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.experiment_tab.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(42)))), ((int)(((byte)(50)))));
-            this.experiment_tab.OnHoverTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.experiment_tab.selected = true;
-            this.experiment_tab.Size = new System.Drawing.Size(240, 40);
-            this.experiment_tab.TabIndex = 20;
-            this.experiment_tab.Text = "   Experimental Area";
-            this.experiment_tab.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.experiment_tab.Textcolor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
-            this.experiment_tab.TextFont = new System.Drawing.Font("Segoe UI", 10F);
-            this.MENU_TOOLTIPS.SetToolTip(this.experiment_tab, "This area is mostly meant for the developers, and won\'t really do anything for en" +
-        "d-users.");
-            this.experiment_tab.Click += new System.EventHandler(this.tabExperimentalArea_Click);
             // 
             // panel13
             // 
@@ -673,6 +584,26 @@
             this.bunifuCustomLabel5.TabIndex = 48;
             this.bunifuCustomLabel5.Text = "Main";
             // 
+            // DO_NOT_DELETE
+            // 
+            this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.DO_NOT_DELETE.Controls.Add(this.tabForms);
+            this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
+            this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
+            this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 234);
+            this.DO_NOT_DELETE.TabIndex = 49;
+            // 
+            // tabForms
+            // 
+            this.tabForms.Location = new System.Drawing.Point(3, 308);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(29, 25);
+            this.tabForms.TabIndex = 30;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged_1);
+            // 
             // MDI_SHIELD
             // 
             this.MDI_SHIELD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
@@ -719,8 +650,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            this.DO_NOT_DELETE.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel11.ResumeLayout(false);
@@ -730,6 +659,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.DO_NOT_DELETE.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -751,7 +681,6 @@
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
-        private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel9;
@@ -762,8 +691,6 @@
         private System.Windows.Forms.Panel control_indicator;
         private System.Windows.Forms.Panel management_indicator;
         private System.Windows.Forms.Panel deployment_indicator;
-        private System.Windows.Forms.Panel experiment_indicator;
-        private Bunifu.Framework.UI.BunifuFlatButton experiment_tab;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private System.Windows.Forms.Panel MDI_SHIELD;
         private System.Windows.Forms.Panel panel4;

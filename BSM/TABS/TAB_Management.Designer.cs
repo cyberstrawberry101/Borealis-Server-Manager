@@ -41,11 +41,11 @@
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.serverPropertiesTable = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,7 +214,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.serverPropertiesTable.DefaultCellStyle = dataGridViewCellStyle3;
             this.serverPropertiesTable.DoubleBuffered = false;
-            this.serverPropertiesTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.serverPropertiesTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.serverPropertiesTable.EnableHeadersVisualStyles = false;
             this.serverPropertiesTable.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.serverPropertiesTable.HeaderForeColor = System.Drawing.Color.White;
@@ -237,24 +237,9 @@
             this.serverPropertiesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.serverPropertiesTable.ShowCellToolTips = false;
             this.serverPropertiesTable.ShowEditingIcon = false;
-            this.serverPropertiesTable.Size = new System.Drawing.Size(693, 209);
+            this.serverPropertiesTable.Size = new System.Drawing.Size(693, 368);
             this.serverPropertiesTable.TabIndex = 45;
             this.toolTip1.SetToolTip(this.serverPropertiesTable, "Choose properties to change, and hit \'Update\' when you are done.");
-            // 
-            // columnGameServerName
-            // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.columnGameServerName.HeaderText = "Server Property";
-            this.columnGameServerName.Name = "columnGameServerName";
-            this.columnGameServerName.ReadOnly = true;
-            this.columnGameServerName.Width = 150;
-            // 
-            // columnServerType
-            // 
-            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnServerType.HeaderText = "Value";
-            this.columnServerType.Name = "columnServerType";
-            this.columnServerType.ReadOnly = true;
             // 
             // btnLoadConfig
             // 
@@ -265,6 +250,7 @@
             this.btnLoadConfig.ButtonText = "      Load Config";
             this.btnLoadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoadConfig.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLoadConfig.Enabled = false;
             this.btnLoadConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnLoadConfig.Iconcolor = System.Drawing.Color.Transparent;
             this.btnLoadConfig.Iconimage = null;
@@ -304,6 +290,21 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // columnGameServerName
+            // 
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerName.HeaderText = "Server Property";
+            this.columnGameServerName.Name = "columnGameServerName";
+            this.columnGameServerName.ReadOnly = true;
+            this.columnGameServerName.Width = 110;
+            // 
+            // columnServerType
+            // 
+            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnServerType.HeaderText = "Value";
+            this.columnServerType.Name = "columnServerType";
+            this.columnServerType.ReadOnly = true;
+            // 
             // ServerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -337,9 +338,9 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnBrowseDestination;
         private Bunifu.Framework.UI.BunifuCustomDataGrid serverPropertiesTable;
         private Bunifu.Framework.UI.BunifuFlatButton btnLoadConfig;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
     }
 }
