@@ -234,6 +234,8 @@ namespace Borealis
                         {
                             case true:
                                 MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                btnDeployGameserver.Enabled = true;
+                                btnCancelDeployGameserver.Visible = false;
                                 break;
 
                             case false:
