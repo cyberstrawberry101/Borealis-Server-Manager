@@ -217,7 +217,7 @@
             this.overallServerStatsGrid.EnableHeadersVisualStyles = false;
             this.overallServerStatsGrid.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.overallServerStatsGrid.HeaderForeColor = System.Drawing.Color.White;
-            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 298);
+            this.overallServerStatsGrid.Location = new System.Drawing.Point(0, 293);
             this.overallServerStatsGrid.MultiSelect = false;
             this.overallServerStatsGrid.Name = "overallServerStatsGrid";
             this.overallServerStatsGrid.ReadOnly = true;
@@ -236,7 +236,7 @@
             this.overallServerStatsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.overallServerStatsGrid.ShowCellToolTips = false;
             this.overallServerStatsGrid.ShowEditingIcon = false;
-            this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 259);
+            this.overallServerStatsGrid.Size = new System.Drawing.Size(725, 264);
             this.overallServerStatsGrid.TabIndex = 43;
             this.toolTip1.SetToolTip(this.overallServerStatsGrid, "This is where all of your deployed gameservers will be listed with their configur" +
         "ed properties.");

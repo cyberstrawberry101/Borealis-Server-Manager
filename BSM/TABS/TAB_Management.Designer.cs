@@ -30,61 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerManagement));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.serverPropertiesTable = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).BeginInit();
+            this.txtboxConfigOutput = new System.Windows.Forms.TextBox();
+            this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtboxFriendlyName = new System.Windows.Forms.TextBox();
+            this.txtboxArguments = new System.Windows.Forms.TextBox();
+            this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblConfigOutput = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SuspendLayout();
-            // 
-            // btnBrowseDestination
-            // 
-            this.btnBrowseDestination.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnBrowseDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnBrowseDestination.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBrowseDestination.BorderRadius = 0;
-            this.btnBrowseDestination.ButtonText = "     Advanced Config";
-            this.btnBrowseDestination.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowseDestination.DisabledColor = System.Drawing.Color.Gray;
-            this.btnBrowseDestination.Enabled = false;
-            this.btnBrowseDestination.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnBrowseDestination.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBrowseDestination.Iconimage = null;
-            this.btnBrowseDestination.Iconimage_right = null;
-            this.btnBrowseDestination.Iconimage_right_Selected = null;
-            this.btnBrowseDestination.Iconimage_Selected = null;
-            this.btnBrowseDestination.IconMarginLeft = 0;
-            this.btnBrowseDestination.IconMarginRight = 0;
-            this.btnBrowseDestination.IconRightVisible = true;
-            this.btnBrowseDestination.IconRightZoom = 0D;
-            this.btnBrowseDestination.IconVisible = true;
-            this.btnBrowseDestination.IconZoom = 90D;
-            this.btnBrowseDestination.IsTab = false;
-            this.btnBrowseDestination.Location = new System.Drawing.Point(418, 72);
-            this.btnBrowseDestination.Name = "btnBrowseDestination";
-            this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnBrowseDestination.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnBrowseDestination.selected = false;
-            this.btnBrowseDestination.Size = new System.Drawing.Size(125, 29);
-            this.btnBrowseDestination.TabIndex = 44;
-            this.btnBrowseDestination.Text = "     Advanced Config";
-            this.btnBrowseDestination.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBrowseDestination.Textcolor = System.Drawing.Color.White;
-            this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolTip1.SetToolTip(this.btnBrowseDestination, "Not implemented yet.");
             // 
             // bunifuCustomLabel1
             // 
@@ -176,78 +136,13 @@
             this.toolTip1.SetToolTip(this.btnUpdateServerConfig, "Commit the changes to the associated configuration files.");
             this.btnUpdateServerConfig.Click += new System.EventHandler(this.btnUpdateServerConfig_Click);
             // 
-            // serverPropertiesTable
-            // 
-            this.serverPropertiesTable.AllowUserToAddRows = false;
-            this.serverPropertiesTable.AllowUserToDeleteRows = false;
-            this.serverPropertiesTable.AllowUserToOrderColumns = true;
-            this.serverPropertiesTable.AllowUserToResizeColumns = false;
-            this.serverPropertiesTable.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            this.serverPropertiesTable.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.serverPropertiesTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.serverPropertiesTable.BackgroundColor = System.Drawing.Color.White;
-            this.serverPropertiesTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.serverPropertiesTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.serverPropertiesTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.serverPropertiesTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.serverPropertiesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.serverPropertiesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnGameServerName,
-            this.columnServerType});
-            this.serverPropertiesTable.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.serverPropertiesTable.DefaultCellStyle = dataGridViewCellStyle3;
-            this.serverPropertiesTable.DoubleBuffered = false;
-            this.serverPropertiesTable.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.serverPropertiesTable.EnableHeadersVisualStyles = false;
-            this.serverPropertiesTable.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.serverPropertiesTable.HeaderForeColor = System.Drawing.Color.White;
-            this.serverPropertiesTable.Location = new System.Drawing.Point(18, 107);
-            this.serverPropertiesTable.MultiSelect = false;
-            this.serverPropertiesTable.Name = "serverPropertiesTable";
-            this.serverPropertiesTable.ReadOnly = true;
-            this.serverPropertiesTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.serverPropertiesTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.serverPropertiesTable.RowHeadersVisible = false;
-            this.serverPropertiesTable.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.serverPropertiesTable.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.serverPropertiesTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.serverPropertiesTable.ShowCellToolTips = false;
-            this.serverPropertiesTable.ShowEditingIcon = false;
-            this.serverPropertiesTable.Size = new System.Drawing.Size(693, 368);
-            this.serverPropertiesTable.TabIndex = 45;
-            this.toolTip1.SetToolTip(this.serverPropertiesTable, "Choose properties to change, and hit \'Update\' when you are done.");
-            // 
             // btnLoadConfig
             // 
             this.btnLoadConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnLoadConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnLoadConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLoadConfig.BorderRadius = 0;
-            this.btnLoadConfig.ButtonText = "      Load Config";
+            this.btnLoadConfig.ButtonText = "Load Config Manually";
             this.btnLoadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoadConfig.DisabledColor = System.Drawing.Color.Gray;
             this.btnLoadConfig.Enabled = false;
@@ -264,15 +159,15 @@
             this.btnLoadConfig.IconVisible = true;
             this.btnLoadConfig.IconZoom = 90D;
             this.btnLoadConfig.IsTab = false;
-            this.btnLoadConfig.Location = new System.Drawing.Point(18, 72);
+            this.btnLoadConfig.Location = new System.Drawing.Point(413, 493);
             this.btnLoadConfig.Name = "btnLoadConfig";
             this.btnLoadConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnLoadConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnLoadConfig.OnHoverTextColor = System.Drawing.Color.White;
             this.btnLoadConfig.selected = false;
-            this.btnLoadConfig.Size = new System.Drawing.Size(100, 29);
+            this.btnLoadConfig.Size = new System.Drawing.Size(143, 48);
             this.btnLoadConfig.TabIndex = 46;
-            this.btnLoadConfig.Text = "      Load Config";
+            this.btnLoadConfig.Text = "Load Config Manually";
             this.btnLoadConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnLoadConfig.Textcolor = System.Drawing.Color.White;
             this.btnLoadConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,20 +185,79 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // columnGameServerName
+            // txtboxConfigOutput
             // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerName.HeaderText = "Server Property";
-            this.columnGameServerName.Name = "columnGameServerName";
-            this.columnGameServerName.ReadOnly = true;
-            this.columnGameServerName.Width = 110;
+            this.txtboxConfigOutput.Location = new System.Drawing.Point(16, 241);
+            this.txtboxConfigOutput.Multiline = true;
+            this.txtboxConfigOutput.Name = "txtboxConfigOutput";
+            this.txtboxConfigOutput.Size = new System.Drawing.Size(693, 235);
+            this.txtboxConfigOutput.TabIndex = 47;
+            this.txtboxConfigOutput.Visible = false;
             // 
-            // columnServerType
+            // lblFriendlyName
             // 
-            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnServerType.HeaderText = "Value";
-            this.columnServerType.Name = "columnServerType";
-            this.columnServerType.ReadOnly = true;
+            this.lblFriendlyName.AutoSize = true;
+            this.lblFriendlyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblFriendlyName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblFriendlyName.Location = new System.Drawing.Point(12, 80);
+            this.lblFriendlyName.Name = "lblFriendlyName";
+            this.lblFriendlyName.Size = new System.Drawing.Size(90, 19);
+            this.lblFriendlyName.TabIndex = 48;
+            this.lblFriendlyName.Text = "Server Name:";
+            this.lblFriendlyName.Visible = false;
+            // 
+            // txtboxFriendlyName
+            // 
+            this.txtboxFriendlyName.BackColor = System.Drawing.Color.White;
+            this.txtboxFriendlyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxFriendlyName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxFriendlyName.Location = new System.Drawing.Point(16, 102);
+            this.txtboxFriendlyName.Name = "txtboxFriendlyName";
+            this.txtboxFriendlyName.Size = new System.Drawing.Size(346, 29);
+            this.txtboxFriendlyName.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.txtboxFriendlyName, "Give the server a user-friendly name to reference within Borealis.");
+            this.txtboxFriendlyName.Visible = false;
+            // 
+            // txtboxArguments
+            // 
+            this.txtboxArguments.BackColor = System.Drawing.Color.White;
+            this.txtboxArguments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxArguments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtboxArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxArguments.Location = new System.Drawing.Point(16, 165);
+            this.txtboxArguments.Name = "txtboxArguments";
+            this.txtboxArguments.Size = new System.Drawing.Size(346, 29);
+            this.txtboxArguments.TabIndex = 51;
+            this.toolTip1.SetToolTip(this.txtboxArguments, "Give the server a user-friendly name to reference within Borealis.");
+            this.txtboxArguments.Visible = false;
+            // 
+            // lblArguments
+            // 
+            this.lblArguments.AutoSize = true;
+            this.lblArguments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblArguments.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblArguments.Location = new System.Drawing.Point(14, 143);
+            this.lblArguments.Name = "lblArguments";
+            this.lblArguments.Size = new System.Drawing.Size(120, 19);
+            this.lblArguments.TabIndex = 50;
+            this.lblArguments.Text = "Launch Arguments:";
+            this.lblArguments.Visible = false;
+            // 
+            // lblConfigOutput
+            // 
+            this.lblConfigOutput.AutoSize = true;
+            this.lblConfigOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblConfigOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblConfigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblConfigOutput.Location = new System.Drawing.Point(14, 219);
+            this.lblConfigOutput.Name = "lblConfigOutput";
+            this.lblConfigOutput.Size = new System.Drawing.Size(93, 19);
+            this.lblConfigOutput.TabIndex = 52;
+            this.lblConfigOutput.Text = "Server Config:";
+            this.lblConfigOutput.Visible = false;
             // 
             // ServerManagement
             // 
@@ -311,10 +265,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.lblConfigOutput);
+            this.Controls.Add(this.txtboxArguments);
+            this.Controls.Add(this.lblArguments);
+            this.Controls.Add(this.txtboxFriendlyName);
+            this.Controls.Add(this.lblFriendlyName);
+            this.Controls.Add(this.txtboxConfigOutput);
             this.Controls.Add(this.btnLoadConfig);
-            this.Controls.Add(this.serverPropertiesTable);
             this.Controls.Add(this.bunifuCustomLabel1);
-            this.Controls.Add(this.btnBrowseDestination);
             this.Controls.Add(this.comboboxGameserverList);
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.bunifuCustomLabel4);
@@ -323,7 +281,6 @@
             this.Name = "ServerManagement";
             this.Text = "ServerManagement";
             this.Load += new System.EventHandler(this.GSM_Management_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.serverPropertiesTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,12 +292,14 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
-        private Bunifu.Framework.UI.BunifuFlatButton btnBrowseDestination;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid serverPropertiesTable;
         private Bunifu.Framework.UI.BunifuFlatButton btnLoadConfig;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnGameServerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnServerType;
+        private System.Windows.Forms.TextBox txtboxConfigOutput;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblFriendlyName;
+        private System.Windows.Forms.TextBox txtboxFriendlyName;
+        private System.Windows.Forms.TextBox txtboxArguments;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblArguments;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblConfigOutput;
     }
 }
