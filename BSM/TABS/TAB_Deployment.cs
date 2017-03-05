@@ -38,6 +38,14 @@ namespace Borealis
             {
                 MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Cannot connect to http://phantom-net.duckdns.org:1337 \nThis means that deployment at this time is impossible.", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    dropdownExistingServer.Items.Add((string)gameserver["SERVER_name"]);
+                }
+            }
         }
 
         //===================================================================================//
@@ -186,6 +194,7 @@ namespace Borealis
                 txtboxDestinationFolder.Visible = false;
                 dropdownExistingServer.Visible = true;
                 txtServerGivenName.Text = "";
+                lblDestinationDetailsSubtext.Visible = false;
             }
             else
             {
@@ -194,6 +203,7 @@ namespace Borealis
                 txtboxDestinationFolder.Text = @"C:\BSM\";
                 txtboxDestinationFolder.Visible = true;
                 dropdownExistingServer.Visible = false;
+                lblDestinationDetailsSubtext.Visible = true;
             }
         }
 
@@ -266,77 +276,86 @@ namespace Borealis
         }
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
-            //Query specific appID for all required data.
-            ServerAPI.QUERY_DATA(ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text));
-
-            //Retrieve the data that was just stored into the deployment server list.
-            if (GameServer_Management.deployment_server != null)
+            if (chkSeparateConfig.Checked == true)
             {
-                //Create a new object to store the deployment data!
-                GameServer_Management.GameServer DeploymentServer = new GameServer_Management.GameServer();
+                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately at this time, deploying instances of gameservers is not supported.", "Deploy New GameServer Instance?", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //Query specific appID for all required data.
+                ServerAPI.QUERY_DATA(ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text));
 
-                foreach (JObject serverDeploymentData in GameServer_Management.deployment_server)
+                //Retrieve the data that was just stored into the deployment server list.
+                if (GameServer_Management.deployment_server != null)
                 {
-                    DeploymentValues.SERVER_name = (string)serverDeploymentData["SERVER_name"];
-                    DeploymentValues.SERVER_launch_arguments = (string)serverDeploymentData["SERVER_launch_arguments"];
-                    DeploymentValues.DIR_executable = (string)serverDeploymentData["DIR_executable"];
-                    DeploymentValues.DIR_config = (string)serverDeploymentData["DIR_config"];
-                    DeploymentValues.DIR_config_file = (string)serverDeploymentData["DIR_config_file"];
-                    DeploymentValues.STEAM_authrequired = (bool)serverDeploymentData["STEAM_authrequired"];
-                    DeploymentValues.STEAM_steamcmd_required = (bool)serverDeploymentData["STEAM_steamcmd_required"];
-                    DeploymentValues.STEAM_workshop_enabled = (bool)serverDeploymentData["STEAM_workshop_enabled"];
-                    DeploymentValues.srcds_server = (bool)serverDeploymentData["srcds_server"];
-                    DeploymentValues.bsm_integration = (string)serverDeploymentData["bsm_integration"];
+                    //Create a new object to store the deployment data!
+                    GameServer_Management.GameServer DeploymentServer = new GameServer_Management.GameServer();
+
+                    foreach (JObject serverDeploymentData in GameServer_Management.deployment_server)
+                    {
+                        DeploymentValues.SERVER_name = (string)serverDeploymentData["SERVER_name"];
+                        DeploymentValues.SERVER_launch_arguments = (string)serverDeploymentData["SERVER_launch_arguments"];
+                        DeploymentValues.DIR_executable = (string)serverDeploymentData["DIR_executable"];
+                        DeploymentValues.DIR_config = (string)serverDeploymentData["DIR_config"];
+                        DeploymentValues.DIR_config_file = (string)serverDeploymentData["DIR_config_file"];
+                        DeploymentValues.STEAM_authrequired = (bool)serverDeploymentData["STEAM_authrequired"];
+                        DeploymentValues.STEAM_steamcmd_required = (bool)serverDeploymentData["STEAM_steamcmd_required"];
+                        DeploymentValues.STEAM_workshop_enabled = (bool)serverDeploymentData["STEAM_workshop_enabled"];
+                        DeploymentValues.srcds_server = (bool)serverDeploymentData["srcds_server"];
+                        DeploymentValues.bsm_integration = (string)serverDeploymentData["bsm_integration"];
+                    }
+                }
+
+                //Determine where to deploy the server based on user input.
+                if (txtboxDestinationFolder.Text == "")
+                {
+                    DeploymentValues.DIR_install_location = Environment.CurrentDirectory;
+                }
+                else
+                {
+                    DeploymentValues.DIR_install_location = txtboxDestinationFolder.Text;
+                }
+
+                //Determine whether or not to verify integrity of the installation.
+                if (chkVerifyIntegrity.Value == true)
+                {
+                    DeploymentValues.verify_integrity = " +validate";
+                }
+                else
+                {
+                    DeploymentValues.verify_integrity = "";
+                }
+
+                switch (DeploymentValues.bsm_integration)
+                {
+                    case "none":
+                        if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
+                        {
+                            btnCancelDeployGameserver.Visible = true;
+                            btnDeployGameserver.Enabled = false;
+                            DeployGameServer();
+                        }
+                        break;
+                    case "partial":
+                        if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                        {
+                            btnCancelDeployGameserver.Visible = true;
+                            btnDeployGameserver.Enabled = false;
+                            DeployGameServer();
+                        }
+                        break;
+                    case "full":
+                        if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            btnCancelDeployGameserver.Visible = true;
+                            btnDeployGameserver.Enabled = false;
+                            DeployGameServer();
+                        }
+                        break;
                 }
             }
-
-            //Determine where to deploy the server based on user input.
-            if (txtboxDestinationFolder.Text == "")
-            {
-                DeploymentValues.DIR_install_location = Environment.CurrentDirectory;
-            }
-            else
-            {
-                DeploymentValues.DIR_install_location = txtboxDestinationFolder.Text;
-            }
-
-            //Determine whether or not to verify integrity of the installation.
-            if (chkVerifyIntegrity.Value == true)
-            {
-                DeploymentValues.verify_integrity = " +validate";
-            }
-            else
-            {
-                DeploymentValues.verify_integrity = "";
-            }
-
-            switch (DeploymentValues.bsm_integration)
-            {
-                case "none":
-                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
-                    {
-                        btnCancelDeployGameserver.Visible = true;
-                        btnDeployGameserver.Enabled = false;
-                        DeployGameServer();
-                    }
-                    break;
-                case "partial":
-                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                    {
-                        btnCancelDeployGameserver.Visible = true;
-                        btnDeployGameserver.Enabled = false;
-                        DeployGameServer();
-                    }
-                    break;
-                case "full":
-                    if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        btnCancelDeployGameserver.Visible = true;
-                        btnDeployGameserver.Enabled = false;
-                        DeployGameServer();
-                    }
-                    break;
-            }
+            
+            
         }
         private void btnCancelDeployGameserver_Click(object sender, EventArgs e)
         {
