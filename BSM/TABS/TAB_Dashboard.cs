@@ -15,6 +15,19 @@ namespace Borealis
             _dashboardInfo = new DashboardInfo();
         }
 
+        public void RefreshData()
+        {
+            overallServerStatsGrid.Rows.Clear();
+            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                {
+                    overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
+                }
+            }
+        }
+
         //Class to store dashboard metrics
         public class DashboardInfo
         {
@@ -35,14 +48,6 @@ namespace Borealis
             _dashboardInfo = GetInfo();
             RefreshUI(_dashboardInfo);
             backgroundMetrics.RunWorkerAsync();
-            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
-            if (GameServer_Management.server_collection != null)
-            {
-                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
-                {
-                    overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
-                }
-            }
         }
 
         //===================================================================================//
@@ -93,6 +98,11 @@ namespace Borealis
         private void backgroundMetrics_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             RefreshUI(_dashboardInfo);
+        }
+
+        private void ServerDashboard_Activated(object sender, EventArgs e)
+        {
+            RefreshData();
         }
     }
 }

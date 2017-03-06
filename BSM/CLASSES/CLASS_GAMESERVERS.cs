@@ -39,7 +39,7 @@ namespace Borealis
             public bool STEAM_workshop_enabled { get; set; }    //Determines if the gameserver supports Steam Workshop
 
             //Miscellanious Properties
-            public bool srcds_server { get; set; }              //Determines if the server is based on SRCDS
+            public string ENGINE_type { get; set; }             //Determines the game engine, and by proxy, how to hook onto it
             public string bsm_integration { get; set; }         //Determines the support level of the gameserver in Borealis
         }
 
@@ -67,7 +67,7 @@ namespace Borealis
         bool STEAM_workshop_enabled,    //Determines if the gameserver supports Steam Workshop
 
         //Miscellanious Properties
-        bool srcds_server,              //Determines if the server is based on SRCDS
+        string ENGINE_type,             //Determines the game engine, and by proxy, how to hook onto it
         string bsm_integration,         //Determines the support level of the gameserver in Borealis
 
         //Deployment Property
@@ -94,7 +94,7 @@ namespace Borealis
             serverData.STEAM_workshop_enabled = STEAM_workshop_enabled;     //Determines if the gameserver supports Steam Workshop
 
             //Miscellanious Properties
-            serverData.srcds_server = srcds_server;                         //Determines if the server is based on SRCDS
+            serverData.ENGINE_type = ENGINE_type;                           //Determines the game engine, and by proxy, how to hook onto it
             serverData.bsm_integration = bsm_integration;                   //Determines the support level of the gameserver in Borealis
 
             if (borealis_closing == false)                                  //Only add data to active JObject list if it isn't being triggered by the closing event triggering it

@@ -234,7 +234,7 @@ namespace Borealis
                         (bool)gameserver["STEAM_workshop_enabled"],
 
                         //Miscellanious Properties
-                        (bool)gameserver["srcds_server"],
+                        (string)gameserver["ENGINE_type"],
                         (string)gameserver["bsm_integration"],
 
                         //Deployment Property

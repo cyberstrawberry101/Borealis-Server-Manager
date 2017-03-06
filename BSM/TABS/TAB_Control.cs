@@ -137,5 +137,22 @@ namespace Borealis
                 consoleOutputList.Items.Add(e.Data);
             }
         }
+
+        public void RefreshData()
+        {
+            comboboxGameserverList.Items.Clear();
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                }
+            }
+        }
+
+        private void ServerControl_Activated(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }

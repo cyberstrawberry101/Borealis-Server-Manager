@@ -284,6 +284,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerControl";
             this.Text = "ServerControl";
+            this.Activated += new System.EventHandler(this.ServerControl_Activated);
             this.Load += new System.EventHandler(this.ServerControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

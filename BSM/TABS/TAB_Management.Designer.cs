@@ -38,12 +38,13 @@
             this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.txtboxConfigOutput = new System.Windows.Forms.TextBox();
-            this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtboxFriendlyName = new System.Windows.Forms.TextBox();
             this.txtboxArguments = new System.Windows.Forms.TextBox();
+            this.btnDestroyServer = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblConfigOutput = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtboxConfigOutput = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -185,14 +186,68 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // txtboxConfigOutput
+            // txtboxFriendlyName
             // 
-            this.txtboxConfigOutput.Location = new System.Drawing.Point(16, 241);
-            this.txtboxConfigOutput.Multiline = true;
-            this.txtboxConfigOutput.Name = "txtboxConfigOutput";
-            this.txtboxConfigOutput.Size = new System.Drawing.Size(693, 235);
-            this.txtboxConfigOutput.TabIndex = 47;
-            this.txtboxConfigOutput.Visible = false;
+            this.txtboxFriendlyName.BackColor = System.Drawing.Color.White;
+            this.txtboxFriendlyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxFriendlyName.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtboxFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxFriendlyName.Location = new System.Drawing.Point(16, 102);
+            this.txtboxFriendlyName.Name = "txtboxFriendlyName";
+            this.txtboxFriendlyName.Size = new System.Drawing.Size(695, 25);
+            this.txtboxFriendlyName.TabIndex = 49;
+            this.toolTip1.SetToolTip(this.txtboxFriendlyName, "Give the server a user-friendly name to reference within Borealis.");
+            this.txtboxFriendlyName.Visible = false;
+            // 
+            // txtboxArguments
+            // 
+            this.txtboxArguments.BackColor = System.Drawing.Color.White;
+            this.txtboxArguments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxArguments.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtboxArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxArguments.Location = new System.Drawing.Point(16, 165);
+            this.txtboxArguments.Name = "txtboxArguments";
+            this.txtboxArguments.Size = new System.Drawing.Size(693, 25);
+            this.txtboxArguments.TabIndex = 51;
+            this.toolTip1.SetToolTip(this.txtboxArguments, "Give the server a user-friendly name to reference within Borealis.");
+            this.txtboxArguments.Visible = false;
+            // 
+            // btnDestroyServer
+            // 
+            this.btnDestroyServer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.btnDestroyServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.btnDestroyServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDestroyServer.BorderRadius = 0;
+            this.btnDestroyServer.ButtonText = "   Destroy Server";
+            this.btnDestroyServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDestroyServer.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDestroyServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnDestroyServer.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnDestroyServer.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.STOP_ICON;
+            this.btnDestroyServer.Iconimage_right = null;
+            this.btnDestroyServer.Iconimage_right_Selected = null;
+            this.btnDestroyServer.Iconimage_Selected = null;
+            this.btnDestroyServer.IconMarginLeft = 0;
+            this.btnDestroyServer.IconMarginRight = 0;
+            this.btnDestroyServer.IconRightVisible = true;
+            this.btnDestroyServer.IconRightZoom = 0D;
+            this.btnDestroyServer.IconVisible = true;
+            this.btnDestroyServer.IconZoom = 45D;
+            this.btnDestroyServer.IsTab = false;
+            this.btnDestroyServer.Location = new System.Drawing.Point(16, 493);
+            this.btnDestroyServer.Name = "btnDestroyServer";
+            this.btnDestroyServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.btnDestroyServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
+            this.btnDestroyServer.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnDestroyServer.selected = false;
+            this.btnDestroyServer.Size = new System.Drawing.Size(155, 48);
+            this.btnDestroyServer.TabIndex = 53;
+            this.btnDestroyServer.Text = "   Destroy Server";
+            this.btnDestroyServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDestroyServer.Textcolor = System.Drawing.Color.White;
+            this.btnDestroyServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnDestroyServer, "Forcefully terminate the process (not gracefully).");
+            this.btnDestroyServer.Click += new System.EventHandler(this.btnDestroyServer_Click_1);
             // 
             // lblFriendlyName
             // 
@@ -206,32 +261,6 @@
             this.lblFriendlyName.TabIndex = 48;
             this.lblFriendlyName.Text = "Server Name:";
             this.lblFriendlyName.Visible = false;
-            // 
-            // txtboxFriendlyName
-            // 
-            this.txtboxFriendlyName.BackColor = System.Drawing.Color.White;
-            this.txtboxFriendlyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtboxFriendlyName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxFriendlyName.Location = new System.Drawing.Point(16, 102);
-            this.txtboxFriendlyName.Name = "txtboxFriendlyName";
-            this.txtboxFriendlyName.Size = new System.Drawing.Size(346, 29);
-            this.txtboxFriendlyName.TabIndex = 49;
-            this.toolTip1.SetToolTip(this.txtboxFriendlyName, "Give the server a user-friendly name to reference within Borealis.");
-            this.txtboxFriendlyName.Visible = false;
-            // 
-            // txtboxArguments
-            // 
-            this.txtboxArguments.BackColor = System.Drawing.Color.White;
-            this.txtboxArguments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtboxArguments.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtboxArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxArguments.Location = new System.Drawing.Point(16, 165);
-            this.txtboxArguments.Name = "txtboxArguments";
-            this.txtboxArguments.Size = new System.Drawing.Size(346, 29);
-            this.txtboxArguments.TabIndex = 51;
-            this.toolTip1.SetToolTip(this.txtboxArguments, "Give the server a user-friendly name to reference within Borealis.");
-            this.txtboxArguments.Visible = false;
             // 
             // lblArguments
             // 
@@ -259,18 +288,31 @@
             this.lblConfigOutput.Text = "Server Config:";
             this.lblConfigOutput.Visible = false;
             // 
+            // txtboxConfigOutput
+            // 
+            this.txtboxConfigOutput.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.txtboxConfigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxConfigOutput.FormattingEnabled = true;
+            this.txtboxConfigOutput.Location = new System.Drawing.Point(16, 241);
+            this.txtboxConfigOutput.Name = "txtboxConfigOutput";
+            this.txtboxConfigOutput.Size = new System.Drawing.Size(693, 225);
+            this.txtboxConfigOutput.TabIndex = 54;
+            this.txtboxConfigOutput.TabStop = false;
+            this.txtboxConfigOutput.Visible = false;
+            // 
             // ServerManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.txtboxConfigOutput);
+            this.Controls.Add(this.btnDestroyServer);
             this.Controls.Add(this.lblConfigOutput);
             this.Controls.Add(this.txtboxArguments);
             this.Controls.Add(this.lblArguments);
             this.Controls.Add(this.txtboxFriendlyName);
             this.Controls.Add(this.lblFriendlyName);
-            this.Controls.Add(this.txtboxConfigOutput);
             this.Controls.Add(this.btnLoadConfig);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.comboboxGameserverList);
@@ -280,6 +322,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerManagement";
             this.Text = "ServerManagement";
+            this.Activated += new System.EventHandler(this.ServerManagement_Activated);
             this.Load += new System.EventHandler(this.GSM_Management_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,11 +338,12 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnLoadConfig;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.TextBox txtboxConfigOutput;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFriendlyName;
         private System.Windows.Forms.TextBox txtboxFriendlyName;
         private System.Windows.Forms.TextBox txtboxArguments;
         private Bunifu.Framework.UI.BunifuCustomLabel lblArguments;
         private Bunifu.Framework.UI.BunifuCustomLabel lblConfigOutput;
+        private Bunifu.Framework.UI.BunifuFlatButton btnDestroyServer;
+        private System.Windows.Forms.ListBox txtboxConfigOutput;
     }
 }

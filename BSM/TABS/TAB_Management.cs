@@ -48,7 +48,7 @@ namespace Borealis
             {
                 int counter = 0;
                 string line;
-                txtboxConfigOutput.Text = ""; //Clear the table
+                txtboxConfigOutput.Items.Clear(); //Clear the table
 
                 try
                 {
@@ -56,7 +56,7 @@ namespace Borealis
                     System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog1.FileName);
                     while ((line = file.ReadLine()) != null)
                     {
-                        txtboxConfigOutput.AppendText(line);
+                        txtboxConfigOutput.Items.Add(line);
                         counter++;
                     }
 
@@ -69,7 +69,7 @@ namespace Borealis
         }
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(this, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         
         //Methods that handle reporting progress back to the UI
@@ -86,19 +86,23 @@ namespace Borealis
                     {
                         int counter = 0;
                         string line;
+                        txtboxConfigOutput.Items.Clear(); //Clear the table
 
-                        System.IO.StreamReader file = new System.IO.StreamReader((string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"]);
-                        while ((line = file.ReadLine()) != null)
+                        try
                         {
-                            txtboxConfigOutput.AppendText(line);
-                            counter++;
-                        }
+                            System.IO.StreamReader file = new System.IO.StreamReader((string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"]);
+                            while ((line = file.ReadLine()) != null)
+                            {
+                                txtboxConfigOutput.Items.Add(line);
+                                counter++;
+                            }
 
-                        file.Close();
-                    }
-                    else
-                    {
-                        MetroMessageBox.Show(this, "Borealis does not have a default config file associated with this server, please load one manually.", "Config File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            file.Close();
+                        }
+                        catch (Exception)
+                        {
+                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"] + "]\nappears to be missing or was never created.  Please load a config file manually or fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     lblFriendlyName.Visible = true;
@@ -113,6 +117,38 @@ namespace Borealis
             btnLoadConfig.Enabled = true;  //Enable loading a config file manually
 
 
+        }
+
+        private void btnStopServer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDestroyServer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void RefreshData()
+        {
+            comboboxGameserverList.Items.Clear();
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                }
+            }
+        }
+
+        private void ServerManagement_Activated(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void btnDestroyServer_Click_1(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

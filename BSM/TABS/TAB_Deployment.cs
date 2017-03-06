@@ -14,10 +14,7 @@ namespace Borealis
             InitializeComponent();
         }
 
-        //===================================================================================//
-        // STARTUP:                                                                          //
-        //===================================================================================//
-        private void ServerDeployment_Load(object sender, EventArgs e)
+        private void RefreshData()
         {
             //Populate gameserver list by querying the available configurations from the server.
             try
@@ -49,6 +46,14 @@ namespace Borealis
         }
 
         //===================================================================================//
+        // STARTUP:                                                                          //
+        //===================================================================================//
+        private void ServerDeployment_Load(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        //===================================================================================//
         // DEPLOYMENT:                                                                       //
         //===================================================================================//
         //Class to store relevant deployment values during deployment
@@ -64,7 +69,7 @@ namespace Borealis
             public static bool STEAM_authrequired { get; set; }
             public static bool STEAM_steamcmd_required { get; set; }
             public static bool STEAM_workshop_enabled { get; set; }
-            public static bool srcds_server { get; set; }
+            public static string ENGINE_type { get; set; }
             public static string bsm_integration { get; set; }
         }
 
@@ -74,6 +79,39 @@ namespace Borealis
             progressbarDownloadProgressOverall.Value = overallProgress;
             lblDownloadProgressDetails.Text = progressDetails;
         }
+
+        private void deployServerToMemory()
+        {
+            GameServer_Management DeployConfig = new GameServer_Management();
+            DeployConfig.DeployGameserver(
+                //Server-based Properties
+                DeploymentValues.SERVER_name,
+                txtServerGivenName.Text,
+                DeploymentValues.SERVER_name,
+                DeploymentValues.SERVER_launch_arguments,
+                false,
+
+                //Directory-based Properties
+                DeploymentValues.DIR_install_location,
+                DeploymentValues.DIR_executable,
+                DeploymentValues.DIR_config,
+                DeploymentValues.DIR_config_file,
+
+                //Steam-based Properties
+                DeploymentValues.STEAM_authrequired,
+                DeploymentValues.STEAM_steamcmd_required,
+                DeploymentValues.STEAM_workshop_enabled,
+
+                //Miscellanious Properties
+                DeploymentValues.ENGINE_type,
+                DeploymentValues.bsm_integration,
+
+                //Deployment Property
+                false);
+            btnCancelDeployGameserver.Visible = false;
+            btnDeployGameserver.Enabled = true;
+        }
+
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {
             if (e.Data != null)
@@ -94,35 +132,7 @@ namespace Borealis
                 {
                     if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
                     {
-                        GameServer_Management DeployConfig = new GameServer_Management();
-                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + " [" + dropdownServerSelection.Text + "]" + " has been successfully deployed with default configurations!\nPlease goto the management tab to configure it.", "Complete!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        DeployConfig.DeployGameserver(
-                            //Server-based Properties
-                            DeploymentValues.SERVER_name,
-                            txtServerGivenName.Text,
-                            DeploymentValues.SERVER_name,
-                            DeploymentValues.SERVER_launch_arguments,
-                            false,
-
-                            //Directory-based Properties
-                            DeploymentValues.DIR_install_location,
-                            DeploymentValues.DIR_executable,
-                            DeploymentValues.DIR_config,
-                            DeploymentValues.DIR_config_file,
-
-                            //Steam-based Properties
-                            DeploymentValues.STEAM_authrequired,
-                            DeploymentValues.STEAM_steamcmd_required,
-                            DeploymentValues.STEAM_workshop_enabled,
-
-                            //Miscellanious Properties
-                            DeploymentValues.srcds_server,
-                            DeploymentValues.bsm_integration,
-
-                            //Deployment Property
-                            false);
-                        btnCancelDeployGameserver.Visible = false;
-                        btnDeployGameserver.Enabled = true;
+                        deployServerToMemory();
                     }
                     else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job.")
                     {
@@ -301,7 +311,7 @@ namespace Borealis
                         DeploymentValues.STEAM_authrequired = (bool)serverDeploymentData["STEAM_authrequired"];
                         DeploymentValues.STEAM_steamcmd_required = (bool)serverDeploymentData["STEAM_steamcmd_required"];
                         DeploymentValues.STEAM_workshop_enabled = (bool)serverDeploymentData["STEAM_workshop_enabled"];
-                        DeploymentValues.srcds_server = (bool)serverDeploymentData["srcds_server"];
+                        DeploymentValues.ENGINE_type = (string)serverDeploymentData["ENGINE_type"];
                         DeploymentValues.bsm_integration = (string)serverDeploymentData["bsm_integration"];
                     }
                 }

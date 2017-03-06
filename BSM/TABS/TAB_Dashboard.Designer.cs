@@ -485,6 +485,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerDashboard";
             this.Text = "ServerDashboard";
+            this.Activated += new System.EventHandler(this.ServerDashboard_Activated);
             this.Load += new System.EventHandler(this.GSM_Performance_Dashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).EndInit();
             this.panelMemoryUsage.ResumeLayout(false);
