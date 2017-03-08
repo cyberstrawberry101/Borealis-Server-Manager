@@ -73,6 +73,16 @@ namespace Borealis_Default_Namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap backdrop {
+            get {
+                object obj = ResourceManager.GetObject("backdrop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CONSOLE_ICON {
             get {
                 object obj = ResourceManager.GetObject("CONSOLE_ICON", resourceCulture);

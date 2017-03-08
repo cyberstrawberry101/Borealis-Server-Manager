@@ -1,6 +1,6 @@
 ﻿namespace Borealis
 {
-    partial class ServerControl
+    partial class TAB_CONTROL
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerControl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_CONTROL));
             this.chkAutoRestart = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
@@ -66,7 +66,7 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(414, 10);
@@ -96,7 +96,7 @@
             // lblAutoRestart
             // 
             this.lblAutoRestart.AutoSize = true;
-            this.lblAutoRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblAutoRestart.BackColor = System.Drawing.Color.Transparent;
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblAutoRestart.Location = new System.Drawing.Point(65, 522);
@@ -185,7 +185,7 @@
             // bunifuCustomLabel14
             // 
             this.bunifuCustomLabel14.AutoSize = true;
-            this.bunifuCustomLabel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel14.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel14.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 42);
@@ -197,6 +197,7 @@
             // bunifuCustomLabel16
             // 
             this.bunifuCustomLabel16.AutoSize = true;
+            this.bunifuCustomLabel16.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel16.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel16.Location = new System.Drawing.Point(10, 10);
@@ -267,10 +268,12 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // ServerControl
+            // TAB_CONTROL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkAutoRestart);
@@ -282,7 +285,7 @@
             this.Controls.Add(this.btnStopServer);
             this.Controls.Add(this.btnStartServer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ServerControl";
+            this.Name = "TAB_CONTROL";
             this.Text = "ServerControl";
             this.Activated += new System.EventHandler(this.ServerControl_Activated);
             this.Load += new System.EventHandler(this.ServerControl_Load);

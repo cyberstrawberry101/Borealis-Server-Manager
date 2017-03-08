@@ -1,6 +1,6 @@
 ﻿namespace Borealis
 {
-    partial class ServerDeployment
+    partial class TAB_DEPLOYMENT
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerDeployment));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_DEPLOYMENT));
             this.progressbarDownloadProgressOverall = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dropdownServerSelection = new MetroFramework.Controls.MetroComboBox();
             this.lblDownloadProgressDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -51,11 +51,11 @@
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
             this.lblDestinationDetailsSubtext = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelProgress = new System.Windows.Forms.Panel();
-            this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblVerifyIntegrity = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,7 +99,7 @@
             // lblDownloadProgressDetails
             // 
             this.lblDownloadProgressDetails.AutoSize = true;
-            this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDownloadProgressDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDownloadProgressDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDownloadProgressDetails.Location = new System.Drawing.Point(8, 23);
@@ -111,7 +111,7 @@
             // lblDestinationDetails
             // 
             this.lblDestinationDetails.AutoSize = true;
-            this.lblDestinationDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDestinationDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetails.Location = new System.Drawing.Point(13, 203);
@@ -124,6 +124,7 @@
             // lblDownloadProgress
             // 
             this.lblDownloadProgress.AutoSize = true;
+            this.lblDownloadProgress.BackColor = System.Drawing.Color.Transparent;
             this.lblDownloadProgress.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDownloadProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblDownloadProgress.Location = new System.Drawing.Point(7, 2);
@@ -188,6 +189,7 @@
             // lblDestination
             // 
             this.lblDestination.AutoSize = true;
+            this.lblDestination.BackColor = System.Drawing.Color.Transparent;
             this.lblDestination.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDestination.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblDestination.Location = new System.Drawing.Point(12, 182);
@@ -200,7 +202,7 @@
             // lblSelectServerDetails
             // 
             this.lblSelectServerDetails.AutoSize = true;
-            this.lblSelectServerDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblSelectServerDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServerDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSelectServerDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblSelectServerDetails.Location = new System.Drawing.Point(13, 101);
@@ -212,7 +214,7 @@
             // bunifuCustomLabel5
             // 
             this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel5.Location = new System.Drawing.Point(12, 42);
@@ -224,6 +226,7 @@
             // lblSelectServer
             // 
             this.lblSelectServer.AutoSize = true;
+            this.lblSelectServer.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServer.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblSelectServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblSelectServer.Location = new System.Drawing.Point(10, 80);
@@ -235,6 +238,7 @@
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(10, 10);
@@ -250,7 +254,7 @@
             // lblSeparateConfig
             // 
             this.lblSeparateConfig.AutoSize = true;
-            this.lblSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblSeparateConfig.BackColor = System.Drawing.Color.Transparent;
             this.lblSeparateConfig.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblSeparateConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblSeparateConfig.Location = new System.Drawing.Point(390, 135);
@@ -305,7 +309,7 @@
             // lblServerNameDetails
             // 
             this.lblServerNameDetails.AutoSize = true;
-            this.lblServerNameDetails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblServerNameDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblServerNameDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblServerNameDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblServerNameDetails.Location = new System.Drawing.Point(13, 305);
@@ -318,6 +322,7 @@
             // lblServerName
             // 
             this.lblServerName.AutoSize = true;
+            this.lblServerName.BackColor = System.Drawing.Color.Transparent;
             this.lblServerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblServerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblServerName.Location = new System.Drawing.Point(12, 284);
@@ -343,7 +348,7 @@
             // lblDestinationDetailsSubtext
             // 
             this.lblDestinationDetailsSubtext.AutoSize = true;
-            this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 257);
@@ -357,6 +362,7 @@
             // 
             // panelProgress
             // 
+            this.panelProgress.BackColor = System.Drawing.Color.Transparent;
             this.panelProgress.Controls.Add(this.lblDownloadProgress);
             this.panelProgress.Controls.Add(this.lblDownloadProgressDetails);
             this.panelProgress.Controls.Add(this.progressbarDownloadProgressOverall);
@@ -365,6 +371,44 @@
             this.panelProgress.Size = new System.Drawing.Size(717, 56);
             this.panelProgress.TabIndex = 50;
             this.panelProgress.Visible = false;
+            // 
+            // lblVerifyIntegrity
+            // 
+            this.lblVerifyIntegrity.AutoSize = true;
+            this.lblVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
+            this.lblVerifyIntegrity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblVerifyIntegrity.Location = new System.Drawing.Point(65, 522);
+            this.lblVerifyIntegrity.Name = "lblVerifyIntegrity";
+            this.lblVerifyIntegrity.Size = new System.Drawing.Size(125, 19);
+            this.lblVerifyIntegrity.TabIndex = 51;
+            this.lblVerifyIntegrity.Text = "Validate Server Files";
+            this.toolTip1.SetToolTip(this.lblVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
+        "m server configurations)");
+            this.lblVerifyIntegrity.Visible = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // chkVerifyIntegrity
+            // 
+            this.chkVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
+            this.chkVerifyIntegrity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkVerifyIntegrity.BackgroundImage")));
+            this.chkVerifyIntegrity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkVerifyIntegrity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 516);
+            this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
+            this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
+            this.chkVerifyIntegrity.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.chkVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
+        "m server configurations)");
+            this.chkVerifyIntegrity.Value = false;
+            this.chkVerifyIntegrity.Visible = false;
             // 
             // btnDeployGameserver
             // 
@@ -442,49 +486,13 @@
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
-            // chkVerifyIntegrity
-            // 
-            this.chkVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
-            this.chkVerifyIntegrity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkVerifyIntegrity.BackgroundImage")));
-            this.chkVerifyIntegrity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chkVerifyIntegrity.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 516);
-            this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
-            this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
-            this.chkVerifyIntegrity.TabIndex = 52;
-            this.toolTip1.SetToolTip(this.chkVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
-        "m server configurations)");
-            this.chkVerifyIntegrity.Value = false;
-            this.chkVerifyIntegrity.Visible = false;
-            // 
-            // lblVerifyIntegrity
-            // 
-            this.lblVerifyIntegrity.AutoSize = true;
-            this.lblVerifyIntegrity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.lblVerifyIntegrity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblVerifyIntegrity.Location = new System.Drawing.Point(65, 522);
-            this.lblVerifyIntegrity.Name = "lblVerifyIntegrity";
-            this.lblVerifyIntegrity.Size = new System.Drawing.Size(125, 19);
-            this.lblVerifyIntegrity.TabIndex = 51;
-            this.lblVerifyIntegrity.Text = "Validate Server Files";
-            this.toolTip1.SetToolTip(this.lblVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
-        "m server configurations)");
-            this.lblVerifyIntegrity.Visible = false;
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.AutoPopDelay = 10000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.ReshowDelay = 100;
-            // 
-            // ServerDeployment
+            // TAB_DEPLOYMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
@@ -508,7 +516,7 @@
             this.Controls.Add(this.lblSelectServerDetails);
             this.Controls.Add(this.lblDestination);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ServerDeployment";
+            this.Name = "TAB_DEPLOYMENT";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "ServerDeployment";
             this.Load += new System.EventHandler(this.ServerDeployment_Load);

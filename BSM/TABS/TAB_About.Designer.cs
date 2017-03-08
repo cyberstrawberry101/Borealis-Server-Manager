@@ -1,6 +1,6 @@
 ﻿namespace Borealis
 {
-    partial class About_DialogBox
+    partial class TAB_ABOUT
     {
         /// <summary>
         /// Required designer variable.
@@ -38,6 +38,7 @@
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
@@ -46,16 +47,23 @@
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel7 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel8 = new System.Windows.Forms.LinkLabel();
+            this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel14
             // 
             this.bunifuCustomLabel14.AutoSize = true;
-            this.bunifuCustomLabel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel14.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel14.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel14.Location = new System.Drawing.Point(12, 42);
@@ -67,6 +75,7 @@
             // bunifuCustomLabel16
             // 
             this.bunifuCustomLabel16.AutoSize = true;
+            this.bunifuCustomLabel16.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel16.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel16.Location = new System.Drawing.Point(10, 10);
@@ -78,7 +87,7 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(1, 1);
@@ -90,7 +99,7 @@
             // bunifuCustomLabel2
             // 
             this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(1, 18);
@@ -102,6 +111,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.bunifuCustomLabel1);
             this.panel1.Controls.Add(this.bunifuCustomLabel2);
             this.panel1.Location = new System.Drawing.Point(16, 91);
@@ -111,6 +121,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.bunifuCustomLabel3);
             this.panel2.Controls.Add(this.bunifuCustomLabel4);
             this.panel2.Location = new System.Drawing.Point(16, 136);
@@ -121,7 +132,7 @@
             // bunifuCustomLabel3
             // 
             this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(1, 1);
@@ -133,7 +144,7 @@
             // bunifuCustomLabel4
             // 
             this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(1, 18);
@@ -146,19 +157,40 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.linkLabel4);
             this.panel3.Controls.Add(this.linkLabel3);
             this.panel3.Controls.Add(this.linkLabel2);
             this.panel3.Controls.Add(this.linkLabel1);
             this.panel3.Controls.Add(this.bunifuCustomLabel5);
             this.panel3.Location = new System.Drawing.Point(16, 248);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(296, 94);
+            this.panel3.Size = new System.Drawing.Size(296, 114);
             this.panel3.TabIndex = 23;
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel4.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel4.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel4.Location = new System.Drawing.Point(1, 93);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(194, 19);
+            this.linkLabel4.TabIndex = 19;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Edited Freepik Backdrop Image";
+            this.toolTip1.SetToolTip(this.linkLabel4, "Accreditation to the website where the background was originally downloaded from");
+            this.linkLabel4.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel3
             // 
             this.linkLabel3.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel3.AutoSize = true;
+            this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.linkLabel3.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel3.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
@@ -177,6 +209,7 @@
             // 
             this.linkLabel2.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel2.AutoSize = true;
+            this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.linkLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
@@ -194,6 +227,7 @@
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
             this.linkLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
@@ -210,7 +244,7 @@
             // bunifuCustomLabel5
             // 
             this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel5.Location = new System.Drawing.Point(1, 1);
@@ -221,6 +255,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.bunifuCustomLabel6);
             this.panel4.Controls.Add(this.bunifuCustomLabel7);
             this.panel4.Location = new System.Drawing.Point(16, 181);
@@ -231,7 +266,7 @@
             // bunifuCustomLabel6
             // 
             this.bunifuCustomLabel6.AutoSize = true;
-            this.bunifuCustomLabel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel6.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel6.Location = new System.Drawing.Point(1, 1);
@@ -243,7 +278,7 @@
             // bunifuCustomLabel7
             // 
             this.bunifuCustomLabel7.AutoSize = true;
-            this.bunifuCustomLabel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel7.Location = new System.Drawing.Point(1, 18);
@@ -260,12 +295,113 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // About_DialogBox
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.linkLabel5);
+            this.panel5.Controls.Add(this.linkLabel6);
+            this.panel5.Controls.Add(this.linkLabel7);
+            this.panel5.Controls.Add(this.linkLabel8);
+            this.panel5.Controls.Add(this.bunifuCustomLabel8);
+            this.panel5.Location = new System.Drawing.Point(16, 368);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(296, 114);
+            this.panel5.TabIndex = 24;
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel5.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel5.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel5.Location = new System.Drawing.Point(1, 93);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(190, 19);
+            this.linkLabel5.TabIndex = 19;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Borealis API GitHub Repository";
+            this.toolTip1.SetToolTip(this.linkLabel5, "Accreditation to the website where the background was originally downloaded from");
+            this.linkLabel5.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel6.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel6.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel6.Location = new System.Drawing.Point(1, 68);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(166, 19);
+            this.linkLabel6.TabIndex = 18;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Borealis GitHub Repository";
+            this.toolTip1.SetToolTip(this.linkLabel6, "Accreditation towards the artists who created the icons used throughout Borealis." +
+        "");
+            this.linkLabel6.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
+            // linkLabel7
+            // 
+            this.linkLabel7.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel7.AutoSize = true;
+            this.linkLabel7.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel7.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel7.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel7.Location = new System.Drawing.Point(1, 43);
+            this.linkLabel7.Name = "linkLabel7";
+            this.linkLabel7.Size = new System.Drawing.Size(186, 19);
+            this.linkLabel7.TabIndex = 17;
+            this.linkLabel7.TabStop = true;
+            this.linkLabel7.Text = "Discord Development Channel";
+            this.toolTip1.SetToolTip(this.linkLabel7, "A free library used to render special interface elements.");
+            this.linkLabel7.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel7_LinkClicked);
+            // 
+            // linkLabel8
+            // 
+            this.linkLabel8.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel8.AutoSize = true;
+            this.linkLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel8.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.linkLabel8.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabel8.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.linkLabel8.Location = new System.Drawing.Point(1, 18);
+            this.linkLabel8.Name = "linkLabel8";
+            this.linkLabel8.Size = new System.Drawing.Size(220, 19);
+            this.linkLabel8.TabIndex = 16;
+            this.linkLabel8.TabStop = true;
+            this.linkLabel8.Text = "Facepunch Forum Discussion Thread";
+            this.toolTip1.SetToolTip(this.linkLabel8, "Used to render special non-standard user interface elements.");
+            this.linkLabel8.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
+            // 
+            // bunifuCustomLabel8
+            // 
+            this.bunifuCustomLabel8.AutoSize = true;
+            this.bunifuCustomLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
+            this.bunifuCustomLabel8.Location = new System.Drawing.Point(1, 1);
+            this.bunifuCustomLabel8.Name = "bunifuCustomLabel8";
+            this.bunifuCustomLabel8.Size = new System.Drawing.Size(149, 17);
+            this.bunifuCustomLabel8.TabIndex = 14;
+            this.bunifuCustomLabel8.Text = "Community Resources:";
+            // 
+            // TAB_ABOUT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -273,7 +409,7 @@
             this.Controls.Add(this.bunifuCustomLabel14);
             this.Controls.Add(this.bunifuCustomLabel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "About_DialogBox";
+            this.Name = "TAB_ABOUT";
             this.Text = "About";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -283,6 +419,8 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +445,12 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.LinkLabel linkLabel7;
+        private System.Windows.Forms.LinkLabel linkLabel8;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
     }
 }

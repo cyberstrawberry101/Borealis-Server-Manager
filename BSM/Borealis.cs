@@ -11,15 +11,74 @@ using MetroFramework;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using System.Collections;
+using System.Runtime.InteropServices;
 
 namespace Borealis
 {
 
     public partial class BorealisServerManager : Form
     {
+        //===================================================================================//
+        // MDI HANDLING CODE:                                                                //
+        //===================================================================================//
+
+        //Add MDI Child to tabpages of tabControl
+        private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
+                (tabForms.SelectedTab.Tag as Form).Select();
+        }
+
+        private void BorealisServerManager_MdiChildActivate(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                // If child form is new and no has tabPage, create new tabPage
+                if (this.ActiveMdiChild.Tag == null)
+                {
+                    // Add a tabPage to tabControl with child form caption
+                    TabPage tp = new TabPage(this.ActiveMdiChild.Text);
+                    tp.Tag = this.ActiveMdiChild;
+                    tp.Parent = tabForms;
+                    tabForms.SelectedTab = tp;
+
+                    this.ActiveMdiChild.Tag = tp;
+                }
+            }
+        }
+
         public BorealisServerManager()
         {
             InitializeComponent();
+
+        }
+
+        [DllImport("user32.dll")]
+        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
+        [DllImport("User32.dll")]
+
+        private static extern IntPtr GetWindowDC(IntPtr hWnd);
+
+        protected override void WndProc(ref System.Windows.Forms.Message m)
+        {
+            const int WM_NCPAINT = 0x85;
+            base.WndProc(ref m);
+
+            if (m.Msg == WM_NCPAINT)
+            {
+
+                IntPtr hdc = GetWindowDC(m.HWnd);
+                if ((int)hdc != 0)
+                {
+                    Graphics g = Graphics.FromHdc(hdc);
+                    g.DrawLine(Pens.Green, 10, 10, 100, 10);
+                    g.Flush();
+                    ReleaseDC(m.HWnd, hdc);
+                }
+
+            }
+
         }
 
         //===================================================================================//
@@ -66,35 +125,42 @@ namespace Borealis
             //Instanciate all Panels Immediately
 
             //TAB INDEX 0
-            ServerDeployment ChildInstance_Deployment = new ServerDeployment();
+            TAB_DEPLOYMENT ChildInstance_Deployment = new TAB_DEPLOYMENT();
             ChildInstance_Deployment.MdiParent = this;
             ChildInstance_Deployment.AutoScroll = false;
             ChildInstance_Deployment.Dock = DockStyle.Fill;
             ChildInstance_Deployment.Show();
 
             //TAB INDEX 1
-            ServerManagement ChildInstance_Management = new ServerManagement();
+            TAB_Management ChildInstance_Management = new TAB_Management();
             ChildInstance_Management.MdiParent = this;
             ChildInstance_Management.AutoScroll = false;
             ChildInstance_Management.Dock = DockStyle.Fill;
             ChildInstance_Management.Show();
 
             //TAB INDEX 2
-            ServerControl ChildInstance_Control = new ServerControl();
+            TAB_CONTROL ChildInstance_Control = new TAB_CONTROL();
             ChildInstance_Control.MdiParent = this;
             ChildInstance_Control.AutoScroll = false;
             ChildInstance_Control.Dock = DockStyle.Fill;
             ChildInstance_Control.Show();
 
             //TAB INDEX 3
-            About_DialogBox ChildInstance_Attribution = new About_DialogBox();
+            TAB_ABOUT ChildInstance_Attribution = new TAB_ABOUT();
             ChildInstance_Attribution.MdiParent = this;
             ChildInstance_Attribution.AutoScroll = false;
             ChildInstance_Attribution.Dock = DockStyle.Fill;
             ChildInstance_Attribution.Show();
 
             //TAB INDEX 4
-            ServerDashboard ChildInstance_Dashboard = new ServerDashboard();
+            TAB_SCHEDULEDTASKS ChildInstance_ScheduledTasks = new TAB_SCHEDULEDTASKS();
+            ChildInstance_ScheduledTasks.MdiParent = this;
+            ChildInstance_ScheduledTasks.AutoScroll = false;
+            ChildInstance_ScheduledTasks.Dock = DockStyle.Fill;
+            ChildInstance_ScheduledTasks.Show();
+
+            //TAB INDEX 5
+            TAB_DASHBOARD ChildInstance_Dashboard = new TAB_DASHBOARD();
             ChildInstance_Dashboard.MdiParent = this;
             ChildInstance_Dashboard.AutoScroll = false;
             ChildInstance_Dashboard.Dock = DockStyle.Fill;
@@ -112,10 +178,10 @@ namespace Borealis
         public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton SelectedTab, Panel SelectedIndicator, bool SelectNewTab)
         {
             //Deactivate all other tabs
-            dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = false;
-            dashboard_tab.Textcolor = deployment_tab.Textcolor = management_tab.Textcolor = control_tab.Textcolor = Color.FromArgb(145, 155, 166);
-            dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = Color.FromArgb(26, 32, 40);
-            dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = Color.FromArgb(26, 32, 40);
+            dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = scheduledtasks_indicator.Visible = false;
+            dashboard_tab.Textcolor = deployment_tab.Textcolor = management_tab.Textcolor = control_tab.Textcolor = scheduledtasks_tab.Textcolor = Color.FromArgb(145, 155, 166);
+            dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = scheduledtasks_tab.Activecolor = Color.FromArgb(26, 32, 40);
+            dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = scheduledtasks_tab.BackColor = Color.FromArgb(26, 32, 40);
 
             if (SelectNewTab == true)
             {
@@ -147,50 +213,17 @@ namespace Borealis
             tab_animate(null, null, false);
             tabForms.SelectedIndex = 3;
         }
-
+        private void scheduledtasks_tab_Click(object sender, EventArgs e)
+        {
+            tab_animate(scheduledtasks_tab, scheduledtasks_indicator, true);
+            tabForms.SelectedIndex = 4;
+        }
         private void tabDashboard_Click_1(object sender, EventArgs e)
         {
             tab_animate(dashboard_tab, dashboard_indicator, true);
-            tabForms.SelectedIndex = 4;
+            tabForms.SelectedIndex = 5;
         }
 
-        //===================================================================================//
-        // MDI HANDLING CODE:                                                                //
-        //===================================================================================//
-        //Add MDI Child to tabpages of tabControl
-        private void tabForms_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if ((tabForms.SelectedTab != null) && (tabForms.SelectedTab.Tag != null))
-                (tabForms.SelectedTab.Tag as Form).Select();
-
-            /* TESTING DEBUG OPTIMIZATION CODE
-            foreach (Form frm in this.MdiChildren)
-            {
-                if (frm.GetType() == form.GetType()
-                    && frm != form)
-                {
-                    frm.Close();
-                }
-            }
-            */
-        }
-        private void BorealisServerManager_MdiChildActivate(object sender, EventArgs e)
-        {
-            if (this.ActiveMdiChild != null)
-            {
-                // If child form is new and no has tabPage, create new tabPage
-                if (this.ActiveMdiChild.Tag == null)
-                {
-                    // Add a tabPage to tabControl with child form caption
-                    TabPage tp = new TabPage(this.ActiveMdiChild.Text);
-                    tp.Tag = this.ActiveMdiChild;
-                    tp.Parent = tabForms;
-                    tabForms.SelectedTab = tp;
-
-                    this.ActiveMdiChild.Tag = tp;
-                }
-            }
-        }
 
         //===================================================================================//
         // CLOSING:                                                                          //
@@ -241,11 +274,6 @@ namespace Borealis
                         true);
                 }
             }
-        }
-
-        private void bunifuFlatButton1_Click(object sender, EventArgs e)
-        {
-            MetroMessageBox.Show(this, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

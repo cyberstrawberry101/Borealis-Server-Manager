@@ -1,6 +1,6 @@
 ﻿namespace Borealis
 {
-    partial class ServerManagement
+    partial class TAB_Management
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_Management));
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -50,7 +50,7 @@
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(414, 10);
@@ -80,7 +80,7 @@
             // bunifuCustomLabel4
             // 
             this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(12, 42);
@@ -92,6 +92,7 @@
             // bunifuCustomLabel7
             // 
             this.bunifuCustomLabel7.AutoSize = true;
+            this.bunifuCustomLabel7.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel7.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel7.Location = new System.Drawing.Point(10, 10);
@@ -194,7 +195,7 @@
             this.txtboxFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxFriendlyName.Location = new System.Drawing.Point(16, 102);
             this.txtboxFriendlyName.Name = "txtboxFriendlyName";
-            this.txtboxFriendlyName.Size = new System.Drawing.Size(695, 25);
+            this.txtboxFriendlyName.Size = new System.Drawing.Size(388, 25);
             this.txtboxFriendlyName.TabIndex = 49;
             this.toolTip1.SetToolTip(this.txtboxFriendlyName, "Give the server a user-friendly name to reference within Borealis.");
             this.txtboxFriendlyName.Visible = false;
@@ -207,7 +208,7 @@
             this.txtboxArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxArguments.Location = new System.Drawing.Point(16, 165);
             this.txtboxArguments.Name = "txtboxArguments";
-            this.txtboxArguments.Size = new System.Drawing.Size(693, 25);
+            this.txtboxArguments.Size = new System.Drawing.Size(388, 25);
             this.txtboxArguments.TabIndex = 51;
             this.toolTip1.SetToolTip(this.txtboxArguments, "Give the server a user-friendly name to reference within Borealis.");
             this.txtboxArguments.Visible = false;
@@ -252,7 +253,7 @@
             // lblFriendlyName
             // 
             this.lblFriendlyName.AutoSize = true;
-            this.lblFriendlyName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblFriendlyName.BackColor = System.Drawing.Color.Transparent;
             this.lblFriendlyName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblFriendlyName.Location = new System.Drawing.Point(12, 80);
@@ -265,7 +266,7 @@
             // lblArguments
             // 
             this.lblArguments.AutoSize = true;
-            this.lblArguments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblArguments.BackColor = System.Drawing.Color.Transparent;
             this.lblArguments.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblArguments.Location = new System.Drawing.Point(14, 143);
@@ -278,7 +279,7 @@
             // lblConfigOutput
             // 
             this.lblConfigOutput.AutoSize = true;
-            this.lblConfigOutput.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.lblConfigOutput.BackColor = System.Drawing.Color.Transparent;
             this.lblConfigOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblConfigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblConfigOutput.Location = new System.Drawing.Point(14, 219);
@@ -300,11 +301,13 @@
             this.txtboxConfigOutput.TabStop = false;
             this.txtboxConfigOutput.Visible = false;
             // 
-            // ServerManagement
+            // TAB_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.txtboxConfigOutput);
             this.Controls.Add(this.btnDestroyServer);
@@ -320,7 +323,7 @@
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.btnUpdateServerConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ServerManagement";
+            this.Name = "TAB_Management";
             this.Text = "ServerManagement";
             this.Activated += new System.EventHandler(this.ServerManagement_Activated);
             this.Load += new System.EventHandler(this.GSM_Management_Load);

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Borealis_Default_Namespace.Properties {
+namespace Borealis.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

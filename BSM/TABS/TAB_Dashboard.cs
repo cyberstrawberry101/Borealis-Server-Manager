@@ -5,11 +5,11 @@ using System.Threading;
 
 namespace Borealis
 {
-    public partial class ServerDashboard : Form
+    public partial class TAB_DASHBOARD : Form
     {
         private DashboardInfo _dashboardInfo;
 
-        public ServerDashboard()
+        public TAB_DASHBOARD()
         {
             InitializeComponent();
             _dashboardInfo = new DashboardInfo();

@@ -7,9 +7,9 @@ using System.Text.RegularExpressions;
 
 namespace Borealis
 {
-    public partial class ServerDeployment : Form
+    public partial class TAB_DEPLOYMENT : Form
     {
-        public ServerDeployment()
+        public TAB_DEPLOYMENT()
         {
             InitializeComponent();
         }

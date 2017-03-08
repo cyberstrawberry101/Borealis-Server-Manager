@@ -6,9 +6,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
-    public partial class ServerControl : Form
+    public partial class TAB_CONTROL : Form
     {
-        public ServerControl()
+        public TAB_CONTROL()
         {
             InitializeComponent();
         }

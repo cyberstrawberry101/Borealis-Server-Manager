@@ -10,7 +10,7 @@ namespace Borealis
         //===================================================================================//
         public static void DownloadSteamCMD()
         {
-            ServerDeployment ServerDeploymentDelegate = new ServerDeployment();
+            TAB_DEPLOYMENT ServerDeploymentDelegate = new TAB_DEPLOYMENT();
             if (System.IO.File.Exists(Environment.CurrentDirectory + @"\steamcmd.exe") == false)
             {
                 //Create server directory for SteamCMD
