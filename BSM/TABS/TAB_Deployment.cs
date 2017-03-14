@@ -59,7 +59,7 @@ namespace Borealis
         //Class to store relevant deployment values during deployment
         private static class DeploymentValues
         {
-            public static string SERVER_name_friendly { get; set; }
+            public static string SERVER_type { get; set; }
             public static string verify_integrity { get; set; }
             public static string SERVER_launch_arguments { get; set; }
             public static string DIR_executable { get; set; }
@@ -85,8 +85,8 @@ namespace Borealis
             GameServer_Management DeployConfig = new GameServer_Management();
             DeployConfig.DeployGameserver(
                 //Server-based Properties
-                DeploymentValues.SERVER_name_friendly,
                 txtServerGivenName.Text,
+                DeploymentValues.SERVER_type,
                 DeploymentValues.SERVER_launch_arguments,
                 false,
 
@@ -131,9 +131,10 @@ namespace Borealis
                 {
                     if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
                     {
+                        progressbarDownloadProgressOverall.Value = 100;
                         deployServerToMemory();
                     }
-                    else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job.")
+                    else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job." || e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x602 after update job.")
                     {
                         btnDeployGameserver.Enabled = false;
                         btnCancelDeployGameserver.Visible = true;
@@ -302,7 +303,7 @@ namespace Borealis
 
                     foreach (JObject serverDeploymentData in GameServer_Management.deployment_server)
                     {
-                        DeploymentValues.SERVER_name_friendly = (string)serverDeploymentData["SERVER_name_friendly"];
+                        DeploymentValues.SERVER_type = (string)serverDeploymentData["SERVER_type"];
                         DeploymentValues.SERVER_launch_arguments = (string)serverDeploymentData["SERVER_launch_arguments"];
                         DeploymentValues.DIR_executable = (string)serverDeploymentData["DIR_executable"];
                         DeploymentValues.DIR_config = (string)serverDeploymentData["DIR_config"];

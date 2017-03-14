@@ -44,14 +44,6 @@
             this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.overallServerStatsGrid = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundMetrics = new System.ComponentModel.BackgroundWorker();
             this.panelMemoryUsage = new System.Windows.Forms.Panel();
             this.progressRAMUsage = new Bunifu.Framework.UI.BunifuCircleProgressbar();
@@ -64,6 +56,14 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedLANUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnServerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerDISK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnGameServerCPU = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnNetworkUsage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnRestartFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -248,78 +248,6 @@
             this.toolTip1.SetToolTip(this.overallServerStatsGrid, "This is where all of your deployed gameservers will be listed with their configur" +
         "ed properties.");
             // 
-            // columnGameServerName
-            // 
-            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnGameServerName.HeaderText = "Name";
-            this.columnGameServerName.Name = "columnGameServerName";
-            this.columnGameServerName.ReadOnly = true;
-            this.columnGameServerName.ToolTipText = "The user-given friendly-name of the gameserver";
-            // 
-            // columnServerType
-            // 
-            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnServerType.HeaderText = "Server Type";
-            this.columnServerType.Name = "columnServerType";
-            this.columnServerType.ReadOnly = true;
-            this.columnServerType.ToolTipText = "The classification of server, such as Garry\'s Mod";
-            this.columnServerType.Width = 90;
-            // 
-            // columnGameServerRAM
-            // 
-            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerRAM.HeaderText = "Memory";
-            this.columnGameServerRAM.Name = "columnGameServerRAM";
-            this.columnGameServerRAM.ReadOnly = true;
-            this.columnGameServerRAM.ToolTipText = "How much RAM the gameserver is currently utilizing";
-            this.columnGameServerRAM.Width = 75;
-            // 
-            // columnGameServerDISK
-            // 
-            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerDISK.HeaderText = "Disk";
-            this.columnGameServerDISK.Name = "columnGameServerDISK";
-            this.columnGameServerDISK.ReadOnly = true;
-            this.columnGameServerDISK.ToolTipText = "How much disk activity the gameserver is currently utilizing";
-            this.columnGameServerDISK.Width = 52;
-            // 
-            // columnGameServerCPU
-            // 
-            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnGameServerCPU.HeaderText = "CPU";
-            this.columnGameServerCPU.Name = "columnGameServerCPU";
-            this.columnGameServerCPU.ReadOnly = true;
-            this.columnGameServerCPU.ToolTipText = "How much CPU the gameserver is currently utilizing";
-            this.columnGameServerCPU.Width = 53;
-            // 
-            // columnNetworkUsage
-            // 
-            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnNetworkUsage.HeaderText = "Network";
-            this.columnNetworkUsage.Name = "columnNetworkUsage";
-            this.columnNetworkUsage.ReadOnly = true;
-            this.columnNetworkUsage.ToolTipText = "How much incoming and outgoing bandwidth the gameserver is using";
-            this.columnNetworkUsage.Width = 75;
-            // 
-            // columnStatus
-            // 
-            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnStatus.HeaderText = "Running";
-            this.columnStatus.Name = "columnStatus";
-            this.columnStatus.ReadOnly = true;
-            this.columnStatus.ToolTipText = "Determines if the server is currently running or stopped";
-            this.columnStatus.Width = 75;
-            // 
-            // columnRestartFlag
-            // 
-            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.columnRestartFlag.HeaderText = "Auto-Restart";
-            this.columnRestartFlag.Name = "columnRestartFlag";
-            this.columnRestartFlag.ReadOnly = true;
-            this.columnRestartFlag.ToolTipText = "Determines if the server is configured to be automatically re-launched if it cras" +
-    "hes";
-            this.columnRestartFlag.Width = 97;
-            // 
             // backgroundMetrics
             // 
             this.backgroundMetrics.WorkerReportsProgress = true;
@@ -489,6 +417,78 @@
             this.toolTip1.AutoPopDelay = 10000;
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
+            // 
+            // columnGameServerName
+            // 
+            this.columnGameServerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnGameServerName.HeaderText = "Friendly Name";
+            this.columnGameServerName.Name = "columnGameServerName";
+            this.columnGameServerName.ReadOnly = true;
+            this.columnGameServerName.ToolTipText = "The user-given friendly-name of the gameserver";
+            // 
+            // columnServerType
+            // 
+            this.columnServerType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnServerType.HeaderText = "Server Type";
+            this.columnServerType.Name = "columnServerType";
+            this.columnServerType.ReadOnly = true;
+            this.columnServerType.ToolTipText = "The classification of server, such as Garry\'s Mod";
+            this.columnServerType.Width = 90;
+            // 
+            // columnGameServerRAM
+            // 
+            this.columnGameServerRAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerRAM.HeaderText = "Memory";
+            this.columnGameServerRAM.Name = "columnGameServerRAM";
+            this.columnGameServerRAM.ReadOnly = true;
+            this.columnGameServerRAM.ToolTipText = "How much RAM the gameserver is currently utilizing";
+            this.columnGameServerRAM.Width = 75;
+            // 
+            // columnGameServerDISK
+            // 
+            this.columnGameServerDISK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerDISK.HeaderText = "Disk";
+            this.columnGameServerDISK.Name = "columnGameServerDISK";
+            this.columnGameServerDISK.ReadOnly = true;
+            this.columnGameServerDISK.ToolTipText = "How much disk activity the gameserver is currently utilizing";
+            this.columnGameServerDISK.Width = 52;
+            // 
+            // columnGameServerCPU
+            // 
+            this.columnGameServerCPU.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnGameServerCPU.HeaderText = "CPU";
+            this.columnGameServerCPU.Name = "columnGameServerCPU";
+            this.columnGameServerCPU.ReadOnly = true;
+            this.columnGameServerCPU.ToolTipText = "How much CPU the gameserver is currently utilizing";
+            this.columnGameServerCPU.Width = 53;
+            // 
+            // columnNetworkUsage
+            // 
+            this.columnNetworkUsage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnNetworkUsage.HeaderText = "Network";
+            this.columnNetworkUsage.Name = "columnNetworkUsage";
+            this.columnNetworkUsage.ReadOnly = true;
+            this.columnNetworkUsage.ToolTipText = "How much incoming and outgoing bandwidth the gameserver is using";
+            this.columnNetworkUsage.Width = 75;
+            // 
+            // columnStatus
+            // 
+            this.columnStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnStatus.HeaderText = "Running";
+            this.columnStatus.Name = "columnStatus";
+            this.columnStatus.ReadOnly = true;
+            this.columnStatus.ToolTipText = "Determines if the server is currently running or stopped";
+            this.columnStatus.Width = 75;
+            // 
+            // columnRestartFlag
+            // 
+            this.columnRestartFlag.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.columnRestartFlag.HeaderText = "Auto-Restart";
+            this.columnRestartFlag.Name = "columnRestartFlag";
+            this.columnRestartFlag.ReadOnly = true;
+            this.columnRestartFlag.ToolTipText = "Determines if the server is configured to be automatically re-launched if it cras" +
+    "hes";
+            this.columnRestartFlag.Width = 97;
             // 
             // TAB_DASHBOARD
             // 
