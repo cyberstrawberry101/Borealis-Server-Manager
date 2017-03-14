@@ -16,7 +16,7 @@ namespace Borealis
         //Class to store the data regarding the currently managed server
         public class Managed_GameServer
         {
-            public string server_name { get; set; }
+
             public string server_type { get; set; }
             public string install_dir { get; set; }
             public string executable_dir { get; set; }
@@ -86,7 +86,7 @@ namespace Borealis
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
+                    if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
                     {
                         ExecuteWithRedirect(Environment.CurrentDirectory + (string)gameserver["DIR_executable"], (string)gameserver["SERVER_launch_arguments"]);
                     }

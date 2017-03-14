@@ -249,7 +249,6 @@ namespace Borealis
                     GameServer_Management WriteConfigOnClose = new GameServer_Management();
                     WriteConfigOnClose.DeployGameserver(
                         //Server-based Properties
-                        (string)gameserver["SERVER_name"], 
                         (string)gameserver["SERVER_name_friendly"],
                         (string)gameserver["SERVER_type"],
                         (string)gameserver["SERVER_launch_arguments"],

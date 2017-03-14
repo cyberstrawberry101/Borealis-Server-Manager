@@ -35,7 +35,7 @@ namespace Borealis
         {
             foreach (JObject gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["SERVER_name"] == comboboxGameserverList.Text)
+                if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
                 {
                     GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
                     openFileDialog1.InitialDirectory = (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"];

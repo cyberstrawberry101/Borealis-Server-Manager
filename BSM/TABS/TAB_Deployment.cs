@@ -40,7 +40,7 @@ namespace Borealis
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)
                 {
-                    dropdownExistingServer.Items.Add((string)gameserver["SERVER_name"]);
+                    dropdownExistingServer.Items.Add((string)gameserver["SERVER_name_friendly"]);
                 }
             }
         }
@@ -59,8 +59,8 @@ namespace Borealis
         //Class to store relevant deployment values during deployment
         private static class DeploymentValues
         {
+            public static string SERVER_name_friendly { get; set; }
             public static string verify_integrity { get; set; }
-            public static string SERVER_name { get; set; }
             public static string SERVER_launch_arguments { get; set; }
             public static string DIR_executable { get; set; }
             public static string DIR_config { get; set; }
@@ -85,9 +85,8 @@ namespace Borealis
             GameServer_Management DeployConfig = new GameServer_Management();
             DeployConfig.DeployGameserver(
                 //Server-based Properties
-                DeploymentValues.SERVER_name,
+                DeploymentValues.SERVER_name_friendly,
                 txtServerGivenName.Text,
-                DeploymentValues.SERVER_name,
                 DeploymentValues.SERVER_launch_arguments,
                 false,
 
@@ -303,7 +302,7 @@ namespace Borealis
 
                     foreach (JObject serverDeploymentData in GameServer_Management.deployment_server)
                     {
-                        DeploymentValues.SERVER_name = (string)serverDeploymentData["SERVER_name"];
+                        DeploymentValues.SERVER_name_friendly = (string)serverDeploymentData["SERVER_name_friendly"];
                         DeploymentValues.SERVER_launch_arguments = (string)serverDeploymentData["SERVER_launch_arguments"];
                         DeploymentValues.DIR_executable = (string)serverDeploymentData["DIR_executable"];
                         DeploymentValues.DIR_config = (string)serverDeploymentData["DIR_config"];

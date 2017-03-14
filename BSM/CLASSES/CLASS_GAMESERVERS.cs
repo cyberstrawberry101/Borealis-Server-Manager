@@ -21,7 +21,6 @@ namespace Borealis
         public class GameServer
         {
             //Server-based Properties
-            public string SERVER_name { get; set; }             //Default name
             public string SERVER_name_friendly { get; set; }    //User-designated name
             public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
             public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
@@ -49,7 +48,6 @@ namespace Borealis
         public void DeployGameserver(
 
         //Server-based Properties
-        string SERVER_name,             //Default name
         string SERVER_name_friendly,    //User-designated name
         string SERVER_type,             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
         string SERVER_launch_arguments, //Default launch arguments and current launch arguments
@@ -76,7 +74,6 @@ namespace Borealis
             dynamic serverData = new JObject();
 
             //Server-based Properties
-            serverData.SERVER_name = SERVER_name;                           //Default name
             serverData.SERVER_name_friendly = SERVER_name_friendly;         //User-designated name
             serverData.SERVER_type = SERVER_type;                           //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
             serverData.SERVER_launch_arguments = SERVER_launch_arguments;   //Default launch arguments and current launch arguments
