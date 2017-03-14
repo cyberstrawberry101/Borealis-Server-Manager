@@ -69,7 +69,7 @@ namespace Borealis
         }
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         
         //Methods that handle reporting progress back to the UI
@@ -148,7 +148,7 @@ namespace Borealis
 
         private void btnDestroyServer_Click_1(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

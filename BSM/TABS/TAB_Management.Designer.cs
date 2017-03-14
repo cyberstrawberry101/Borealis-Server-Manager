@@ -107,7 +107,7 @@
             this.btnUpdateServerConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnUpdateServerConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUpdateServerConfig.BorderRadius = 0;
-            this.btnUpdateServerConfig.ButtonText = "Update";
+            this.btnUpdateServerConfig.ButtonText = "   Update";
             this.btnUpdateServerConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateServerConfig.DisabledColor = System.Drawing.Color.Gray;
             this.btnUpdateServerConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -131,7 +131,7 @@
             this.btnUpdateServerConfig.selected = false;
             this.btnUpdateServerConfig.Size = new System.Drawing.Size(143, 48);
             this.btnUpdateServerConfig.TabIndex = 14;
-            this.btnUpdateServerConfig.Text = "Update";
+            this.btnUpdateServerConfig.Text = "   Update";
             this.btnUpdateServerConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUpdateServerConfig.Textcolor = System.Drawing.Color.White;
             this.btnUpdateServerConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
