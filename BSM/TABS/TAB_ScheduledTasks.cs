@@ -1,4 +1,5 @@
 ﻿using MetroFramework;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,6 +54,17 @@ namespace Borealis
             txtboxTaskName.Text = txtboxCommand.Text = txtboxRunTime.Text = "";
             switchEnabled.Value = true;
             panelAddTask.Visible = false;
+        }
+
+        private void TAB_SCHEDULEDTASKS_Load(object sender, EventArgs e)
+        {
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                }
+            }
         }
     }
 }

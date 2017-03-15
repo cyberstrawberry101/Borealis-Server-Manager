@@ -451,11 +451,11 @@
             // 
             // btnCancelDeployGameserver
             // 
-            this.btnCancelDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnCancelDeployGameserver.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelDeployGameserver.BorderRadius = 0;
-            this.btnCancelDeployGameserver.ButtonText = "      Cancel";
+            this.btnCancelDeployGameserver.ButtonText = "                                                        ";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -479,7 +479,7 @@
             this.btnCancelDeployGameserver.selected = false;
             this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnCancelDeployGameserver.TabIndex = 41;
-            this.btnCancelDeployGameserver.Text = "      Cancel";
+            this.btnCancelDeployGameserver.Text = "                                                        ";
             this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
