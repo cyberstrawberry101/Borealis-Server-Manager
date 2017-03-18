@@ -82,7 +82,7 @@
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
             this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
-            this.dropdownServerSelection.PromptText = "< Pulling Data from API Server... >";
+            this.dropdownServerSelection.PromptText = "< Pulling data from API server... >";
             this.dropdownServerSelection.Size = new System.Drawing.Size(346, 29);
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;

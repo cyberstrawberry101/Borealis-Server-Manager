@@ -111,6 +111,10 @@ namespace Borealis
                     txtboxArguments.Visible = true;
                     lblConfigOutput.Visible = true;
                     txtboxConfigOutput.Visible = true;
+                    btnUpdateServerConfig.Visible = true;
+                    btnLoadConfig.Visible = true;
+                    btnDestroyServer.Visible = true;
+
                 }
             }
 

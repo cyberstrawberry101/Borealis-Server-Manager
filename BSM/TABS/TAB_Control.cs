@@ -129,6 +129,11 @@ namespace Borealis
                     
                 }
             }
+            consolePanel.Visible = true;
+            btnStartServer.Visible = true;
+            btnStopServer.Visible = true;
+            chkAutoRestart.Visible = true;
+            lblAutoRestart.Visible = true;
         }
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {

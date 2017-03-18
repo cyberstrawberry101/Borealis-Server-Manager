@@ -28,7 +28,6 @@ namespace Borealis
                 lblSeparateConfig.Visible = false;
                 chkVerifyIntegrity.Visible = false;
                 lblVerifyIntegrity.Visible = false;
-                panelProgress.Visible = false;
 
                 //Server Name Controls
                 lblServerName.Visible = false;
@@ -50,7 +49,6 @@ namespace Borealis
                 lblSeparateConfig.Visible = true;
                 chkVerifyIntegrity.Visible = true;
                 lblVerifyIntegrity.Visible = true;
-                panelProgress.Visible = true;
 
                 //Server Name Controls
                 lblServerName.Visible = true;
@@ -181,6 +179,8 @@ namespace Borealis
                     {
                         progressbarDownloadProgressOverall.Value = 100;
                         deployServerToMemory();
+                        //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        //panelProgress.Visible = false;
                     }
                     else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job." || e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x602 after update job.")
                     {
@@ -371,6 +371,7 @@ namespace Borealis
                     case "none":
                         if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
                         {
+                            panelProgress.Visible = true;
                             btnCancelDeployGameserver.Visible = true;
                             btnDeployGameserver.Enabled = false;
                             DeployGameServer();
@@ -379,6 +380,7 @@ namespace Borealis
                     case "partial":
                         if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
                         {
+                            panelProgress.Visible = true;
                             btnCancelDeployGameserver.Visible = true;
                             btnDeployGameserver.Enabled = false;
                             DeployGameServer();
@@ -387,6 +389,7 @@ namespace Borealis
                     case "full":
                         if (MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" + DeploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
+                            panelProgress.Visible = true;
                             btnCancelDeployGameserver.Visible = true;
                             btnDeployGameserver.Enabled = false;
                             DeployGameServer();
@@ -410,23 +413,6 @@ namespace Borealis
             }
             btnDeployGameserver.Enabled = true;
             progressbarDownloadProgressOverall.Value = 0;
-
-            //Disable the option to choose where to install the server.
-            lblDestination.Visible = false;
-            lblDestinationDetails.Visible = false;
-            lblDestinationDetailsSubtext.Visible = false;
-            txtboxDestinationFolder.Visible = false;
-            btnBrowseDestination.Visible = false;
-            chkSeparateConfig.Visible = false;
-            lblSeparateConfig.Visible = false;
-            chkVerifyIntegrity.Visible = false;
-            lblVerifyIntegrity.Visible = false;
-            panelProgress.Visible = false;
-
-            //Server Name Controls
-            lblServerName.Visible = false;
-            lblServerNameDetails.Visible = false;
-            txtServerGivenName.Visible = false;
         }
     }
  }

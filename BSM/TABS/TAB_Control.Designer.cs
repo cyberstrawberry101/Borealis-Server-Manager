@@ -42,9 +42,9 @@
             this.serverProcess02 = new System.Diagnostics.Process();
             this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1.SuspendLayout();
+            this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // chkAutoRestart
@@ -62,6 +62,7 @@
             this.toolTip1.SetToolTip(this.chkAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
             this.chkAutoRestart.Value = true;
+            this.chkAutoRestart.Visible = false;
             // 
             // bunifuCustomLabel1
             // 
@@ -106,6 +107,7 @@
             this.lblAutoRestart.Text = "Auto-restart server if it crashes";
             this.toolTip1.SetToolTip(this.lblAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
+            this.lblAutoRestart.Visible = false;
             // 
             // btnStartServer
             // 
@@ -142,6 +144,7 @@
             this.btnStartServer.Textcolor = System.Drawing.Color.White;
             this.btnStartServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStartServer, "Start the server process in the background.");
+            this.btnStartServer.Visible = false;
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // btnStopServer
@@ -180,6 +183,7 @@
             this.btnStopServer.Textcolor = System.Drawing.Color.White;
             this.btnStopServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStopServer, "Forcefully terminate the process (not gracefully).");
+            this.btnStopServer.Visible = false;
             this.btnStopServer.Click += new System.EventHandler(this.btnStopServer_Click);
             // 
             // bunifuCustomLabel14
@@ -250,17 +254,18 @@
             this.txtboxIssueCommand.TabIndex = 49;
             this.txtboxIssueCommand.Text = " > Server is Not Running";
             this.toolTip1.SetToolTip(this.txtboxIssueCommand, "You can issue commands to the actively selected gameserver here.");
-            this.txtboxIssueCommand.Visible = false;
             this.txtboxIssueCommand.Enter += new System.EventHandler(this.txtboxIssueCommand_Enter);
             // 
-            // panel1
+            // consolePanel
             // 
-            this.panel1.Controls.Add(this.consoleOutputList);
-            this.panel1.Controls.Add(this.txtboxIssueCommand);
-            this.panel1.Location = new System.Drawing.Point(18, 80);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 400);
-            this.panel1.TabIndex = 50;
+            this.consolePanel.BackColor = System.Drawing.Color.Transparent;
+            this.consolePanel.Controls.Add(this.consoleOutputList);
+            this.consolePanel.Controls.Add(this.txtboxIssueCommand);
+            this.consolePanel.Location = new System.Drawing.Point(18, 80);
+            this.consolePanel.Name = "consolePanel";
+            this.consolePanel.Size = new System.Drawing.Size(692, 400);
+            this.consolePanel.TabIndex = 50;
+            this.consolePanel.Visible = false;
             // 
             // toolTip1
             // 
@@ -275,7 +280,7 @@
             this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.consolePanel);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.bunifuCustomLabel16);
@@ -289,8 +294,8 @@
             this.Text = "ServerControl";
             this.Activated += new System.EventHandler(this.ServerControl_Activated);
             this.Load += new System.EventHandler(this.ServerControl_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.consolePanel.ResumeLayout(false);
+            this.consolePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -309,7 +314,7 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
         private System.Windows.Forms.ListBox consoleOutputList;
         private System.Windows.Forms.TextBox txtboxIssueCommand;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel consolePanel;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -136,6 +136,7 @@
             this.btnUpdateServerConfig.Textcolor = System.Drawing.Color.White;
             this.btnUpdateServerConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnUpdateServerConfig, "Commit the changes to the associated configuration files.");
+            this.btnUpdateServerConfig.Visible = false;
             this.btnUpdateServerConfig.Click += new System.EventHandler(this.btnUpdateServerConfig_Click);
             // 
             // btnLoadConfig
@@ -174,6 +175,7 @@
             this.btnLoadConfig.Textcolor = System.Drawing.Color.White;
             this.btnLoadConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnLoadConfig, "Manually open the config files associated with the selected gameserver.");
+            this.btnLoadConfig.Visible = false;
             this.btnLoadConfig.Click += new System.EventHandler(this.btnLoadConfig_Click);
             // 
             // openFileDialog1
@@ -248,6 +250,7 @@
             this.btnDestroyServer.Textcolor = System.Drawing.Color.White;
             this.btnDestroyServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnDestroyServer, "Forcefully terminate the process (not gracefully).");
+            this.btnDestroyServer.Visible = false;
             this.btnDestroyServer.Click += new System.EventHandler(this.btnDestroyServer_Click_1);
             // 
             // lblFriendlyName

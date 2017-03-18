@@ -17,13 +17,22 @@ namespace Borealis
 
         public void RefreshData()
         {
-            overallServerStatsGrid.Rows.Clear();
             //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
-                foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                if (GameServer_Management.server_collection.Count != 0)
                 {
-                    overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
+                    overallServerStatsGrid.Rows.Clear();
+                    foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                    {
+                        overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
+                    }
+
+                    overallServerStatsGrid.Visible = true; //Show Table only if values have been added.
+                }
+                else
+                {
+                    overallServerStatsGrid.Visible = false; //Hide Table
                 }
             }
         }
