@@ -56,7 +56,6 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.metroProgressSpinner1 = new MetroFramework.Controls.MetroProgressSpinner();
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +82,7 @@
             this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
             this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
-            this.dropdownServerSelection.PromptText = "< Downloading... >";
+            this.dropdownServerSelection.PromptText = "< Pulling Data from API Server... >";
             this.dropdownServerSelection.Size = new System.Drawing.Size(346, 29);
             this.dropdownServerSelection.Sorted = true;
             this.dropdownServerSelection.TabIndex = 39;
@@ -455,7 +454,7 @@
             this.btnCancelDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelDeployGameserver.BorderRadius = 0;
-            this.btnCancelDeployGameserver.ButtonText = "                                                        ";
+            this.btnCancelDeployGameserver.ButtonText = "   Cancel";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -479,24 +478,13 @@
             this.btnCancelDeployGameserver.selected = false;
             this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnCancelDeployGameserver.TabIndex = 41;
-            this.btnCancelDeployGameserver.Text = "                                                        ";
+            this.btnCancelDeployGameserver.Text = "   Cancel";
             this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnCancelDeployGameserver, "Forcefully terminate deployment (leftover files need to be manually cleaned up).");
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
-            // 
-            // metroProgressSpinner1
-            // 
-            this.metroProgressSpinner1.Location = new System.Drawing.Point(16, 382);
-            this.metroProgressSpinner1.Maximum = 100;
-            this.metroProgressSpinner1.Name = "metroProgressSpinner1";
-            this.metroProgressSpinner1.Size = new System.Drawing.Size(40, 40);
-            this.metroProgressSpinner1.Speed = 2F;
-            this.metroProgressSpinner1.TabIndex = 53;
-            this.metroProgressSpinner1.UseSelectable = true;
-            this.metroProgressSpinner1.Value = 40;
             // 
             // TAB_DEPLOYMENT
             // 
@@ -506,7 +494,6 @@
             this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.metroProgressSpinner1);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
@@ -567,6 +554,5 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
-        private MetroFramework.Controls.MetroProgressSpinner metroProgressSpinner1;
     }
 }

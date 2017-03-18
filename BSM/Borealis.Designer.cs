@@ -63,7 +63,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.scheduledtasks_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.scheduledtasks_indicator = new System.Windows.Forms.Panel();
-            this.MDI_SHIELD = new System.Windows.Forms.Panel();
+            this.MDI_CURTAINHIDER = new System.Windows.Forms.Panel();
             this.MENU_TOOLTIPS = new System.Windows.Forms.ToolTip(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
@@ -621,16 +621,16 @@
             this.scheduledtasks_indicator.TabIndex = 44;
             this.scheduledtasks_indicator.Visible = false;
             // 
-            // MDI_SHIELD
+            // MDI_CURTAINHIDER
             // 
-            this.MDI_SHIELD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.MDI_SHIELD.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
-            this.MDI_SHIELD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.MDI_SHIELD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MDI_SHIELD.Location = new System.Drawing.Point(240, 45);
-            this.MDI_SHIELD.Name = "MDI_SHIELD";
-            this.MDI_SHIELD.Size = new System.Drawing.Size(725, 554);
-            this.MDI_SHIELD.TabIndex = 32;
+            this.MDI_CURTAINHIDER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
+            this.MDI_CURTAINHIDER.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.MDI_CURTAINHIDER.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MDI_CURTAINHIDER.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MDI_CURTAINHIDER.Location = new System.Drawing.Point(240, 45);
+            this.MDI_CURTAINHIDER.Name = "MDI_CURTAINHIDER";
+            this.MDI_CURTAINHIDER.Size = new System.Drawing.Size(725, 554);
+            this.MDI_CURTAINHIDER.TabIndex = 32;
             // 
             // MENU_TOOLTIPS
             // 
@@ -647,7 +647,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(965, 599);
-            this.Controls.Add(this.MDI_SHIELD);
+            this.Controls.Add(this.MDI_CURTAINHIDER);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.header);
             this.DoubleBuffered = true;
@@ -713,7 +713,7 @@
         private System.Windows.Forms.Panel management_indicator;
         private System.Windows.Forms.Panel deployment_indicator;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private System.Windows.Forms.Panel MDI_SHIELD;
+        private System.Windows.Forms.Panel MDI_CURTAINHIDER;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel scheduledtasks_indicator;
         private Bunifu.Framework.UI.BunifuFlatButton scheduledtasks_tab;

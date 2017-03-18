@@ -14,6 +14,54 @@ namespace Borealis
             InitializeComponent();
         }
 
+        private void UIControlsHider(bool showHide)
+        {
+            if (showHide == false)
+            {
+                //Disable the option to choose where to install the server.
+                lblDestination.Visible = false;
+                lblDestinationDetails.Visible = false;
+                lblDestinationDetailsSubtext.Visible = false;
+                txtboxDestinationFolder.Visible = false;
+                btnBrowseDestination.Visible = false;
+                chkSeparateConfig.Visible = false;
+                lblSeparateConfig.Visible = false;
+                chkVerifyIntegrity.Visible = false;
+                lblVerifyIntegrity.Visible = false;
+                panelProgress.Visible = false;
+
+                //Server Name Controls
+                lblServerName.Visible = false;
+                lblServerNameDetails.Visible = false;
+                txtServerGivenName.Visible = false;
+
+                //Deployment Button
+                btnDeployGameserver.Enabled = false;
+            }
+            if (showHide == true)
+            {
+                //Disable the option to choose where to install the server.
+                lblDestination.Visible = true;
+                lblDestinationDetails.Visible = true;
+                lblDestinationDetailsSubtext.Visible = true;
+                txtboxDestinationFolder.Visible = true;
+                btnBrowseDestination.Visible = true;
+                chkSeparateConfig.Visible = true;
+                lblSeparateConfig.Visible = true;
+                chkVerifyIntegrity.Visible = true;
+                lblVerifyIntegrity.Visible = true;
+                panelProgress.Visible = true;
+
+                //Server Name Controls
+                lblServerName.Visible = true;
+                lblServerNameDetails.Visible = true;
+                txtServerGivenName.Visible = true;
+
+                //Deployment Button
+                btnDeployGameserver.Enabled = true;
+            }
+        }
+
         private void RefreshData()
         {
             //Populate gameserver list by querying the available configurations from the server.
@@ -149,25 +197,7 @@ namespace Borealis
         }
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-            //Enable the option to choose where to install the server.
-            lblDestination.Visible = true;
-            lblDestinationDetails.Visible = true;
-            lblDestinationDetailsSubtext.Visible = true;
-            txtboxDestinationFolder.Visible = true;
-            btnBrowseDestination.Visible = true;
-            chkSeparateConfig.Visible = true;
-            lblSeparateConfig.Visible = true;
-            chkVerifyIntegrity.Visible = true;
-            lblVerifyIntegrity.Visible = true;
-            panelProgress.Visible = true;
-
-            //Server Name Controls
-            lblServerName.Visible = true;
-            lblServerNameDetails.Visible = true;
-            txtServerGivenName.Visible = true;
-
-            //Deployment Button
-            btnDeployGameserver.Enabled = true;
+            UIControlsHider(true); //Show UI elements to end-user
 
             if (chkSeparateConfig.Checked == true)
             {
@@ -380,6 +410,23 @@ namespace Borealis
             }
             btnDeployGameserver.Enabled = true;
             progressbarDownloadProgressOverall.Value = 0;
+
+            //Disable the option to choose where to install the server.
+            lblDestination.Visible = false;
+            lblDestinationDetails.Visible = false;
+            lblDestinationDetailsSubtext.Visible = false;
+            txtboxDestinationFolder.Visible = false;
+            btnBrowseDestination.Visible = false;
+            chkSeparateConfig.Visible = false;
+            lblSeparateConfig.Visible = false;
+            chkVerifyIntegrity.Visible = false;
+            lblVerifyIntegrity.Visible = false;
+            panelProgress.Visible = false;
+
+            //Server Name Controls
+            lblServerName.Visible = false;
+            lblServerNameDetails.Visible = false;
+            txtServerGivenName.Visible = false;
         }
     }
  }
