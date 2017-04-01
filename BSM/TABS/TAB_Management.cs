@@ -101,6 +101,11 @@ namespace Borealis
                         }
                         catch (Exception)
                         {
+                            
+                        }
+
+                        if (txtboxConfigOutput.Items.Count < 1)
+                        {
                             MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"] + "]\nappears to be missing or empty.  Please load a config file manually or make a new one to fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
@@ -114,7 +119,6 @@ namespace Borealis
                     btnUpdateServerConfig.Visible = true;
                     btnLoadConfig.Visible = true;
                     btnDestroyServer.Visible = true;
-
                 }
             }
 
