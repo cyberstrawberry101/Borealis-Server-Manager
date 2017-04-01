@@ -316,6 +316,19 @@ namespace Borealis
         }
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
+            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (JObject gameserver in GameServer_Management.server_collection)
+                {
+                    if (txtServerGivenName.Text == (string)gameserver["SERVER_name_friendly"])
+                    {
+                        MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately, you must give unique names to every server you deploy, using the exact same name would cause several issues.", "Identical gameserver name already exists.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; //Break gracefully out of the entire void function.
+                    }
+                }
+            }
+
             if (chkSeparateConfig.Checked == true)
             {
                 MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately at this time, deploying instances of gameservers is not supported.", "Deploy New GameServer Instance?", MessageBoxButtons.OK, MessageBoxIcon.Warning);

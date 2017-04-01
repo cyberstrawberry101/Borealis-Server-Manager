@@ -82,7 +82,7 @@ namespace Borealis
                     txtboxFriendlyName.Text = (string)gameserver["SERVER_name_friendly"];
                     txtboxArguments.Text = (string)gameserver["SERVER_launch_arguments"];
 
-                    if ((string)gameserver["DIR_config_file"] != null)
+                    if ((string)gameserver["DIR_config_file"] != "")
                     {
                         int counter = 0;
                         string line;
@@ -96,12 +96,12 @@ namespace Borealis
                                 txtboxConfigOutput.Items.Add(line);
                                 counter++;
                             }
-
+                            
                             file.Close();
                         }
                         catch (Exception)
                         {
-                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"] + "]\nappears to be missing or was never created.  Please load a config file manually or fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"] + "]\nappears to be missing or empty.  Please load a config file manually or make a new one to fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -119,8 +119,6 @@ namespace Borealis
             }
 
             btnLoadConfig.Enabled = true;  //Enable loading a config file manually
-
-
         }
 
         private void btnStopServer_Click(object sender, EventArgs e)
