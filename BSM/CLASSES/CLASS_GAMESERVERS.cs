@@ -43,7 +43,7 @@ namespace Borealis
         }
 
         //=====================================================================================//
-        // Method to deploy gameserver data into config.json                                   //
+        // Method to deploy gameserver data into gameservers.json                                   //
         //=====================================================================================//
         public void DeployGameserver(
 
@@ -99,7 +99,7 @@ namespace Borealis
                     addServer(serverData);                                  //Send the server to the gameserver list.
             }
 
-            using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\config.json"))
+            using (StreamWriter file = File.AppendText(Environment.CurrentDirectory + @"\gameservers.json"))
             using (JsonTextWriter writer = new JsonTextWriter(file))
             {
                 writer.WriteRaw(JsonConvert.SerializeObject(serverData, Formatting.Indented));
@@ -123,12 +123,12 @@ namespace Borealis
         }
 
         //=====================================================================================//
-        // Method to import all jsonstrings from config.json into the JObject collection       //
+        // Method to import all jsonstrings from gameservers.json into the JObject collection       //
         //=====================================================================================//
         public void addAllServers_fromConfig()
         {
             int BracketCount = 0;
-            string GameServerList = new StreamReader(Environment.CurrentDirectory + @"\config.json").ReadToEnd();
+            string GameServerList = new StreamReader(Environment.CurrentDirectory + @"\gameservers.json").ReadToEnd();
             StringBuilder Json = new StringBuilder();
             foreach (char c in GameServerList)
             {

@@ -78,10 +78,10 @@ namespace Borealis
         //===================================================================================//
         public void BorealisServerManager_Load(object sender, EventArgs e)
         {
-            //Create blank config.json
-            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json") == false)
+            //Create blank gameservers.json
+            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\gameservers.json") == false)
             {
-                File.Create(Environment.CurrentDirectory + @"\config.json").Dispose();
+                File.Create(Environment.CurrentDirectory + @"\gameservers.json").Dispose();
             }
 
             //Destroy the bevelled border around MDI parent container.
@@ -184,7 +184,10 @@ namespace Borealis
                 SelectedIndicator.Visible = true;
             }
 
+            //Render the selection triangle programmatically.
+
         }
+
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
             MDI_CURTAINHIDER.Visible = true;
@@ -239,13 +242,13 @@ namespace Borealis
         }
         private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //Write data in memory to disk into config.json
+            //Write data in memory to disk into gameservers.json
             if (GameServer_Management.server_collection != null)
             {
-                //Delete existing config.json
-                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\config.json"))
+                //Delete existing gameservers.json
+                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\gameservers.json"))
                 {
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\config.json");
+                    System.IO.File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
                 }
 
                 foreach (JObject gameserver in GameServer_Management.server_collection)
@@ -277,6 +280,11 @@ namespace Borealis
                         true);
                 }
             }
+        }
+
+        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

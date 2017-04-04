@@ -17,7 +17,7 @@ namespace Borealis
 
         public void RefreshData()
         {
-            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
                 if (GameServer_Management.server_collection.Count != 0)

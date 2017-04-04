@@ -47,11 +47,11 @@
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel5 = new System.Windows.Forms.Panel();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.linkLabel7 = new System.Windows.Forms.LinkLabel();
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -295,19 +295,6 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.linkLabel5);
-            this.panel5.Controls.Add(this.linkLabel6);
-            this.panel5.Controls.Add(this.linkLabel7);
-            this.panel5.Controls.Add(this.linkLabel8);
-            this.panel5.Controls.Add(this.bunifuCustomLabel8);
-            this.panel5.Location = new System.Drawing.Point(16, 368);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(296, 114);
-            this.panel5.TabIndex = 24;
-            // 
             // linkLabel5
             // 
             this.linkLabel5.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -380,6 +367,19 @@
             this.toolTip1.SetToolTip(this.linkLabel8, "Used to render special non-standard user interface elements.");
             this.linkLabel8.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.linkLabel8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel8_LinkClicked);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.linkLabel5);
+            this.panel5.Controls.Add(this.linkLabel6);
+            this.panel5.Controls.Add(this.linkLabel7);
+            this.panel5.Controls.Add(this.linkLabel8);
+            this.panel5.Controls.Add(this.bunifuCustomLabel8);
+            this.panel5.Location = new System.Drawing.Point(16, 368);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(296, 114);
+            this.panel5.TabIndex = 24;
             // 
             // bunifuCustomLabel8
             // 

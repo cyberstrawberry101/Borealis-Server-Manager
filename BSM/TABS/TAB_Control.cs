@@ -30,7 +30,7 @@ namespace Borealis
         //===================================================================================//
         private void ServerControl_Load(object sender, EventArgs e)
         {
-            //Pull all gameserver data from config.json, split all json strings into a list, iterate through that list for specific data.
+            //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
                 foreach (JObject gameserver in GameServer_Management.server_collection)

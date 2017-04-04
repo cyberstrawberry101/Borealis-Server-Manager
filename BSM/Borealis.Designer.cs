@@ -136,9 +136,9 @@
             this.lblVersion.ForeColor = System.Drawing.Color.White;
             this.lblVersion.Location = new System.Drawing.Point(45, 27);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(66, 12);
+            this.lblVersion.Size = new System.Drawing.Size(47, 12);
             this.lblVersion.TabIndex = 31;
-            this.lblVersion.Text = "<Version Info>";
+            this.lblVersion.Text = "<Version>";
             this.MENU_TOOLTIPS.SetToolTip(this.lblVersion, "This program is in the alpha stage, meaning it is not fully featured yet, please " +
         "be patient.");
             // 
@@ -232,6 +232,7 @@
             this.bunifuCustomLabel1.Text = "Settings";
             this.MENU_TOOLTIPS.SetToolTip(this.bunifuCustomLabel1, "This program is in the alpha stage, meaning it is not fully featured yet, please " +
         "be patient.");
+            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // tabForms
             // 
