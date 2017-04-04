@@ -53,11 +53,13 @@
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.cardLayout1 = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardLayout1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel14
@@ -116,7 +118,7 @@
             this.panel1.Controls.Add(this.bunifuCustomLabel2);
             this.panel1.Location = new System.Drawing.Point(16, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 39);
+            this.panel1.Size = new System.Drawing.Size(230, 39);
             this.panel1.TabIndex = 21;
             // 
             // panel2
@@ -126,7 +128,7 @@
             this.panel2.Controls.Add(this.bunifuCustomLabel4);
             this.panel2.Location = new System.Drawing.Point(16, 136);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(296, 39);
+            this.panel2.Size = new System.Drawing.Size(230, 39);
             this.panel2.TabIndex = 22;
             // 
             // bunifuCustomLabel3
@@ -165,7 +167,7 @@
             this.panel3.Controls.Add(this.bunifuCustomLabel5);
             this.panel3.Location = new System.Drawing.Point(16, 248);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(296, 114);
+            this.panel3.Size = new System.Drawing.Size(230, 114);
             this.panel3.TabIndex = 23;
             // 
             // linkLabel4
@@ -260,7 +262,7 @@
             this.panel4.Controls.Add(this.bunifuCustomLabel7);
             this.panel4.Location = new System.Drawing.Point(16, 181);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(296, 61);
+            this.panel4.Size = new System.Drawing.Size(230, 61);
             this.panel4.TabIndex = 23;
             // 
             // bunifuCustomLabel6
@@ -378,7 +380,7 @@
             this.panel5.Controls.Add(this.bunifuCustomLabel8);
             this.panel5.Location = new System.Drawing.Point(16, 368);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(296, 114);
+            this.panel5.Size = new System.Drawing.Size(230, 114);
             this.panel5.TabIndex = 24;
             // 
             // bunifuCustomLabel8
@@ -421,6 +423,7 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardLayout1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,5 +455,6 @@
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
+        private Syncfusion.Windows.Forms.Tools.CardLayout cardLayout1;
     }
 }

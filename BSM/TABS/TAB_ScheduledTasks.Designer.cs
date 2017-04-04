@@ -49,7 +49,11 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblEnableTasks = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.panelAddTask = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuFlatButton3 = new Bunifu.Framework.UI.BunifuFlatButton();
             this.switchEnabled = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -59,10 +63,6 @@
             this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableScheduledTasks = new Bunifu.Framework.UI.BunifuCustomDataGrid();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
-            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.panelAddTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableScheduledTasks)).BeginInit();
             this.SuspendLayout();
@@ -205,7 +205,7 @@
             this.txtboxCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxCommand.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtboxCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxCommand.Location = new System.Drawing.Point(383, 149);
+            this.txtboxCommand.Location = new System.Drawing.Point(383, 88);
             this.txtboxCommand.Name = "txtboxCommand";
             this.txtboxCommand.Size = new System.Drawing.Size(310, 25);
             this.txtboxCommand.TabIndex = 55;
@@ -216,7 +216,7 @@
             this.lblArguments.BackColor = System.Drawing.Color.Transparent;
             this.lblArguments.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblArguments.Location = new System.Drawing.Point(379, 127);
+            this.lblArguments.Location = new System.Drawing.Point(379, 66);
             this.lblArguments.Name = "lblArguments";
             this.lblArguments.Size = new System.Drawing.Size(139, 19);
             this.lblArguments.TabIndex = 54;
@@ -230,7 +230,7 @@
             this.txtboxTaskName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxTaskName.Location = new System.Drawing.Point(0, 25);
             this.txtboxTaskName.Name = "txtboxTaskName";
-            this.txtboxTaskName.Size = new System.Drawing.Size(362, 25);
+            this.txtboxTaskName.Size = new System.Drawing.Size(293, 25);
             this.txtboxTaskName.TabIndex = 53;
             // 
             // lblFriendlyName
@@ -303,6 +303,44 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // comboboxGameserverList
+            // 
+            this.comboboxGameserverList.BackColor = System.Drawing.Color.White;
+            this.comboboxGameserverList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.comboboxGameserverList.FormattingEnabled = true;
+            this.comboboxGameserverList.ItemHeight = 23;
+            this.comboboxGameserverList.Location = new System.Drawing.Point(0, 151);
+            this.comboboxGameserverList.Name = "comboboxGameserverList";
+            this.comboboxGameserverList.Size = new System.Drawing.Size(293, 29);
+            this.comboboxGameserverList.Sorted = true;
+            this.comboboxGameserverList.TabIndex = 66;
+            this.comboboxGameserverList.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.comboboxGameserverList, "Select a deployed gameserver to configure.");
+            this.comboboxGameserverList.UseCustomBackColor = true;
+            this.comboboxGameserverList.UseCustomForeColor = true;
+            this.comboboxGameserverList.UseSelectable = true;
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.BackColor = System.Drawing.Color.White;
+            this.metroComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "Backup GameServer",
+            "Custom Command Line",
+            "Perform Update"});
+            this.metroComboBox1.Location = new System.Drawing.Point(0, 88);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(293, 29);
+            this.metroComboBox1.Sorted = true;
+            this.metroComboBox1.TabIndex = 68;
+            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.metroComboBox1, "Select a deployed gameserver to configure.");
+            this.metroComboBox1.UseCustomBackColor = true;
+            this.metroComboBox1.UseCustomForeColor = true;
+            this.metroComboBox1.UseSelectable = true;
+            // 
             // panelAddTask
             // 
             this.panelAddTask.BackColor = System.Drawing.Color.Transparent;
@@ -315,16 +353,40 @@
             this.panelAddTask.Controls.Add(this.bunifuCustomLabel2);
             this.panelAddTask.Controls.Add(this.btnAddTask);
             this.panelAddTask.Controls.Add(this.lblFriendlyName);
-            this.panelAddTask.Controls.Add(this.txtboxTaskName);
             this.panelAddTask.Controls.Add(this.lblArguments);
-            this.panelAddTask.Controls.Add(this.txtboxRunTime);
             this.panelAddTask.Controls.Add(this.txtboxCommand);
+            this.panelAddTask.Controls.Add(this.txtboxTaskName);
+            this.panelAddTask.Controls.Add(this.txtboxRunTime);
             this.panelAddTask.Controls.Add(this.bunifuCustomLabel1);
             this.panelAddTask.Location = new System.Drawing.Point(16, 76);
             this.panelAddTask.Name = "panelAddTask";
             this.panelAddTask.Size = new System.Drawing.Size(697, 187);
             this.panelAddTask.TabIndex = 62;
             this.panelAddTask.Visible = false;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(-4, 66);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(115, 19);
+            this.bunifuCustomLabel4.TabIndex = 69;
+            this.bunifuCustomLabel4.Text = "Choose an Action:";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(-4, 129);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(142, 19);
+            this.bunifuCustomLabel3.TabIndex = 67;
+            this.bunifuCustomLabel3.Text = "Choose a gameserver:";
             // 
             // bunifuFlatButton3
             // 
@@ -348,7 +410,7 @@
             this.bunifuFlatButton3.IconVisible = true;
             this.bunifuFlatButton3.IconZoom = 90D;
             this.bunifuFlatButton3.IsTab = false;
-            this.bunifuFlatButton3.Location = new System.Drawing.Point(612, 88);
+            this.bunifuFlatButton3.Location = new System.Drawing.Point(612, 151);
             this.bunifuFlatButton3.Name = "bunifuFlatButton3";
             this.bunifuFlatButton3.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.bunifuFlatButton3.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
@@ -368,7 +430,7 @@
             this.switchEnabled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchEnabled.BackgroundImage")));
             this.switchEnabled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchEnabled.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchEnabled.Location = new System.Drawing.Point(398, 88);
+            this.switchEnabled.Location = new System.Drawing.Point(398, 151);
             this.switchEnabled.Name = "switchEnabled";
             this.switchEnabled.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.switchEnabled.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -382,7 +444,7 @@
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(447, 94);
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(447, 157);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(54, 19);
             this.bunifuCustomLabel2.TabIndex = 63;
@@ -410,7 +472,7 @@
             this.btnAddTask.IconVisible = true;
             this.btnAddTask.IconZoom = 90D;
             this.btnAddTask.IsTab = false;
-            this.btnAddTask.Location = new System.Drawing.Point(518, 88);
+            this.btnAddTask.Location = new System.Drawing.Point(518, 151);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnAddTask.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -524,70 +586,8 @@
             this.tableScheduledTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tableScheduledTasks.ShowCellToolTips = false;
             this.tableScheduledTasks.ShowEditingIcon = false;
-            this.tableScheduledTasks.Size = new System.Drawing.Size(726, 209);
+            this.tableScheduledTasks.Size = new System.Drawing.Size(0, 209);
             this.tableScheduledTasks.TabIndex = 44;
-            // 
-            // bunifuCustomLabel3
-            // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(-4, 129);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(142, 19);
-            this.bunifuCustomLabel3.TabIndex = 67;
-            this.bunifuCustomLabel3.Text = "Choose a gameserver:";
-            // 
-            // comboboxGameserverList
-            // 
-            this.comboboxGameserverList.BackColor = System.Drawing.Color.White;
-            this.comboboxGameserverList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.comboboxGameserverList.FormattingEnabled = true;
-            this.comboboxGameserverList.ItemHeight = 23;
-            this.comboboxGameserverList.Location = new System.Drawing.Point(0, 151);
-            this.comboboxGameserverList.Name = "comboboxGameserverList";
-            this.comboboxGameserverList.Size = new System.Drawing.Size(293, 29);
-            this.comboboxGameserverList.Sorted = true;
-            this.comboboxGameserverList.TabIndex = 66;
-            this.comboboxGameserverList.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.toolTip1.SetToolTip(this.comboboxGameserverList, "Select a deployed gameserver to configure.");
-            this.comboboxGameserverList.UseCustomBackColor = true;
-            this.comboboxGameserverList.UseCustomForeColor = true;
-            this.comboboxGameserverList.UseSelectable = true;
-            // 
-            // bunifuCustomLabel4
-            // 
-            this.bunifuCustomLabel4.AutoSize = true;
-            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.bunifuCustomLabel4.Location = new System.Drawing.Point(-4, 66);
-            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
-            this.bunifuCustomLabel4.Size = new System.Drawing.Size(115, 19);
-            this.bunifuCustomLabel4.TabIndex = 69;
-            this.bunifuCustomLabel4.Text = "Choose an Action:";
-            // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.BackColor = System.Drawing.Color.White;
-            this.metroComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Items.AddRange(new object[] {
-            "Backup GameServer",
-            "Custom Command Line",
-            "Perform Update"});
-            this.metroComboBox1.Location = new System.Drawing.Point(0, 88);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(293, 29);
-            this.metroComboBox1.Sorted = true;
-            this.metroComboBox1.TabIndex = 68;
-            this.metroComboBox1.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.toolTip1.SetToolTip(this.metroComboBox1, "Select a deployed gameserver to configure.");
-            this.metroComboBox1.UseCustomBackColor = true;
-            this.metroComboBox1.UseCustomForeColor = true;
-            this.metroComboBox1.UseSelectable = true;
             // 
             // TAB_SCHEDULEDTASKS
             // 
