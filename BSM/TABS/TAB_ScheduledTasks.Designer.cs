@@ -279,7 +279,7 @@
             this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
             this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
+            this.chkVerifyIntegrity.Size = new System.Drawing.Size(35, 20);
             this.chkVerifyIntegrity.TabIndex = 61;
             this.chkVerifyIntegrity.Value = false;
             this.chkVerifyIntegrity.Visible = false;
@@ -430,11 +430,11 @@
             this.switchEnabled.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("switchEnabled.BackgroundImage")));
             this.switchEnabled.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.switchEnabled.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.switchEnabled.Location = new System.Drawing.Point(398, 151);
+            this.switchEnabled.Location = new System.Drawing.Point(397, 156);
             this.switchEnabled.Name = "switchEnabled";
             this.switchEnabled.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.switchEnabled.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.switchEnabled.Size = new System.Drawing.Size(43, 25);
+            this.switchEnabled.Size = new System.Drawing.Size(35, 20);
             this.switchEnabled.TabIndex = 64;
             this.switchEnabled.Value = true;
             // 
@@ -502,7 +502,7 @@
             this.columnServerType.Name = "columnServerType";
             this.columnServerType.ReadOnly = true;
             this.columnServerType.ToolTipText = "When you want the command to execute.";
-            this.columnServerType.Width = 99;
+            this.columnServerType.Width = 72;
             // 
             // columnGameServerName
             // 

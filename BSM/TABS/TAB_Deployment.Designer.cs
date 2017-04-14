@@ -399,11 +399,11 @@
             this.chkVerifyIntegrity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkVerifyIntegrity.BackgroundImage")));
             this.chkVerifyIntegrity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkVerifyIntegrity.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 516);
+            this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 521);
             this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
             this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.chkVerifyIntegrity.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkVerifyIntegrity.Size = new System.Drawing.Size(43, 25);
+            this.chkVerifyIntegrity.Size = new System.Drawing.Size(35, 20);
             this.chkVerifyIntegrity.TabIndex = 52;
             this.toolTip1.SetToolTip(this.chkVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
         "m server configurations)");
