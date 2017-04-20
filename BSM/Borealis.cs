@@ -94,7 +94,6 @@ namespace Borealis
                 var controlMdi = control as MdiClient;
                 if (controlMdi != null)
                 {
-
                     controlMdi.BackColor = this.BackColor;
                 }
             }
