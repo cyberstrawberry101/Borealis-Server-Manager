@@ -23,9 +23,9 @@ namespace Borealis
                 if (GameServer_Management.server_collection.Count != 0)
                 {
                     overallServerStatsGrid.Rows.Clear();
-                    foreach (Newtonsoft.Json.Linq.JObject gameserver in GameServer_Management.server_collection)
+                    foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                     {
-                        overallServerStatsGrid.Rows.Add((string)gameserver["SERVER_name_friendly"], (string)gameserver["SERVER_type"], "0.0GB", "0.0GB", "0.0%", "0 Kb/s", (bool)gameserver["SERVER_running_status"], "No");
+                        overallServerStatsGrid.Rows.Add(gameserver.SERVER_name_friendly, gameserver.SERVER_type, "0.0GB", "0.0GB", "0.0%", "0 Kb/s", gameserver.SERVER_running_status, "No");
                     }
 
                     overallServerStatsGrid.Visible = true; //Show Table only if values have been added.
