@@ -7,7 +7,7 @@ namespace Borealis
         //===================================================================================//
         // Download Config Data via API into Memory                                          //
         //===================================================================================//
-        public static void QUERY_DATA(string appID)
+        public static GameServer_Object QUERY_DATA(string appID)
         {
             GameServer_Management.deployment_server.Clear(); //Clear the deployment server list.
             GameServer_Object DeploymentServer = new GameServer_Object();
@@ -17,6 +17,8 @@ namespace Borealis
                 DeploymentServer.ImportJSON(JObject.Parse(json));
                 GameServer_Management.deployment_server.Add(DeploymentServer);
             }
+
+            return DeploymentServer;
         }
 
         //===================================================================================//
