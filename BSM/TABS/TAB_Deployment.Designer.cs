@@ -518,7 +518,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TAB_DEPLOYMENT";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "ServerDeployment";
+            this.Text = "sd";
             this.Load += new System.EventHandler(this.ServerDeployment_Load);
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();
