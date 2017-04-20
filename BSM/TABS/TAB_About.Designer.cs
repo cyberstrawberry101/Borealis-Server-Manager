@@ -54,13 +54,11 @@
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.cardLayout1 = new Syncfusion.Windows.Forms.Tools.CardLayout(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardLayout1)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel14
@@ -423,7 +421,6 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cardLayout1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,6 +452,5 @@
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
-        private Syncfusion.Windows.Forms.Tools.CardLayout cardLayout1;
     }
 }
