@@ -120,7 +120,7 @@ namespace Borealis
                 }
             }
 
-            return serverData(); //Returns all of the internal data as a JSON Object, usable by other internal methods.
+            return serverData; //Returns all of the internal data as a JSON Object, usable by other internal methods.
         }     
 
         //=====================================================================================//
