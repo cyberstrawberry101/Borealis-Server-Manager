@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -106,55 +107,27 @@ namespace Borealis
             PullConfig.addAllServers_fromConfig();
 
 
-            //Instanciate all Panels Immediately
+            // Instantiate all Panels Immediately
+            var panels = new List<Form>
+            {
+                new TAB_DEPLOYMENT(),
+                new TAB_Management(),
+                new TAB_CONTROL(),
+                new TAB_ABOUT(),
+                new TAB_SCHEDULEDTASKS(),
+                new TAB_DASHBOARD()
+            };
 
-            //TAB INDEX 0
-            TAB_DEPLOYMENT ChildInstance_Deployment = new TAB_DEPLOYMENT();
-            ChildInstance_Deployment.MdiParent = this;
-            ChildInstance_Deployment.AutoScroll = false;
-            ChildInstance_Deployment.Dock = DockStyle.Fill;
-            ChildInstance_Deployment.Show();
-
-            //TAB INDEX 1
-            TAB_Management ChildInstance_Management = new TAB_Management();
-            ChildInstance_Management.MdiParent = this;
-            ChildInstance_Management.AutoScroll = false;
-            ChildInstance_Management.Dock = DockStyle.Fill;
-            ChildInstance_Management.Show();
-
-            //TAB INDEX 2
-            TAB_CONTROL ChildInstance_Control = new TAB_CONTROL();
-            ChildInstance_Control.MdiParent = this;
-            ChildInstance_Control.AutoScroll = false;
-            ChildInstance_Control.Dock = DockStyle.Fill;
-            ChildInstance_Control.Show();
-
-            //TAB INDEX 3
-            TAB_ABOUT ChildInstance_Attribution = new TAB_ABOUT();
-            ChildInstance_Attribution.MdiParent = this;
-            ChildInstance_Attribution.AutoScroll = false;
-            ChildInstance_Attribution.Dock = DockStyle.Fill;
-            ChildInstance_Attribution.Show();
-
-            //TAB INDEX 4
-            TAB_SCHEDULEDTASKS ChildInstance_ScheduledTasks = new TAB_SCHEDULEDTASKS();
-            ChildInstance_ScheduledTasks.MdiParent = this;
-            ChildInstance_ScheduledTasks.AutoScroll = false;
-            ChildInstance_ScheduledTasks.Dock = DockStyle.Fill;
-            ChildInstance_ScheduledTasks.Show();
-
-            //TAB INDEX 5
-            TAB_DASHBOARD ChildInstance_Dashboard = new TAB_DASHBOARD();
-            ChildInstance_Dashboard.MdiParent = this;
-            ChildInstance_Dashboard.AutoScroll = false;
-            ChildInstance_Dashboard.Dock = DockStyle.Fill;
-            ChildInstance_Dashboard.Show();
+            foreach (Form panel in panels)
+            {
+                panel.MdiParent = this;
+                panel.AutoScroll = false;
+                panel.Dock = DockStyle.Fill;
+                panel.Show();
+            }
 
             MDI_CURTAINHIDER.Visible = false;
         }
-
-
-
 
         //===================================================================================//
         // TAB ANIMATION AND SWITCHING CODE:                                                 //
