@@ -232,7 +232,6 @@
             this.bunifuCustomLabel1.Text = "Settings";
             this.MENU_TOOLTIPS.SetToolTip(this.bunifuCustomLabel1, "This program is in the alpha stage, meaning it is not fully featured yet, please " +
         "be patient.");
-            this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
             // tabForms
             // 

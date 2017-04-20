@@ -120,6 +120,11 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="bunifuCustomLabel7.ToolTip" xml:space="preserve">
+    <value>John Du Hart V: Helped cleanup internal structure and classes of Borealis.
+CyrilPaulus: Helped design the performance metrics back-end.
+Capsup: Provided advice on how to maintain the project professionally.</value>
+  </data>
   <metadata name="cardLayout1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>114, 17</value>
   </metadata>

@@ -256,10 +256,5 @@ namespace Borealis
                 }
             }
         }
-
-        private void bunifuCustomLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
