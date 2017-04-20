@@ -20,9 +20,9 @@ namespace Borealis
         {
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }
@@ -33,12 +33,12 @@ namespace Borealis
         //Methods that handle management itself.
         private void btnLoadConfig_Click(object sender, EventArgs e)
         {
-            foreach (JObject gameserver in GameServer_Management.server_collection)
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
-                    GameServer_Management.GameServer Management_Instance = new GameServer_Management.GameServer();
-                    openFileDialog1.InitialDirectory = (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"];
+                    //GameServer_Object Management_Instance = new GameServer_Object();
+                    openFileDialog1.InitialDirectory = gameserver.DIR_install_location + gameserver.DIR_config;
                 }
             }
 
@@ -75,14 +75,14 @@ namespace Borealis
         //Methods that handle reporting progress back to the UI
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (JObject gameserver in GameServer_Management.server_collection)
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
-                    txtboxFriendlyName.Text = (string)gameserver["SERVER_name_friendly"];
-                    txtboxArguments.Text = (string)gameserver["SERVER_launch_arguments"];
+                    txtboxFriendlyName.Text = gameserver.SERVER_name_friendly;
+                    txtboxArguments.Text = gameserver.SERVER_launch_arguments;
 
-                    if ((string)gameserver["DIR_config_file"] != "")
+                    if (gameserver.DIR_config_file != "")
                     {
                         int counter = 0;
                         string line;
@@ -90,7 +90,7 @@ namespace Borealis
 
                         try
                         {
-                            System.IO.StreamReader file = new System.IO.StreamReader((string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"]);
+                            System.IO.StreamReader file = new System.IO.StreamReader(gameserver.DIR_install_location + gameserver.DIR_config + gameserver.DIR_config_file);
                             while ((line = file.ReadLine()) != null)
                             {
                                 txtboxConfigOutput.Items.Add(line);
@@ -106,7 +106,7 @@ namespace Borealis
 
                         if (txtboxConfigOutput.Items.Count < 1)
                         {
-                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + (string)gameserver["DIR_install_location"] + (string)gameserver["DIR_config"] + (string)gameserver["DIR_config_file"] + "]\nappears to be missing or empty.  Please load a config file manually or make a new one to fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + gameserver.DIR_install_location + gameserver.DIR_config + gameserver.DIR_config_file + "]\nappears to be missing or empty.  Please load a config file manually or make a new one to fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
 
@@ -140,9 +140,9 @@ namespace Borealis
             comboboxGameserverList.Items.Clear();
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }

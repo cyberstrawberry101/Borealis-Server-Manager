@@ -33,9 +33,9 @@ namespace Borealis
             //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }
@@ -84,11 +84,11 @@ namespace Borealis
 
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
+                    if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                     {
-                        ExecuteWithRedirect(Environment.CurrentDirectory + (string)gameserver["DIR_executable"], (string)gameserver["SERVER_launch_arguments"]);
+                        ExecuteWithRedirect(Environment.CurrentDirectory + gameserver.DIR_executable, gameserver.SERVER_launch_arguments);
                     }
                 }
             }
@@ -114,18 +114,18 @@ namespace Borealis
         }
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (JObject gameserver in GameServer_Management.server_collection)
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
             {
-                if ((string)gameserver["SERVER_name_friendly"] == comboboxGameserverList.Text)
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
                     //Decide what data to pull from the object at this point in time of development.
                     
-                    GameServer_Management.GameServer Controlled_GameServer = new GameServer_Management.GameServer();
+                    GameServer_Object Controlled_GameServer = new GameServer_Object();
 
-                    Controlled_GameServer.DIR_install_location = (string)gameserver["DIR_install_location"];
-                    Controlled_GameServer.DIR_executable = (string)gameserver["DIR_executable"];
-                    Controlled_GameServer.SERVER_launch_arguments = (string)gameserver["SERVER_launch_arguments"];
-                    Controlled_GameServer.SERVER_running_status = (bool)gameserver["SERVER_running_status"];
+                    Controlled_GameServer.DIR_install_location = Controlled_GameServer.DIR_install_location;
+                    Controlled_GameServer.DIR_executable = Controlled_GameServer.DIR_executable;
+                    Controlled_GameServer.SERVER_launch_arguments = Controlled_GameServer.SERVER_launch_arguments;
+                    Controlled_GameServer.SERVER_running_status = Controlled_GameServer.SERVER_running_status;
                     
                 }
             }
@@ -148,9 +148,9 @@ namespace Borealis
             comboboxGameserverList.Items.Clear();
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }

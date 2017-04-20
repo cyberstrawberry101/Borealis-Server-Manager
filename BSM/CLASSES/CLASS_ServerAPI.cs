@@ -10,12 +10,12 @@ namespace Borealis
         public static void QUERY_DATA(string appID)
         {
             GameServer_Management.deployment_server.Clear(); //Clear the deployment server list.
-            GameServer_Management.GameServer DeploymentServer = new GameServer_Management.GameServer();
+            GameServer_Object DeploymentServer = new GameServer_Object();
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/config/" + appID);
-                GameServer_Management Deploy = new GameServer_Management();
-                Deploy.addDeploymentServer(JObject.Parse(json));
+                DeploymentServer.ImportJSON(JObject.Parse(json));
+                GameServer_Management.deployment_server.Add(DeploymentServer);
             }
         }
 

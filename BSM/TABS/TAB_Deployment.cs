@@ -84,9 +84,9 @@ namespace Borealis
 
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    dropdownExistingServer.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    dropdownExistingServer.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }
@@ -128,31 +128,36 @@ namespace Borealis
 
         private void deployServerToMemory()
         {
-            GameServer_Management DeployConfig = new GameServer_Management();
-            DeployConfig.DeployGameserver(
-                //Server-based Properties
-                txtServerGivenName.Text,
-                DeploymentValues.SERVER_type,
-                DeploymentValues.SERVER_launch_arguments,
-                false,
+            //Create the GameServer_Object
+            GameServer_Object DeployConfiguredServer = new GameServer_Object();  
 
-                //Directory-based Properties
-                DeploymentValues.DIR_install_location,
-                DeploymentValues.DIR_executable,
-                DeploymentValues.DIR_config,
-                DeploymentValues.DIR_config_file,
+            //Assign Data to the GameServer_Object
+            //Server-based Properties
+            DeployConfiguredServer.SERVER_name_friendly = txtServerGivenName.Text;
+            DeployConfiguredServer.SERVER_type = DeploymentValues.SERVER_type;
+            DeployConfiguredServer.SERVER_launch_arguments = DeploymentValues.SERVER_launch_arguments;
 
-                //Steam-based Properties
-                DeploymentValues.STEAM_authrequired,
-                DeploymentValues.STEAM_steamcmd_required,
-                DeploymentValues.STEAM_workshop_enabled,
+            //Directory-based Properties
+            DeployConfiguredServer.DIR_install_location = DeploymentValues.DIR_install_location;
+            DeployConfiguredServer.DIR_executable = DeploymentValues.DIR_executable;
+            DeployConfiguredServer.DIR_config = DeploymentValues.DIR_config;
+            DeployConfiguredServer.DIR_config_file = DeploymentValues.DIR_config_file;
 
-                //Miscellanious Properties
-                DeploymentValues.ENGINE_type,
-                DeploymentValues.bsm_integration,
+            //Steam-based Properties
+            DeployConfiguredServer.STEAM_authrequired = DeploymentValues.STEAM_authrequired;
+            DeployConfiguredServer.STEAM_steamcmd_required = DeploymentValues.STEAM_steamcmd_required;
+            DeployConfiguredServer.STEAM_workshop_enabled = DeploymentValues.STEAM_workshop_enabled;
 
-                //Deployment Property
-                false);
+            //Miscellanious Properties
+            DeployConfiguredServer.ENGINE_type = DeploymentValues.ENGINE_type;
+            DeployConfiguredServer.bsm_integration = DeploymentValues.bsm_integration;
+
+            //Store that newly assigned and JSON-filled server into the GameServer_Object Collection
+            GameServer_Management.server_collection.Add(DeployConfiguredServer);
+
+            //Redundantly write the data to disk in the event of a crash.
+            DeployConfiguredServer.ExportJSON(true);
+
             btnCancelDeployGameserver.Visible = false;
             btnDeployGameserver.Enabled = true;
         }
@@ -161,40 +166,43 @@ namespace Borealis
         {
             if (e.Data != null)
             {
-                lblDownloadProgressDetails.Text = e.Data;
-                try
+                Invoke(new Action(() =>
                 {
-                    progressbarDownloadProgressOverall.Value = Convert.ToInt32(Double.Parse(Regex.Match(e.Data, @"\:([^)]*)\(").Groups[1].Value));
-                }
-                catch (Exception)
-                {
-                    //Do nothing
-                }
+                    lblDownloadProgressDetails.Text = e.Data;
+
+                    // I'm a bit uneasy with directly calling .Groups, what happens when there isn't a match?
+                    string progressMatch = Regex.Match(e.Data, @"\:([^)]*)\(").Groups[1].Value;
+                    if (double.TryParse(progressMatch, out double result))
+                    {
+                        progressbarDownloadProgressOverall.Value = Convert.ToInt32(result);
+                    }
+
+                    if (DeploymentValues.STEAM_steamcmd_required)
+                    {
+                        if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
+                        {
+                            progressbarDownloadProgressOverall.Value = 100;
+                            deployServerToMemory();
+                            //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                            //panelProgress.Visible = false;
+                        }
+                        else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job." || e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x602 after update job.")
+                        {
+                            btnDeployGameserver.Enabled = false;
+                            btnCancelDeployGameserver.Visible = true;
+                            DeployGameServer();
+                        }
+                    }
+                    else
+                    {
+                        //RUN OTHER CODE FOR NON-STEAMCMD GAMESERVER
+                    }
+                }));
 
                 //SteamCMD error and success handler.
-                
-                if (DeploymentValues.STEAM_steamcmd_required == true)
-                {
-                    if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
-                    {
-                        progressbarDownloadProgressOverall.Value = 100;
-                        deployServerToMemory();
-                        //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                        //panelProgress.Visible = false;
-                    }
-                    else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x202 after update job." || e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text) + "' state is 0x602 after update job.")
-                    {
-                        btnDeployGameserver.Enabled = false;
-                        btnCancelDeployGameserver.Visible = true;
-                        DeployGameServer();
-                    }
-                }
-                else
-                {
-                    //RUN OTHER CODE FOR NON-STEAMCMD GAMESERVER
-                }
             }
         }
+
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
             UIControlsHider(true); //Show UI elements to end-user
@@ -319,9 +327,9 @@ namespace Borealis
             //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    if (txtServerGivenName.Text == (string)gameserver["SERVER_name_friendly"])
+                    if (txtServerGivenName.Text == gameserver.SERVER_name_friendly)
                     {
                         MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately, you must give unique names to every server you deploy, using the exact same name would cause several issues.", "Identical gameserver name already exists.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; //Break gracefully out of the entire void function.
@@ -341,21 +349,18 @@ namespace Borealis
                 //Retrieve the data that was just stored into the deployment server list.
                 if (GameServer_Management.deployment_server != null)
                 {
-                    //Create a new object to store the deployment data!
-                    GameServer_Management.GameServer DeploymentServer = new GameServer_Management.GameServer();
-
-                    foreach (JObject serverDeploymentData in GameServer_Management.deployment_server)
+                    foreach (GameServer_Object serverDeploymentData in GameServer_Management.deployment_server)
                     {
-                        DeploymentValues.SERVER_type = (string)serverDeploymentData["SERVER_type"];
-                        DeploymentValues.SERVER_launch_arguments = (string)serverDeploymentData["SERVER_launch_arguments"];
-                        DeploymentValues.DIR_executable = (string)serverDeploymentData["DIR_executable"];
-                        DeploymentValues.DIR_config = (string)serverDeploymentData["DIR_config"];
-                        DeploymentValues.DIR_config_file = (string)serverDeploymentData["DIR_config_file"];
-                        DeploymentValues.STEAM_authrequired = (bool)serverDeploymentData["STEAM_authrequired"];
-                        DeploymentValues.STEAM_steamcmd_required = (bool)serverDeploymentData["STEAM_steamcmd_required"];
-                        DeploymentValues.STEAM_workshop_enabled = (bool)serverDeploymentData["STEAM_workshop_enabled"];
-                        DeploymentValues.ENGINE_type = (string)serverDeploymentData["ENGINE_type"];
-                        DeploymentValues.bsm_integration = (string)serverDeploymentData["bsm_integration"];
+                        DeploymentValues.SERVER_type = serverDeploymentData.SERVER_type;
+                        DeploymentValues.SERVER_launch_arguments = serverDeploymentData.SERVER_launch_arguments;
+                        DeploymentValues.DIR_executable = serverDeploymentData.DIR_executable;
+                        DeploymentValues.DIR_config = serverDeploymentData.DIR_config;
+                        DeploymentValues.DIR_config_file = serverDeploymentData.DIR_config_file;
+                        DeploymentValues.STEAM_authrequired = serverDeploymentData.STEAM_authrequired;
+                        DeploymentValues.STEAM_steamcmd_required = serverDeploymentData.STEAM_steamcmd_required;
+                        DeploymentValues.STEAM_workshop_enabled = serverDeploymentData.STEAM_workshop_enabled;
+                        DeploymentValues.ENGINE_type = serverDeploymentData.ENGINE_type;
+                        DeploymentValues.bsm_integration = serverDeploymentData.bsm_integration;
                     }
                 }
 

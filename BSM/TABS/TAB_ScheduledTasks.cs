@@ -60,9 +60,9 @@ namespace Borealis
         {
             if (GameServer_Management.server_collection != null)
             {
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    comboboxGameserverList.Items.Add((string)gameserver["SERVER_name_friendly"]);
+                    comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
             }
         }

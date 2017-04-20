@@ -4,6 +4,7 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
+
     public partial class TAB_ABOUT : Form
     {
         public TAB_ABOUT()

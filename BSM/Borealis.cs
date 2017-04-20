@@ -251,33 +251,9 @@ namespace Borealis
                     System.IO.File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
                 }
 
-                foreach (JObject gameserver in GameServer_Management.server_collection)
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                    GameServer_Management WriteConfigOnClose = new GameServer_Management();
-                    WriteConfigOnClose.DeployGameserver(
-                        //Server-based Properties
-                        (string)gameserver["SERVER_name_friendly"],
-                        (string)gameserver["SERVER_type"],
-                        (string)gameserver["SERVER_launch_arguments"],
-                        (bool)gameserver["SERVER_running_status"],
-
-                        //Directory-based Properties
-                        (string)gameserver["DIR_install_location"], 
-                        (string)gameserver["DIR_executable"],
-                        (string)gameserver["DIR_config"],
-                        (string)gameserver["DIR_config_file"],
-
-                        //Steam-based Properties
-                        (bool)gameserver["STEAM_authrequired"],
-                        (bool)gameserver["STEAM_steamcmd_required"],
-                        (bool)gameserver["STEAM_workshop_enabled"],
-
-                        //Miscellanious Properties
-                        (string)gameserver["ENGINE_type"],
-                        (string)gameserver["bsm_integration"],
-
-                        //Deployment Property
-                        true);
+                        gameserver.AddToConfig(gameserver, true);
                 }
             }
         }
