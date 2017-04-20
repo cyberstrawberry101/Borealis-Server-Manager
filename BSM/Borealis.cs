@@ -78,30 +78,23 @@ namespace Borealis
         public void BorealisServerManager_Load(object sender, EventArgs e)
         {
             //Create blank gameservers.json
-            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\gameservers.json") == false)
+            if (File.Exists(Environment.CurrentDirectory + @"\gameservers.json") == false)
             {
                 File.Create(Environment.CurrentDirectory + @"\gameservers.json").Dispose();
             }
 
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
-            MdiClient ctlMDI;
 
             // Loop through all of the form's controls looking
             // for the control of type MdiClient.
-            foreach (System.Windows.Forms.Control ctl in this.Controls)
+            foreach (Control control in this.Controls)
             {
-                try
+                var controlMdi = control as MdiClient;
+                if (controlMdi != null)
                 {
-                    // Attempt to cast the control to type MdiClient.
-                    ctlMDI = (MdiClient)ctl;
 
-                    // Set the BackColor of the MdiClient control.
-                    ctlMDI.BackColor = this.BackColor;
-                }
-                catch (InvalidCastException)
-                {
-                    // Catch and ignore the error if casting failed.
+                    controlMdi.BackColor = this.BackColor;
                 }
             }
 
