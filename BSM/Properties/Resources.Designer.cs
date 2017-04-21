@@ -123,16 +123,6 @@ namespace Borealis_Default_Namespace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap EXPERIMENT_ICON {
-            get {
-                object obj = ResourceManager.GetObject("EXPERIMENT_ICON", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap HELP_ICON {
             get {
                 object obj = ResourceManager.GetObject("HELP_ICON", resourceCulture);
