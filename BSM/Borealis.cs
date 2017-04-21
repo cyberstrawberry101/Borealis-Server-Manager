@@ -217,7 +217,7 @@ namespace Borealis
 
                 foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
-                        gameserver.AddToConfig(gameserver, true);
+                    gameserver.ExportJSON(true);
                 }
             }
         }

@@ -143,19 +143,6 @@ namespace Borealis
             ENGINE_type = (string)jsondata["ENGINE_type"];
             bsm_integration = (string)jsondata["bsm_integration"];
         }
-
-        //=====================================================================================//
-        // Method to deploy gameserver data into gameservers.json                              //
-        //=====================================================================================//
-        public void AddToConfig(GameServer_Object objectData, bool borealis_closing)
-        {
-            if (borealis_closing == false)                                          //Only add data to active JObject list if it isn't being triggered by the closing event triggering it
-            {
-                GameServer_Management.server_collection.Add(objectData);            //Send the server to the gameserver list.
-            }
-
-            
-        }
     }
 }
 
