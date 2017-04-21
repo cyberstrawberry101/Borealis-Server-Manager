@@ -9,19 +9,19 @@ namespace Borealis
 {
     public class System_Monitoring
     {
+        private readonly ComputerInfo _computerInfo = new ComputerInfo();
+
         //===================================================================================//
         // RAM UTILIZATION INFO FUNCTIONS                                                    //
         //===================================================================================//
         public long RetreiveFreeRAM()
         {
-            var info = new ComputerInfo();
-            return (long)(info.AvailablePhysicalMemory / 1024 / 1024);
+            return (long)(this._computerInfo.AvailablePhysicalMemory / 1024 / 1024);
         }
 
         public long RetreiveTotalAvailableRAM()
         {
-            var info = new ComputerInfo();
-            return (long)(info.TotalPhysicalMemory / 1024 / 1024);
+            return (long)(this._computerInfo.TotalPhysicalMemory / 1024 / 1024);
         }
 
         //===================================================================================//
