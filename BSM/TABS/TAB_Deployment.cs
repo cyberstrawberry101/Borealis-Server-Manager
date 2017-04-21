@@ -1,9 +1,13 @@
 ﻿using MetroFramework;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using Serilog;
 
 namespace Borealis
 {
@@ -62,43 +66,58 @@ namespace Borealis
             }
         }
 
-        private void RefreshData()
+        private async Task<IEnumerable<string>> RefreshDataAsync()
         {
             //Populate gameserver list by querying the available configurations from the server.
             try
             {
                 using (var webClient = new System.Net.WebClient())
                 {
-                    var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/index");
+                    var json = await webClient.DownloadStringTaskAsync("http://phantom-net.duckdns.org:1337/index").ConfigureAwait(false);
 
-                    foreach (var serverAppName in JObject.Parse(json))
-                    {
-                        JToken value = serverAppName.Value;
-                        dropdownServerSelection.Items.Add(value.ToString());
-                    }
+                    return JObject.Parse(json)
+                        .Select<KeyValuePair<string, JToken>, string>(token => token.Value.ToString())
+                        .ToList();
                 }
-                dropdownServerSelection.PromptText = "< Select a gameserver to deploy >";
-            }
-            catch (Exception)
-            {
-                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Cannot connect to http://phantom-net.duckdns.org:1337 \nThis means that deployment at this time is impossible.", "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            if (GameServer_Management.server_collection != null)
+            }
+            catch (Exception ex)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
-                {
-                    dropdownExistingServer.Items.Add(gameserver.SERVER_name_friendly);
-                }
+                Log.Error(ex, "Could not load the gameserver list");
+                throw;
             }
         }
 
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
-        private void ServerDeployment_Load(object sender, EventArgs e)
+        private async void ServerDeployment_LoadAsync(object sender, EventArgs e)
         {
-            RefreshData();
+            try
+            {
+                var serverNames = await this.RefreshDataAsync();
+
+                foreach (string serverName in serverNames)
+                {
+                    this.dropdownServerSelection.Items.Add(serverName);
+                }
+
+                this.dropdownServerSelection.PromptText = "< Select a gameserver to deploy >";
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(ActiveForm,
+                    "Cannot connect to http://phantom-net.duckdns.org:1337 \nThis means that deployment at this time is impossible.",
+                    "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                {
+                    this.dropdownExistingServer.Items.Add(gameserver.SERVER_name_friendly);
+                }
+            }
         }
 
         //===================================================================================//

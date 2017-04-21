@@ -519,7 +519,7 @@
             this.Name = "TAB_DEPLOYMENT";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "sd";
-            this.Load += new System.EventHandler(this.ServerDeployment_Load);
+            this.Load += new System.EventHandler(this.ServerDeployment_LoadAsync);
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();
             this.ResumeLayout(false);
