@@ -13,7 +13,6 @@ namespace Borealis
         // Store all gameservers into a collections in memory                                  //
         //=====================================================================================//
         public static List<GameServer_Object> server_collection = new List<GameServer_Object>(); //Master collection of deployed gameservers
-        public static List<GameServer_Object> deployment_server = new List<GameServer_Object>(); //Current server in memory being deployed
 
         //=====================================================================================//
         // Method to add a gameserver JObject to the collection                                //
@@ -21,14 +20,6 @@ namespace Borealis
         public void addServer(GameServer_Object gameserver)
         {
             server_collection.Add(gameserver);
-        }
-
-        //=====================================================================================//
-        // Method to add a gameserver JObject to the temporary deployment list                 //
-        //=====================================================================================//
-        public void addDeploymentServer(GameServer_Object gameserver_object)
-        {
-            deployment_server.Add(gameserver_object);
         }
 
         //=====================================================================================//
@@ -70,7 +61,7 @@ namespace Borealis
         //Directory-based Properties
         public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
         public string DIR_executable { get; set; }          //The relative location of where the server executable is located relative to install location
-        public string DIR_config { get; set; }              //Relative config directory 
+        public string DIR_config { get; set; }              //Relative config directory
         public string DIR_config_file { get; set; }         //Name of configuration file if there is only one that controls the server
 
         //Steam-based Properties
@@ -120,11 +111,11 @@ namespace Borealis
             }
 
             return serverData; //Returns all of the internal data as a JSON Object, usable by other internal methods.
-        }     
+        }
 
         //=====================================================================================//
         // Method to import gameserver data from gameservers.json                              //
-        //=====================================================================================// 
+        //=====================================================================================//
         public void ImportJSON(JObject jsondata)
         {
             SERVER_name_friendly = (string)jsondata["SERVER_name_friendly"];
