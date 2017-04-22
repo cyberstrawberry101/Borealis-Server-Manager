@@ -68,7 +68,21 @@ namespace Borealis
         }
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //Locate the associated GameServer_Object, and allow the user to edit the values associated with them.
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            {
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
+                {
+                    gameserver.SERVER_name_friendly = txtboxFriendlyName.Text;
+                    gameserver.SERVER_launch_arguments = txtboxArguments.Text;
+                }
+            }
+
+            //Notify the user that the data has been committed to memory, and warn them that if Borealis crashes, they will lose their changes.
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "The gameserver has been updated!\nPlease note: if Borealis crashes unexpectedly, these changes will be reverted.", "Changes Saved!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+            //Update the panel information after committing the updates to the gameserver.
+            RefreshData();
         }
         
         //Methods that handle reporting progress back to the UI
