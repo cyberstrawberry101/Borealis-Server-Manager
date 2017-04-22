@@ -138,16 +138,6 @@ namespace Borealis
             btnLoadConfig.Enabled = true;  //Enable loading a config file manually
         }
 
-        private void btnStopServer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnDestroyServer_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void RefreshData()
         {
             comboboxGameserverList.Items.Clear();
@@ -167,7 +157,29 @@ namespace Borealis
 
         private void btnDestroyServer_Click_1(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately this feature has not been implemented yet.  Please wait for an update to fix this!", "Not Implemented Yet", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //Locate the associated GameServer_Object, and allow the user to edit the values associated with them.
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            {
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
+                {
+                    DialogResult result = MetroMessageBox.Show(ActiveForm,
+                                            "WARNING: Destroying a server is irreversible. are you sure you wish to do this?\nCurrently only the configuration will be destroyed, game data will need to be manually deleted.",
+                                            "Destroy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        int GameServer_ObjectIndex = GameServer_Management.server_collection.FindIndex(x => x==gameserver);
+                        GameServer_Management.server_collection.RemoveAt(GameServer_ObjectIndex);
+
+                        //Clear the text fields since the server no longer exists, to simply tidy things up.
+                        txtboxFriendlyName.Text = "";
+                        txtboxArguments.Text = "";
+
+                        //Update the panel information after destroying the gameserver.
+                        RefreshData();
+                    }
+                }
+            }
         }
     }
 }
