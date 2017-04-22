@@ -58,16 +58,7 @@ namespace Borealis
                     lblGameType.Text = string.Format("Game Type: {0}", gameserver.SERVER_type);
                     lblGameEngine.Text = string.Format("Game Engine: {0}", gameserver.ENGINE_type);
                     lblSteamWorkshop.Text = string.Format("Steam Workshop: {0}", gameserver.STEAM_workshop_enabled);
-
-                    //Enable Steam Workshop button if the server is compatible with it.
-                    if (gameserver.STEAM_workshop_enabled == true)
-                    {
-                        btnSteamWorkshop.Enabled = true;
-                    }
-                    else
-                    {
-                        btnSteamWorkshop.Enabled = false;
-                    }
+                    btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
 
                     //Friendly user-given server name
                     lblFriendlyName.Visible = true;
