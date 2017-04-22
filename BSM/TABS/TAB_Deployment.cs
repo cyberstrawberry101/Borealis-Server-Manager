@@ -1,5 +1,4 @@
 ﻿using MetroFramework;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using Serilog;
 
 namespace Borealis
@@ -66,7 +66,7 @@ namespace Borealis
             }
         }
 
-        private async Task<IEnumerable<string>> RefreshDataAsync()
+        private async Task<IList<GameserverType>> RefreshDataAsync()
         {
             //Populate gameserver list by querying the available configurations from the server.
             try
@@ -75,8 +75,8 @@ namespace Borealis
                 {
                     var json = await webClient.DownloadStringTaskAsync("http://phantom-net.duckdns.org:1337/index").ConfigureAwait(false);
 
-                    return JObject.Parse(json)
-                        .Select<KeyValuePair<string, JToken>, string>(token => token.Value.ToString())
+                    return JsonConvert.DeserializeObject<IDictionary<string, string>>(json)
+                        .Select(kv => new GameserverType(kv.Key, kv.Value))
                         .ToList();
                 }
 
@@ -88,6 +88,20 @@ namespace Borealis
             }
         }
 
+        private class GameserverType
+        {
+            public string Id { get; }
+            public string Name { get; }
+
+            public GameserverType(string id, string name)
+            {
+                this.Id = id;
+                this.Name = name;
+            }
+
+            public override string ToString() => this.Name;
+        }
+
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
@@ -95,9 +109,9 @@ namespace Borealis
         {
             try
             {
-                var serverNames = await this.RefreshDataAsync();
+                IList<GameserverType> gameserverTypes = await this.RefreshDataAsync();
 
-                foreach (string serverName in serverNames)
+                foreach (GameserverType serverName in gameserverTypes)
                 {
                     this.dropdownServerSelection.Items.Add(serverName);
                 }
@@ -366,7 +380,8 @@ namespace Borealis
             }
 
             //Query specific appID for all required data.
-            GameServer_Object gameServer = ServerAPI.QUERY_DATA(ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text));
+            var gameserverType = (GameserverType) this.dropdownServerSelection.SelectedItem;
+            GameServer_Object gameServer = ServerAPI.QUERY_DATA(gameserverType.Id);
 
             //Retrieve the data that was just stored into the deployment server list.
             var deploymentValues = new DeploymentValues
