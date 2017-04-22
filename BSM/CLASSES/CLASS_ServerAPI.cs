@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Borealis
 {
@@ -9,14 +10,11 @@ namespace Borealis
         //===================================================================================//
         public static GameServer_Object QUERY_DATA(string appID)
         {
-            GameServer_Object DeploymentServer = new GameServer_Object();
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/config/" + appID);
-                DeploymentServer.ImportJSON(JObject.Parse(json));
+                return JsonConvert.DeserializeObject<GameServer_Object>(json);
             }
-
-            return DeploymentServer;
         }
 
         //===================================================================================//

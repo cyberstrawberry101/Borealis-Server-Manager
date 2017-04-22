@@ -28,8 +28,9 @@ namespace Borealis
         public void addAllServers_fromConfig()
         {
             int BracketCount = 0;
-            string GameServerList = new StreamReader(Environment.CurrentDirectory + @"\gameservers.json").ReadToEnd();
+            string GameServerList = File.ReadAllText(Environment.CurrentDirectory + @"\gameservers.json");
             StringBuilder Json = new StringBuilder();
+
             foreach (char c in GameServerList)
             {
                 if (c == '{')
@@ -40,17 +41,17 @@ namespace Borealis
 
                 if (BracketCount == 0 && c != ' ')
                 {
-                    GameServer_Object importedServer = new GameServer_Object();
-                    importedServer.ImportJSON(JObject.Parse(Json.ToString()));
+                    var importedServer = JsonConvert.DeserializeObject<GameServer_Object>(Json.ToString());
                     addServer(importedServer);
-                    Json = new StringBuilder();
+
+                    Json.Clear();
                 }
             }
         }
     }
 
 
-    public struct GameServer_Object
+    public class GameServer_Object
     {
         //Server-based Properties
         public string SERVER_name_friendly { get; set; }    //User-designated name
@@ -111,28 +112,6 @@ namespace Borealis
             }
 
             return serverData; //Returns all of the internal data as a JSON Object, usable by other internal methods.
-        }
-
-        //=====================================================================================//
-        // Method to import gameserver data from gameservers.json                              //
-        //=====================================================================================//
-        public void ImportJSON(JObject jsondata)
-        {
-            SERVER_name_friendly = (string)jsondata["SERVER_name_friendly"];
-            SERVER_type = (string)jsondata["SERVER_type"];
-            SERVER_launch_arguments = (string)jsondata["SERVER_launch_arguments"];
-
-            DIR_install_location = (string)jsondata["DIR_install_location"];
-            DIR_executable = (string)jsondata["DIR_executable"];
-            DIR_config = (string)jsondata["DIR_config"];
-            DIR_config_file = (string)jsondata["DIR_config_file"];
-
-            STEAM_authrequired = (bool)jsondata["STEAM_authrequired"];
-            STEAM_steamcmd_required = (bool)jsondata["STEAM_steamcmd_required"];
-            STEAM_workshop_enabled = (bool)jsondata["STEAM_workshop_enabled"];
-
-            ENGINE_type = (string)jsondata["ENGINE_type"];
-            bsm_integration = (string)jsondata["bsm_integration"];
         }
     }
 }
