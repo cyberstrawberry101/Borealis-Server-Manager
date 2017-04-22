@@ -184,7 +184,7 @@ namespace Borealis
             GameServer_Management.server_collection.Add(DeployConfiguredServer);
 
             //Redundantly write the data to disk in the event of a crash.
-            DeployConfiguredServer.ExportJSON(true);
+            GameServer_Management.WriteServersToConfig();
 
             this.btnCancelDeployGameserver.Visible = false;
             this.btnDeployGameserver.Enabled = true;

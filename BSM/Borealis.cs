@@ -102,8 +102,7 @@ namespace Borealis
             lblVersion.Text = "Version " + Application.ProductVersion + " Alpha";
 
             //Store all gameservers into memory to be used by Borealis.
-            GameServer_Management PullConfig = new GameServer_Management();
-            PullConfig.addAllServers_fromConfig();
+            GameServer_Management.ReadServersFromConfig();
 
 
             // Instantiate all Panels Immediately
@@ -215,10 +214,7 @@ namespace Borealis
                     System.IO.File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
                 }
 
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
-                {
-                    gameserver.ExportJSON(true);
-                }
+                GameServer_Management.WriteServersToConfig();
             }
         }
     }
