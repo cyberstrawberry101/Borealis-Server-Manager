@@ -35,7 +35,6 @@
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel7 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.btnUpdateServerConfig = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnLoadConfig = new Bunifu.Framework.UI.BunifuFlatButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.txtboxFriendlyName = new System.Windows.Forms.TextBox();
@@ -43,8 +42,8 @@
             this.btnDestroyServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblConfigOutput = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.txtboxConfigOutput = new System.Windows.Forms.ListBox();
+            this.lblStartingMap = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtboxStartingMap = new MetroFramework.Controls.MetroComboBox();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -138,45 +137,6 @@
             this.toolTip1.SetToolTip(this.btnUpdateServerConfig, "Commit the changes to the associated configuration files.");
             this.btnUpdateServerConfig.Visible = false;
             this.btnUpdateServerConfig.Click += new System.EventHandler(this.btnUpdateServerConfig_Click);
-            // 
-            // btnLoadConfig
-            // 
-            this.btnLoadConfig.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnLoadConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnLoadConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLoadConfig.BorderRadius = 0;
-            this.btnLoadConfig.ButtonText = "Load Config Manually";
-            this.btnLoadConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLoadConfig.DisabledColor = System.Drawing.Color.Gray;
-            this.btnLoadConfig.Enabled = false;
-            this.btnLoadConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnLoadConfig.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnLoadConfig.Iconimage = null;
-            this.btnLoadConfig.Iconimage_right = null;
-            this.btnLoadConfig.Iconimage_right_Selected = null;
-            this.btnLoadConfig.Iconimage_Selected = null;
-            this.btnLoadConfig.IconMarginLeft = 0;
-            this.btnLoadConfig.IconMarginRight = 0;
-            this.btnLoadConfig.IconRightVisible = true;
-            this.btnLoadConfig.IconRightZoom = 0D;
-            this.btnLoadConfig.IconVisible = true;
-            this.btnLoadConfig.IconZoom = 90D;
-            this.btnLoadConfig.IsTab = false;
-            this.btnLoadConfig.Location = new System.Drawing.Point(413, 493);
-            this.btnLoadConfig.Name = "btnLoadConfig";
-            this.btnLoadConfig.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnLoadConfig.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnLoadConfig.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnLoadConfig.selected = false;
-            this.btnLoadConfig.Size = new System.Drawing.Size(143, 48);
-            this.btnLoadConfig.TabIndex = 46;
-            this.btnLoadConfig.Text = "Load Config Manually";
-            this.btnLoadConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoadConfig.Textcolor = System.Drawing.Color.White;
-            this.btnLoadConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolTip1.SetToolTip(this.btnLoadConfig, "Manually open the config files associated with the selected gameserver.");
-            this.btnLoadConfig.Visible = false;
-            this.btnLoadConfig.Click += new System.EventHandler(this.btnLoadConfig_Click);
             // 
             // openFileDialog1
             // 
@@ -272,37 +232,43 @@
             this.lblArguments.BackColor = System.Drawing.Color.Transparent;
             this.lblArguments.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblArguments.Location = new System.Drawing.Point(14, 143);
+            this.lblArguments.Location = new System.Drawing.Point(12, 143);
             this.lblArguments.Name = "lblArguments";
             this.lblArguments.Size = new System.Drawing.Size(120, 19);
             this.lblArguments.TabIndex = 50;
             this.lblArguments.Text = "Launch Arguments:";
             this.lblArguments.Visible = false;
             // 
-            // lblConfigOutput
+            // lblStartingMap
             // 
-            this.lblConfigOutput.AutoSize = true;
-            this.lblConfigOutput.BackColor = System.Drawing.Color.Transparent;
-            this.lblConfigOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblConfigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblConfigOutput.Location = new System.Drawing.Point(14, 219);
-            this.lblConfigOutput.Name = "lblConfigOutput";
-            this.lblConfigOutput.Size = new System.Drawing.Size(93, 19);
-            this.lblConfigOutput.TabIndex = 52;
-            this.lblConfigOutput.Text = "Server Config:";
-            this.lblConfigOutput.Visible = false;
+            this.lblStartingMap.AutoSize = true;
+            this.lblStartingMap.BackColor = System.Drawing.Color.Transparent;
+            this.lblStartingMap.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblStartingMap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblStartingMap.Location = new System.Drawing.Point(12, 206);
+            this.lblStartingMap.Name = "lblStartingMap";
+            this.lblStartingMap.Size = new System.Drawing.Size(89, 19);
+            this.lblStartingMap.TabIndex = 54;
+            this.lblStartingMap.Text = "Starting Map:";
+            this.lblStartingMap.Visible = false;
             // 
-            // txtboxConfigOutput
+            // txtboxStartingMap
             // 
-            this.txtboxConfigOutput.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.txtboxConfigOutput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxConfigOutput.FormattingEnabled = true;
-            this.txtboxConfigOutput.Location = new System.Drawing.Point(16, 241);
-            this.txtboxConfigOutput.Name = "txtboxConfigOutput";
-            this.txtboxConfigOutput.Size = new System.Drawing.Size(693, 225);
-            this.txtboxConfigOutput.TabIndex = 54;
-            this.txtboxConfigOutput.TabStop = false;
-            this.txtboxConfigOutput.Visible = false;
+            this.txtboxStartingMap.BackColor = System.Drawing.Color.White;
+            this.txtboxStartingMap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxStartingMap.FormattingEnabled = true;
+            this.txtboxStartingMap.ItemHeight = 23;
+            this.txtboxStartingMap.Location = new System.Drawing.Point(16, 228);
+            this.txtboxStartingMap.Name = "txtboxStartingMap";
+            this.txtboxStartingMap.Size = new System.Drawing.Size(388, 29);
+            this.txtboxStartingMap.Sorted = true;
+            this.txtboxStartingMap.TabIndex = 56;
+            this.txtboxStartingMap.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.toolTip1.SetToolTip(this.txtboxStartingMap, "Select which map you want the server to start on when launched.");
+            this.txtboxStartingMap.UseCustomBackColor = true;
+            this.txtboxStartingMap.UseCustomForeColor = true;
+            this.txtboxStartingMap.UseSelectable = true;
+            this.txtboxStartingMap.Visible = false;
             // 
             // TAB_Management
             // 
@@ -312,14 +278,13 @@
             this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.txtboxConfigOutput);
+            this.Controls.Add(this.txtboxStartingMap);
+            this.Controls.Add(this.lblStartingMap);
             this.Controls.Add(this.btnDestroyServer);
-            this.Controls.Add(this.lblConfigOutput);
             this.Controls.Add(this.txtboxArguments);
             this.Controls.Add(this.lblArguments);
             this.Controls.Add(this.txtboxFriendlyName);
             this.Controls.Add(this.lblFriendlyName);
-            this.Controls.Add(this.btnLoadConfig);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.comboboxGameserverList);
             this.Controls.Add(this.bunifuCustomLabel7);
@@ -341,15 +306,14 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel7;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
-        private Bunifu.Framework.UI.BunifuFlatButton btnLoadConfig;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuCustomLabel lblFriendlyName;
         private System.Windows.Forms.TextBox txtboxFriendlyName;
         private System.Windows.Forms.TextBox txtboxArguments;
         private Bunifu.Framework.UI.BunifuCustomLabel lblArguments;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblConfigOutput;
         private Bunifu.Framework.UI.BunifuFlatButton btnDestroyServer;
-        private System.Windows.Forms.ListBox txtboxConfigOutput;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblStartingMap;
+        private MetroFramework.Controls.MetroComboBox txtboxStartingMap;
     }
 }

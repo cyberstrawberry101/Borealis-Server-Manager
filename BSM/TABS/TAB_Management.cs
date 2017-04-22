@@ -26,46 +26,6 @@ namespace Borealis
             }
         }
 
-        //===================================================================================//
-        // MANAGEMENT:                                                                       //
-        //===================================================================================//
-        //Methods that handle management itself.
-        private void btnLoadConfig_Click(object sender, EventArgs e)
-        {
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
-            {
-                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
-                {
-                    //GameServer_Object Management_Instance = new GameServer_Object();
-                    openFileDialog1.InitialDirectory = gameserver.DIR_install_location + gameserver.DIR_config;
-                }
-            }
-
-            // Show the dialog and get result.
-            DialogResult result = openFileDialog1.ShowDialog();
-            if (result == DialogResult.OK) // Test result.
-            {
-                int counter = 0;
-                string line;
-                txtboxConfigOutput.Items.Clear(); //Clear the table
-
-                try
-                {
-                    // Read the file and display it line by line.
-                    System.IO.StreamReader file = new System.IO.StreamReader(openFileDialog1.FileName);
-                    while ((line = file.ReadLine()) != null)
-                    {
-                        txtboxConfigOutput.Items.Add(line);
-                        counter++;
-                    }
-
-                    file.Close();
-                }
-                catch (IOException)
-                {
-                }
-            }
-        }
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
             //Locate the associated GameServer_Object, and allow the user to edit the values associated with them.
@@ -95,47 +55,19 @@ namespace Borealis
                     txtboxFriendlyName.Text = gameserver.SERVER_name_friendly;
                     txtboxArguments.Text = gameserver.SERVER_launch_arguments;
 
-                    if (gameserver.DIR_config_file != "")
-                    {
-                        int counter = 0;
-                        string line;
-                        txtboxConfigOutput.Items.Clear(); //Clear the table
-
-                        try
-                        {
-                            System.IO.StreamReader file = new System.IO.StreamReader(gameserver.DIR_install_location + gameserver.DIR_config + gameserver.DIR_config_file);
-                            while ((line = file.ReadLine()) != null)
-                            {
-                                txtboxConfigOutput.Items.Add(line);
-                                counter++;
-                            }
-                            
-                            file.Close();
-                        }
-                        catch (Exception)
-                        {
-                            
-                        }
-
-                        if (txtboxConfigOutput.Items.Count < 1)
-                        {
-                            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "[" + gameserver.DIR_install_location + gameserver.DIR_config + gameserver.DIR_config_file + "]\nappears to be missing or empty.  Please load a config file manually or make a new one to fix this issue.", "Default Config File Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-
                     lblFriendlyName.Visible = true;
                     txtboxFriendlyName.Visible = true;
+
                     lblArguments.Visible = true;
                     txtboxArguments.Visible = true;
-                    lblConfigOutput.Visible = true;
-                    txtboxConfigOutput.Visible = true;
+
+                    lblStartingMap.Visible = true;
+                    txtboxStartingMap.Visible = true;
+
                     btnUpdateServerConfig.Visible = true;
-                    btnLoadConfig.Visible = true;
                     btnDestroyServer.Visible = true;
                 }
             }
-
-            btnLoadConfig.Enabled = true;  //Enable loading a config file manually
         }
 
         public void RefreshData()

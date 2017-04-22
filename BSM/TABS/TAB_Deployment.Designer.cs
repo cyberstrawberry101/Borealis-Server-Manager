@@ -370,7 +370,6 @@
             this.panelProgress.Name = "panelProgress";
             this.panelProgress.Size = new System.Drawing.Size(717, 56);
             this.panelProgress.TabIndex = 50;
-            this.panelProgress.Visible = false;
             // 
             // lblVerifyIntegrity
             // 
