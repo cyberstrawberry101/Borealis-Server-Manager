@@ -197,6 +197,9 @@ namespace Borealis
             {
                 this.Invoke(new Action(() =>
                 {
+                    if (this._currentDeploymentValues == null)
+                        return;
+
                     this.lblDownloadProgressDetails.Text = e.Data;
 
                     // I'm a bit uneasy with directly calling .Groups, what happens when there isn't a match?
@@ -208,14 +211,16 @@ namespace Borealis
 
                     if (this._currentDeploymentValues.STEAM_steamcmd_required)
                     {
-                        if (e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text) + "' already up to date." || e.Data == "Success! App '" + ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text) + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
+                        string steamAppId = ((GameserverType) this.dropdownServerSelection.SelectedItem).Id;
+
+                        if (e.Data == "Success! App '" + steamAppId + "' already up to date." || e.Data == "Success! App '" + steamAppId + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
                         {
                             this.progressbarDownloadProgressOverall.Value = 100;
                             this.deployServerToMemory();
                             //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             //panelProgress.Visible = false;
                         }
-                        else if (e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text) + "' state is 0x202 after update job." || e.Data == "Error! App '" + ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text) + "' state is 0x602 after update job.")
+                        else if (e.Data == "Error! App '" + steamAppId + "' state is 0x202 after update job." || e.Data == "Error! App '" + steamAppId + "' state is 0x602 after update job.")
                         {
                             this.btnDeployGameserver.Enabled = false;
                             this.btnCancelDeployGameserver.Visible = true;
