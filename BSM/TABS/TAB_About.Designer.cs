@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_ABOUT));
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -93,9 +92,9 @@
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(1, 1);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(123, 17);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(128, 17);
             this.bunifuCustomLabel1.TabIndex = 14;
-            this.bunifuCustomLabel1.Text = "Lead Programmer:";
+            this.bunifuCustomLabel1.Text = "Lead Programmers:";
             // 
             // bunifuCustomLabel2
             // 
@@ -105,10 +104,11 @@
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(1, 18);
             this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(88, 19);
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(98, 38);
             this.bunifuCustomLabel2.TabIndex = 15;
-            this.bunifuCustomLabel2.Text = "Nicole Rappe";
-            this.toolTip1.SetToolTip(this.bunifuCustomLabel2, "The UI designer and back-end code developer.");
+            this.bunifuCustomLabel2.Text = "Nicole Rappe\r\nJohn Du Hart V";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel2, "Nicole Rappe: The project lead programmer and designer.\r\nJohn Du Hart V: Responsi" +
+        "ble for extensive code optimization and re-structuring.");
             // 
             // panel1
             // 
@@ -117,7 +117,7 @@
             this.panel1.Controls.Add(this.bunifuCustomLabel2);
             this.panel1.Location = new System.Drawing.Point(16, 91);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(230, 39);
+            this.panel1.Size = new System.Drawing.Size(230, 60);
             this.panel1.TabIndex = 21;
             // 
             // panel2
@@ -125,7 +125,7 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.bunifuCustomLabel3);
             this.panel2.Controls.Add(this.bunifuCustomLabel4);
-            this.panel2.Location = new System.Drawing.Point(16, 136);
+            this.panel2.Location = new System.Drawing.Point(16, 157);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(230, 39);
             this.panel2.TabIndex = 22;
@@ -259,9 +259,9 @@
             this.panel4.BackColor = System.Drawing.Color.Transparent;
             this.panel4.Controls.Add(this.bunifuCustomLabel6);
             this.panel4.Controls.Add(this.bunifuCustomLabel7);
-            this.panel4.Location = new System.Drawing.Point(16, 181);
+            this.panel4.Location = new System.Drawing.Point(16, 202);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(230, 82);
+            this.panel4.Size = new System.Drawing.Size(230, 61);
             this.panel4.TabIndex = 23;
             // 
             // bunifuCustomLabel6
@@ -284,10 +284,11 @@
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel7.Location = new System.Drawing.Point(1, 18);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(98, 57);
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(71, 38);
             this.bunifuCustomLabel7.TabIndex = 15;
-            this.bunifuCustomLabel7.Text = "John Du Hart V\r\nCyrilPaulus\r\nCapsup";
-            this.toolTip1.SetToolTip(this.bunifuCustomLabel7, resources.GetString("bunifuCustomLabel7.ToolTip"));
+            this.bunifuCustomLabel7.Text = "CyrilPaulus\r\nCapsup";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel7, "CyrilPaulus: Helped design the performance metrics back-end.\r\nCapsup: Provided ad" +
+        "vice on how to maintain the project professionally.");
             // 
             // toolTip1
             // 

@@ -217,6 +217,7 @@ namespace Borealis
                         {
                             this.progressbarDownloadProgressOverall.Value = 100;
                             this.deployServerToMemory();
+                            this.lblDownloadProgress.Text = "GameServer Deployed / Updated Successfully!";
                             //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             //panelProgress.Visible = false;
                         }
@@ -457,6 +458,7 @@ namespace Borealis
                 this.btnCancelDeployGameserver.Visible = true;
                 this.btnDeployGameserver.Enabled = false;
                 this.DeployGameServer(deploymentValues);
+                this.lblDownloadProgress.Text = "Download / Installation Progress:";
             }
         }
         private void btnCancelDeployGameserver_Click(object sender, EventArgs e)
@@ -473,6 +475,7 @@ namespace Borealis
             this.btnDeployGameserver.Enabled = true;
             this.progressbarDownloadProgressOverall.Value = 0;
             this._currentDeploymentValues = null;
+            this.lblDownloadProgress.Text = "Download / Installation Progress:";
         }
     }
  }
