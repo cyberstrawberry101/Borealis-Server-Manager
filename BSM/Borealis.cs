@@ -10,6 +10,14 @@ namespace Borealis
 
     public partial class BorealisServerManager : Form
     {
+        //Delegate to control UI from another panel (Use with caution)
+        /*public static void OpenWorkshopPanel()
+        {
+            MDI_CURTAINHIDER.Visible = true;
+            tabForms.SelectedIndex = 0;
+            MDI_CURTAINHIDER.Visible = false;
+        }*/
+
         //===================================================================================//
         // MDI HANDLING CODE:                                                                //
         //===================================================================================//
@@ -87,17 +95,6 @@ namespace Borealis
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
 
-            // Loop through all of the form's controls looking
-            // for the control of type MdiClient.
-            foreach (Control control in this.Controls)
-            {
-                var controlMdi = control as MdiClient;
-                if (controlMdi != null)
-                {
-                    controlMdi.BackColor = this.BackColor;
-                }
-            }
-
             //Display current product version.
             lblVersion.Text = "Version " + Application.ProductVersion + " Alpha";
 
@@ -109,10 +106,11 @@ namespace Borealis
             var panels = new List<Form>
             {
                 new TAB_DEPLOYMENT(),
-                new TAB_Management(),
+                new TAB_MANAGEMENT(),
                 new TAB_CONTROL(),
                 new TAB_ABOUT(),
                 new TAB_SCHEDULEDTASKS(),
+                new TAB_STEAMWORKSHOP(),
                 new TAB_DASHBOARD()
             };
 
@@ -125,6 +123,7 @@ namespace Borealis
             }
 
             MDI_CURTAINHIDER.Visible = false;
+
         }
 
         //===================================================================================//
@@ -146,9 +145,6 @@ namespace Borealis
                 SelectedTab.BackColor = Color.FromArgb(16, 22, 30);
                 SelectedIndicator.Visible = true;
             }
-
-            //Render the selection triangle programmatically.
-
         }
 
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
@@ -190,7 +186,7 @@ namespace Borealis
         {
             MDI_CURTAINHIDER.Visible = true;
             tab_animate(dashboard_tab, dashboard_indicator, true);
-            tabForms.SelectedIndex = 5;
+            tabForms.SelectedIndex = 6;
             MDI_CURTAINHIDER.Visible = false;
         }
 

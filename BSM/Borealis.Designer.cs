@@ -713,14 +713,14 @@
         private System.Windows.Forms.Panel management_indicator;
         private System.Windows.Forms.Panel deployment_indicator;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private System.Windows.Forms.Panel MDI_CURTAINHIDER;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel scheduledtasks_indicator;
         private Bunifu.Framework.UI.BunifuFlatButton scheduledtasks_tab;
         private System.Windows.Forms.Panel DO_NOT_DELETE;
-        private System.Windows.Forms.TabControl tabForms;
         private System.Windows.Forms.ToolTip MENU_TOOLTIPS;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private System.Windows.Forms.Panel MDI_CURTAINHIDER;
+        private System.Windows.Forms.TabControl tabForms;
     }
 }
 

@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
-    public partial class TAB_Management : Form
+    public partial class TAB_MANAGEMENT : Form
     {
-        public TAB_Management()
+        public TAB_MANAGEMENT()
         {
             InitializeComponent();
         }
@@ -132,9 +132,8 @@ namespace Borealis
 
         private void btnSteamWorkshop_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(ActiveForm,
-            "Unfortunately, Steam Workshop management is not currently implemented.",
-            "Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TAB_STEAMWORKSHOP DEBUGWINDOW = new TAB_STEAMWORKSHOP();
+            DEBUGWINDOW.Show();
         }
     }
 }

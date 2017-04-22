@@ -148,6 +148,12 @@
     <Compile Include="TABS\TAB_ScheduledTasks.Designer.cs">
       <DependentUpon>TAB_ScheduledTasks.cs</DependentUpon>
     </Compile>
+    <Compile Include="TABS\TAB_SteamWorkshop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TABS\TAB_SteamWorkshop.Designer.cs">
+      <DependentUpon>TAB_SteamWorkshop.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="TABS\TAB_About.resx">
       <DependentUpon>TAB_About.cs</DependentUpon>
     </EmbeddedResource>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TABS\TAB_ScheduledTasks.resx">
       <DependentUpon>TAB_ScheduledTasks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TABS\TAB_SteamWorkshop.resx">
+      <DependentUpon>TAB_SteamWorkshop.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="BorealisServerManager.ruleset" />
@@ -208,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BSM.ico" />
+    <None Include="RESOURCES\steamworkshop_backdrop.jpg" />
     <None Include="RESOURCES\MISC_ICONS\Steam-48.png" />
     <None Include="RESOURCES\red-polygonal-background [Converted].jpg" />
     <None Include="RESOURCES\backdrop.jpg" />
