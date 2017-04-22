@@ -418,35 +418,40 @@ namespace Borealis
                 deploymentValues.verify_integrity = "";
             }
 
+            DialogResult result;
             switch (deploymentValues.bsm_integration)
             {
                 case "none":
-                    if (MetroMessageBox.Show(ActiveForm, "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" + deploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) == DialogResult.Yes)
-                    {
-                        this.panelProgress.Visible = true;
-                        this.btnCancelDeployGameserver.Visible = true;
-                        this.btnDeployGameserver.Enabled = false;
-                        this.DeployGameServer(deploymentValues);
-                    }
+                    result = MetroMessageBox.Show(ActiveForm,
+                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        deploymentValues.DIR_install_location + "]" +
+                        "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.",
+                        "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                     break;
                 case "partial":
-                    if (MetroMessageBox.Show(ActiveForm, "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" + deploymentValues.DIR_install_location + "]" + "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
-                    {
-                        this.panelProgress.Visible = true;
-                        this.btnCancelDeployGameserver.Visible = true;
-                        this.btnDeployGameserver.Enabled = false;
-                        this.DeployGameServer(deploymentValues);
-                    }
+                    result = MetroMessageBox.Show(ActiveForm,
+                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        deploymentValues.DIR_install_location + "]" +
+                        "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.",
+                        "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     break;
                 case "full":
-                    if (MetroMessageBox.Show(ActiveForm, "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" + deploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-                        this.panelProgress.Visible = true;
-                        this.btnCancelDeployGameserver.Visible = true;
-                        this.btnDeployGameserver.Enabled = false;
-                        this.DeployGameServer(deploymentValues);
-                    }
+                    result = MetroMessageBox.Show(ActiveForm,
+                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        deploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
                     break;
+                default:
+                    result = DialogResult.Yes;
+                    break;
+            }
+
+            if (result == DialogResult.Yes)
+            {
+                this.panelProgress.Visible = true;
+                this.btnCancelDeployGameserver.Visible = true;
+                this.btnDeployGameserver.Enabled = false;
+                this.DeployGameServer(deploymentValues);
             }
         }
         private void btnCancelDeployGameserver_Click(object sender, EventArgs e)
