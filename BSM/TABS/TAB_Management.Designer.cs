@@ -49,6 +49,9 @@
             this.lblGameType = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblGameEngine = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblSteamWorkshop = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
+            this.lblMaxPlayers = new Bunifu.Framework.UI.BunifuCustomLabel();
+            ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -366,6 +369,33 @@
             this.lblSteamWorkshop.Text = "Steam Workshop:";
             this.lblSteamWorkshop.Visible = false;
             // 
+            // incMaxPlayers
+            // 
+            this.incMaxPlayers.Location = new System.Drawing.Point(16, 298);
+            this.incMaxPlayers.Name = "incMaxPlayers";
+            this.incMaxPlayers.Size = new System.Drawing.Size(116, 20);
+            this.incMaxPlayers.TabIndex = 62;
+            this.incMaxPlayers.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.incMaxPlayers.Visible = false;
+            // 
+            // lblMaxPlayers
+            // 
+            this.lblMaxPlayers.AutoSize = true;
+            this.lblMaxPlayers.BackColor = System.Drawing.Color.Transparent;
+            this.lblMaxPlayers.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblMaxPlayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblMaxPlayers.Location = new System.Drawing.Point(13, 276);
+            this.lblMaxPlayers.Name = "lblMaxPlayers";
+            this.lblMaxPlayers.Size = new System.Drawing.Size(82, 19);
+            this.lblMaxPlayers.TabIndex = 63;
+            this.lblMaxPlayers.Text = "Max Players:";
+            this.lblMaxPlayers.UseMnemonic = false;
+            this.lblMaxPlayers.Visible = false;
+            // 
             // TAB_MANAGEMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +404,8 @@
             this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.lblMaxPlayers);
+            this.Controls.Add(this.incMaxPlayers);
             this.Controls.Add(this.lblSteamWorkshop);
             this.Controls.Add(this.lblGameEngine);
             this.Controls.Add(this.lblGameType);
@@ -396,6 +428,7 @@
             this.Text = "ServerManagement";
             this.Activated += new System.EventHandler(this.ServerManagement_Activated);
             this.Load += new System.EventHandler(this.GSM_Management_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -421,5 +454,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblGameType;
         private Bunifu.Framework.UI.BunifuCustomLabel lblGameEngine;
         private Bunifu.Framework.UI.BunifuCustomLabel lblSteamWorkshop;
+        private System.Windows.Forms.NumericUpDown incMaxPlayers;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblMaxPlayers;
     }
 }

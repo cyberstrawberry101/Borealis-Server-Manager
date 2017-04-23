@@ -36,6 +36,8 @@ namespace Borealis
                 {
                     gameserver.SERVER_name_friendly = txtboxFriendlyName.Text;
                     gameserver.SERVER_launch_arguments = txtboxArguments.Text;
+                    gameserver.SERVER_maxplayers = Convert.ToInt32(incMaxPlayers.Value);
+                    gameserver.SERVER_map = txtboxStartingMap.Text;
                 }
             }
 
@@ -60,6 +62,7 @@ namespace Borealis
                     lblGameEngine.Text = string.Format("Game Engine: {0}", gameserver.ENGINE_type);
                     lblSteamWorkshop.Text = string.Format("Steam Workshop: {0}", gameserver.STEAM_workshop_enabled);
                     btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
+                    incMaxPlayers.Value = gameserver.SERVER_maxplayers;
 
                     //Friendly user-given server name
                     lblFriendlyName.Visible = true;
@@ -105,11 +108,16 @@ namespace Borealis
                         }
                     }
 
+                    //The selected index indicating the original value must be called AFTER populating the Map List Combo Box.
+                    txtboxStartingMap.Text = gameserver.SERVER_map;
+
                     //Make detailed server specs visible
                     lblServerSpecs.Visible = true;
                     lblGameType.Visible = true;
                     lblGameEngine.Visible = true;
                     lblSteamWorkshop.Visible = true;
+                    lblMaxPlayers.Visible = true;
+                    incMaxPlayers.Visible = true;
 
                     //Make buttons on bottom visible
                     btnUpdateServerConfig.Visible = true;

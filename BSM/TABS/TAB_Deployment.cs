@@ -165,6 +165,8 @@ namespace Borealis
             DeployConfiguredServer.SERVER_type = this._currentDeploymentValues.SERVER_type;
             DeployConfiguredServer.SERVER_launch_arguments = this._currentDeploymentValues.SERVER_launch_arguments;
             DeployConfiguredServer.SERVER_executable = this._currentDeploymentValues.SERVER_executable;
+            DeployConfiguredServer.SERVER_maxplayers = 6; //Defalt middle value
+            DeployConfiguredServer.SERVER_map = "NONE";
 
             //Directory-based Properties
             DeployConfiguredServer.DIR_install_location = this._currentDeploymentValues.DIR_install_location;

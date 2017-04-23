@@ -81,6 +81,10 @@ namespace Borealis
         public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
         public string SERVER_executable { get; set; }          //The relative location of where the server executable is located relative to install location
 
+        //Custom configuration values given to server
+        public int SERVER_maxplayers { get; set; }
+        public string SERVER_map { get; set; }
+
         //Directory-based Properties
         public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
         public string DIR_root { get; set; }                //Location of root directory where the server is to be expected
