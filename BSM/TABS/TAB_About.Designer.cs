@@ -107,8 +107,8 @@
             this.bunifuCustomLabel2.Size = new System.Drawing.Size(98, 38);
             this.bunifuCustomLabel2.TabIndex = 15;
             this.bunifuCustomLabel2.Text = "Nicole Rappe\r\nJohn Du Hart V";
-            this.toolTip1.SetToolTip(this.bunifuCustomLabel2, "Nicole Rappe: The project lead programmer and designer.\r\nJohn Du Hart V: Responsi" +
-        "ble for extensive code optimization and re-structuring.");
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel2, "Nicole Rappe: The project lead, programmer, and UI designer.\r\nJohn Du Hart V: Res" +
+        "ponsible for extensive code optimization, re-structuring, and planning.");
             // 
             // panel1
             // 
@@ -153,8 +153,9 @@
             this.bunifuCustomLabel4.Size = new System.Drawing.Size(113, 19);
             this.bunifuCustomLabel4.TabIndex = 15;
             this.bunifuCustomLabel4.Text = "Hunter Nakagawa";
-            this.toolTip1.SetToolTip(this.bunifuCustomLabel4, "Designer of the Borealis server API. \r\nThe API is designed to retrieve server inf" +
-        "ormation regarding\r\ngameservers for use during management and deployment.");
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel4, "Designer of the Borealis server NodeJS API. \r\nThe API is designed to retrieve ser" +
+        "ver information regarding\r\ngameservers for use during management and deployment." +
+        "");
             // 
             // panel3
             // 

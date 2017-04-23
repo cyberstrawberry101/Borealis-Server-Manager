@@ -366,7 +366,7 @@
             this.lblSteamWorkshop.Text = "Steam Workshop:";
             this.lblSteamWorkshop.Visible = false;
             // 
-            // TAB_Management
+            // TAB_MANAGEMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -392,7 +392,7 @@
             this.Controls.Add(this.bunifuCustomLabel4);
             this.Controls.Add(this.btnUpdateServerConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TAB_Management";
+            this.Name = "TAB_MANAGEMENT";
             this.Text = "ServerManagement";
             this.Activated += new System.EventHandler(this.ServerManagement_Activated);
             this.Load += new System.EventHandler(this.GSM_Management_Load);
