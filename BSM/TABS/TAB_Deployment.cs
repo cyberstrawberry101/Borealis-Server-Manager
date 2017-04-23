@@ -143,15 +143,15 @@ namespace Borealis
             public string SERVER_type { get; set; }
             public string verify_integrity { get; set; }
             public string SERVER_launch_arguments { get; set; }
-            public string DIR_executable { get; set; }
-            public string DIR_config { get; set; }
-            public string DIR_config_file { get; set; }
+            public string SERVER_executable { get; set; }
             public string DIR_install_location { get; set; }
+            public string DIR_root { get; set; }
             public bool STEAM_authrequired { get; set; }
             public bool STEAM_steamcmd_required { get; set; }
             public bool STEAM_workshop_enabled { get; set; }
             public string ENGINE_type { get; set; }
             public string bsm_integration { get; set; }
+            public bool bsm_custominstallfolder { get; set; }
         }
 
         private void deployServerToMemory()
@@ -164,12 +164,11 @@ namespace Borealis
             DeployConfiguredServer.SERVER_name_friendly = this.txtServerGivenName.Text;
             DeployConfiguredServer.SERVER_type = this._currentDeploymentValues.SERVER_type;
             DeployConfiguredServer.SERVER_launch_arguments = this._currentDeploymentValues.SERVER_launch_arguments;
+            DeployConfiguredServer.SERVER_executable = this._currentDeploymentValues.SERVER_executable;
 
             //Directory-based Properties
             DeployConfiguredServer.DIR_install_location = this._currentDeploymentValues.DIR_install_location;
-            DeployConfiguredServer.DIR_executable = this._currentDeploymentValues.DIR_executable;
-            DeployConfiguredServer.DIR_config = this._currentDeploymentValues.DIR_config;
-            DeployConfiguredServer.DIR_config_file = this._currentDeploymentValues.DIR_config_file;
+            DeployConfiguredServer.DIR_root = this._currentDeploymentValues.DIR_root;
 
             //Steam-based Properties
             DeployConfiguredServer.STEAM_authrequired = this._currentDeploymentValues.STEAM_authrequired;
@@ -179,6 +178,7 @@ namespace Borealis
             //Miscellanious Properties
             DeployConfiguredServer.ENGINE_type = this._currentDeploymentValues.ENGINE_type;
             DeployConfiguredServer.bsm_integration = this._currentDeploymentValues.bsm_integration;
+            DeployConfiguredServer.bsm_custominstallfolder = this._currentDeploymentValues.bsm_custominstallfolder;
 
             //Store that newly assigned and JSON-filled server into the GameServer_Object Collection
             GameServer_Management.server_collection.Add(DeployConfiguredServer);
@@ -396,24 +396,26 @@ namespace Borealis
             {
                 SERVER_type = gameServer.SERVER_type,
                 SERVER_launch_arguments = gameServer.SERVER_launch_arguments,
-                DIR_executable = gameServer.DIR_executable,
-                DIR_config = gameServer.DIR_config,
-                DIR_config_file = gameServer.DIR_config_file,
+                SERVER_executable = gameServer.SERVER_executable,
+                DIR_root = gameServer.DIR_root,
                 STEAM_authrequired = gameServer.STEAM_authrequired,
                 STEAM_steamcmd_required = gameServer.STEAM_steamcmd_required,
                 STEAM_workshop_enabled = gameServer.STEAM_workshop_enabled,
                 ENGINE_type = gameServer.ENGINE_type,
-                bsm_integration = gameServer.bsm_integration
+                bsm_integration = gameServer.bsm_integration,
+                bsm_custominstallfolder = gameServer.bsm_custominstallfolder
             };
 
             //Determine where to deploy the server based on user input.
             if (this.txtboxDestinationFolder.Text == "")
             {
                 deploymentValues.DIR_install_location = Environment.CurrentDirectory;
+                deploymentValues.bsm_custominstallfolder = false;
             }
             else
             {
                 deploymentValues.DIR_install_location = this.txtboxDestinationFolder.Text;
+                deploymentValues.bsm_custominstallfolder = true;
             }
 
             //Determine whether or not to verify integrity of the installation.

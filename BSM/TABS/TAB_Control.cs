@@ -12,18 +12,6 @@ namespace Borealis
             InitializeComponent();
         }
 
-        //Class to store the data regarding the currently managed server
-        public class Managed_GameServer
-        {
-
-            public string server_type { get; set; }
-            public string install_dir { get; set; }
-            public string executable_dir { get; set; }
-            public string launch_arguments { get; set; }
-            public string server_config_file { get; set; }
-            public bool running_status { get; set; }
-        }
-
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
@@ -87,7 +75,7 @@ namespace Borealis
                 {
                     if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                     {
-                        ExecuteWithRedirect(Environment.CurrentDirectory + gameserver.DIR_executable, gameserver.SERVER_launch_arguments);
+                        ExecuteWithRedirect(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments);
                     }
                 }
             }
@@ -122,7 +110,7 @@ namespace Borealis
                     GameServer_Object Controlled_GameServer = new GameServer_Object();
 
                     Controlled_GameServer.DIR_install_location = Controlled_GameServer.DIR_install_location;
-                    Controlled_GameServer.DIR_executable = Controlled_GameServer.DIR_executable;
+                    Controlled_GameServer.SERVER_executable = Controlled_GameServer.SERVER_executable;
                     Controlled_GameServer.SERVER_launch_arguments = Controlled_GameServer.SERVER_launch_arguments;
                     Controlled_GameServer.SERVER_running_status = Controlled_GameServer.SERVER_running_status;
                     

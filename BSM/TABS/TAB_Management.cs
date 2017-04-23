@@ -1,6 +1,7 @@
 ﻿using MetroFramework;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Borealis
@@ -71,6 +72,38 @@ namespace Borealis
                     //Starting map
                     lblStartingMap.Visible = true;
                     txtboxStartingMap.Visible = true;
+
+                    //Check the game engine being used, and determine the folder where the maps are based on it, then populate it.
+                    if (gameserver.ENGINE_type == "SOURCE")
+                    {
+                        //Clear the map dropdown list before adding new data to it.
+                        txtboxStartingMap.Items.Clear();
+
+                        if (gameserver.bsm_custominstallfolder == true)
+                        {
+                            var mapListing = Directory
+                            .EnumerateFiles(gameserver.DIR_install_location + @"\garrysmod\maps", "*.bsp", SearchOption.TopDirectoryOnly)
+                            .Select(Path.GetFileName); // <-- note you can shorten the lambda
+
+                            foreach (var bsp in mapListing)
+                            {
+                                string preparedbsp = Path.GetFileNameWithoutExtension(bsp);
+                                txtboxStartingMap.Items.Add(preparedbsp);
+                            }
+                        }
+                        else  //If the server was not deployed to a custom folder, then just imply the steamapps\common folder in the directory structure.
+                        {
+                            var mapListing = Directory
+                            .EnumerateFiles(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\garrysmod\maps", "*.bsp", SearchOption.TopDirectoryOnly)
+                            .Select(Path.GetFileName); // <-- note you can shorten the lambda
+
+                            foreach (string bsp in mapListing)
+                            {
+                                string preparedbsp = Path.GetFileNameWithoutExtension(bsp);
+                                txtboxStartingMap.Items.Add(preparedbsp);
+                            }
+                        }
+                    }
 
                     //Make detailed server specs visible
                     lblServerSpecs.Visible = true;

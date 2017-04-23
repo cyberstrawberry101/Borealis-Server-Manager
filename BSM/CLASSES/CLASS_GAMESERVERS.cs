@@ -79,12 +79,11 @@ namespace Borealis
         public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
         public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
         public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
+        public string SERVER_executable { get; set; }          //The relative location of where the server executable is located relative to install location
 
         //Directory-based Properties
         public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
-        public string DIR_executable { get; set; }          //The relative location of where the server executable is located relative to install location
-        public string DIR_config { get; set; }              //Relative config directory
-        public string DIR_config_file { get; set; }         //Name of configuration file if there is only one that controls the server
+        public string DIR_root { get; set; }                //Location of root directory where the server is to be expected
 
         //Steam-based Properties
         public bool STEAM_authrequired { get; set; }        //Determine whether the server requires Steam Guard or allows anonymous login
@@ -94,6 +93,7 @@ namespace Borealis
         //Miscellanious Properties
         public string ENGINE_type { get; set; }             //Determines the game engine, and by proxy, how to hook onto it
         public string bsm_integration { get; set; }         //Determines the support level of the gameserver in Borealis
+        public bool bsm_custominstallfolder { get; set; }   //Determines whether the user gave a custom install folder or not.
     }
 }
 
