@@ -82,8 +82,10 @@ namespace Borealis
         public string SERVER_executable { get; set; }          //The relative location of where the server executable is located relative to install location
 
         //Custom configuration values given to server
-        public int SERVER_maxplayers { get; set; }
-        public string SERVER_map { get; set; }
+        public int GAME_maxplayers { get; set; }
+        public string GAME_map { get; set; }
+        public string SERVER_ip { get; set; }
+        public string SERVER_port { get; set; }
 
         //Directory-based Properties
         public string DIR_install_location { get; set; }    //Location of where gameserver was deployed

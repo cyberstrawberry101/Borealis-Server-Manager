@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_MANAGEMENT));
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.comboboxGameserverList = new MetroFramework.Controls.MetroComboBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -42,6 +41,9 @@
             this.btnDestroyServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtboxStartingMap = new MetroFramework.Controls.MetroComboBox();
             this.btnSteamWorkshop = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.txtboxIP = new System.Windows.Forms.TextBox();
+            this.txtboxPORT = new System.Windows.Forms.TextBox();
+            this.btnAddonControl = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblStartingMap = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -51,7 +53,13 @@
             this.lblSteamWorkshop = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
             this.lblMaxPlayers = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblIPAddress = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.lblPort = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.groupboxServerProperties = new System.Windows.Forms.GroupBox();
+            this.groupboxGameProperties = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).BeginInit();
+            this.groupboxServerProperties.SuspendLayout();
+            this.groupboxGameProperties.SuspendLayout();
             this.SuspendLayout();
             // 
             // bunifuCustomLabel1
@@ -114,12 +122,12 @@
             this.btnUpdateServerConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnUpdateServerConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnUpdateServerConfig.BorderRadius = 0;
-            this.btnUpdateServerConfig.ButtonText = "   Update";
+            this.btnUpdateServerConfig.ButtonText = "Save";
             this.btnUpdateServerConfig.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdateServerConfig.DisabledColor = System.Drawing.Color.Gray;
             this.btnUpdateServerConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnUpdateServerConfig.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUpdateServerConfig.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnUpdateServerConfig.Iconimage")));
+            this.btnUpdateServerConfig.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Apply;
             this.btnUpdateServerConfig.Iconimage_right = null;
             this.btnUpdateServerConfig.Iconimage_right_Selected = null;
             this.btnUpdateServerConfig.Iconimage_Selected = null;
@@ -128,7 +136,7 @@
             this.btnUpdateServerConfig.IconRightVisible = true;
             this.btnUpdateServerConfig.IconRightZoom = 0D;
             this.btnUpdateServerConfig.IconVisible = true;
-            this.btnUpdateServerConfig.IconZoom = 90D;
+            this.btnUpdateServerConfig.IconZoom = 60D;
             this.btnUpdateServerConfig.IsTab = false;
             this.btnUpdateServerConfig.Location = new System.Drawing.Point(568, 493);
             this.btnUpdateServerConfig.Name = "btnUpdateServerConfig";
@@ -138,8 +146,8 @@
             this.btnUpdateServerConfig.selected = false;
             this.btnUpdateServerConfig.Size = new System.Drawing.Size(143, 48);
             this.btnUpdateServerConfig.TabIndex = 14;
-            this.btnUpdateServerConfig.Text = "   Update";
-            this.btnUpdateServerConfig.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUpdateServerConfig.Text = "Save";
+            this.btnUpdateServerConfig.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnUpdateServerConfig.Textcolor = System.Drawing.Color.White;
             this.btnUpdateServerConfig.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnUpdateServerConfig, "Commit the changes to the associated configuration files.");
@@ -163,12 +171,11 @@
             this.txtboxFriendlyName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxFriendlyName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtboxFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxFriendlyName.Location = new System.Drawing.Point(16, 102);
+            this.txtboxFriendlyName.Location = new System.Drawing.Point(10, 41);
             this.txtboxFriendlyName.Name = "txtboxFriendlyName";
-            this.txtboxFriendlyName.Size = new System.Drawing.Size(377, 25);
+            this.txtboxFriendlyName.Size = new System.Drawing.Size(299, 25);
             this.txtboxFriendlyName.TabIndex = 49;
             this.toolTip1.SetToolTip(this.txtboxFriendlyName, "Give the server a user-friendly name to reference within Borealis.");
-            this.txtboxFriendlyName.Visible = false;
             // 
             // txtboxArguments
             // 
@@ -176,12 +183,11 @@
             this.txtboxArguments.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxArguments.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtboxArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxArguments.Location = new System.Drawing.Point(16, 165);
+            this.txtboxArguments.Location = new System.Drawing.Point(10, 150);
             this.txtboxArguments.Name = "txtboxArguments";
-            this.txtboxArguments.Size = new System.Drawing.Size(377, 25);
+            this.txtboxArguments.Size = new System.Drawing.Size(299, 25);
             this.txtboxArguments.TabIndex = 51;
             this.toolTip1.SetToolTip(this.txtboxArguments, "Give the server a user-friendly name to reference within Borealis.");
-            this.txtboxArguments.Visible = false;
             // 
             // btnDestroyServer
             // 
@@ -189,7 +195,7 @@
             this.btnDestroyServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnDestroyServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDestroyServer.BorderRadius = 0;
-            this.btnDestroyServer.ButtonText = "   Destroy Server";
+            this.btnDestroyServer.ButtonText = "Destroy Server";
             this.btnDestroyServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDestroyServer.DisabledColor = System.Drawing.Color.Gray;
             this.btnDestroyServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -213,8 +219,8 @@
             this.btnDestroyServer.selected = false;
             this.btnDestroyServer.Size = new System.Drawing.Size(155, 48);
             this.btnDestroyServer.TabIndex = 53;
-            this.btnDestroyServer.Text = "   Destroy Server";
-            this.btnDestroyServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDestroyServer.Text = "Destroy Server";
+            this.btnDestroyServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDestroyServer.Textcolor = System.Drawing.Color.White;
             this.btnDestroyServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnDestroyServer, "Forcefully terminate the process (not gracefully).");
@@ -227,9 +233,9 @@
             this.txtboxStartingMap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxStartingMap.FormattingEnabled = true;
             this.txtboxStartingMap.ItemHeight = 23;
-            this.txtboxStartingMap.Location = new System.Drawing.Point(16, 228);
+            this.txtboxStartingMap.Location = new System.Drawing.Point(10, 43);
             this.txtboxStartingMap.Name = "txtboxStartingMap";
-            this.txtboxStartingMap.Size = new System.Drawing.Size(377, 29);
+            this.txtboxStartingMap.Size = new System.Drawing.Size(299, 29);
             this.txtboxStartingMap.Sorted = true;
             this.txtboxStartingMap.TabIndex = 56;
             this.txtboxStartingMap.Theme = MetroFramework.MetroThemeStyle.Dark;
@@ -237,7 +243,6 @@
             this.txtboxStartingMap.UseCustomBackColor = true;
             this.txtboxStartingMap.UseCustomForeColor = true;
             this.txtboxStartingMap.UseSelectable = true;
-            this.txtboxStartingMap.Visible = false;
             // 
             // btnSteamWorkshop
             // 
@@ -245,10 +250,9 @@
             this.btnSteamWorkshop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             this.btnSteamWorkshop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSteamWorkshop.BorderRadius = 0;
-            this.btnSteamWorkshop.ButtonText = "   Steam Workshop";
+            this.btnSteamWorkshop.ButtonText = "Workshop";
             this.btnSteamWorkshop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSteamWorkshop.DisabledColor = System.Drawing.Color.Gray;
-            this.btnSteamWorkshop.Enabled = false;
             this.btnSteamWorkshop.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnSteamWorkshop.Iconcolor = System.Drawing.Color.Transparent;
             this.btnSteamWorkshop.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Steam_48;
@@ -270,7 +274,7 @@
             this.btnSteamWorkshop.selected = false;
             this.btnSteamWorkshop.Size = new System.Drawing.Size(143, 48);
             this.btnSteamWorkshop.TabIndex = 57;
-            this.btnSteamWorkshop.Text = "   Steam Workshop";
+            this.btnSteamWorkshop.Text = "Workshop";
             this.btnSteamWorkshop.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSteamWorkshop.Textcolor = System.Drawing.Color.White;
             this.btnSteamWorkshop.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -278,18 +282,79 @@
             this.btnSteamWorkshop.Visible = false;
             this.btnSteamWorkshop.Click += new System.EventHandler(this.btnSteamWorkshop_Click);
             // 
+            // txtboxIP
+            // 
+            this.txtboxIP.BackColor = System.Drawing.Color.White;
+            this.txtboxIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxIP.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtboxIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxIP.Location = new System.Drawing.Point(10, 96);
+            this.txtboxIP.Name = "txtboxIP";
+            this.txtboxIP.Size = new System.Drawing.Size(133, 25);
+            this.txtboxIP.TabIndex = 64;
+            this.toolTip1.SetToolTip(this.txtboxIP, "Give the server a user-friendly name to reference within Borealis.");
+            // 
+            // txtboxPORT
+            // 
+            this.txtboxPORT.BackColor = System.Drawing.Color.White;
+            this.txtboxPORT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtboxPORT.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txtboxPORT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtboxPORT.Location = new System.Drawing.Point(176, 96);
+            this.txtboxPORT.Name = "txtboxPORT";
+            this.txtboxPORT.Size = new System.Drawing.Size(133, 25);
+            this.txtboxPORT.TabIndex = 67;
+            this.toolTip1.SetToolTip(this.txtboxPORT, "Give the server a user-friendly name to reference within Borealis.");
+            // 
+            // btnAddonControl
+            // 
+            this.btnAddonControl.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(137)))), ((int)(((byte)(173)))));
+            this.btnAddonControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.btnAddonControl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddonControl.BorderRadius = 0;
+            this.btnAddonControl.ButtonText = "Mods";
+            this.btnAddonControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddonControl.DisabledColor = System.Drawing.Color.Gray;
+            this.btnAddonControl.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnAddonControl.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnAddonControl.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Addons;
+            this.btnAddonControl.Iconimage_right = null;
+            this.btnAddonControl.Iconimage_right_Selected = null;
+            this.btnAddonControl.Iconimage_Selected = null;
+            this.btnAddonControl.IconMarginLeft = 0;
+            this.btnAddonControl.IconMarginRight = 0;
+            this.btnAddonControl.IconRightVisible = true;
+            this.btnAddonControl.IconRightZoom = 0D;
+            this.btnAddonControl.IconVisible = true;
+            this.btnAddonControl.IconZoom = 60D;
+            this.btnAddonControl.IsTab = false;
+            this.btnAddonControl.Location = new System.Drawing.Point(258, 493);
+            this.btnAddonControl.Name = "btnAddonControl";
+            this.btnAddonControl.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.btnAddonControl.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(127)))), ((int)(((byte)(163)))));
+            this.btnAddonControl.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnAddonControl.selected = false;
+            this.btnAddonControl.Size = new System.Drawing.Size(143, 48);
+            this.btnAddonControl.TabIndex = 70;
+            this.btnAddonControl.Text = "Mods";
+            this.btnAddonControl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddonControl.Textcolor = System.Drawing.Color.White;
+            this.btnAddonControl.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnAddonControl, "Commit the changes to the associated configuration files.");
+            this.btnAddonControl.Visible = false;
+            this.btnAddonControl.Click += new System.EventHandler(this.btnAddonControl_Click);
+            // 
             // lblFriendlyName
             // 
             this.lblFriendlyName.AutoSize = true;
             this.lblFriendlyName.BackColor = System.Drawing.Color.Transparent;
             this.lblFriendlyName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblFriendlyName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblFriendlyName.Location = new System.Drawing.Point(12, 80);
+            this.lblFriendlyName.Location = new System.Drawing.Point(6, 19);
             this.lblFriendlyName.Name = "lblFriendlyName";
             this.lblFriendlyName.Size = new System.Drawing.Size(90, 19);
             this.lblFriendlyName.TabIndex = 48;
             this.lblFriendlyName.Text = "Server Name:";
-            this.lblFriendlyName.Visible = false;
             // 
             // lblArguments
             // 
@@ -297,12 +362,11 @@
             this.lblArguments.BackColor = System.Drawing.Color.Transparent;
             this.lblArguments.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblArguments.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblArguments.Location = new System.Drawing.Point(12, 143);
+            this.lblArguments.Location = new System.Drawing.Point(6, 128);
             this.lblArguments.Name = "lblArguments";
             this.lblArguments.Size = new System.Drawing.Size(120, 19);
             this.lblArguments.TabIndex = 50;
             this.lblArguments.Text = "Launch Arguments:";
-            this.lblArguments.Visible = false;
             // 
             // lblStartingMap
             // 
@@ -310,12 +374,11 @@
             this.lblStartingMap.BackColor = System.Drawing.Color.Transparent;
             this.lblStartingMap.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblStartingMap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblStartingMap.Location = new System.Drawing.Point(12, 206);
+            this.lblStartingMap.Location = new System.Drawing.Point(6, 21);
             this.lblStartingMap.Name = "lblStartingMap";
             this.lblStartingMap.Size = new System.Drawing.Size(89, 19);
             this.lblStartingMap.TabIndex = 54;
             this.lblStartingMap.Text = "Starting Map:";
-            this.lblStartingMap.Visible = false;
             // 
             // lblServerSpecs
             // 
@@ -323,12 +386,11 @@
             this.lblServerSpecs.BackColor = System.Drawing.Color.Transparent;
             this.lblServerSpecs.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblServerSpecs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblServerSpecs.Location = new System.Drawing.Point(414, 80);
+            this.lblServerSpecs.Location = new System.Drawing.Point(417, 76);
             this.lblServerSpecs.Name = "lblServerSpecs";
-            this.lblServerSpecs.Size = new System.Drawing.Size(87, 19);
+            this.lblServerSpecs.Size = new System.Drawing.Size(139, 19);
             this.lblServerSpecs.TabIndex = 58;
-            this.lblServerSpecs.Text = "Server Specs:";
-            this.lblServerSpecs.Visible = false;
+            this.lblServerSpecs.Text = "Internal Server Details:";
             // 
             // lblGameType
             // 
@@ -336,12 +398,11 @@
             this.lblGameType.BackColor = System.Drawing.Color.Transparent;
             this.lblGameType.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblGameType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblGameType.Location = new System.Drawing.Point(414, 102);
+            this.lblGameType.Location = new System.Drawing.Point(417, 98);
             this.lblGameType.Name = "lblGameType";
             this.lblGameType.Size = new System.Drawing.Size(61, 13);
             this.lblGameType.TabIndex = 59;
             this.lblGameType.Text = "Game Type:";
-            this.lblGameType.Visible = false;
             // 
             // lblGameEngine
             // 
@@ -349,12 +410,11 @@
             this.lblGameEngine.BackColor = System.Drawing.Color.Transparent;
             this.lblGameEngine.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblGameEngine.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblGameEngine.Location = new System.Drawing.Point(414, 115);
+            this.lblGameEngine.Location = new System.Drawing.Point(417, 111);
             this.lblGameEngine.Name = "lblGameEngine";
             this.lblGameEngine.Size = new System.Drawing.Size(71, 13);
             this.lblGameEngine.TabIndex = 60;
             this.lblGameEngine.Text = "Game Engine:";
-            this.lblGameEngine.Visible = false;
             // 
             // lblSteamWorkshop
             // 
@@ -362,25 +422,23 @@
             this.lblSteamWorkshop.BackColor = System.Drawing.Color.Transparent;
             this.lblSteamWorkshop.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSteamWorkshop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblSteamWorkshop.Location = new System.Drawing.Point(414, 128);
+            this.lblSteamWorkshop.Location = new System.Drawing.Point(417, 124);
             this.lblSteamWorkshop.Name = "lblSteamWorkshop";
             this.lblSteamWorkshop.Size = new System.Drawing.Size(87, 13);
             this.lblSteamWorkshop.TabIndex = 61;
             this.lblSteamWorkshop.Text = "Steam Workshop:";
-            this.lblSteamWorkshop.Visible = false;
             // 
             // incMaxPlayers
             // 
-            this.incMaxPlayers.Location = new System.Drawing.Point(16, 298);
+            this.incMaxPlayers.Location = new System.Drawing.Point(10, 99);
             this.incMaxPlayers.Name = "incMaxPlayers";
-            this.incMaxPlayers.Size = new System.Drawing.Size(116, 20);
+            this.incMaxPlayers.Size = new System.Drawing.Size(116, 25);
             this.incMaxPlayers.TabIndex = 62;
             this.incMaxPlayers.Value = new decimal(new int[] {
             6,
             0,
             0,
             0});
-            this.incMaxPlayers.Visible = false;
             // 
             // lblMaxPlayers
             // 
@@ -388,13 +446,74 @@
             this.lblMaxPlayers.BackColor = System.Drawing.Color.Transparent;
             this.lblMaxPlayers.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblMaxPlayers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblMaxPlayers.Location = new System.Drawing.Point(13, 276);
+            this.lblMaxPlayers.Location = new System.Drawing.Point(7, 77);
             this.lblMaxPlayers.Name = "lblMaxPlayers";
             this.lblMaxPlayers.Size = new System.Drawing.Size(82, 19);
             this.lblMaxPlayers.TabIndex = 63;
             this.lblMaxPlayers.Text = "Max Players:";
             this.lblMaxPlayers.UseMnemonic = false;
-            this.lblMaxPlayers.Visible = false;
+            // 
+            // lblIPAddress
+            // 
+            this.lblIPAddress.AutoSize = true;
+            this.lblIPAddress.BackColor = System.Drawing.Color.Transparent;
+            this.lblIPAddress.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblIPAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblIPAddress.Location = new System.Drawing.Point(6, 74);
+            this.lblIPAddress.Name = "lblIPAddress";
+            this.lblIPAddress.Size = new System.Drawing.Size(74, 19);
+            this.lblIPAddress.TabIndex = 68;
+            this.lblIPAddress.Text = "IP Address:";
+            // 
+            // lblPort
+            // 
+            this.lblPort.AutoSize = true;
+            this.lblPort.BackColor = System.Drawing.Color.Transparent;
+            this.lblPort.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblPort.Location = new System.Drawing.Point(172, 74);
+            this.lblPort.Name = "lblPort";
+            this.lblPort.Size = new System.Drawing.Size(37, 19);
+            this.lblPort.TabIndex = 69;
+            this.lblPort.Text = "Port:";
+            // 
+            // groupboxServerProperties
+            // 
+            this.groupboxServerProperties.BackColor = System.Drawing.Color.Transparent;
+            this.groupboxServerProperties.Controls.Add(this.lblFriendlyName);
+            this.groupboxServerProperties.Controls.Add(this.txtboxFriendlyName);
+            this.groupboxServerProperties.Controls.Add(this.lblPort);
+            this.groupboxServerProperties.Controls.Add(this.lblIPAddress);
+            this.groupboxServerProperties.Controls.Add(this.txtboxIP);
+            this.groupboxServerProperties.Controls.Add(this.txtboxPORT);
+            this.groupboxServerProperties.Controls.Add(this.lblArguments);
+            this.groupboxServerProperties.Controls.Add(this.txtboxArguments);
+            this.groupboxServerProperties.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.groupboxServerProperties.ForeColor = System.Drawing.Color.Black;
+            this.groupboxServerProperties.Location = new System.Drawing.Point(12, 71);
+            this.groupboxServerProperties.Name = "groupboxServerProperties";
+            this.groupboxServerProperties.Size = new System.Drawing.Size(319, 189);
+            this.groupboxServerProperties.TabIndex = 72;
+            this.groupboxServerProperties.TabStop = false;
+            this.groupboxServerProperties.Text = "Server Properties:";
+            this.groupboxServerProperties.Visible = false;
+            // 
+            // groupboxGameProperties
+            // 
+            this.groupboxGameProperties.BackColor = System.Drawing.Color.Transparent;
+            this.groupboxGameProperties.Controls.Add(this.lblStartingMap);
+            this.groupboxGameProperties.Controls.Add(this.txtboxStartingMap);
+            this.groupboxGameProperties.Controls.Add(this.lblMaxPlayers);
+            this.groupboxGameProperties.Controls.Add(this.incMaxPlayers);
+            this.groupboxGameProperties.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.groupboxGameProperties.ForeColor = System.Drawing.Color.Black;
+            this.groupboxGameProperties.Location = new System.Drawing.Point(12, 266);
+            this.groupboxGameProperties.Name = "groupboxGameProperties";
+            this.groupboxGameProperties.Size = new System.Drawing.Size(319, 135);
+            this.groupboxGameProperties.TabIndex = 73;
+            this.groupboxGameProperties.TabStop = false;
+            this.groupboxGameProperties.Text = "Game Properties:";
+            this.groupboxGameProperties.Visible = false;
             // 
             // TAB_MANAGEMENT
             // 
@@ -404,20 +523,15 @@
             this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.lblMaxPlayers);
-            this.Controls.Add(this.incMaxPlayers);
+            this.Controls.Add(this.groupboxGameProperties);
+            this.Controls.Add(this.groupboxServerProperties);
+            this.Controls.Add(this.btnAddonControl);
             this.Controls.Add(this.lblSteamWorkshop);
             this.Controls.Add(this.lblGameEngine);
             this.Controls.Add(this.lblGameType);
             this.Controls.Add(this.lblServerSpecs);
             this.Controls.Add(this.btnSteamWorkshop);
-            this.Controls.Add(this.txtboxStartingMap);
-            this.Controls.Add(this.lblStartingMap);
             this.Controls.Add(this.btnDestroyServer);
-            this.Controls.Add(this.txtboxArguments);
-            this.Controls.Add(this.lblArguments);
-            this.Controls.Add(this.txtboxFriendlyName);
-            this.Controls.Add(this.lblFriendlyName);
             this.Controls.Add(this.bunifuCustomLabel1);
             this.Controls.Add(this.comboboxGameserverList);
             this.Controls.Add(this.bunifuCustomLabel7);
@@ -429,6 +543,10 @@
             this.Activated += new System.EventHandler(this.ServerManagement_Activated);
             this.Load += new System.EventHandler(this.GSM_Management_Load);
             ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).EndInit();
+            this.groupboxServerProperties.ResumeLayout(false);
+            this.groupboxServerProperties.PerformLayout();
+            this.groupboxGameProperties.ResumeLayout(false);
+            this.groupboxGameProperties.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,5 +574,12 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblSteamWorkshop;
         private System.Windows.Forms.NumericUpDown incMaxPlayers;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMaxPlayers;
+        private System.Windows.Forms.TextBox txtboxIP;
+        private System.Windows.Forms.TextBox txtboxPORT;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblIPAddress;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblPort;
+        private Bunifu.Framework.UI.BunifuFlatButton btnAddonControl;
+        private System.Windows.Forms.GroupBox groupboxServerProperties;
+        private System.Windows.Forms.GroupBox groupboxGameProperties;
     }
 }

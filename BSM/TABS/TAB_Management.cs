@@ -36,8 +36,10 @@ namespace Borealis
                 {
                     gameserver.SERVER_name_friendly = txtboxFriendlyName.Text;
                     gameserver.SERVER_launch_arguments = txtboxArguments.Text;
-                    gameserver.SERVER_maxplayers = Convert.ToInt32(incMaxPlayers.Value);
-                    gameserver.SERVER_map = txtboxStartingMap.Text;
+                    gameserver.GAME_maxplayers = Convert.ToInt32(incMaxPlayers.Value);
+                    gameserver.GAME_map = txtboxStartingMap.Text;
+                    gameserver.SERVER_ip = txtboxIP.Text;
+                    gameserver.SERVER_port = txtboxPORT.Text;
                 }
             }
 
@@ -62,19 +64,9 @@ namespace Borealis
                     lblGameEngine.Text = string.Format("Game Engine: {0}", gameserver.ENGINE_type);
                     lblSteamWorkshop.Text = string.Format("Steam Workshop: {0}", gameserver.STEAM_workshop_enabled);
                     btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
-                    incMaxPlayers.Value = gameserver.SERVER_maxplayers;
-
-                    //Friendly user-given server name
-                    lblFriendlyName.Visible = true;
-                    txtboxFriendlyName.Visible = true;
-
-                    //Command line launch arguments
-                    lblArguments.Visible = true;
-                    txtboxArguments.Visible = true;
-
-                    //Starting map
-                    lblStartingMap.Visible = true;
-                    txtboxStartingMap.Visible = true;
+                    incMaxPlayers.Value = gameserver.GAME_maxplayers;
+                    txtboxIP.Text = gameserver.SERVER_ip;
+                    txtboxPORT.Text = gameserver.SERVER_port;
 
                     //Check the game engine being used, and determine the folder where the maps are based on it, then populate it.
                     if (gameserver.ENGINE_type == "SOURCE")
@@ -109,19 +101,15 @@ namespace Borealis
                     }
 
                     //The selected index indicating the original value must be called AFTER populating the Map List Combo Box.
-                    txtboxStartingMap.Text = gameserver.SERVER_map;
+                    txtboxStartingMap.Text = gameserver.GAME_map;
 
-                    //Make detailed server specs visible
-                    lblServerSpecs.Visible = true;
-                    lblGameType.Visible = true;
-                    lblGameEngine.Visible = true;
-                    lblSteamWorkshop.Visible = true;
-                    lblMaxPlayers.Visible = true;
-                    incMaxPlayers.Visible = true;
 
-                    //Make buttons on bottom visible
-                    btnUpdateServerConfig.Visible = true;
+                    //Make properties boxes visible.
+                    groupboxServerProperties.Visible = true;
+                    groupboxGameProperties.Visible = true;
                     btnDestroyServer.Visible = true;
+                    btnUpdateServerConfig.Visible = true;
+                    btnAddonControl.Visible = true;
                     btnSteamWorkshop.Visible = true;
                 }
             }
@@ -175,6 +163,13 @@ namespace Borealis
         {
             TAB_STEAMWORKSHOP DEBUGWINDOW = new TAB_STEAMWORKSHOP();
             DEBUGWINDOW.Show();
+        }
+
+        private void btnAddonControl_Click(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(ActiveForm,
+                    "Addon / Mod management has not yet been implemented into Borealis.  Come back later! :)",
+                    "Addon / Mod Management", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

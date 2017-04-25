@@ -217,6 +217,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BSM.ico" />
+    <None Include="RESOURCES\MISC_ICONS\Apply.png" />
+    <None Include="RESOURCES\MISC_ICONS\Addons.png" />
     <None Include="RESOURCES\steamworkshop_backdrop.jpg" />
     <None Include="RESOURCES\MISC_ICONS\Steam-48.png" />
     <None Include="RESOURCES\red-polygonal-background [Converted].jpg" />
