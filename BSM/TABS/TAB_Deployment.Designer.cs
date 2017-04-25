@@ -43,9 +43,6 @@
             this.lblSelectServer = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.browseDestinationFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.lblSeparateConfig = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.chkSeparateConfig = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.dropdownExistingServer = new MetroFramework.Controls.MetroComboBox();
             this.lblServerNameDetails = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblServerName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtServerGivenName = new System.Windows.Forms.TextBox();
@@ -251,61 +248,6 @@
             // 
             this.browseDestinationFolder.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // lblSeparateConfig
-            // 
-            this.lblSeparateConfig.AutoSize = true;
-            this.lblSeparateConfig.BackColor = System.Drawing.Color.Transparent;
-            this.lblSeparateConfig.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblSeparateConfig.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblSeparateConfig.Location = new System.Drawing.Point(390, 135);
-            this.lblSeparateConfig.Name = "lblSeparateConfig";
-            this.lblSeparateConfig.Size = new System.Drawing.Size(265, 19);
-            this.lblSeparateConfig.TabIndex = 43;
-            this.lblSeparateConfig.Text = "Add separate config to existing gameserver";
-            this.toolTip1.SetToolTip(this.lblSeparateConfig, "This will create a new set of configuration to essentially create another instanc" +
-        "e of your existing gameservers.");
-            this.lblSeparateConfig.Visible = false;
-            // 
-            // chkSeparateConfig
-            // 
-            this.chkSeparateConfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkSeparateConfig.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkSeparateConfig.Checked = false;
-            this.chkSeparateConfig.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkSeparateConfig.ForeColor = System.Drawing.Color.White;
-            this.chkSeparateConfig.Location = new System.Drawing.Point(368, 135);
-            this.chkSeparateConfig.Name = "chkSeparateConfig";
-            this.chkSeparateConfig.Size = new System.Drawing.Size(20, 20);
-            this.chkSeparateConfig.TabIndex = 42;
-            this.toolTip1.SetToolTip(this.chkSeparateConfig, "This will create a new set of configuration to essentially create another instanc" +
-        "e of your existing gameservers.");
-            this.chkSeparateConfig.Visible = false;
-            this.chkSeparateConfig.OnChange += new System.EventHandler(this.chkSeparateConfig_OnChange_1);
-            // 
-            // dropdownExistingServer
-            // 
-            this.dropdownExistingServer.BackColor = System.Drawing.Color.White;
-            this.dropdownExistingServer.DropDownHeight = 150;
-            this.dropdownExistingServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.dropdownExistingServer.FormattingEnabled = true;
-            this.dropdownExistingServer.IntegralHeight = false;
-            this.dropdownExistingServer.ItemHeight = 23;
-            this.dropdownExistingServer.Location = new System.Drawing.Point(16, 227);
-            this.dropdownExistingServer.MaxDropDownItems = 100;
-            this.dropdownExistingServer.Name = "dropdownExistingServer";
-            this.dropdownExistingServer.PromptText = "< Select an existing server >";
-            this.dropdownExistingServer.Size = new System.Drawing.Size(346, 29);
-            this.dropdownExistingServer.Sorted = true;
-            this.dropdownExistingServer.TabIndex = 44;
-            this.dropdownExistingServer.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.toolTip1.SetToolTip(this.dropdownExistingServer, "Select which existing gameserver to add a new instance to.");
-            this.dropdownExistingServer.UseCustomBackColor = true;
-            this.dropdownExistingServer.UseCustomForeColor = true;
-            this.dropdownExistingServer.UseSelectable = true;
-            this.dropdownExistingServer.UseStyleColors = true;
-            this.dropdownExistingServer.Visible = false;
-            this.dropdownExistingServer.SelectedValueChanged += new System.EventHandler(this.dropdownExistingServer_SelectedValueChanged);
-            // 
             // lblServerNameDetails
             // 
             this.lblServerNameDetails.AutoSize = true;
@@ -415,7 +357,7 @@
             this.btnDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDeployGameserver.BorderRadius = 0;
-            this.btnDeployGameserver.ButtonText = "   Deploy";
+            this.btnDeployGameserver.ButtonText = "Deploy   ";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnDeployGameserver.Enabled = false;
@@ -440,8 +382,8 @@
             this.btnDeployGameserver.selected = false;
             this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnDeployGameserver.TabIndex = 14;
-            this.btnDeployGameserver.Text = "   Deploy";
-            this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeployGameserver.Text = "Deploy   ";
+            this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnDeployGameserver, "Deploy the gameserver using the current configuration.");
@@ -453,7 +395,7 @@
             this.btnCancelDeployGameserver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnCancelDeployGameserver.BorderRadius = 0;
-            this.btnCancelDeployGameserver.ButtonText = "   Cancel";
+            this.btnCancelDeployGameserver.ButtonText = "Cancel";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -477,8 +419,8 @@
             this.btnCancelDeployGameserver.selected = false;
             this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
             this.btnCancelDeployGameserver.TabIndex = 41;
-            this.btnCancelDeployGameserver.Text = "   Cancel";
-            this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelDeployGameserver.Text = "Cancel";
+            this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnCancelDeployGameserver, "Forcefully terminate deployment (leftover files need to be manually cleaned up).");
@@ -500,9 +442,6 @@
             this.Controls.Add(this.txtServerGivenName);
             this.Controls.Add(this.lblServerNameDetails);
             this.Controls.Add(this.lblServerName);
-            this.Controls.Add(this.dropdownExistingServer);
-            this.Controls.Add(this.lblSeparateConfig);
-            this.Controls.Add(this.chkSeparateConfig);
             this.Controls.Add(this.btnDeployGameserver);
             this.Controls.Add(this.btnCancelDeployGameserver);
             this.Controls.Add(this.bunifuCustomLabel2);
@@ -541,9 +480,6 @@
         private System.Windows.Forms.FolderBrowserDialog browseDestinationFolder;
         private MetroFramework.Controls.MetroComboBox dropdownServerSelection;
         private Bunifu.Framework.UI.BunifuProgressBar progressbarDownloadProgressOverall;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblSeparateConfig;
-        private Bunifu.Framework.UI.BunifuCheckbox chkSeparateConfig;
-        private MetroFramework.Controls.MetroComboBox dropdownExistingServer;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerNameDetails;
         private Bunifu.Framework.UI.BunifuCustomLabel lblServerName;
         private System.Windows.Forms.TextBox txtServerGivenName;

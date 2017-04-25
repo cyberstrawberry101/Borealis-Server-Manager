@@ -111,6 +111,7 @@ namespace Borealis
                     btnUpdateServerConfig.Visible = true;
                     btnAddonControl.Visible = true;
                     btnSteamWorkshop.Visible = true;
+                    panelServerDetails.Visible = true;
                 }
             }
         }
@@ -151,6 +152,11 @@ namespace Borealis
                         //Clear the text fields since the server no longer exists, to simply tidy things up.
                         txtboxFriendlyName.Text = "";
                         txtboxArguments.Text = "";
+                        txtboxIP.Text = "";
+                        txtboxPORT.Text = "";
+                        txtboxStartingMap.Items.Clear();
+                        incMaxPlayers.Value = 0;
+                        chkFirewallToggle.Checked = false;
 
                         //Update the panel information after destroying the gameserver.
                         RefreshData();

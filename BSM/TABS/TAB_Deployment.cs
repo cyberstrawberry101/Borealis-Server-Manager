@@ -30,8 +30,6 @@ namespace Borealis
                 this.lblDestinationDetailsSubtext.Visible = true;
                 this.txtboxDestinationFolder.Visible = true;
                 this.btnBrowseDestination.Visible = true;
-                this.chkSeparateConfig.Visible = true;
-                this.lblSeparateConfig.Visible = true;
                 this.chkVerifyIntegrity.Visible = true;
                 this.lblVerifyIntegrity.Visible = true;
 
@@ -51,8 +49,6 @@ namespace Borealis
                 this.lblDestinationDetailsSubtext.Visible = false;
                 this.txtboxDestinationFolder.Visible = false;
                 this.btnBrowseDestination.Visible = false;
-                this.chkSeparateConfig.Visible = false;
-                this.lblSeparateConfig.Visible = false;
                 this.chkVerifyIntegrity.Visible = false;
                 this.lblVerifyIntegrity.Visible = false;
 
@@ -121,16 +117,8 @@ namespace Borealis
             catch (Exception)
             {
                 MetroMessageBox.Show(ActiveForm,
-                    "Cannot connect to http://phantom-net.duckdns.org:1337 \nThis means that deployment at this time is impossible.",
-                    "Server Unreachable", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (GameServer_Management.server_collection != null)
-            {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
-                {
-                    this.dropdownExistingServer.Items.Add(gameserver.SERVER_name_friendly);
-                }
+                    "Borealis cannot establish a connection to API server.\nGameserver deployment at this time is unavailable.\nPlease reach out to Nicole @ cyberstrawberry101@gmail.com to resolve this issue.",
+                    "Cannot Establish Connection to API Server", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -249,55 +237,7 @@ namespace Borealis
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
             this.UIControlsHider(true); //Show UI elements to end-user
-
-            if (this.chkSeparateConfig.Checked)
-            {
-                this.lblDestination.Text = "Step 2: Choose existing " + this.dropdownServerSelection.Text + " server";
-            }
-
-            if (this.chkSeparateConfig.Checked)
-            {
-                this.txtServerGivenName.Text = this.dropdownExistingServer.Text + " Instance01";
-            }
-            else
-            {
-                this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
-            }
-        }
-
-        private void dropdownExistingServer_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (this.chkSeparateConfig.Checked)
-            {
-                this.txtServerGivenName.Text = this.dropdownExistingServer.Text + " Instance";
-            }
-            else
-            {
-                this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
-            }
-        }
-
-        private void chkSeparateConfig_OnChange_1(object sender, EventArgs e)
-        {
-            if (this.chkSeparateConfig.Checked)
-            {
-                this.lblDestination.Text = "Step 2: Choose existing " + this.dropdownServerSelection.Text + " server";
-                this.lblDestinationDetails.Text = "This will add a new configuration to an existing server to run a new instance of the server";
-                this.txtboxDestinationFolder.Text = "N/A";
-                this.txtboxDestinationFolder.Visible = false;
-                this.dropdownExistingServer.Visible = true;
-                this.txtServerGivenName.Text = "";
-                this.lblDestinationDetailsSubtext.Visible = false;
-            }
-            else
-            {
-                this.lblDestination.Text = "Step 2: Destination";
-                this.lblDestinationDetails.Text = "Choose where you want to install the server";
-                this.txtboxDestinationFolder.Text = @"C:\BSM\";
-                this.txtboxDestinationFolder.Visible = true;
-                this.dropdownExistingServer.Visible = false;
-                this.lblDestinationDetailsSubtext.Visible = true;
-            }
+            this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
         }
 
         //Methods that handle deployment itself.
@@ -385,12 +325,6 @@ namespace Borealis
                         return; //Break gracefully out of the entire void function.
                     }
                 }
-            }
-
-            if (this.chkSeparateConfig.Checked)
-            {
-                MetroMessageBox.Show(ActiveForm, "Unfortunately at this time, deploying instances of gameservers is not supported.", "Deploy New GameServer Instance?", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             //Query specific appID for all required data.

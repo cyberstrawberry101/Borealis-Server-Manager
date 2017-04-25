@@ -57,7 +57,7 @@
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkAutoRestart.Size = new System.Drawing.Size(43, 25);
+            this.chkAutoRestart.Size = new System.Drawing.Size(35, 20);
             this.chkAutoRestart.TabIndex = 42;
             this.toolTip1.SetToolTip(this.chkAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
@@ -115,7 +115,7 @@
             this.btnStartServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnStartServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnStartServer.BorderRadius = 0;
-            this.btnStartServer.ButtonText = "Start Server";
+            this.btnStartServer.ButtonText = "Start Server   ";
             this.btnStartServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStartServer.DisabledColor = System.Drawing.Color.Gray;
             this.btnStartServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -139,8 +139,8 @@
             this.btnStartServer.selected = false;
             this.btnStartServer.Size = new System.Drawing.Size(143, 48);
             this.btnStartServer.TabIndex = 16;
-            this.btnStartServer.Text = "Start Server";
-            this.btnStartServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStartServer.Text = "Start Server   ";
+            this.btnStartServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStartServer.Textcolor = System.Drawing.Color.White;
             this.btnStartServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStartServer, "Start the server process in the background.");
@@ -153,7 +153,7 @@
             this.btnStopServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnStopServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnStopServer.BorderRadius = 0;
-            this.btnStopServer.ButtonText = "   Stop Server";
+            this.btnStopServer.ButtonText = "Stop Server";
             this.btnStopServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStopServer.DisabledColor = System.Drawing.Color.Gray;
             this.btnStopServer.Enabled = false;
@@ -178,8 +178,8 @@
             this.btnStopServer.selected = false;
             this.btnStopServer.Size = new System.Drawing.Size(143, 48);
             this.btnStopServer.TabIndex = 14;
-            this.btnStopServer.Text = "   Stop Server";
-            this.btnStopServer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStopServer.Text = "Stop Server";
+            this.btnStopServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnStopServer.Textcolor = System.Drawing.Color.White;
             this.btnStopServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStopServer, "Forcefully terminate the process (not gracefully).");
