@@ -91,11 +91,11 @@
             // header
             // 
             this.header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.header.Controls.Add(this.btnExitProgram);
             this.header.Controls.Add(this.attribution_tab);
             this.header.Controls.Add(this.mainIcon);
             this.header.Controls.Add(this.lblVersion);
             this.header.Controls.Add(this.labelBorealisTitle);
-            this.header.Controls.Add(this.btnExitProgram);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
@@ -104,10 +104,10 @@
             // 
             // attribution_tab
             // 
-            this.attribution_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.attribution_tab.Image = global::Borealis_Default_Namespace.Properties.Resources.HELP_ICON;
+            this.attribution_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.attribution_tab.Image = global::Borealis.Properties.Resources.HELP_ICON;
             this.attribution_tab.ImageActive = null;
-            this.attribution_tab.Location = new System.Drawing.Point(893, 9);
+            this.attribution_tab.Location = new System.Drawing.Point(890, 10);
             this.attribution_tab.Name = "attribution_tab";
             this.attribution_tab.Size = new System.Drawing.Size(26, 26);
             this.attribution_tab.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -119,7 +119,7 @@
             // 
             // mainIcon
             // 
-            this.mainIcon.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.TitleIcon_WHITE;
+            this.mainIcon.BackgroundImage = global::Borealis.Properties.Resources.TitleIcon_WHITE;
             this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainIcon.Location = new System.Drawing.Point(10, 7);
             this.mainIcon.Name = "mainIcon";
@@ -158,7 +158,7 @@
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(929, 9);
+            this.btnExitProgram.Location = new System.Drawing.Point(927, 10);
             this.btnExitProgram.Name = "btnExitProgram";
             this.btnExitProgram.Size = new System.Drawing.Size(26, 26);
             this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -583,7 +583,7 @@
             this.scheduledtasks_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scheduledtasks_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.scheduledtasks_tab.Iconcolor = System.Drawing.Color.Transparent;
-            this.scheduledtasks_tab.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.TIME_ICON;
+            this.scheduledtasks_tab.Iconimage = global::Borealis.Properties.Resources.TIME_ICON;
             this.scheduledtasks_tab.Iconimage_right = null;
             this.scheduledtasks_tab.Iconimage_right_Selected = null;
             this.scheduledtasks_tab.Iconimage_Selected = null;
@@ -633,7 +633,7 @@
             // MDI_CURTAINHIDER
             // 
             this.MDI_CURTAINHIDER.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.MDI_CURTAINHIDER.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.MDI_CURTAINHIDER.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.MDI_CURTAINHIDER.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MDI_CURTAINHIDER.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MDI_CURTAINHIDER.Location = new System.Drawing.Point(240, 45);
@@ -651,10 +651,12 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.header);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "BorealisServerManager";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

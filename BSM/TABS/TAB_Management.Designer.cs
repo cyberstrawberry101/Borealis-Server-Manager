@@ -44,6 +44,7 @@
             this.txtboxIP = new System.Windows.Forms.TextBox();
             this.txtboxPORT = new System.Windows.Forms.TextBox();
             this.btnAddonControl = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
             this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblStartingMap = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -51,15 +52,15 @@
             this.lblGameType = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblGameEngine = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblSteamWorkshop = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
             this.lblMaxPlayers = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblIPAddress = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblPort = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.groupboxServerProperties = new System.Windows.Forms.GroupBox();
-            this.groupboxGameProperties = new System.Windows.Forms.GroupBox();
-            this.chkFirewallToggle = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblAddFirewallRule = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.chkFirewallToggle = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.groupboxGameProperties = new System.Windows.Forms.GroupBox();
             this.panelServerDetails = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).BeginInit();
             this.groupboxServerProperties.SuspendLayout();
             this.groupboxGameProperties.SuspendLayout();
@@ -131,7 +132,7 @@
             this.btnUpdateServerConfig.DisabledColor = System.Drawing.Color.Gray;
             this.btnUpdateServerConfig.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnUpdateServerConfig.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUpdateServerConfig.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Apply;
+            this.btnUpdateServerConfig.Iconimage = global::Borealis.Properties.Resources.Apply;
             this.btnUpdateServerConfig.Iconimage_right = null;
             this.btnUpdateServerConfig.Iconimage_right_Selected = null;
             this.btnUpdateServerConfig.Iconimage_Selected = null;
@@ -204,7 +205,7 @@
             this.btnDestroyServer.DisabledColor = System.Drawing.Color.Gray;
             this.btnDestroyServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnDestroyServer.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnDestroyServer.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.STOP_ICON;
+            this.btnDestroyServer.Iconimage = global::Borealis.Properties.Resources.STOP_ICON;
             this.btnDestroyServer.Iconimage_right = null;
             this.btnDestroyServer.Iconimage_right_Selected = null;
             this.btnDestroyServer.Iconimage_Selected = null;
@@ -260,7 +261,7 @@
             this.btnSteamWorkshop.DisabledColor = System.Drawing.Color.Gray;
             this.btnSteamWorkshop.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnSteamWorkshop.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnSteamWorkshop.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Steam_48;
+            this.btnSteamWorkshop.Iconimage = global::Borealis.Properties.Resources.Steam_48;
             this.btnSteamWorkshop.Iconimage_right = null;
             this.btnSteamWorkshop.Iconimage_right_Selected = null;
             this.btnSteamWorkshop.Iconimage_Selected = null;
@@ -322,7 +323,7 @@
             this.btnAddonControl.DisabledColor = System.Drawing.Color.Gray;
             this.btnAddonControl.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnAddonControl.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnAddonControl.Iconimage = global::Borealis_Default_Namespace.Properties.Resources.Addons;
+            this.btnAddonControl.Iconimage = global::Borealis.Properties.Resources.Addons;
             this.btnAddonControl.Iconimage_right = null;
             this.btnAddonControl.Iconimage_right_Selected = null;
             this.btnAddonControl.Iconimage_Selected = null;
@@ -348,6 +349,19 @@
             this.toolTip1.SetToolTip(this.btnAddonControl, "Commit the changes to the associated configuration files.");
             this.btnAddonControl.Visible = false;
             this.btnAddonControl.Click += new System.EventHandler(this.btnAddonControl_Click);
+            // 
+            // incMaxPlayers
+            // 
+            this.incMaxPlayers.Location = new System.Drawing.Point(10, 99);
+            this.incMaxPlayers.Name = "incMaxPlayers";
+            this.incMaxPlayers.Size = new System.Drawing.Size(116, 25);
+            this.incMaxPlayers.TabIndex = 62;
+            this.toolTip1.SetToolTip(this.incMaxPlayers, "Select the maximum number of players you want to be able to join this server.");
+            this.incMaxPlayers.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
             // lblFriendlyName
             // 
@@ -433,19 +447,6 @@
             this.lblSteamWorkshop.TabIndex = 61;
             this.lblSteamWorkshop.Text = "Steam Workshop:";
             // 
-            // incMaxPlayers
-            // 
-            this.incMaxPlayers.Location = new System.Drawing.Point(10, 99);
-            this.incMaxPlayers.Name = "incMaxPlayers";
-            this.incMaxPlayers.Size = new System.Drawing.Size(116, 25);
-            this.incMaxPlayers.TabIndex = 62;
-            this.toolTip1.SetToolTip(this.incMaxPlayers, "Select the maximum number of players you want to be able to join this server.");
-            this.incMaxPlayers.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            // 
             // lblMaxPlayers
             // 
             this.lblMaxPlayers.AutoSize = true;
@@ -506,6 +507,31 @@
             this.groupboxServerProperties.Text = "Server Properties";
             this.groupboxServerProperties.Visible = false;
             // 
+            // lblAddFirewallRule
+            // 
+            this.lblAddFirewallRule.AutoSize = true;
+            this.lblAddFirewallRule.BackColor = System.Drawing.Color.Transparent;
+            this.lblAddFirewallRule.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblAddFirewallRule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblAddFirewallRule.Location = new System.Drawing.Point(338, 101);
+            this.lblAddFirewallRule.Name = "lblAddFirewallRule";
+            this.lblAddFirewallRule.Size = new System.Drawing.Size(111, 19);
+            this.lblAddFirewallRule.TabIndex = 71;
+            this.lblAddFirewallRule.Text = "Add Firewall Rule";
+            // 
+            // chkFirewallToggle
+            // 
+            this.chkFirewallToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.chkFirewallToggle.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.chkFirewallToggle.Checked = true;
+            this.chkFirewallToggle.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
+            this.chkFirewallToggle.ForeColor = System.Drawing.Color.White;
+            this.chkFirewallToggle.Location = new System.Drawing.Point(319, 101);
+            this.chkFirewallToggle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chkFirewallToggle.Name = "chkFirewallToggle";
+            this.chkFirewallToggle.Size = new System.Drawing.Size(20, 20);
+            this.chkFirewallToggle.TabIndex = 70;
+            // 
             // groupboxGameProperties
             // 
             this.groupboxGameProperties.BackColor = System.Drawing.Color.Transparent;
@@ -523,31 +549,6 @@
             this.groupboxGameProperties.Text = "Game Properties";
             this.groupboxGameProperties.Visible = false;
             // 
-            // chkFirewallToggle
-            // 
-            this.chkFirewallToggle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.chkFirewallToggle.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.chkFirewallToggle.Checked = true;
-            this.chkFirewallToggle.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(205)))), ((int)(((byte)(117)))));
-            this.chkFirewallToggle.ForeColor = System.Drawing.Color.White;
-            this.chkFirewallToggle.Location = new System.Drawing.Point(319, 101);
-            this.chkFirewallToggle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.chkFirewallToggle.Name = "chkFirewallToggle";
-            this.chkFirewallToggle.Size = new System.Drawing.Size(20, 20);
-            this.chkFirewallToggle.TabIndex = 70;
-            // 
-            // lblAddFirewallRule
-            // 
-            this.lblAddFirewallRule.AutoSize = true;
-            this.lblAddFirewallRule.BackColor = System.Drawing.Color.Transparent;
-            this.lblAddFirewallRule.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblAddFirewallRule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblAddFirewallRule.Location = new System.Drawing.Point(338, 101);
-            this.lblAddFirewallRule.Name = "lblAddFirewallRule";
-            this.lblAddFirewallRule.Size = new System.Drawing.Size(111, 19);
-            this.lblAddFirewallRule.TabIndex = 71;
-            this.lblAddFirewallRule.Text = "Add Firewall Rule";
-            // 
             // panelServerDetails
             // 
             this.panelServerDetails.BackColor = System.Drawing.Color.Transparent;
@@ -561,14 +562,24 @@
             this.panelServerDetails.TabIndex = 74;
             this.panelServerDetails.Visible = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(725, 5);
+            this.panel1.TabIndex = 75;
+            // 
             // TAB_MANAGEMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelServerDetails);
             this.Controls.Add(this.groupboxGameProperties);
             this.Controls.Add(this.groupboxServerProperties);
@@ -629,5 +640,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblAddFirewallRule;
         private Bunifu.Framework.UI.BunifuCheckbox chkFirewallToggle;
         private System.Windows.Forms.Panel panelServerDetails;
+        private System.Windows.Forms.Panel panel1;
     }
 }

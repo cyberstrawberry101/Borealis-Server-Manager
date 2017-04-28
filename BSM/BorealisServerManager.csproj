@@ -7,7 +7,7 @@
     <ProjectGuid>{D85A7383-5984-4CFD-85DA-BD44836E26F7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Borealis_Default_Namespace</RootNamespace>
+    <RootNamespace>Borealis</RootNamespace>
     <AssemblyName>Borealis</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

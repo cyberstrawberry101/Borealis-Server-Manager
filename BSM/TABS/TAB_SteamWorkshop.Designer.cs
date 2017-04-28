@@ -60,7 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.steamworkshop_backdrop;
+            this.BackgroundImage = global::Borealis.Properties.Resources.steamworkshop_backdrop;
             this.ClientSize = new System.Drawing.Size(725, 557);
             this.Controls.Add(this.bunifuCustomLabel7);
             this.Controls.Add(this.bunifuCustomLabel4);

@@ -53,6 +53,7 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -312,6 +313,7 @@
             this.panelProgress.Name = "panelProgress";
             this.panelProgress.Size = new System.Drawing.Size(717, 56);
             this.panelProgress.TabIndex = 50;
+            this.panelProgress.Visible = false;
             // 
             // lblVerifyIntegrity
             // 
@@ -360,7 +362,6 @@
             this.btnDeployGameserver.ButtonText = "Deploy   ";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
-            this.btnDeployGameserver.Enabled = false;
             this.btnDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
             this.btnDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDeployGameserver.Iconimage")));
@@ -387,6 +388,7 @@
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnDeployGameserver, "Deploy the gameserver using the current configuration.");
+            this.btnDeployGameserver.Visible = false;
             this.btnDeployGameserver.Click += new System.EventHandler(this.btnDeployGameserver_Click);
             // 
             // btnCancelDeployGameserver
@@ -427,14 +429,24 @@
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(725, 5);
+            this.panel1.TabIndex = 53;
+            // 
             // TAB_DEPLOYMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
@@ -489,5 +501,6 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

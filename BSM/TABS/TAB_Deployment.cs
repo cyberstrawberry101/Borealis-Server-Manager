@@ -39,7 +39,10 @@ namespace Borealis
                 this.txtServerGivenName.Visible = true;
 
                 //Deployment Button
-                this.btnDeployGameserver.Enabled = true;
+                this.btnDeployGameserver.Visible = true;
+
+                this.panelProgress.Visible = true;
+
             }
             else
             {
@@ -58,7 +61,9 @@ namespace Borealis
                 this.txtServerGivenName.Visible = false;
 
                 //Deployment Button
-                this.btnDeployGameserver.Enabled = false;
+                this.btnDeployGameserver.Visible = false;
+
+                this.panelProgress.Visible = false;
             }
         }
 

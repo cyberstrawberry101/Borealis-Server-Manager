@@ -63,6 +63,7 @@
             this.columnGameServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableScheduledTasks = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelAddTask.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableScheduledTasks)).BeginInit();
             this.SuspendLayout();
@@ -589,14 +590,24 @@
             this.tableScheduledTasks.Size = new System.Drawing.Size(0, 209);
             this.tableScheduledTasks.TabIndex = 44;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(725, 5);
+            this.panel1.TabIndex = 63;
+            // 
             // TAB_SCHEDULEDTASKS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
-            this.BackgroundImage = global::Borealis_Default_Namespace.Properties.Resources.backdrop;
+            this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelAddTask);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblEnableTasks);
@@ -648,5 +659,6 @@
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private System.Windows.Forms.Panel panel1;
     }
 }
