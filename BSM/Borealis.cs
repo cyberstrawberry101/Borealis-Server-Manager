@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MetroFramework;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -149,6 +150,7 @@ namespace Borealis
 
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Server deployment is mostly finished, but there are some kinks, such as Steam Guard not working that need to get sorted out.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             MDI_CURTAINHIDER.Visible = true;
             tab_animate(deployment_tab, deployment_indicator, true);
             tabForms.SelectedIndex = 0;
@@ -156,6 +158,7 @@ namespace Borealis
         }
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Server management is partially finished, most of the expected functionality is there, but there is still room for more to be added.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             MDI_CURTAINHIDER.Visible = true;
             tab_animate(management_tab, management_indicator, true);
             tabForms.SelectedIndex = 1;
@@ -163,6 +166,7 @@ namespace Borealis
         }
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
+            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Server management is barely coded in, it will not function at this time.", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Error);
             MDI_CURTAINHIDER.Visible = true;
             tab_animate(control_tab, control_indicator, true);
             tabForms.SelectedIndex = 2;

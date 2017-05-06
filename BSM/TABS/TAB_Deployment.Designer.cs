@@ -53,7 +53,6 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -429,15 +428,6 @@
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 5);
-            this.panel1.TabIndex = 53;
-            // 
             // TAB_DEPLOYMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,7 +436,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
@@ -501,6 +490,5 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Panel panel1;
     }
 }

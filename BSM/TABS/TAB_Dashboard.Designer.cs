@@ -64,7 +64,6 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedLANUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -491,15 +490,6 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(725, 5);
-            this.panel2.TabIndex = 64;
-            // 
             // TAB_DASHBOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -508,7 +498,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelDiskUsage);
             this.Controls.Add(this.panelCPUUsage);
@@ -566,6 +555,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNetworkUsage;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnRestartFlag;
-        private System.Windows.Forms.Panel panel2;
     }
 }

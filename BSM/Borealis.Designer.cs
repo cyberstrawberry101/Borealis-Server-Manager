@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
             this.formHeaderDragger = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
+            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.attribution_tab = new Bunifu.Framework.UI.BunifuImageButton();
             this.mainIcon = new System.Windows.Forms.PictureBox();
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.labelBorealisTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnExitProgram = new Bunifu.Framework.UI.BunifuImageButton();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
@@ -65,10 +65,11 @@
             this.scheduledtasks_indicator = new System.Windows.Forms.Panel();
             this.MENU_TOOLTIPS = new System.Windows.Forms.ToolTip(this.components);
             this.MDI_CURTAINHIDER = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.DO_NOT_DELETE.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -101,6 +102,21 @@
             this.header.Name = "header";
             this.header.Size = new System.Drawing.Size(965, 45);
             this.header.TabIndex = 1;
+            // 
+            // btnExitProgram
+            // 
+            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
+            this.btnExitProgram.ImageActive = null;
+            this.btnExitProgram.Location = new System.Drawing.Point(927, 10);
+            this.btnExitProgram.Name = "btnExitProgram";
+            this.btnExitProgram.Size = new System.Drawing.Size(26, 26);
+            this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnExitProgram.TabIndex = 4;
+            this.btnExitProgram.TabStop = false;
+            this.MENU_TOOLTIPS.SetToolTip(this.btnExitProgram, "Save active configuration to disk and close Borealis.");
+            this.btnExitProgram.Zoom = 20;
+            this.btnExitProgram.Click += new System.EventHandler(this.btnExitProgram_Click);
             // 
             // attribution_tab
             // 
@@ -153,21 +169,6 @@
             this.labelBorealisTitle.TabIndex = 2;
             this.labelBorealisTitle.Text = "Borealis Server Manager";
             // 
-            // btnExitProgram
-            // 
-            this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
-            this.btnExitProgram.ImageActive = null;
-            this.btnExitProgram.Location = new System.Drawing.Point(927, 10);
-            this.btnExitProgram.Name = "btnExitProgram";
-            this.btnExitProgram.Size = new System.Drawing.Size(26, 26);
-            this.btnExitProgram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnExitProgram.TabIndex = 4;
-            this.btnExitProgram.TabStop = false;
-            this.MENU_TOOLTIPS.SetToolTip(this.btnExitProgram, "Save active configuration to disk and close Borealis.");
-            this.btnExitProgram.Zoom = 20;
-            this.btnExitProgram.Click += new System.EventHandler(this.btnExitProgram_Click);
-            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
@@ -203,7 +204,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 554);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 559);
             this.tableLayoutPanel1.TabIndex = 28;
             // 
             // DO_NOT_DELETE
@@ -216,7 +217,7 @@
             this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
             this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
             this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
-            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 234);
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 239);
             this.DO_NOT_DELETE.TabIndex = 49;
             // 
             // bunifuCustomLabel1
@@ -638,15 +639,25 @@
             this.MDI_CURTAINHIDER.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MDI_CURTAINHIDER.Location = new System.Drawing.Point(240, 45);
             this.MDI_CURTAINHIDER.Name = "MDI_CURTAINHIDER";
-            this.MDI_CURTAINHIDER.Size = new System.Drawing.Size(725, 554);
+            this.MDI_CURTAINHIDER.Size = new System.Drawing.Size(725, 559);
             this.MDI_CURTAINHIDER.TabIndex = 32;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(240, 45);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(725, 5);
+            this.panel6.TabIndex = 55;
             // 
             // BorealisServerManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(965, 599);
+            this.ClientSize = new System.Drawing.Size(965, 604);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.MDI_CURTAINHIDER);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.header);
@@ -666,9 +677,9 @@
             this.MdiChildActivate += new System.EventHandler(this.BorealisServerManager_MdiChildActivate);
             this.header.ResumeLayout(false);
             this.header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.DO_NOT_DELETE.ResumeLayout(false);
             this.DO_NOT_DELETE.PerformLayout();
@@ -723,6 +734,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel MDI_CURTAINHIDER;
         private System.Windows.Forms.TabControl tabForms;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 

@@ -53,7 +53,6 @@
             this.linkLabel8 = new System.Windows.Forms.LinkLabel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel8 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -396,15 +395,6 @@
             this.bunifuCustomLabel8.TabIndex = 14;
             this.bunifuCustomLabel8.Text = "Community Resources:";
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(725, 5);
-            this.panel6.TabIndex = 54;
-            // 
             // TAB_ABOUT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +403,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -465,6 +454,5 @@
         private System.Windows.Forms.LinkLabel linkLabel7;
         private System.Windows.Forms.LinkLabel linkLabel8;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel8;
-        private System.Windows.Forms.Panel panel6;
     }
 }

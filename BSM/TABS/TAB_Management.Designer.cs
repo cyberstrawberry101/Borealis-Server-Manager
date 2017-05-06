@@ -60,7 +60,6 @@
             this.chkFirewallToggle = new Bunifu.Framework.UI.BunifuCheckbox();
             this.groupboxGameProperties = new System.Windows.Forms.GroupBox();
             this.panelServerDetails = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).BeginInit();
             this.groupboxServerProperties.SuspendLayout();
             this.groupboxGameProperties.SuspendLayout();
@@ -562,15 +561,6 @@
             this.panelServerDetails.TabIndex = 74;
             this.panelServerDetails.Visible = false;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 5);
-            this.panel1.TabIndex = 75;
-            // 
             // TAB_MANAGEMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,7 +569,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelServerDetails);
             this.Controls.Add(this.groupboxGameProperties);
             this.Controls.Add(this.groupboxServerProperties);
@@ -640,6 +629,5 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblAddFirewallRule;
         private Bunifu.Framework.UI.BunifuCheckbox chkFirewallToggle;
         private System.Windows.Forms.Panel panelServerDetails;
-        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -67,6 +67,7 @@ namespace Borealis
             lblAutoRestart.Visible = false;
             txtboxIssueCommand.Visible = true;
             txtboxIssueCommand.Text = " > Enter a Command";
+            txtboxIssueCommand.Enabled = true;
 
 
             if (GameServer_Management.server_collection != null)
@@ -90,6 +91,7 @@ namespace Borealis
             txtboxIssueCommand.Visible = false;
             consoleOutputList.Items.Clear();
             txtboxIssueCommand.Text = " > Server is Not Running";
+            txtboxIssueCommand.Enabled = false;
         }
         private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
         {

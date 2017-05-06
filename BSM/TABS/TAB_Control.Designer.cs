@@ -44,7 +44,6 @@
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,6 +246,7 @@
             this.txtboxIssueCommand.BackColor = System.Drawing.Color.White;
             this.txtboxIssueCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtboxIssueCommand.Enabled = false;
             this.txtboxIssueCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 371);
@@ -274,15 +274,6 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(725, 5);
-            this.panel1.TabIndex = 54;
-            // 
             // TAB_CONTROL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -290,7 +281,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.consolePanel);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -327,6 +317,5 @@
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.Panel consolePanel;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Panel panel1;
     }
 }
