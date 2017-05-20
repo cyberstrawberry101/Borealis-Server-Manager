@@ -320,7 +320,7 @@
             this.lblVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
             this.lblVerifyIntegrity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblVerifyIntegrity.Location = new System.Drawing.Point(65, 522);
+            this.lblVerifyIntegrity.Location = new System.Drawing.Point(52, 522);
             this.lblVerifyIntegrity.Name = "lblVerifyIntegrity";
             this.lblVerifyIntegrity.Size = new System.Drawing.Size(125, 19);
             this.lblVerifyIntegrity.TabIndex = 51;
