@@ -30,61 +30,94 @@ namespace Borealis
         //===================================================================================//
         // CONTROL:                                                                          //
         //===================================================================================//
-        private void ExecuteWithRedirect(string argProgramName, string argParameters)
+        private void Execute(string argProgramName, string argParameters, bool Redirect)
         {
             try
             {
                 var proc = new Process();
                 proc.StartInfo.Arguments = argParameters;
                 proc.StartInfo.FileName = argProgramName;
-                proc.StartInfo.UseShellExecute = false;
 
-                // set up output redirection
-                proc.StartInfo.RedirectStandardOutput = true;
-                proc.StartInfo.RedirectStandardInput = true;
-                proc.StartInfo.RedirectStandardError = true;
-                proc.EnableRaisingEvents = true;
-                proc.StartInfo.CreateNoWindow = true;
-                // see below for output handler
-                proc.ErrorDataReceived += proc_DataReceived;
-                proc.OutputDataReceived += proc_DataReceived;
-                proc.Start();
-                proc.BeginErrorReadLine();
-                proc.BeginOutputReadLine();
+                if (Redirect == true)
+                {
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.RedirectStandardInput = true;
+                    proc.StartInfo.RedirectStandardError = true;
+                    proc.EnableRaisingEvents = true;
+                    proc.StartInfo.CreateNoWindow = true;
+                    proc.ErrorDataReceived += proc_DataReceived;
+                    proc.OutputDataReceived += proc_DataReceived;
+                    proc.Start();
+                    proc.BeginErrorReadLine();
+                    proc.BeginOutputReadLine();
+                }
+                else
+                {
+                    proc.StartInfo.UseShellExecute = true;
+                    proc.Start();
+                }
             }
             catch (Exception)
             {
                 MetroMessageBox.Show(BorealisServerManager.ActiveForm, "We cannot find the required executable to launch the server!  Either it is missing, or your configuration for this gameserver is corrupted.", "Error Launching GameServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnStartServer.Enabled = true;
-                btnStopServer.Enabled = false;
+                btnStopServer.Visible = false;
+                lblAutoRestart.Visible = true;
+                chkAutoRestart.Visible = true;
+                lblStandaloneMode.Visible = true;
+                chkStandaloneMode.Visible = true;
+                consolePanel.Visible = false;
             }
         }
         private void btnStartServer_Click(object sender, EventArgs e)
         {
-            btnStartServer.Enabled = false;
-            btnStopServer.Enabled = true;
-            chkAutoRestart.Visible = false;
-            lblAutoRestart.Visible = false;
-            txtboxIssueCommand.Visible = true;
-            txtboxIssueCommand.Text = " > Enter a Command";
-            txtboxIssueCommand.Enabled = true;
-
-
             if (GameServer_Management.server_collection != null)
             {
                 foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                 {
                     if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                     {
-                        ExecuteWithRedirect(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments);
+                        //check to see what kind of engine the server is using, and determine the usage of the variables accordingly
+
+                        //SOURCE ENGINE HANDLER
+                        if (gameserver.ENGINE_type == "SOURCE")
+                        {
+                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
+                            if (chkStandaloneMode.Value == true)
+                            {
+                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\" + gameserver.SERVER_executable, string.Format("{0} +port {1} +map {2} +maxplayers {3}", 
+                                    gameserver.SERVER_launch_arguments,
+                                    gameserver.SERVER_port,
+                                    gameserver.GAME_map,
+                                    gameserver.GAME_maxplayers), false);
+                            }
+                            else
+                            {
+                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately Borealis cannot directly control console output at this time; instead, please launch the server in 'standalone mode'.", "Unable to launch server within Borealis.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                /*
+                                chkAutoRestart.Visible = false;
+                                lblAutoRestart.Visible = false;
+                                chkStandaloneMode.Visible = false;
+                                lblStandaloneMode.Visible = false;
+                                btnStartServer.Enabled = false;
+                                btnStopServer.Visible = true;
+                                consolePanel.Visible = true;
+                                txtboxIssueCommand.Visible = true;
+                                txtboxIssueCommand.Text = " > Enter a Command";
+                                txtboxIssueCommand.Enabled = true;
+                                Execute(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments, true);
+                                */
+                            }
+                        }
                     }
                 }
-            }
+            }  
         }
 
         private void btnStopServer_Click(object sender, EventArgs e)
         {
-            btnStopServer.Enabled = false;
+            btnStopServer.Visible = false;
             btnStartServer.Enabled = true;
             chkAutoRestart.Visible = true;
             lblAutoRestart.Visible = true;
@@ -118,11 +151,11 @@ namespace Borealis
                     
                 }
             }
-            consolePanel.Visible = true;
             btnStartServer.Visible = true;
-            btnStopServer.Visible = true;
             chkAutoRestart.Visible = true;
             lblAutoRestart.Visible = true;
+            chkStandaloneMode.Visible = true;
+            lblStandaloneMode.Visible = true;
         }
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {

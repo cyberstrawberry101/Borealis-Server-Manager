@@ -44,6 +44,8 @@
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkStandaloneMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.lblStandaloneMode = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Location = new System.Drawing.Point(16, 516);
+            this.chkAutoRestart.Location = new System.Drawing.Point(16, 521);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.chkAutoRestart.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -100,7 +102,7 @@
             this.lblAutoRestart.BackColor = System.Drawing.Color.Transparent;
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblAutoRestart.Location = new System.Drawing.Point(65, 522);
+            this.lblAutoRestart.Location = new System.Drawing.Point(52, 522);
             this.lblAutoRestart.Name = "lblAutoRestart";
             this.lblAutoRestart.Size = new System.Drawing.Size(189, 19);
             this.lblAutoRestart.TabIndex = 18;
@@ -131,7 +133,7 @@
             this.btnStartServer.IconVisible = true;
             this.btnStartServer.IconZoom = 90D;
             this.btnStartServer.IsTab = false;
-            this.btnStartServer.Location = new System.Drawing.Point(413, 493);
+            this.btnStartServer.Location = new System.Drawing.Point(568, 493);
             this.btnStartServer.Name = "btnStartServer";
             this.btnStartServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnStartServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -156,7 +158,6 @@
             this.btnStopServer.ButtonText = "Stop Server";
             this.btnStopServer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStopServer.DisabledColor = System.Drawing.Color.Gray;
-            this.btnStopServer.Enabled = false;
             this.btnStopServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnStopServer.Iconcolor = System.Drawing.Color.Transparent;
             this.btnStopServer.Iconimage = global::Borealis.Properties.Resources.STOP_ICON;
@@ -170,7 +171,7 @@
             this.btnStopServer.IconVisible = true;
             this.btnStopServer.IconZoom = 45D;
             this.btnStopServer.IsTab = false;
-            this.btnStopServer.Location = new System.Drawing.Point(568, 493);
+            this.btnStopServer.Location = new System.Drawing.Point(413, 493);
             this.btnStopServer.Name = "btnStopServer";
             this.btnStopServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnStopServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
@@ -274,6 +275,38 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // chkStandaloneMode
+            // 
+            this.chkStandaloneMode.BackColor = System.Drawing.Color.Transparent;
+            this.chkStandaloneMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkStandaloneMode.BackgroundImage")));
+            this.chkStandaloneMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkStandaloneMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkStandaloneMode.Location = new System.Drawing.Point(16, 492);
+            this.chkStandaloneMode.Name = "chkStandaloneMode";
+            this.chkStandaloneMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkStandaloneMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkStandaloneMode.Size = new System.Drawing.Size(35, 20);
+            this.chkStandaloneMode.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.chkStandaloneMode, "In the event that the server crashes or the process is terminated, it will be aut" +
+        "omatically re-launched.");
+            this.chkStandaloneMode.Value = false;
+            this.chkStandaloneMode.Visible = false;
+            // 
+            // lblStandaloneMode
+            // 
+            this.lblStandaloneMode.AutoSize = true;
+            this.lblStandaloneMode.BackColor = System.Drawing.Color.Transparent;
+            this.lblStandaloneMode.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblStandaloneMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblStandaloneMode.Location = new System.Drawing.Point(52, 493);
+            this.lblStandaloneMode.Name = "lblStandaloneMode";
+            this.lblStandaloneMode.Size = new System.Drawing.Size(157, 19);
+            this.lblStandaloneMode.TabIndex = 51;
+            this.lblStandaloneMode.Text = "Start in standalone mode";
+            this.toolTip1.SetToolTip(this.lblStandaloneMode, "If you would like to simply launch the server with a normal (visible) console win" +
+        "dow, and not have borealis manage it directly.");
+            this.lblStandaloneMode.Visible = false;
+            // 
             // TAB_CONTROL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +314,8 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.chkStandaloneMode);
+            this.Controls.Add(this.lblStandaloneMode);
             this.Controls.Add(this.consolePanel);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -317,5 +352,7 @@
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.Panel consolePanel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Bunifu.Framework.UI.BunifuiOSSwitch chkStandaloneMode;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblStandaloneMode;
     }
 }

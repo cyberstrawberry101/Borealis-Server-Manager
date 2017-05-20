@@ -41,7 +41,6 @@
             this.btnDestroyServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtboxStartingMap = new MetroFramework.Controls.MetroComboBox();
             this.btnSteamWorkshop = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.txtboxIP = new System.Windows.Forms.TextBox();
             this.txtboxPORT = new System.Windows.Forms.TextBox();
             this.btnAddonControl = new Bunifu.Framework.UI.BunifuFlatButton();
             this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +52,6 @@
             this.lblGameEngine = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblSteamWorkshop = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblMaxPlayers = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.lblIPAddress = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblPort = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.groupboxServerProperties = new System.Windows.Forms.GroupBox();
             this.lblAddFirewallRule = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -287,27 +285,15 @@
             this.btnSteamWorkshop.Visible = false;
             this.btnSteamWorkshop.Click += new System.EventHandler(this.btnSteamWorkshop_Click);
             // 
-            // txtboxIP
-            // 
-            this.txtboxIP.BackColor = System.Drawing.Color.White;
-            this.txtboxIP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtboxIP.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtboxIP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxIP.Location = new System.Drawing.Point(10, 96);
-            this.txtboxIP.Name = "txtboxIP";
-            this.txtboxIP.Size = new System.Drawing.Size(133, 25);
-            this.txtboxIP.TabIndex = 64;
-            this.toolTip1.SetToolTip(this.txtboxIP, "Assign the server to launch using a specific IP address.");
-            // 
             // txtboxPORT
             // 
             this.txtboxPORT.BackColor = System.Drawing.Color.White;
             this.txtboxPORT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxPORT.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtboxPORT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxPORT.Location = new System.Drawing.Point(176, 96);
+            this.txtboxPORT.Location = new System.Drawing.Point(11, 96);
             this.txtboxPORT.Name = "txtboxPORT";
-            this.txtboxPORT.Size = new System.Drawing.Size(133, 25);
+            this.txtboxPORT.Size = new System.Drawing.Size(298, 25);
             this.txtboxPORT.TabIndex = 67;
             this.toolTip1.SetToolTip(this.txtboxPORT, "Assign the server a network port to communicate to the world with.");
             // 
@@ -459,29 +445,17 @@
             this.lblMaxPlayers.Text = "Max Players:";
             this.lblMaxPlayers.UseMnemonic = false;
             // 
-            // lblIPAddress
-            // 
-            this.lblIPAddress.AutoSize = true;
-            this.lblIPAddress.BackColor = System.Drawing.Color.Transparent;
-            this.lblIPAddress.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblIPAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblIPAddress.Location = new System.Drawing.Point(6, 74);
-            this.lblIPAddress.Name = "lblIPAddress";
-            this.lblIPAddress.Size = new System.Drawing.Size(74, 19);
-            this.lblIPAddress.TabIndex = 68;
-            this.lblIPAddress.Text = "IP Address:";
-            // 
             // lblPort
             // 
             this.lblPort.AutoSize = true;
             this.lblPort.BackColor = System.Drawing.Color.Transparent;
             this.lblPort.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblPort.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblPort.Location = new System.Drawing.Point(172, 74);
+            this.lblPort.Location = new System.Drawing.Point(6, 74);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(37, 19);
+            this.lblPort.Size = new System.Drawing.Size(79, 19);
             this.lblPort.TabIndex = 69;
-            this.lblPort.Text = "Port:";
+            this.lblPort.Text = "Server Port:";
             // 
             // groupboxServerProperties
             // 
@@ -491,8 +465,6 @@
             this.groupboxServerProperties.Controls.Add(this.chkFirewallToggle);
             this.groupboxServerProperties.Controls.Add(this.txtboxFriendlyName);
             this.groupboxServerProperties.Controls.Add(this.lblPort);
-            this.groupboxServerProperties.Controls.Add(this.lblIPAddress);
-            this.groupboxServerProperties.Controls.Add(this.txtboxIP);
             this.groupboxServerProperties.Controls.Add(this.txtboxPORT);
             this.groupboxServerProperties.Controls.Add(this.lblArguments);
             this.groupboxServerProperties.Controls.Add(this.txtboxArguments);
@@ -517,6 +489,7 @@
             this.lblAddFirewallRule.Size = new System.Drawing.Size(111, 19);
             this.lblAddFirewallRule.TabIndex = 71;
             this.lblAddFirewallRule.Text = "Add Firewall Rule";
+            this.toolTip1.SetToolTip(this.lblAddFirewallRule, "<NOT IMPLEMENTED YET>");
             // 
             // chkFirewallToggle
             // 
@@ -530,6 +503,7 @@
             this.chkFirewallToggle.Name = "chkFirewallToggle";
             this.chkFirewallToggle.Size = new System.Drawing.Size(20, 20);
             this.chkFirewallToggle.TabIndex = 70;
+            this.toolTip1.SetToolTip(this.chkFirewallToggle, "<NOT IMPLEMENTED YET>");
             // 
             // groupboxGameProperties
             // 
@@ -619,9 +593,7 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblSteamWorkshop;
         private System.Windows.Forms.NumericUpDown incMaxPlayers;
         private Bunifu.Framework.UI.BunifuCustomLabel lblMaxPlayers;
-        private System.Windows.Forms.TextBox txtboxIP;
         private System.Windows.Forms.TextBox txtboxPORT;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblIPAddress;
         private Bunifu.Framework.UI.BunifuCustomLabel lblPort;
         private Bunifu.Framework.UI.BunifuFlatButton btnAddonControl;
         private System.Windows.Forms.GroupBox groupboxServerProperties;

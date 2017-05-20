@@ -38,7 +38,6 @@ namespace Borealis
                     gameserver.SERVER_launch_arguments = txtboxArguments.Text;
                     gameserver.GAME_maxplayers = Convert.ToInt32(incMaxPlayers.Value);
                     gameserver.GAME_map = txtboxStartingMap.Text;
-                    gameserver.SERVER_ip = txtboxIP.Text;
                     gameserver.SERVER_port = txtboxPORT.Text;
                 }
             }
@@ -65,7 +64,6 @@ namespace Borealis
                     lblSteamWorkshop.Text = string.Format("Steam Workshop: {0}", gameserver.STEAM_workshop_enabled);
                     btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
                     incMaxPlayers.Value = gameserver.GAME_maxplayers;
-                    txtboxIP.Text = gameserver.SERVER_ip;
                     txtboxPORT.Text = gameserver.SERVER_port;
 
                     //Check the game engine being used, and determine the folder where the maps are based on it, then populate it.
@@ -152,7 +150,6 @@ namespace Borealis
                         //Clear the text fields since the server no longer exists, to simply tidy things up.
                         txtboxFriendlyName.Text = "";
                         txtboxArguments.Text = "";
-                        txtboxIP.Text = "";
                         txtboxPORT.Text = "";
                         txtboxStartingMap.Items.Clear();
                         incMaxPlayers.Value = 0;
