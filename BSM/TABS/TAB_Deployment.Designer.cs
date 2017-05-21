@@ -53,6 +53,7 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblSteamGuardAlert = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelProgress.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             // dropdownServerSelection
             // 
             this.dropdownServerSelection.BackColor = System.Drawing.Color.White;
-            this.dropdownServerSelection.DropDownHeight = 150;
+            this.dropdownServerSelection.DropDownHeight = 140;
             this.dropdownServerSelection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.dropdownServerSelection.FormattingEnabled = true;
             this.dropdownServerSelection.IntegralHeight = false;
@@ -428,6 +429,19 @@
             this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
+            // lblSteamGuardAlert
+            // 
+            this.lblSteamGuardAlert.AutoSize = true;
+            this.lblSteamGuardAlert.BackColor = System.Drawing.Color.Transparent;
+            this.lblSteamGuardAlert.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblSteamGuardAlert.ForeColor = System.Drawing.Color.Red;
+            this.lblSteamGuardAlert.Location = new System.Drawing.Point(13, 157);
+            this.lblSteamGuardAlert.Name = "lblSteamGuardAlert";
+            this.lblSteamGuardAlert.Size = new System.Drawing.Size(178, 13);
+            this.lblSteamGuardAlert.TabIndex = 53;
+            this.lblSteamGuardAlert.Text = "Requires Steam Guard Authentication";
+            this.lblSteamGuardAlert.Visible = false;
+            // 
             // TAB_DEPLOYMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +450,7 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.lblSteamGuardAlert);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
@@ -490,5 +505,6 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblSteamGuardAlert;
     }
 }

@@ -59,48 +59,38 @@ namespace Borealis
                     //Populate applicable data fields using data from GameServer_Object
                     txtboxFriendlyName.Text = gameserver.SERVER_name_friendly;
                     txtboxArguments.Text = gameserver.SERVER_launch_arguments;
-                    lblGameType.Text = string.Format("Game Type: {0}", gameserver.SERVER_type);
-                    lblGameEngine.Text = string.Format("Game Engine: {0}", gameserver.ENGINE_type);
-                    lblSteamWorkshop.Text = string.Format("Steam Workshop: {0}", gameserver.STEAM_workshop_enabled);
                     btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
                     incMaxPlayers.Value = gameserver.GAME_maxplayers;
                     txtboxPORT.Text = gameserver.SERVER_port;
 
-                    //Check the game engine being used, and determine the folder where the maps are based on it, then populate it.
-                    if (gameserver.ENGINE_type == "SOURCE")
+                    //Clear the map dropdown list before adding new data to it.
+                    txtboxStartingMap.Items.Clear();
+
+
+                    var mapListing = Directory
+                    .EnumerateFiles(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.DIR_maps, gameserver.DIR_maps_file_extension, SearchOption.AllDirectories)
+                    .Select(Path.GetFileName); // <-- note you can shorten the lambda
+
+                    foreach (var mapfile in mapListing)
                     {
-                        //Clear the map dropdown list before adding new data to it.
-                        txtboxStartingMap.Items.Clear();
+                        string preparedmap = Path.GetFileNameWithoutExtension(mapfile);
 
-                        if (gameserver.bsm_custominstallfolder == true)
+                        //Specifically check for KF2's map system screwup to get around it.
+                        if (gameserver.SERVER_type == "Killing Floor 2")
                         {
-                            var mapListing = Directory
-                            .EnumerateFiles(gameserver.DIR_install_location + @"\garrysmod\maps", "*.bsp", SearchOption.TopDirectoryOnly)
-                            .Select(Path.GetFileName); // <-- note you can shorten the lambda
-
-                            foreach (var bsp in mapListing)
+                            if (preparedmap.StartsWith("KF-"))
                             {
-                                string preparedbsp = Path.GetFileNameWithoutExtension(bsp);
-                                txtboxStartingMap.Items.Add(preparedbsp);
+                                txtboxStartingMap.Items.Add(preparedmap);
                             }
                         }
-                        else  //If the server was not deployed to a custom folder, then just imply the steamapps\common folder in the directory structure.
+                        else //Any other kind of gameserver / wildcard
                         {
-                            var mapListing = Directory
-                            .EnumerateFiles(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\garrysmod\maps", "*.bsp", SearchOption.TopDirectoryOnly)
-                            .Select(Path.GetFileName); // <-- note you can shorten the lambda
-
-                            foreach (string bsp in mapListing)
-                            {
-                                string preparedbsp = Path.GetFileNameWithoutExtension(bsp);
-                                txtboxStartingMap.Items.Add(preparedbsp);
-                            }
+                            txtboxStartingMap.Items.Add(preparedmap);
                         }
                     }
 
                     //The selected index indicating the original value must be called AFTER populating the Map List Combo Box.
                     txtboxStartingMap.Text = gameserver.GAME_map;
-
 
                     //Make properties boxes visible.
                     groupboxServerProperties.Visible = true;
@@ -109,7 +99,6 @@ namespace Borealis
                     btnUpdateServerConfig.Visible = true;
                     btnAddonControl.Visible = true;
                     btnSteamWorkshop.Visible = true;
-                    panelServerDetails.Visible = true;
                 }
             }
         }
@@ -173,6 +162,18 @@ namespace Borealis
             MetroMessageBox.Show(ActiveForm,
                     "Addon / Mod management has not yet been implemented into Borealis.  Come back later! :)",
                     "Addon / Mod Management", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void chkFirewallToggle_OnChange(object sender, EventArgs e)
+        {
+            if (chkFirewallToggle.Checked == true)
+            {
+                lblAddFirewallRule.Text = "Firewall Rule [Enabled]";
+            }
+            else
+            {
+                lblAddFirewallRule.Text = "Firewall Rule [Disabled]";
+            }
         }
     }
 }

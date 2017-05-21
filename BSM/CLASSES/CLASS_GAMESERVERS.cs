@@ -79,17 +79,20 @@ namespace Borealis
         public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
         public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
         public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
-        public string SERVER_executable { get; set; }          //The relative location of where the server executable is located relative to install location
+        public string SERVER_executable { get; set; }       //The relative location of where the server executable is located relative to install location
+        public string SERVER_port { get; set; }
 
         //Custom configuration values given to server
         public int GAME_maxplayers { get; set; }
         public string GAME_map { get; set; }
-        public string SERVER_ip { get; set; }
-        public string SERVER_port { get; set; }
 
         //Directory-based Properties
         public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
         public string DIR_root { get; set; }                //Location of root directory where the server is to be expected
+        public string DIR_maps { get; set; }                //Location of where gameserver's maps are located.
+        public string DIR_maps_file_extension {get; set; }  //Tell Borealis what file extension to look for when populating the map listing
+        public string DIR_mods { get; set; }                //Location of where gameserver's mods/workshop subscriptions are located
+        public string DIR_config { get; set; }              //Location of where gameserver's primary configuration files are stored
 
         //Steam-based Properties
         public bool STEAM_authrequired { get; set; }        //Determine whether the server requires Steam Guard or allows anonymous login

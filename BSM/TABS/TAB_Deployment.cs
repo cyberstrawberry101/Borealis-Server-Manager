@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Serilog;
+using System.Windows.Documents;
 
 namespace Borealis
 {
@@ -127,6 +128,8 @@ namespace Borealis
             }
         }
 
+
+
         //===================================================================================//
         // DEPLOYMENT:                                                                       //
         //===================================================================================//
@@ -139,6 +142,10 @@ namespace Borealis
             public string SERVER_executable { get; set; }
             public string DIR_install_location { get; set; }
             public string DIR_root { get; set; }
+            public string DIR_maps { get; set; }
+            public string DIR_maps_file_extension { get; set; }
+            public string DIR_mods { get; set; }
+            public string DIR_config { get; set; }
             public bool STEAM_authrequired { get; set; }
             public bool STEAM_steamcmd_required { get; set; }
             public bool STEAM_workshop_enabled { get; set; }
@@ -158,7 +165,6 @@ namespace Borealis
             DeployConfiguredServer.SERVER_type = this._currentDeploymentValues.SERVER_type;
             DeployConfiguredServer.SERVER_launch_arguments = this._currentDeploymentValues.SERVER_launch_arguments;
             DeployConfiguredServer.SERVER_executable = this._currentDeploymentValues.SERVER_executable;
-            DeployConfiguredServer.SERVER_ip = "";
             DeployConfiguredServer.SERVER_port = "";
 
             //Game-based properties
@@ -168,6 +174,10 @@ namespace Borealis
             //Directory-based Properties
             DeployConfiguredServer.DIR_install_location = this._currentDeploymentValues.DIR_install_location;
             DeployConfiguredServer.DIR_root = this._currentDeploymentValues.DIR_root;
+            DeployConfiguredServer.DIR_maps = this._currentDeploymentValues.DIR_maps;
+            DeployConfiguredServer.DIR_maps_file_extension = this._currentDeploymentValues.DIR_maps_file_extension;
+            DeployConfiguredServer.DIR_mods = this._currentDeploymentValues.DIR_mods;
+            DeployConfiguredServer.DIR_config = this._currentDeploymentValues.DIR_config;
 
             //Steam-based Properties
             DeployConfiguredServer.STEAM_authrequired = this._currentDeploymentValues.STEAM_authrequired;
@@ -243,6 +253,19 @@ namespace Borealis
         {
             this.UIControlsHider(true); //Show UI elements to end-user
             this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
+
+            //Query specific appID for Steam Guard requirement check
+            var steamGuardChecker = (GameserverType)this.dropdownServerSelection.SelectedItem;
+            GameServer_Object gameServer = ServerAPI.QUERY_DATA(steamGuardChecker.Id);
+
+            if (gameServer.STEAM_authrequired == true)
+            {
+                lblSteamGuardAlert.Visible = true;
+            }
+            else
+            {
+                lblSteamGuardAlert.Visible = false;
+            }
         }
 
         //Methods that handle deployment itself.
@@ -284,7 +307,8 @@ namespace Borealis
                         switch (deploymentValues.STEAM_authrequired)
                         {
                             case true:
-                                MetroMessageBox.Show(ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                //MetroMessageBox.Show(ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Please enter your Steam Guard code below:", "STEAM GUARD AUTHENTICATION");
                                 this.btnDeployGameserver.Enabled = true;
                                 this.btnCancelDeployGameserver.Visible = false;
                                 break;
@@ -292,7 +316,12 @@ namespace Borealis
                             case false:
                                 try
                                 {
-                                    this.ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe", string.Concat("+login anonymous +force_install_dir ", "\"", deploymentValues.DIR_install_location, "\"", " +app_update ", ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text), deploymentValues.verify_integrity, " +quit"));
+                                    this.ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe",
+                                        string.Format(@"+login anonymous +force_install_dir {0} +app_update {1} {2} +quit",
+                                        deploymentValues.DIR_install_location,
+                                        ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text),
+                                        deploymentValues.verify_integrity));
+
                                 }
                                 catch (Exception)
                                 {
@@ -343,6 +372,10 @@ namespace Borealis
                 SERVER_launch_arguments = gameServer.SERVER_launch_arguments,
                 SERVER_executable = gameServer.SERVER_executable,
                 DIR_root = gameServer.DIR_root,
+                DIR_maps = gameServer.DIR_maps,
+                DIR_maps_file_extension = gameServer.DIR_maps_file_extension,
+                DIR_mods = gameServer.DIR_mods,
+                DIR_config = gameServer.DIR_config,
                 STEAM_authrequired = gameServer.STEAM_authrequired,
                 STEAM_steamcmd_required = gameServer.STEAM_steamcmd_required,
                 STEAM_workshop_enabled = gameServer.STEAM_workshop_enabled,

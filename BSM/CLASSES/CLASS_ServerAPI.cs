@@ -30,11 +30,11 @@ namespace Borealis
                 foreach (var serverAppIDLink in o)
                 {
                     JToken value = serverAppIDLink.Value; //ServerName
-                    string name = serverAppIDLink.Key; //Steam appID
+                    string appID = serverAppIDLink.Key; //Steam appID
 
                     if (value.ToString() == serverGiven)
                     {
-                        return name; //appID
+                        return appID; //appID
                     }
                 }
                 return "NULL";

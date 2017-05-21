@@ -86,10 +86,43 @@ namespace Borealis
                             //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
                             if (chkStandaloneMode.Value == true)
                             {
-                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\" + gameserver.SERVER_executable, string.Format("{0} +port {1} +map {2} +maxplayers {3}", 
+                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable, 
+                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}", 
                                     gameserver.SERVER_launch_arguments,
                                     gameserver.SERVER_port,
                                     gameserver.GAME_map,
+                                    gameserver.GAME_maxplayers), false);
+                            }
+                            else
+                            {
+                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately Borealis cannot directly control console output at this time; instead, please launch the server in 'standalone mode'.", "Unable to launch server within Borealis.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                /*
+                                chkAutoRestart.Visible = false;
+                                lblAutoRestart.Visible = false;
+                                chkStandaloneMode.Visible = false;
+                                lblStandaloneMode.Visible = false;
+                                btnStartServer.Enabled = false;
+                                btnStopServer.Visible = true;
+                                consolePanel.Visible = true;
+                                txtboxIssueCommand.Visible = true;
+                                txtboxIssueCommand.Text = " > Enter a Command";
+                                txtboxIssueCommand.Enabled = true;
+                                Execute(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments, true);
+                                */
+                            }
+                        }
+
+                        //SOURCE ENGINE HANDLER
+                        if (gameserver.ENGINE_type == "UNREAL")
+                        {
+                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
+                            if (chkStandaloneMode.Value == true)
+                            {
+                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable, 
+                                    string.Format("{0}?{1}?Port={2}?MaxPlayers={3}",
+                                    gameserver.GAME_map,
+                                    gameserver.SERVER_launch_arguments,
+                                    gameserver.SERVER_port,
                                     gameserver.GAME_maxplayers), false);
                             }
                             else
