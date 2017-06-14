@@ -87,7 +87,7 @@ namespace Borealis
                 DashboardInfo dashboardInfo = this.GetInfo();
                 worker.ReportProgress(0, dashboardInfo);
 
-                Thread.Sleep(500);
+                Thread.Sleep(200);
             }
         }
 
@@ -137,7 +137,6 @@ namespace Borealis
             {
                 progressDISKUsage.ProgressColor = Color.FromArgb(191, 45, 66);
             }
-
 
             this.progressRAMUsage.Value = (int)((info.RAM / (double)info.TotalRAM) * 100);
             this.lblDetailedRAMUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.RAM / 1024.0, info.TotalRAM / 1024.0);

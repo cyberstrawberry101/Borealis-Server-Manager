@@ -46,6 +46,7 @@
             this.incMaxPlayers = new System.Windows.Forms.NumericUpDown();
             this.lblAddFirewallRule = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.chkFirewallToggle = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblFriendlyName = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblArguments = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblStartingMap = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -53,7 +54,6 @@
             this.lblPort = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.groupboxServerProperties = new System.Windows.Forms.GroupBox();
             this.groupboxGameProperties = new System.Windows.Forms.GroupBox();
-            this.btnBrowseDestination = new Bunifu.Framework.UI.BunifuFlatButton();
             ((System.ComponentModel.ISupportInitialize)(this.incMaxPlayers)).BeginInit();
             this.groupboxServerProperties.SuspendLayout();
             this.groupboxGameProperties.SuspendLayout();
@@ -374,6 +374,43 @@
             this.toolTip1.SetToolTip(this.chkFirewallToggle, "<NOT IMPLEMENTED YET>");
             this.chkFirewallToggle.OnChange += new System.EventHandler(this.chkFirewallToggle_OnChange);
             // 
+            // btnBrowseDestination
+            // 
+            this.btnBrowseDestination.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnBrowseDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnBrowseDestination.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBrowseDestination.BorderRadius = 0;
+            this.btnBrowseDestination.ButtonText = "Open Config Folder";
+            this.btnBrowseDestination.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBrowseDestination.DisabledColor = System.Drawing.Color.Gray;
+            this.btnBrowseDestination.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnBrowseDestination.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnBrowseDestination.Iconimage = null;
+            this.btnBrowseDestination.Iconimage_right = null;
+            this.btnBrowseDestination.Iconimage_right_Selected = null;
+            this.btnBrowseDestination.Iconimage_Selected = null;
+            this.btnBrowseDestination.IconMarginLeft = 0;
+            this.btnBrowseDestination.IconMarginRight = 0;
+            this.btnBrowseDestination.IconRightVisible = true;
+            this.btnBrowseDestination.IconRightZoom = 0D;
+            this.btnBrowseDestination.IconVisible = true;
+            this.btnBrowseDestination.IconZoom = 90D;
+            this.btnBrowseDestination.IsTab = false;
+            this.btnBrowseDestination.Location = new System.Drawing.Point(176, 186);
+            this.btnBrowseDestination.Name = "btnBrowseDestination";
+            this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnBrowseDestination.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnBrowseDestination.selected = false;
+            this.btnBrowseDestination.Size = new System.Drawing.Size(133, 29);
+            this.btnBrowseDestination.TabIndex = 64;
+            this.btnBrowseDestination.Text = "Open Config Folder";
+            this.btnBrowseDestination.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBrowseDestination.Textcolor = System.Drawing.Color.White;
+            this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnBrowseDestination, "Select where to deploy the new gameserver on  your system.\r\nThis location can be " +
+        "on the same disk or on another disk.");
+            // 
             // lblFriendlyName
             // 
             this.lblFriendlyName.AutoSize = true;
@@ -466,50 +503,13 @@
             this.groupboxGameProperties.Controls.Add(this.incMaxPlayers);
             this.groupboxGameProperties.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.groupboxGameProperties.ForeColor = System.Drawing.Color.Black;
-            this.groupboxGameProperties.Location = new System.Drawing.Point(12, 333);
+            this.groupboxGameProperties.Location = new System.Drawing.Point(12, 316);
             this.groupboxGameProperties.Name = "groupboxGameProperties";
             this.groupboxGameProperties.Size = new System.Drawing.Size(321, 136);
             this.groupboxGameProperties.TabIndex = 73;
             this.groupboxGameProperties.TabStop = false;
             this.groupboxGameProperties.Text = "Game Properties";
             this.groupboxGameProperties.Visible = false;
-            // 
-            // btnBrowseDestination
-            // 
-            this.btnBrowseDestination.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
-            this.btnBrowseDestination.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnBrowseDestination.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBrowseDestination.BorderRadius = 0;
-            this.btnBrowseDestination.ButtonText = "Open Config Folder";
-            this.btnBrowseDestination.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBrowseDestination.DisabledColor = System.Drawing.Color.Gray;
-            this.btnBrowseDestination.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnBrowseDestination.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBrowseDestination.Iconimage = null;
-            this.btnBrowseDestination.Iconimage_right = null;
-            this.btnBrowseDestination.Iconimage_right_Selected = null;
-            this.btnBrowseDestination.Iconimage_Selected = null;
-            this.btnBrowseDestination.IconMarginLeft = 0;
-            this.btnBrowseDestination.IconMarginRight = 0;
-            this.btnBrowseDestination.IconRightVisible = true;
-            this.btnBrowseDestination.IconRightZoom = 0D;
-            this.btnBrowseDestination.IconVisible = true;
-            this.btnBrowseDestination.IconZoom = 90D;
-            this.btnBrowseDestination.IsTab = false;
-            this.btnBrowseDestination.Location = new System.Drawing.Point(176, 186);
-            this.btnBrowseDestination.Name = "btnBrowseDestination";
-            this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
-            this.btnBrowseDestination.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnBrowseDestination.selected = false;
-            this.btnBrowseDestination.Size = new System.Drawing.Size(133, 29);
-            this.btnBrowseDestination.TabIndex = 64;
-            this.btnBrowseDestination.Text = "Open Config Folder";
-            this.btnBrowseDestination.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBrowseDestination.Textcolor = System.Drawing.Color.White;
-            this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolTip1.SetToolTip(this.btnBrowseDestination, "Select where to deploy the new gameserver on  your system.\r\nThis location can be " +
-        "on the same disk or on another disk.");
             // 
             // TAB_MANAGEMENT
             // 

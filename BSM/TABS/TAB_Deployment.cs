@@ -222,12 +222,11 @@ namespace Borealis
 
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-            
             this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
 
             //Query specific appID for Steam Guard requirement check
-            var steamGuardChecker = (GameserverType)this.dropdownServerSelection.SelectedItem;
-            GameServer_Object gameServer = ServerAPI.QUERY_DATA(steamGuardChecker.Id);
+            var dataChecker = (GameserverType)this.dropdownServerSelection.SelectedItem;
+            GameServer_Object gameServer = ServerAPI.QUERY_DATA(dataChecker.Id);
 
             if (gameServer.STEAM_authrequired == true)
             {
@@ -236,6 +235,19 @@ namespace Borealis
             else
             {
                 panelSteamGuard.Visible = false;
+            }
+
+            //Check if existing server was already deployed with the given type, and allow the user to update it instead.
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            {
+                if (gameserver.SERVER_type == dropdownServerSelection.Text)
+                {
+                    btnUpdateServer.Visible = true;
+                }
+                else
+                {
+                    btnUpdateServer.Visible = false;
+                }
             }
         }
 
@@ -488,6 +500,13 @@ namespace Borealis
         private void txtSteamToken_Click(object sender, EventArgs e)
         {
             txtSteamToken.Text = "";
+        }
+
+        private void btnUpdateServer_Click(object sender, EventArgs e)
+        {
+            lblDownloadProgress.Text = string.Format("Updating existing {0} gameservers:", dropdownServerSelection.Text);
+            MetroMessageBox.Show(ActiveForm, "The ability to update an existing deployed gameserver is coming soon.", "Updating Not Implemented", MessageBoxButtons.OK, MessageBoxIcon.Exclamation, MessageBoxDefaultButton.Button1);
+            lblDownloadProgress.Text = "Download / Installation Progress:";
         }
     }
  }

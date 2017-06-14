@@ -217,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="BSM.ico" />
+    <None Include="RESOURCES\MISC_ICONS\UPDATE_SERVER.png" />
     <None Include="RESOURCES\MISC_ICONS\RAM.png" />
     <None Include="RESOURCES\MISC_ICONS\NETWORK.png" />
     <None Include="RESOURCES\MISC_ICONS\DISK.png" />

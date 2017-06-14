@@ -64,6 +64,7 @@
             this.panelSteamGuard = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnUpdateServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panelProgress.SuspendLayout();
             this.panelSteamGuard.SuspendLayout();
             this.SuspendLayout();
@@ -592,6 +593,44 @@
             this.bunifuCustomLabel3.TabIndex = 69;
             this.bunifuCustomLabel3.Text = "Username";
             // 
+            // btnUpdateServer
+            // 
+            this.btnUpdateServer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
+            this.btnUpdateServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
+            this.btnUpdateServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateServer.BorderRadius = 0;
+            this.btnUpdateServer.ButtonText = "Update";
+            this.btnUpdateServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateServer.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdateServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnUpdateServer.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdateServer.Iconimage = global::Borealis.Properties.Resources.UPDATE_SERVER;
+            this.btnUpdateServer.Iconimage_right = null;
+            this.btnUpdateServer.Iconimage_right_Selected = null;
+            this.btnUpdateServer.Iconimage_Selected = null;
+            this.btnUpdateServer.IconMarginLeft = 0;
+            this.btnUpdateServer.IconMarginRight = 0;
+            this.btnUpdateServer.IconRightVisible = true;
+            this.btnUpdateServer.IconRightZoom = 0D;
+            this.btnUpdateServer.IconVisible = true;
+            this.btnUpdateServer.IconZoom = 60D;
+            this.btnUpdateServer.IsTab = false;
+            this.btnUpdateServer.Location = new System.Drawing.Point(258, 493);
+            this.btnUpdateServer.Name = "btnUpdateServer";
+            this.btnUpdateServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
+            this.btnUpdateServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
+            this.btnUpdateServer.OnHoverTextColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateServer.selected = false;
+            this.btnUpdateServer.Size = new System.Drawing.Size(143, 48);
+            this.btnUpdateServer.TabIndex = 75;
+            this.btnUpdateServer.Text = "Update";
+            this.btnUpdateServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateServer.Textcolor = System.Drawing.Color.White;
+            this.btnUpdateServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnUpdateServer, "Update the selected gameserver with the newest files available.");
+            this.btnUpdateServer.Visible = false;
+            this.btnUpdateServer.Click += new System.EventHandler(this.btnUpdateServer_Click);
+            // 
             // TAB_DEPLOYMENT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,6 +639,7 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.btnUpdateServer);
             this.Controls.Add(this.panelSteamGuard);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
@@ -668,5 +708,6 @@
         private System.Windows.Forms.Panel panelSteamGuard;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuFlatButton btnUpdateServer;
     }
 }
