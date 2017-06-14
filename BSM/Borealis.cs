@@ -120,8 +120,6 @@ namespace Borealis
                 panel.Dock = DockStyle.Fill;
                 panel.Show();
             }
-
-            MDI_CURTAINHIDER.Visible = false;
         }
 
         //===================================================================================//
@@ -147,45 +145,33 @@ namespace Borealis
 
         private void tabDeployGameservers_Click_1(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(deployment_tab, deployment_indicator, true);
             tabForms.SelectedIndex = 0;
-            MDI_CURTAINHIDER.Visible = false;
         }
         private void tabManageGameservers_Click(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(management_tab, management_indicator, true);
             tabForms.SelectedIndex = 1;
-            MDI_CURTAINHIDER.Visible = false;
         }
         private void tabControlGameservers_Click(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(control_tab, control_indicator, true);
             tabForms.SelectedIndex = 2;
-            MDI_CURTAINHIDER.Visible = false;
         }
         private void attribution_tab_Click(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(null, null, false);
             tabForms.SelectedIndex = 3;
-            MDI_CURTAINHIDER.Visible = false;
         }
         private void scheduledtasks_tab_Click(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(scheduledtasks_tab, scheduledtasks_indicator, true);
             tabForms.SelectedIndex = 4;
-            MDI_CURTAINHIDER.Visible = false;
         }
         private void tabDashboard_Click_1(object sender, EventArgs e)
         {
-            MDI_CURTAINHIDER.Visible = true;
             tab_animate(dashboard_tab, dashboard_indicator, true);
             tabForms.SelectedIndex = 6;
-            MDI_CURTAINHIDER.Visible = false;
         }
 
 

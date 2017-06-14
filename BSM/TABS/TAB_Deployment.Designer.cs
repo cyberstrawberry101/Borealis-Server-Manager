@@ -399,6 +399,7 @@
             this.btnCancelDeployGameserver.ButtonText = "Cancel";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnCancelDeployGameserver.Enabled = false;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnCancelDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
             this.btnCancelDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelDeployGameserver.Iconimage")));

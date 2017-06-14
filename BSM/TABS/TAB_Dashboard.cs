@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -94,6 +95,49 @@ namespace Borealis
         {
             if (info == null)
                 return;
+
+            //Animate the color of the RAM progress bar circle.
+            if (progressRAMUsage.Value <= 50)
+            {
+                progressRAMUsage.ProgressColor = Color.FromArgb(67, 181, 129);
+            }
+            if (progressRAMUsage.Value > 50)
+            {
+                progressRAMUsage.ProgressColor = Color.FromArgb(231, 145, 50);
+            }
+            if (progressRAMUsage.Value > 80)
+            {
+                progressRAMUsage.ProgressColor = Color.FromArgb(191, 45, 66);
+            }
+
+            //Animate the color of the CPU progress bar circle.
+            if (progressCPUUsage.Value <= 50)
+            {
+                progressCPUUsage.ProgressColor = Color.FromArgb(67, 181, 129);
+            }
+            if (progressCPUUsage.Value > 50)
+            {
+                progressCPUUsage.ProgressColor = Color.FromArgb(231, 145, 50);
+            }
+            if (progressCPUUsage.Value > 80)
+            {
+                progressCPUUsage.ProgressColor = Color.FromArgb(191, 45, 66);
+            }
+
+            //Animate the color of the DISK progress bar circle.
+            if (progressDISKUsage.Value <= 50)
+            {
+                progressDISKUsage.ProgressColor = Color.FromArgb(67, 181, 129);
+            }
+            if (progressDISKUsage.Value > 50)
+            {
+                progressDISKUsage.ProgressColor = Color.FromArgb(231, 145, 50);
+            }
+            if (progressDISKUsage.Value > 80)
+            {
+                progressDISKUsage.ProgressColor = Color.FromArgb(191, 45, 66);
+            }
+
 
             this.progressRAMUsage.Value = (int)((info.RAM / (double)info.TotalRAM) * 100);
             this.lblDetailedRAMUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.RAM / 1024.0, info.TotalRAM / 1024.0);
