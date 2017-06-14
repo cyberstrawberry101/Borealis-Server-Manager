@@ -53,15 +53,26 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.lblSteamGuardAlert = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnSteamToken = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.lblSteamToken = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtSteamToken = new System.Windows.Forms.TextBox();
+            this.txtSteamPassword = new System.Windows.Forms.TextBox();
+            this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.txtSteamUsername = new System.Windows.Forms.TextBox();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.SteamGuardProcess = new System.Diagnostics.Process();
+            this.panelSteamGuard = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelProgress.SuspendLayout();
+            this.panelSteamGuard.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressbarDownloadProgressOverall
             // 
             this.progressbarDownloadProgressOverall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgressOverall.BorderRadius = 5;
-            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(11, 39);
+            this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(11, 40);
             this.progressbarDownloadProgressOverall.MaximumValue = 100;
             this.progressbarDownloadProgressOverall.Name = "progressbarDownloadProgressOverall";
             this.progressbarDownloadProgressOverall.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
@@ -77,7 +88,7 @@
             this.dropdownServerSelection.FormattingEnabled = true;
             this.dropdownServerSelection.IntegralHeight = false;
             this.dropdownServerSelection.ItemHeight = 23;
-            this.dropdownServerSelection.Location = new System.Drawing.Point(16, 125);
+            this.dropdownServerSelection.Location = new System.Drawing.Point(16, 113);
             this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
             this.dropdownServerSelection.PromptText = "< Downloading data from API server... >";
@@ -112,12 +123,11 @@
             this.lblDestinationDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDestinationDetails.Location = new System.Drawing.Point(13, 203);
+            this.lblDestinationDetails.Location = new System.Drawing.Point(13, 186);
             this.lblDestinationDetails.Name = "lblDestinationDetails";
             this.lblDestinationDetails.Size = new System.Drawing.Size(299, 13);
             this.lblDestinationDetails.TabIndex = 37;
             this.lblDestinationDetails.Text = "Choose where you want to install the gameserver (e.g. C:\\BSM\\)";
-            this.lblDestinationDetails.Visible = false;
             // 
             // lblDownloadProgress
             // 
@@ -154,7 +164,7 @@
             this.btnBrowseDestination.IconVisible = true;
             this.btnBrowseDestination.IconZoom = 90D;
             this.btnBrowseDestination.IsTab = false;
-            this.btnBrowseDestination.Location = new System.Drawing.Point(368, 227);
+            this.btnBrowseDestination.Location = new System.Drawing.Point(368, 202);
             this.btnBrowseDestination.Name = "btnBrowseDestination";
             this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -168,7 +178,6 @@
             this.btnBrowseDestination.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnBrowseDestination, "Select where to deploy the new gameserver on  your system.\r\nThis location can be " +
         "on the same disk or on another disk.");
-            this.btnBrowseDestination.Visible = false;
             this.btnBrowseDestination.Click += new System.EventHandler(this.btnBrowseDestination_Click);
             // 
             // txtboxDestinationFolder
@@ -177,12 +186,11 @@
             this.txtboxDestinationFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxDestinationFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxDestinationFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxDestinationFolder.Location = new System.Drawing.Point(16, 227);
+            this.txtboxDestinationFolder.Location = new System.Drawing.Point(16, 202);
             this.txtboxDestinationFolder.Name = "txtboxDestinationFolder";
             this.txtboxDestinationFolder.Size = new System.Drawing.Size(346, 29);
             this.txtboxDestinationFolder.TabIndex = 32;
             this.toolTip1.SetToolTip(this.txtboxDestinationFolder, "Select where you want to deploy your new gameserver.");
-            this.txtboxDestinationFolder.Visible = false;
             // 
             // lblDestination
             // 
@@ -190,12 +198,11 @@
             this.lblDestination.BackColor = System.Drawing.Color.Transparent;
             this.lblDestination.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDestination.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDestination.Location = new System.Drawing.Point(12, 182);
+            this.lblDestination.Location = new System.Drawing.Point(12, 165);
             this.lblDestination.Name = "lblDestination";
             this.lblDestination.Size = new System.Drawing.Size(136, 21);
             this.lblDestination.TabIndex = 29;
             this.lblDestination.Text = "Step 2: Destination";
-            this.lblDestination.Visible = false;
             // 
             // lblSelectServerDetails
             // 
@@ -203,7 +210,7 @@
             this.lblSelectServerDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServerDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSelectServerDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblSelectServerDetails.Location = new System.Drawing.Point(13, 101);
+            this.lblSelectServerDetails.Location = new System.Drawing.Point(13, 97);
             this.lblSelectServerDetails.Name = "lblSelectServerDetails";
             this.lblSelectServerDetails.Size = new System.Drawing.Size(198, 13);
             this.lblSelectServerDetails.TabIndex = 12;
@@ -227,7 +234,7 @@
             this.lblSelectServer.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServer.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblSelectServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblSelectServer.Location = new System.Drawing.Point(10, 80);
+            this.lblSelectServer.Location = new System.Drawing.Point(12, 76);
             this.lblSelectServer.Name = "lblSelectServer";
             this.lblSelectServer.Size = new System.Drawing.Size(143, 21);
             this.lblSelectServer.TabIndex = 5;
@@ -255,12 +262,11 @@
             this.lblServerNameDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblServerNameDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblServerNameDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblServerNameDetails.Location = new System.Drawing.Point(13, 305);
+            this.lblServerNameDetails.Location = new System.Drawing.Point(13, 275);
             this.lblServerNameDetails.Name = "lblServerNameDetails";
             this.lblServerNameDetails.Size = new System.Drawing.Size(206, 13);
             this.lblServerNameDetails.TabIndex = 46;
             this.lblServerNameDetails.Text = "Choose what name to give the gameserver";
-            this.lblServerNameDetails.Visible = false;
             // 
             // lblServerName
             // 
@@ -268,12 +274,11 @@
             this.lblServerName.BackColor = System.Drawing.Color.Transparent;
             this.lblServerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblServerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblServerName.Location = new System.Drawing.Point(12, 284);
+            this.lblServerName.Location = new System.Drawing.Point(12, 254);
             this.lblServerName.Name = "lblServerName";
-            this.lblServerName.Size = new System.Drawing.Size(146, 21);
+            this.lblServerName.Size = new System.Drawing.Size(155, 21);
             this.lblServerName.TabIndex = 45;
-            this.lblServerName.Text = "Step 3: Server Name";
-            this.lblServerName.Visible = false;
+            this.lblServerName.Text = "Step 3: Friendly Name";
             // 
             // txtServerGivenName
             // 
@@ -281,12 +286,11 @@
             this.txtServerGivenName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtServerGivenName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerGivenName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtServerGivenName.Location = new System.Drawing.Point(16, 329);
+            this.txtServerGivenName.Location = new System.Drawing.Point(16, 291);
             this.txtServerGivenName.Name = "txtServerGivenName";
             this.txtServerGivenName.Size = new System.Drawing.Size(346, 29);
             this.txtServerGivenName.TabIndex = 48;
             this.toolTip1.SetToolTip(this.txtServerGivenName, "Give the server a user-friendly name to reference within Borealis.");
-            this.txtServerGivenName.Visible = false;
             // 
             // lblDestinationDetailsSubtext
             // 
@@ -294,14 +298,13 @@
             this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 257);
+            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 234);
             this.lblDestinationDetailsSubtext.Name = "lblDestinationDetailsSubtext";
             this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
             this.lblDestinationDetailsSubtext.TabIndex = 49;
             this.lblDestinationDetailsSubtext.Text = " (Leave blank if you want it installed in the same directory as BSM)";
             this.toolTip1.SetToolTip(this.lblDestinationDetailsSubtext, "If you leave this field blank, the server will be deployed directly alongside Bor" +
         "ealis in a subdirectory.");
-            this.lblDestinationDetailsSubtext.Visible = false;
             // 
             // panelProgress
             // 
@@ -309,11 +312,10 @@
             this.panelProgress.Controls.Add(this.lblDownloadProgress);
             this.panelProgress.Controls.Add(this.lblDownloadProgressDetails);
             this.panelProgress.Controls.Add(this.progressbarDownloadProgressOverall);
-            this.panelProgress.Location = new System.Drawing.Point(5, 428);
+            this.panelProgress.Location = new System.Drawing.Point(5, 434);
             this.panelProgress.Name = "panelProgress";
-            this.panelProgress.Size = new System.Drawing.Size(717, 56);
+            this.panelProgress.Size = new System.Drawing.Size(717, 53);
             this.panelProgress.TabIndex = 50;
-            this.panelProgress.Visible = false;
             // 
             // lblVerifyIntegrity
             // 
@@ -328,7 +330,6 @@
             this.lblVerifyIntegrity.Text = "Validate Server Files";
             this.toolTip1.SetToolTip(this.lblVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
         "m server configurations)");
-            this.lblVerifyIntegrity.Visible = false;
             // 
             // toolTip1
             // 
@@ -351,7 +352,6 @@
             this.toolTip1.SetToolTip(this.chkVerifyIntegrity, "Verify that server files are not corrupt by rechecking them.  \r\n(May remove custo" +
         "m server configurations)");
             this.chkVerifyIntegrity.Value = false;
-            this.chkVerifyIntegrity.Visible = false;
             // 
             // btnDeployGameserver
             // 
@@ -388,7 +388,6 @@
             this.btnDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnDeployGameserver, "Deploy the gameserver using the current configuration.");
-            this.btnDeployGameserver.Visible = false;
             this.btnDeployGameserver.Click += new System.EventHandler(this.btnDeployGameserver_Click);
             // 
             // btnCancelDeployGameserver
@@ -426,21 +425,171 @@
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnCancelDeployGameserver, "Forcefully terminate deployment (leftover files need to be manually cleaned up).");
-            this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
             // 
-            // lblSteamGuardAlert
+            // btnSteamToken
             // 
-            this.lblSteamGuardAlert.AutoSize = true;
-            this.lblSteamGuardAlert.BackColor = System.Drawing.Color.Transparent;
-            this.lblSteamGuardAlert.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lblSteamGuardAlert.ForeColor = System.Drawing.Color.Red;
-            this.lblSteamGuardAlert.Location = new System.Drawing.Point(13, 157);
-            this.lblSteamGuardAlert.Name = "lblSteamGuardAlert";
-            this.lblSteamGuardAlert.Size = new System.Drawing.Size(178, 13);
-            this.lblSteamGuardAlert.TabIndex = 53;
-            this.lblSteamGuardAlert.Text = "Requires Steam Guard Authentication";
-            this.lblSteamGuardAlert.Visible = false;
+            this.btnSteamToken.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
+            this.btnSteamToken.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnSteamToken.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSteamToken.BorderRadius = 0;
+            this.btnSteamToken.ButtonText = "Authorize";
+            this.btnSteamToken.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSteamToken.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSteamToken.Enabled = false;
+            this.btnSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnSteamToken.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSteamToken.Iconimage = null;
+            this.btnSteamToken.Iconimage_right = null;
+            this.btnSteamToken.Iconimage_right_Selected = null;
+            this.btnSteamToken.Iconimage_Selected = null;
+            this.btnSteamToken.IconMarginLeft = 0;
+            this.btnSteamToken.IconMarginRight = 0;
+            this.btnSteamToken.IconRightVisible = true;
+            this.btnSteamToken.IconRightZoom = 0D;
+            this.btnSteamToken.IconVisible = true;
+            this.btnSteamToken.IconZoom = 90D;
+            this.btnSteamToken.IsTab = false;
+            this.btnSteamToken.Location = new System.Drawing.Point(630, 43);
+            this.btnSteamToken.Name = "btnSteamToken";
+            this.btnSteamToken.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.btnSteamToken.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
+            this.btnSteamToken.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSteamToken.selected = false;
+            this.btnSteamToken.Size = new System.Drawing.Size(81, 29);
+            this.btnSteamToken.TabIndex = 68;
+            this.btnSteamToken.Text = "Authorize";
+            this.btnSteamToken.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSteamToken.Textcolor = System.Drawing.Color.White;
+            this.btnSteamToken.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSteamToken.Click += new System.EventHandler(this.btnSteamToken_Click);
+            // 
+            // lblSteamToken
+            // 
+            this.lblSteamToken.AutoSize = true;
+            this.lblSteamToken.BackColor = System.Drawing.Color.Transparent;
+            this.lblSteamToken.Enabled = false;
+            this.lblSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblSteamToken.ForeColor = System.Drawing.Color.White;
+            this.lblSteamToken.Location = new System.Drawing.Point(474, 27);
+            this.lblSteamToken.Name = "lblSteamToken";
+            this.lblSteamToken.Size = new System.Drawing.Size(96, 13);
+            this.lblSteamToken.TabIndex = 67;
+            this.lblSteamToken.Text = "Steam Guard Code:";
+            // 
+            // txtSteamToken
+            // 
+            this.txtSteamToken.BackColor = System.Drawing.Color.White;
+            this.txtSteamToken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSteamToken.Enabled = false;
+            this.txtSteamToken.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteamToken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtSteamToken.Location = new System.Drawing.Point(513, 43);
+            this.txtSteamToken.Name = "txtSteamToken";
+            this.txtSteamToken.Size = new System.Drawing.Size(111, 29);
+            this.txtSteamToken.TabIndex = 66;
+            this.txtSteamToken.Text = "NOT READY";
+            this.txtSteamToken.Click += new System.EventHandler(this.txtSteamToken_Click);
+            // 
+            // txtSteamPassword
+            // 
+            this.txtSteamPassword.BackColor = System.Drawing.Color.White;
+            this.txtSteamPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSteamPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteamPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtSteamPassword.Location = new System.Drawing.Point(196, 43);
+            this.txtSteamPassword.Name = "txtSteamPassword";
+            this.txtSteamPassword.Size = new System.Drawing.Size(311, 29);
+            this.txtSteamPassword.TabIndex = 63;
+            this.txtSteamPassword.UseSystemPasswordChar = true;
+            // 
+            // bunifuCustomLabel4
+            // 
+            this.bunifuCustomLabel4.AutoSize = true;
+            this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.bunifuCustomLabel4.Location = new System.Drawing.Point(13, 27);
+            this.bunifuCustomLabel4.Name = "bunifuCustomLabel4";
+            this.bunifuCustomLabel4.Size = new System.Drawing.Size(396, 13);
+            this.bunifuCustomLabel4.TabIndex = 62;
+            this.bunifuCustomLabel4.Text = "You will need your Steam username and password to deploy this specific gameserver" +
+    ".";
+            // 
+            // txtSteamUsername
+            // 
+            this.txtSteamUsername.BackColor = System.Drawing.Color.White;
+            this.txtSteamUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSteamUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteamUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.txtSteamUsername.Location = new System.Drawing.Point(16, 43);
+            this.txtSteamUsername.Name = "txtSteamUsername";
+            this.txtSteamUsername.Size = new System.Drawing.Size(174, 29);
+            this.txtSteamUsername.TabIndex = 61;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 6);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(252, 21);
+            this.bunifuCustomLabel1.TabIndex = 59;
+            this.bunifuCustomLabel1.Text = "Provide Credentials for Steam Guard";
+            // 
+            // SteamGuardProcess
+            // 
+            this.SteamGuardProcess.StartInfo.Domain = "";
+            this.SteamGuardProcess.StartInfo.LoadUserProfile = false;
+            this.SteamGuardProcess.StartInfo.Password = null;
+            this.SteamGuardProcess.StartInfo.StandardErrorEncoding = null;
+            this.SteamGuardProcess.StartInfo.StandardOutputEncoding = null;
+            this.SteamGuardProcess.StartInfo.UserName = "";
+            this.SteamGuardProcess.SynchronizingObject = this;
+            // 
+            // panelSteamGuard
+            // 
+            this.panelSteamGuard.BackColor = System.Drawing.Color.Transparent;
+            this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel6);
+            this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel3);
+            this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel1);
+            this.panelSteamGuard.Controls.Add(this.btnSteamToken);
+            this.panelSteamGuard.Controls.Add(this.txtSteamUsername);
+            this.panelSteamGuard.Controls.Add(this.lblSteamToken);
+            this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel4);
+            this.panelSteamGuard.Controls.Add(this.txtSteamToken);
+            this.panelSteamGuard.Controls.Add(this.txtSteamPassword);
+            this.panelSteamGuard.Location = new System.Drawing.Point(0, 334);
+            this.panelSteamGuard.Name = "panelSteamGuard";
+            this.panelSteamGuard.Size = new System.Drawing.Size(725, 94);
+            this.panelSteamGuard.TabIndex = 69;
+            this.panelSteamGuard.Visible = false;
+            // 
+            // bunifuCustomLabel6
+            // 
+            this.bunifuCustomLabel6.AutoSize = true;
+            this.bunifuCustomLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.bunifuCustomLabel6.Location = new System.Drawing.Point(193, 72);
+            this.bunifuCustomLabel6.Name = "bunifuCustomLabel6";
+            this.bunifuCustomLabel6.Size = new System.Drawing.Size(48, 13);
+            this.bunifuCustomLabel6.TabIndex = 70;
+            this.bunifuCustomLabel6.Text = "Password";
+            // 
+            // bunifuCustomLabel3
+            // 
+            this.bunifuCustomLabel3.AutoSize = true;
+            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.bunifuCustomLabel3.Location = new System.Drawing.Point(13, 72);
+            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
+            this.bunifuCustomLabel3.Size = new System.Drawing.Size(54, 13);
+            this.bunifuCustomLabel3.TabIndex = 69;
+            this.bunifuCustomLabel3.Text = "Username";
             // 
             // TAB_DEPLOYMENT
             // 
@@ -450,7 +599,7 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.lblSteamGuardAlert);
+            this.Controls.Add(this.panelSteamGuard);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
@@ -476,6 +625,8 @@
             this.Load += new System.EventHandler(this.ServerDeployment_LoadAsync);
             this.panelProgress.ResumeLayout(false);
             this.panelProgress.PerformLayout();
+            this.panelSteamGuard.ResumeLayout(false);
+            this.panelSteamGuard.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,6 +656,16 @@
         private Bunifu.Framework.UI.BunifuiOSSwitch chkVerifyIntegrity;
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblSteamGuardAlert;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSteamToken;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblSteamToken;
+        private System.Windows.Forms.TextBox txtSteamToken;
+        private System.Windows.Forms.TextBox txtSteamPassword;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
+        private System.Windows.Forms.TextBox txtSteamUsername;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
+        private System.Diagnostics.Process SteamGuardProcess;
+        private System.Windows.Forms.Panel panelSteamGuard;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
     }
 }

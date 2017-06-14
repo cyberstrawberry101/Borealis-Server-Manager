@@ -3,9 +3,9 @@
 namespace Borealis
 {
 
-    public partial class TAB_ABOUT : Form
+    public partial class TAB_STEAMGUARD_TOKEN : Form
     {
-        public TAB_ABOUT()
+        public TAB_STEAMGUARD_TOKEN()
         {
             InitializeComponent();
         }

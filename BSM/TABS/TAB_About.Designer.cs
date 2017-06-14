@@ -1,6 +1,6 @@
 ﻿namespace Borealis
 {
-    partial class TAB_ABOUT
+    partial class TAB_STEAMGUARD_TOKEN
     {
         /// <summary>
         /// Required designer variable.
@@ -395,7 +395,7 @@
             this.bunifuCustomLabel8.TabIndex = 14;
             this.bunifuCustomLabel8.Text = "Community Resources:";
             // 
-            // TAB_ABOUT
+            // TAB_STEAMGUARD_TOKEN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -411,7 +411,7 @@
             this.Controls.Add(this.bunifuCustomLabel14);
             this.Controls.Add(this.bunifuCustomLabel16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TAB_ABOUT";
+            this.Name = "TAB_STEAMGUARD_TOKEN";
             this.Text = "About";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

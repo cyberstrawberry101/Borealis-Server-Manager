@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Serilog;
 using System.Windows.Documents;
+using System.IO;
+using System.Drawing;
 
 namespace Borealis
 {
@@ -19,53 +21,6 @@ namespace Borealis
         public TAB_DEPLOYMENT()
         {
             this.InitializeComponent();
-        }
-
-        private void UIControlsHider(bool showHide)
-        {
-            if (showHide)
-            {
-                //Disable the option to choose where to install the server.
-                this.lblDestination.Visible = true;
-                this.lblDestinationDetails.Visible = true;
-                this.lblDestinationDetailsSubtext.Visible = true;
-                this.txtboxDestinationFolder.Visible = true;
-                this.btnBrowseDestination.Visible = true;
-                this.chkVerifyIntegrity.Visible = true;
-                this.lblVerifyIntegrity.Visible = true;
-
-                //Server Name Controls
-                this.lblServerName.Visible = true;
-                this.lblServerNameDetails.Visible = true;
-                this.txtServerGivenName.Visible = true;
-
-                //Deployment Button
-                this.btnDeployGameserver.Visible = true;
-
-                this.panelProgress.Visible = true;
-
-            }
-            else
-            {
-                //Disable the option to choose where to install the server.
-                this.lblDestination.Visible = false;
-                this.lblDestinationDetails.Visible = false;
-                this.lblDestinationDetailsSubtext.Visible = false;
-                this.txtboxDestinationFolder.Visible = false;
-                this.btnBrowseDestination.Visible = false;
-                this.chkVerifyIntegrity.Visible = false;
-                this.lblVerifyIntegrity.Visible = false;
-
-                //Server Name Controls
-                this.lblServerName.Visible = false;
-                this.lblServerNameDetails.Visible = false;
-                this.txtServerGivenName.Visible = false;
-
-                //Deployment Button
-                this.btnDeployGameserver.Visible = false;
-
-                this.panelProgress.Visible = false;
-            }
         }
 
         private async Task<IList<GameserverType>> RefreshDataAsync()
@@ -229,6 +184,9 @@ namespace Borealis
                             this.lblDownloadProgress.Text = "GameServer Deployed / Updated Successfully!";
                             this.lblVerifyIntegrity.Visible = true;
                             this.chkVerifyIntegrity.Visible = true;
+                            this.lblSteamToken.Enabled = false;
+                            this.txtSteamToken.Enabled = false;
+                            this.btnSteamToken.Enabled = false;
                             //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             //panelProgress.Visible = false;
                         }
@@ -237,6 +195,19 @@ namespace Borealis
                             this.btnDeployGameserver.Enabled = false;
                             this.btnCancelDeployGameserver.Visible = true;
                             this.DeployGameServer(this._currentDeploymentValues);
+                        }
+                        else if (e.Data == "Enter the current code from your Steam Guard Mobile Authenticator app" || e.Data == "Two-factor code:" || e.Data == "Please check your email for the message from Steam, and enter the Steam Guard" || e.Data == "code from that message." || e.Data == "Please check your email for the message from Steam, and enter the Steam Guard code from that message.")
+                        {
+                            this.lblSteamToken.Enabled = true;
+                            this.txtSteamUsername.Text = "";
+                            this.txtSteamPassword.Text = "";
+                            this.txtSteamToken.Text = "INPUT CODE";
+                            this.txtSteamToken.Enabled = true;
+                            this.btnSteamToken.Enabled = true;
+                        }
+                        else if (e.Data == "Logged in OK" || e.Data == "Waiting for License info...OK")
+                        {
+                            
                         }
                     }
                     else
@@ -251,7 +222,7 @@ namespace Borealis
 
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.UIControlsHider(true); //Show UI elements to end-user
+            
             this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
 
             //Query specific appID for Steam Guard requirement check
@@ -260,35 +231,47 @@ namespace Borealis
 
             if (gameServer.STEAM_authrequired == true)
             {
-                lblSteamGuardAlert.Visible = true;
+                panelSteamGuard.Visible = true;
             }
             else
             {
-                lblSteamGuardAlert.Visible = false;
+                panelSteamGuard.Visible = false;
             }
         }
 
         //Methods that handle deployment itself.
-        private void ExecuteWithRedirect(string argProgramName, string argParameters)
+        private void Execute(string argProgramName, string argParameters, bool Redirect)
         {
-            var proc = new Process();
-            proc.StartInfo.Arguments = argParameters;
-            proc.StartInfo.FileName = argProgramName;
-            proc.StartInfo.UseShellExecute = false;
+            try
+            {
+                var proc = new Process();
+                proc.StartInfo.Arguments = argParameters;
+                proc.StartInfo.FileName = argProgramName;
 
-            // set up output redirection
-            proc.StartInfo.RedirectStandardOutput = true;
-            proc.StartInfo.RedirectStandardError = true;
-            proc.EnableRaisingEvents = true;
-            proc.StartInfo.CreateNoWindow = true;
-            // see below for output handler
-            proc.ErrorDataReceived += this.proc_DataReceived;
-            proc.OutputDataReceived += this.proc_DataReceived;
-
-            proc.Start();
-
-            proc.BeginErrorReadLine();
-            proc.BeginOutputReadLine();
+                if (Redirect == true)
+                {
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.RedirectStandardInput = true;
+                    proc.StartInfo.RedirectStandardError = true;
+                    proc.EnableRaisingEvents = true;
+                    proc.StartInfo.CreateNoWindow = true;
+                    proc.ErrorDataReceived += proc_DataReceived;
+                    proc.OutputDataReceived += proc_DataReceived;
+                    proc.Start();
+                    proc.BeginErrorReadLine();
+                    proc.BeginOutputReadLine();
+                }
+                else
+                {
+                    proc.StartInfo.UseShellExecute = true;
+                    proc.Start();
+                }
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Borealis cannot find the required executable to launch!  Either it is missing, or your configuration for Borealis is corrupted.", "Error Launching Executable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DeployGameServer(DeploymentValues deploymentValues)
@@ -304,23 +287,42 @@ namespace Borealis
                     {
                         this.lblDownloadProgressDetails.Text = "Status: Downloading / Initializing SteamCMD...";
                         SteamCMD.DownloadSteamCMD();
-                        switch (deploymentValues.STEAM_authrequired)
-                        {
+                    switch (deploymentValues.STEAM_authrequired)
+                    {
                             case true:
-                                //MetroMessageBox.Show(ActiveForm, "Due to the fact that we do not have an authentication system in place for Steam, you cannot download non-anonymous SteamCMD dedicated servers at this time.  We apologize, and hope to get this incorporated soon!", "Steam Authentication Required", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                MessageBox.Show("Please enter your Steam Guard code below:", "STEAM GUARD AUTHENTICATION");
-                                this.btnDeployGameserver.Enabled = true;
-                                this.btnCancelDeployGameserver.Visible = false;
+                                if (txtSteamUsername.Text == "" || txtSteamPassword.Text == "")
+                                {
+                                    MetroMessageBox.Show(ActiveForm, "Please fill out your Steam username and password.", "Steam Credentials Missing", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                SteamGuardProcess.StartInfo.Arguments = string.Format(@"+login {0} {1} +force_install_dir {2} +app_update {3} {4} +quit",
+                                        txtSteamUsername.Text,
+                                        txtSteamPassword.Text,
+                                        deploymentValues.DIR_install_location,
+                                        ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text),
+                                        deploymentValues.verify_integrity);
+
+                                SteamGuardProcess.StartInfo.FileName = Environment.CurrentDirectory + @"\steamcmd.exe";
+                                SteamGuardProcess.StartInfo.UseShellExecute = false;
+                                SteamGuardProcess.StartInfo.RedirectStandardOutput = true;
+                                SteamGuardProcess.StartInfo.RedirectStandardInput = true;
+                                SteamGuardProcess.StartInfo.RedirectStandardError = true;
+                                SteamGuardProcess.EnableRaisingEvents = true;
+                                SteamGuardProcess.StartInfo.CreateNoWindow = true;
+                                SteamGuardProcess.ErrorDataReceived += proc_DataReceived;
+                                SteamGuardProcess.OutputDataReceived += proc_DataReceived;
+                                SteamGuardProcess.Start();
+                                SteamGuardProcess.BeginErrorReadLine();
+                                SteamGuardProcess.BeginOutputReadLine();
                                 break;
 
                             case false:
                                 try
                                 {
-                                    this.ExecuteWithRedirect(Environment.CurrentDirectory + @"\steamcmd.exe",
+                                    this.Execute(Environment.CurrentDirectory + @"\steamcmd.exe",
                                         string.Format(@"+login anonymous +force_install_dir {0} +app_update {1} {2} +quit",
                                         deploymentValues.DIR_install_location,
                                         ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text),
-                                        deploymentValues.verify_integrity));
+                                        deploymentValues.verify_integrity), true);
 
                                 }
                                 catch (Exception)
@@ -448,7 +450,7 @@ namespace Borealis
         {
             if (this._currentDeploymentValues.STEAM_steamcmd_required)
             {
-                this.ExecuteWithRedirect(@"C:\Windows\System32\taskkill", "/F /IM steamcmd.exe");
+                this.Execute(@"C:\Windows\System32\taskkill", "/F /IM steamcmd.exe", true);
                 this.btnCancelDeployGameserver.Visible = false;
             }
             else
@@ -459,8 +461,33 @@ namespace Borealis
             this.progressbarDownloadProgressOverall.Value = 0;
             this._currentDeploymentValues = null;
             this.lblDownloadProgress.Text = "Download / Installation Progress:";
+            this.lblDownloadProgressDetails.Text = "Status: Deployment Cancelled";
             this.lblVerifyIntegrity.Visible = true;
             this.chkVerifyIntegrity.Visible = true;
+        }
+
+        private void btnConnectToSteam_Click(object sender, EventArgs e)
+        {
+            panelProgress.Visible = true;
+            txtSteamUsername.Enabled = false;
+            txtSteamPassword.Enabled = false;
+
+            this.Execute(Environment.CurrentDirectory + @"\steamcmd.exe",
+                string.Format(@"+login {0} {1}",
+                txtSteamUsername.Text,
+                txtSteamPassword.Text),
+                true);
+        }
+
+        private void btnSteamToken_Click(object sender, EventArgs e)
+        {
+            SteamGuardProcess.StandardInput.WriteLine(txtSteamToken.Text);
+            panelSteamGuard.Visible = false;
+        }
+
+        private void txtSteamToken_Click(object sender, EventArgs e)
+        {
+            txtSteamToken.Text = "";
         }
     }
  }

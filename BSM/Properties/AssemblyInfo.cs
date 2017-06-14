@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Borealis Game Manager")]
+[assembly: AssemblyTitle("Borealis Server Manager")]
 [assembly: AssemblyDescription("Utility designed to assist in gameserver deployment and management.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WhiteWhiskers Solutions")]
-[assembly: AssemblyProduct("Borealis Game Manager")]
+[assembly: AssemblyProduct("Borealis Server Manager")]
 [assembly: AssemblyCopyright("Copyright © 2017 Nicole Rappe")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.4.0.0")]
-[assembly: AssemblyFileVersion("0.4.0.0")]
+[assembly: AssemblyVersion("0.4.5.0")]
+[assembly: AssemblyFileVersion("0.4.5.0")]

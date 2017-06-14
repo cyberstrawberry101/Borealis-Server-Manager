@@ -39,9 +39,6 @@
             this.labelBorealisTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.tabForms = new System.Windows.Forms.TabControl();
             this.panel9 = new System.Windows.Forms.Panel();
             this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.management_indicator = new System.Windows.Forms.Panel();
@@ -63,15 +60,17 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.scheduledtasks_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.scheduledtasks_indicator = new System.Windows.Forms.Panel();
+            this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.tabForms = new System.Windows.Forms.TabControl();
             this.MENU_TOOLTIPS = new System.Windows.Forms.ToolTip(this.components);
-            this.MDI_CURTAINHIDER = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.MDI_CURTAINHIDER = new System.Windows.Forms.Panel();
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.DO_NOT_DELETE.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -80,6 +79,7 @@
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.DO_NOT_DELETE.SuspendLayout();
             this.SuspendLayout();
             // 
             // formHeaderDragger
@@ -206,42 +206,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 559);
             this.tableLayoutPanel1.TabIndex = 28;
-            // 
-            // DO_NOT_DELETE
-            // 
-            this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.DO_NOT_DELETE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.DO_NOT_DELETE.Controls.Add(this.bunifuCustomLabel1);
-            this.DO_NOT_DELETE.Controls.Add(this.tabForms);
-            this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
-            this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
-            this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
-            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 239);
-            this.DO_NOT_DELETE.TabIndex = 49;
-            // 
-            // bunifuCustomLabel1
-            // 
-            this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 7F);
-            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(9, 213);
-            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(38, 12);
-            this.bunifuCustomLabel1.TabIndex = 47;
-            this.bunifuCustomLabel1.Text = "Settings";
-            this.MENU_TOOLTIPS.SetToolTip(this.bunifuCustomLabel1, "This program is in the alpha stage, meaning it is not fully featured yet, please " +
-        "be patient.");
-            // 
-            // tabForms
-            // 
-            this.tabForms.Location = new System.Drawing.Point(3, 308);
-            this.tabForms.Name = "tabForms";
-            this.tabForms.SelectedIndex = 0;
-            this.tabForms.Size = new System.Drawing.Size(29, 25);
-            this.tabForms.TabIndex = 30;
-            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
             // 
             // panel9
             // 
@@ -622,6 +586,42 @@
             this.scheduledtasks_indicator.TabIndex = 44;
             this.scheduledtasks_indicator.Visible = false;
             // 
+            // DO_NOT_DELETE
+            // 
+            this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.DO_NOT_DELETE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DO_NOT_DELETE.Controls.Add(this.bunifuCustomLabel1);
+            this.DO_NOT_DELETE.Controls.Add(this.tabForms);
+            this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
+            this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
+            this.DO_NOT_DELETE.Name = "DO_NOT_DELETE";
+            this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 239);
+            this.DO_NOT_DELETE.TabIndex = 49;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.bunifuCustomLabel1.AutoSize = true;
+            this.bunifuCustomLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 7F);
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.White;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(9, 213);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(38, 12);
+            this.bunifuCustomLabel1.TabIndex = 47;
+            this.bunifuCustomLabel1.Text = "Settings";
+            this.MENU_TOOLTIPS.SetToolTip(this.bunifuCustomLabel1, "This program is in the alpha stage, meaning it is not fully featured yet, please " +
+        "be patient.");
+            // 
+            // tabForms
+            // 
+            this.tabForms.Location = new System.Drawing.Point(187, 250);
+            this.tabForms.Name = "tabForms";
+            this.tabForms.SelectedIndex = 0;
+            this.tabForms.Size = new System.Drawing.Size(37, 25);
+            this.tabForms.TabIndex = 30;
+            this.tabForms.SelectedIndexChanged += new System.EventHandler(this.tabForms_SelectedIndexChanged);
+            // 
             // MENU_TOOLTIPS
             // 
             this.MENU_TOOLTIPS.AutoPopDelay = 10000;
@@ -630,6 +630,15 @@
             this.MENU_TOOLTIPS.InitialDelay = 500;
             this.MENU_TOOLTIPS.ReshowDelay = 100;
             this.MENU_TOOLTIPS.ShowAlways = true;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(240, 45);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(725, 5);
+            this.panel6.TabIndex = 55;
             // 
             // MDI_CURTAINHIDER
             // 
@@ -641,15 +650,6 @@
             this.MDI_CURTAINHIDER.Name = "MDI_CURTAINHIDER";
             this.MDI_CURTAINHIDER.Size = new System.Drawing.Size(725, 559);
             this.MDI_CURTAINHIDER.TabIndex = 32;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(240, 45);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(725, 5);
-            this.panel6.TabIndex = 55;
             // 
             // BorealisServerManager
             // 
@@ -681,8 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.DO_NOT_DELETE.ResumeLayout(false);
-            this.DO_NOT_DELETE.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -694,6 +692,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.DO_NOT_DELETE.ResumeLayout(false);
+            this.DO_NOT_DELETE.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -733,8 +733,8 @@
         private System.Windows.Forms.ToolTip MENU_TOOLTIPS;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private System.Windows.Forms.Panel MDI_CURTAINHIDER;
-        private System.Windows.Forms.TabControl tabForms;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TabControl tabForms;
     }
 }
 

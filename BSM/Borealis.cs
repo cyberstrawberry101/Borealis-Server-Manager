@@ -1,5 +1,4 @@
-﻿using MetroFramework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
-
     public partial class BorealisServerManager : Form
     {
         //Delegate to control UI from another panel (Use with caution)
@@ -22,7 +20,7 @@ namespace Borealis
         //===================================================================================//
         // MDI HANDLING CODE:                                                                //
         //===================================================================================//
-
+        
         //Add MDI Child to tabpages of tabControl
         private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -47,7 +45,7 @@ namespace Borealis
                 }
             }
         }
-
+        
         public BorealisServerManager()
         {
             InitializeComponent();
@@ -109,10 +107,10 @@ namespace Borealis
                 new TAB_DEPLOYMENT(),
                 new TAB_MANAGEMENT(),
                 new TAB_CONTROL(),
-                new TAB_ABOUT(),
+                new TAB_STEAMGUARD_TOKEN(),
                 new TAB_SCHEDULEDTASKS(),
                 new TAB_STEAMWORKSHOP(),
-                new TAB_DASHBOARD()
+                new TAB_DASHBOARD(),
             };
 
             foreach (Form panel in panels)
@@ -124,7 +122,6 @@ namespace Borealis
             }
 
             MDI_CURTAINHIDER.Visible = false;
-
         }
 
         //===================================================================================//
@@ -213,6 +210,11 @@ namespace Borealis
 
                 GameServer_Management.WriteServersToConfig();
             }
+        }
+
+        private void btnConnectToSteam_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
