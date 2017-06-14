@@ -249,6 +249,8 @@ namespace Borealis
                     btnUpdateServer.Visible = false;
                 }
             }
+
+            btnDeployGameserver.Enabled = true;
         }
 
         //Methods that handle deployment itself.
@@ -284,6 +286,8 @@ namespace Borealis
             {
                 MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Borealis cannot find the required executable to launch!  Either it is missing, or your configuration for Borealis is corrupted.", "Error Launching Executable", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
 
         private void DeployGameServer(DeploymentValues deploymentValues)

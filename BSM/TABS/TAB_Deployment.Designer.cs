@@ -53,6 +53,7 @@
             this.chkVerifyIntegrity = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.btnDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnUpdateServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSteamToken = new Bunifu.Framework.UI.BunifuFlatButton();
             this.lblSteamToken = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtSteamToken = new System.Windows.Forms.TextBox();
@@ -64,9 +65,18 @@
             this.panelSteamGuard = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel6 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.btnUpdateServer = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.panelStep1 = new System.Windows.Forms.Panel();
+            this.panelStep2 = new System.Windows.Forms.Panel();
+            this.panelStep3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelProgress.SuspendLayout();
             this.panelSteamGuard.SuspendLayout();
+            this.btnTableLayoutPanel.SuspendLayout();
+            this.panelStep1.SuspendLayout();
+            this.panelStep2.SuspendLayout();
+            this.panelStep3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // progressbarDownloadProgressOverall
@@ -89,7 +99,7 @@
             this.dropdownServerSelection.FormattingEnabled = true;
             this.dropdownServerSelection.IntegralHeight = false;
             this.dropdownServerSelection.ItemHeight = 23;
-            this.dropdownServerSelection.Location = new System.Drawing.Point(16, 113);
+            this.dropdownServerSelection.Location = new System.Drawing.Point(6, 37);
             this.dropdownServerSelection.MaxDropDownItems = 100;
             this.dropdownServerSelection.Name = "dropdownServerSelection";
             this.dropdownServerSelection.PromptText = "< Downloading data from API server... >";
@@ -124,7 +134,7 @@
             this.lblDestinationDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDestinationDetails.Location = new System.Drawing.Point(13, 186);
+            this.lblDestinationDetails.Location = new System.Drawing.Point(3, 21);
             this.lblDestinationDetails.Name = "lblDestinationDetails";
             this.lblDestinationDetails.Size = new System.Drawing.Size(299, 13);
             this.lblDestinationDetails.TabIndex = 37;
@@ -165,7 +175,7 @@
             this.btnBrowseDestination.IconVisible = true;
             this.btnBrowseDestination.IconZoom = 90D;
             this.btnBrowseDestination.IsTab = false;
-            this.btnBrowseDestination.Location = new System.Drawing.Point(368, 202);
+            this.btnBrowseDestination.Location = new System.Drawing.Point(358, 37);
             this.btnBrowseDestination.Name = "btnBrowseDestination";
             this.btnBrowseDestination.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnBrowseDestination.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -187,7 +197,7 @@
             this.txtboxDestinationFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtboxDestinationFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxDestinationFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxDestinationFolder.Location = new System.Drawing.Point(16, 202);
+            this.txtboxDestinationFolder.Location = new System.Drawing.Point(6, 37);
             this.txtboxDestinationFolder.Name = "txtboxDestinationFolder";
             this.txtboxDestinationFolder.Size = new System.Drawing.Size(346, 29);
             this.txtboxDestinationFolder.TabIndex = 32;
@@ -199,11 +209,11 @@
             this.lblDestination.BackColor = System.Drawing.Color.Transparent;
             this.lblDestination.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDestination.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblDestination.Location = new System.Drawing.Point(12, 165);
+            this.lblDestination.Location = new System.Drawing.Point(3, 1);
             this.lblDestination.Name = "lblDestination";
             this.lblDestination.Size = new System.Drawing.Size(136, 21);
             this.lblDestination.TabIndex = 29;
-            this.lblDestination.Text = "Step 2: Destination";
+            this.lblDestination.Text = "Step 3: Destination";
             // 
             // lblSelectServerDetails
             // 
@@ -211,7 +221,7 @@
             this.lblSelectServerDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServerDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSelectServerDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblSelectServerDetails.Location = new System.Drawing.Point(13, 97);
+            this.lblSelectServerDetails.Location = new System.Drawing.Point(3, 21);
             this.lblSelectServerDetails.Name = "lblSelectServerDetails";
             this.lblSelectServerDetails.Size = new System.Drawing.Size(198, 13);
             this.lblSelectServerDetails.TabIndex = 12;
@@ -235,7 +245,7 @@
             this.lblSelectServer.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectServer.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblSelectServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblSelectServer.Location = new System.Drawing.Point(12, 76);
+            this.lblSelectServer.Location = new System.Drawing.Point(3, 1);
             this.lblSelectServer.Name = "lblSelectServer";
             this.lblSelectServer.Size = new System.Drawing.Size(143, 21);
             this.lblSelectServer.TabIndex = 5;
@@ -263,7 +273,7 @@
             this.lblServerNameDetails.BackColor = System.Drawing.Color.Transparent;
             this.lblServerNameDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblServerNameDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblServerNameDetails.Location = new System.Drawing.Point(13, 275);
+            this.lblServerNameDetails.Location = new System.Drawing.Point(3, 21);
             this.lblServerNameDetails.Name = "lblServerNameDetails";
             this.lblServerNameDetails.Size = new System.Drawing.Size(206, 13);
             this.lblServerNameDetails.TabIndex = 46;
@@ -275,11 +285,11 @@
             this.lblServerName.BackColor = System.Drawing.Color.Transparent;
             this.lblServerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblServerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblServerName.Location = new System.Drawing.Point(12, 254);
+            this.lblServerName.Location = new System.Drawing.Point(3, 1);
             this.lblServerName.Name = "lblServerName";
             this.lblServerName.Size = new System.Drawing.Size(155, 21);
             this.lblServerName.TabIndex = 45;
-            this.lblServerName.Text = "Step 3: Friendly Name";
+            this.lblServerName.Text = "Step 2: Friendly Name";
             // 
             // txtServerGivenName
             // 
@@ -287,7 +297,7 @@
             this.txtServerGivenName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtServerGivenName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerGivenName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtServerGivenName.Location = new System.Drawing.Point(16, 291);
+            this.txtServerGivenName.Location = new System.Drawing.Point(6, 37);
             this.txtServerGivenName.Name = "txtServerGivenName";
             this.txtServerGivenName.Size = new System.Drawing.Size(346, 29);
             this.txtServerGivenName.TabIndex = 48;
@@ -299,7 +309,7 @@
             this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.Transparent;
             this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
-            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(13, 234);
+            this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(0, 69);
             this.lblDestinationDetailsSubtext.Name = "lblDestinationDetailsSubtext";
             this.lblDestinationDetailsSubtext.Size = new System.Drawing.Size(305, 13);
             this.lblDestinationDetailsSubtext.TabIndex = 49;
@@ -363,6 +373,8 @@
             this.btnDeployGameserver.ButtonText = "Deploy   ";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
+            this.btnDeployGameserver.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnDeployGameserver.Enabled = false;
             this.btnDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
             this.btnDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnDeployGameserver.Iconimage")));
@@ -376,13 +388,13 @@
             this.btnDeployGameserver.IconVisible = true;
             this.btnDeployGameserver.IconZoom = 90D;
             this.btnDeployGameserver.IsTab = false;
-            this.btnDeployGameserver.Location = new System.Drawing.Point(568, 493);
+            this.btnDeployGameserver.Location = new System.Drawing.Point(299, 3);
             this.btnDeployGameserver.Name = "btnDeployGameserver";
             this.btnDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
             this.btnDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
             this.btnDeployGameserver.selected = false;
-            this.btnDeployGameserver.Size = new System.Drawing.Size(143, 48);
+            this.btnDeployGameserver.Size = new System.Drawing.Size(137, 49);
             this.btnDeployGameserver.TabIndex = 14;
             this.btnDeployGameserver.Text = "Deploy   ";
             this.btnDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -400,7 +412,7 @@
             this.btnCancelDeployGameserver.ButtonText = "Cancel";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
-            this.btnCancelDeployGameserver.Enabled = false;
+            this.btnCancelDeployGameserver.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnCancelDeployGameserver.Iconcolor = System.Drawing.Color.Transparent;
             this.btnCancelDeployGameserver.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnCancelDeployGameserver.Iconimage")));
@@ -414,20 +426,60 @@
             this.btnCancelDeployGameserver.IconVisible = true;
             this.btnCancelDeployGameserver.IconZoom = 45D;
             this.btnCancelDeployGameserver.IsTab = false;
-            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(413, 493);
+            this.btnCancelDeployGameserver.Location = new System.Drawing.Point(3, 3);
             this.btnCancelDeployGameserver.Name = "btnCancelDeployGameserver";
             this.btnCancelDeployGameserver.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
             this.btnCancelDeployGameserver.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(45)))), ((int)(((byte)(66)))));
             this.btnCancelDeployGameserver.OnHoverTextColor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.selected = false;
-            this.btnCancelDeployGameserver.Size = new System.Drawing.Size(143, 48);
+            this.btnCancelDeployGameserver.Size = new System.Drawing.Size(137, 49);
             this.btnCancelDeployGameserver.TabIndex = 41;
             this.btnCancelDeployGameserver.Text = "Cancel";
             this.btnCancelDeployGameserver.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelDeployGameserver.Textcolor = System.Drawing.Color.White;
             this.btnCancelDeployGameserver.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnCancelDeployGameserver, "Forcefully terminate deployment (leftover files need to be manually cleaned up).");
+            this.btnCancelDeployGameserver.Visible = false;
             this.btnCancelDeployGameserver.Click += new System.EventHandler(this.btnCancelDeployGameserver_Click);
+            // 
+            // btnUpdateServer
+            // 
+            this.btnUpdateServer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
+            this.btnUpdateServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
+            this.btnUpdateServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnUpdateServer.BorderRadius = 0;
+            this.btnUpdateServer.ButtonText = "Update";
+            this.btnUpdateServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdateServer.DisabledColor = System.Drawing.Color.Gray;
+            this.btnUpdateServer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdateServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnUpdateServer.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnUpdateServer.Iconimage = global::Borealis.Properties.Resources.UPDATE_SERVER;
+            this.btnUpdateServer.Iconimage_right = null;
+            this.btnUpdateServer.Iconimage_right_Selected = null;
+            this.btnUpdateServer.Iconimage_Selected = null;
+            this.btnUpdateServer.IconMarginLeft = 0;
+            this.btnUpdateServer.IconMarginRight = 0;
+            this.btnUpdateServer.IconRightVisible = true;
+            this.btnUpdateServer.IconRightZoom = 0D;
+            this.btnUpdateServer.IconVisible = true;
+            this.btnUpdateServer.IconZoom = 60D;
+            this.btnUpdateServer.IsTab = false;
+            this.btnUpdateServer.Location = new System.Drawing.Point(151, 3);
+            this.btnUpdateServer.Name = "btnUpdateServer";
+            this.btnUpdateServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
+            this.btnUpdateServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
+            this.btnUpdateServer.OnHoverTextColor = System.Drawing.SystemColors.Window;
+            this.btnUpdateServer.selected = false;
+            this.btnUpdateServer.Size = new System.Drawing.Size(137, 49);
+            this.btnUpdateServer.TabIndex = 75;
+            this.btnUpdateServer.Text = "Update";
+            this.btnUpdateServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnUpdateServer.Textcolor = System.Drawing.Color.White;
+            this.btnUpdateServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnUpdateServer, "Update the selected gameserver with the newest files available.");
+            this.btnUpdateServer.Visible = false;
+            this.btnUpdateServer.Click += new System.EventHandler(this.btnUpdateServer_Click);
             // 
             // btnSteamToken
             // 
@@ -563,9 +615,9 @@
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel4);
             this.panelSteamGuard.Controls.Add(this.txtSteamToken);
             this.panelSteamGuard.Controls.Add(this.txtSteamPassword);
-            this.panelSteamGuard.Location = new System.Drawing.Point(0, 334);
+            this.panelSteamGuard.Location = new System.Drawing.Point(0, 340);
             this.panelSteamGuard.Name = "panelSteamGuard";
-            this.panelSteamGuard.Size = new System.Drawing.Size(725, 94);
+            this.panelSteamGuard.Size = new System.Drawing.Size(725, 88);
             this.panelSteamGuard.TabIndex = 69;
             this.panelSteamGuard.Visible = false;
             // 
@@ -593,43 +645,79 @@
             this.bunifuCustomLabel3.TabIndex = 69;
             this.bunifuCustomLabel3.Text = "Username";
             // 
-            // btnUpdateServer
+            // btnTableLayoutPanel
             // 
-            this.btnUpdateServer.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
-            this.btnUpdateServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
-            this.btnUpdateServer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnUpdateServer.BorderRadius = 0;
-            this.btnUpdateServer.ButtonText = "Update";
-            this.btnUpdateServer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdateServer.DisabledColor = System.Drawing.Color.Gray;
-            this.btnUpdateServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
-            this.btnUpdateServer.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnUpdateServer.Iconimage = global::Borealis.Properties.Resources.UPDATE_SERVER;
-            this.btnUpdateServer.Iconimage_right = null;
-            this.btnUpdateServer.Iconimage_right_Selected = null;
-            this.btnUpdateServer.Iconimage_Selected = null;
-            this.btnUpdateServer.IconMarginLeft = 0;
-            this.btnUpdateServer.IconMarginRight = 0;
-            this.btnUpdateServer.IconRightVisible = true;
-            this.btnUpdateServer.IconRightZoom = 0D;
-            this.btnUpdateServer.IconVisible = true;
-            this.btnUpdateServer.IconZoom = 60D;
-            this.btnUpdateServer.IsTab = false;
-            this.btnUpdateServer.Location = new System.Drawing.Point(258, 493);
-            this.btnUpdateServer.Name = "btnUpdateServer";
-            this.btnUpdateServer.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(129)))), ((int)(((byte)(67)))));
-            this.btnUpdateServer.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(77)))), ((int)(((byte)(36)))));
-            this.btnUpdateServer.OnHoverTextColor = System.Drawing.SystemColors.Window;
-            this.btnUpdateServer.selected = false;
-            this.btnUpdateServer.Size = new System.Drawing.Size(143, 48);
-            this.btnUpdateServer.TabIndex = 75;
-            this.btnUpdateServer.Text = "Update";
-            this.btnUpdateServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUpdateServer.Textcolor = System.Drawing.Color.White;
-            this.btnUpdateServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolTip1.SetToolTip(this.btnUpdateServer, "Update the selected gameserver with the newest files available.");
-            this.btnUpdateServer.Visible = false;
-            this.btnUpdateServer.Click += new System.EventHandler(this.btnUpdateServer_Click);
+            this.btnTableLayoutPanel.BackColor = System.Drawing.Color.Transparent;
+            this.btnTableLayoutPanel.ColumnCount = 5;
+            this.btnTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.btnTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.btnTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.btnTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 5F));
+            this.btnTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.btnTableLayoutPanel.Controls.Add(this.btnDeployGameserver, 4, 0);
+            this.btnTableLayoutPanel.Controls.Add(this.btnUpdateServer, 2, 0);
+            this.btnTableLayoutPanel.Controls.Add(this.btnCancelDeployGameserver, 0, 0);
+            this.btnTableLayoutPanel.Location = new System.Drawing.Point(275, 489);
+            this.btnTableLayoutPanel.Name = "btnTableLayoutPanel";
+            this.btnTableLayoutPanel.RowCount = 1;
+            this.btnTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.btnTableLayoutPanel.Size = new System.Drawing.Size(439, 55);
+            this.btnTableLayoutPanel.TabIndex = 76;
+            // 
+            // panelStep1
+            // 
+            this.panelStep1.BackColor = System.Drawing.Color.Transparent;
+            this.panelStep1.Controls.Add(this.lblSelectServer);
+            this.panelStep1.Controls.Add(this.lblSelectServerDetails);
+            this.panelStep1.Controls.Add(this.dropdownServerSelection);
+            this.panelStep1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStep1.Location = new System.Drawing.Point(3, 3);
+            this.panelStep1.Name = "panelStep1";
+            this.panelStep1.Size = new System.Drawing.Size(446, 84);
+            this.panelStep1.TabIndex = 0;
+            // 
+            // panelStep2
+            // 
+            this.panelStep2.BackColor = System.Drawing.Color.Transparent;
+            this.panelStep2.Controls.Add(this.lblDestination);
+            this.panelStep2.Controls.Add(this.txtboxDestinationFolder);
+            this.panelStep2.Controls.Add(this.btnBrowseDestination);
+            this.panelStep2.Controls.Add(this.lblDestinationDetails);
+            this.panelStep2.Controls.Add(this.lblDestinationDetailsSubtext);
+            this.panelStep2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStep2.Location = new System.Drawing.Point(3, 183);
+            this.panelStep2.Name = "panelStep2";
+            this.panelStep2.Size = new System.Drawing.Size(446, 84);
+            this.panelStep2.TabIndex = 1;
+            // 
+            // panelStep3
+            // 
+            this.panelStep3.BackColor = System.Drawing.Color.Transparent;
+            this.panelStep3.Controls.Add(this.lblServerName);
+            this.panelStep3.Controls.Add(this.lblServerNameDetails);
+            this.panelStep3.Controls.Add(this.txtServerGivenName);
+            this.panelStep3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelStep3.Location = new System.Drawing.Point(3, 93);
+            this.panelStep3.Name = "panelStep3";
+            this.panelStep3.Size = new System.Drawing.Size(446, 84);
+            this.panelStep3.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            this.tableLayoutPanel1.Controls.Add(this.panelStep1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panelStep2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.panelStep3, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 67);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(452, 270);
+            this.tableLayoutPanel1.TabIndex = 77;
             // 
             // TAB_DEPLOYMENT
             // 
@@ -639,26 +727,14 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.btnUpdateServer);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.btnTableLayoutPanel);
             this.Controls.Add(this.panelSteamGuard);
             this.Controls.Add(this.chkVerifyIntegrity);
             this.Controls.Add(this.lblVerifyIntegrity);
             this.Controls.Add(this.panelProgress);
-            this.Controls.Add(this.lblDestinationDetailsSubtext);
-            this.Controls.Add(this.txtServerGivenName);
-            this.Controls.Add(this.lblServerNameDetails);
-            this.Controls.Add(this.lblServerName);
-            this.Controls.Add(this.btnDeployGameserver);
-            this.Controls.Add(this.btnCancelDeployGameserver);
             this.Controls.Add(this.bunifuCustomLabel2);
-            this.Controls.Add(this.dropdownServerSelection);
-            this.Controls.Add(this.lblDestinationDetails);
             this.Controls.Add(this.bunifuCustomLabel5);
-            this.Controls.Add(this.btnBrowseDestination);
-            this.Controls.Add(this.lblSelectServer);
-            this.Controls.Add(this.txtboxDestinationFolder);
-            this.Controls.Add(this.lblSelectServerDetails);
-            this.Controls.Add(this.lblDestination);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TAB_DEPLOYMENT";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -668,6 +744,14 @@
             this.panelProgress.PerformLayout();
             this.panelSteamGuard.ResumeLayout(false);
             this.panelSteamGuard.PerformLayout();
+            this.btnTableLayoutPanel.ResumeLayout(false);
+            this.panelStep1.ResumeLayout(false);
+            this.panelStep1.PerformLayout();
+            this.panelStep2.ResumeLayout(false);
+            this.panelStep2.PerformLayout();
+            this.panelStep3.ResumeLayout(false);
+            this.panelStep3.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -709,5 +793,10 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel6;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
         private Bunifu.Framework.UI.BunifuFlatButton btnUpdateServer;
+        private System.Windows.Forms.TableLayoutPanel btnTableLayoutPanel;
+        private System.Windows.Forms.Panel panelStep1;
+        private System.Windows.Forms.Panel panelStep2;
+        private System.Windows.Forms.Panel panelStep3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
