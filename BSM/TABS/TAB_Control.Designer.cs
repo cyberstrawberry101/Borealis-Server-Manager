@@ -46,6 +46,11 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkStandaloneMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblStandaloneMode = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.serverProcess03 = new System.Diagnostics.Process();
+            this.serverProcess04 = new System.Diagnostics.Process();
+            this.serverProcess05 = new System.Diagnostics.Process();
+            this.serverProcess06 = new System.Diagnostics.Process();
+            this.serverProcess07 = new System.Diagnostics.Process();
             this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,7 +294,7 @@
             this.chkStandaloneMode.TabIndex = 52;
             this.toolTip1.SetToolTip(this.chkStandaloneMode, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
-            this.chkStandaloneMode.Value = false;
+            this.chkStandaloneMode.Value = true;
             this.chkStandaloneMode.Visible = false;
             // 
             // lblStandaloneMode
@@ -306,6 +311,56 @@
             this.toolTip1.SetToolTip(this.lblStandaloneMode, "If you would like to simply launch the server with a normal (visible) console win" +
         "dow, and not have borealis manage it directly.");
             this.lblStandaloneMode.Visible = false;
+            // 
+            // serverProcess03
+            // 
+            this.serverProcess03.StartInfo.Domain = "";
+            this.serverProcess03.StartInfo.LoadUserProfile = false;
+            this.serverProcess03.StartInfo.Password = null;
+            this.serverProcess03.StartInfo.StandardErrorEncoding = null;
+            this.serverProcess03.StartInfo.StandardOutputEncoding = null;
+            this.serverProcess03.StartInfo.UserName = "";
+            this.serverProcess03.SynchronizingObject = this;
+            // 
+            // serverProcess04
+            // 
+            this.serverProcess04.StartInfo.Domain = "";
+            this.serverProcess04.StartInfo.LoadUserProfile = false;
+            this.serverProcess04.StartInfo.Password = null;
+            this.serverProcess04.StartInfo.StandardErrorEncoding = null;
+            this.serverProcess04.StartInfo.StandardOutputEncoding = null;
+            this.serverProcess04.StartInfo.UserName = "";
+            this.serverProcess04.SynchronizingObject = this;
+            // 
+            // serverProcess05
+            // 
+            this.serverProcess05.StartInfo.Domain = "";
+            this.serverProcess05.StartInfo.LoadUserProfile = false;
+            this.serverProcess05.StartInfo.Password = null;
+            this.serverProcess05.StartInfo.StandardErrorEncoding = null;
+            this.serverProcess05.StartInfo.StandardOutputEncoding = null;
+            this.serverProcess05.StartInfo.UserName = "";
+            this.serverProcess05.SynchronizingObject = this;
+            // 
+            // serverProcess06
+            // 
+            this.serverProcess06.StartInfo.Domain = "";
+            this.serverProcess06.StartInfo.LoadUserProfile = false;
+            this.serverProcess06.StartInfo.Password = null;
+            this.serverProcess06.StartInfo.StandardErrorEncoding = null;
+            this.serverProcess06.StartInfo.StandardOutputEncoding = null;
+            this.serverProcess06.StartInfo.UserName = "";
+            this.serverProcess06.SynchronizingObject = this;
+            // 
+            // serverProcess07
+            // 
+            this.serverProcess07.StartInfo.Domain = "";
+            this.serverProcess07.StartInfo.LoadUserProfile = false;
+            this.serverProcess07.StartInfo.Password = null;
+            this.serverProcess07.StartInfo.StandardErrorEncoding = null;
+            this.serverProcess07.StartInfo.StandardOutputEncoding = null;
+            this.serverProcess07.StartInfo.UserName = "";
+            this.serverProcess07.SynchronizingObject = this;
             // 
             // TAB_CONTROL
             // 
@@ -354,5 +409,10 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkStandaloneMode;
         private Bunifu.Framework.UI.BunifuCustomLabel lblStandaloneMode;
+        private System.Diagnostics.Process serverProcess03;
+        private System.Diagnostics.Process serverProcess04;
+        private System.Diagnostics.Process serverProcess05;
+        private System.Diagnostics.Process serverProcess06;
+        private System.Diagnostics.Process serverProcess07;
     }
 }

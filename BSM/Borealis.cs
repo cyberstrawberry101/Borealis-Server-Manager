@@ -20,7 +20,7 @@ namespace Borealis
         //===================================================================================//
         // MDI HANDLING CODE:                                                                //
         //===================================================================================//
-        
+
         //Add MDI Child to tabpages of tabControl
         private void tabForms_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -45,7 +45,7 @@ namespace Borealis
                 }
             }
         }
-        
+
         public BorealisServerManager()
         {
             InitializeComponent();
@@ -198,9 +198,55 @@ namespace Borealis
             }
         }
 
-        private void btnConnectToSteam_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+            if (menuBarPanel.Width == 240)
+            {
+                AnimateMenuBar("compress");
+            }
+            else
+            {
+                AnimateMenuBar("expand");
+            }
+
+            void AnimateMenuBar(string ToggleStatus)
+            {
+                if (ToggleStatus == "expand")
+                {
+                    //menuBarPanel.Visible = false;
+                    //menuBarTransition.ShowSync(menuBarPanel);  //Need to get this to work properly and smoothly.
+                    menuBarlblMenu.Text = "Menu";
+                    dashboard_tab.Text = "   Dashboard";
+
+                    menuBarlblServerManagement.Text = "Server Management";
+                    deployment_tab.Text = "   Deploy GameServers";
+                    management_tab.Text = "   Manage GameServers";
+                    control_tab.Text = "   Control GameServers";
+
+                    menuBarlblAdvanced.Text = "Advanced";
+                    scheduledtasks_tab.Text = "   Scheduled Tasks";
+                    menuBarPanel.Width = 240;
+                    //logoAnimator.ShowSync(largeLogo);
+                }
+
+                if (ToggleStatus == "compress")
+                {
+                    //logoAnimator.Hide(largeLogo);
+                    //menuBarPanel.Visible = false;
+                    menuBarlblMenu.Text = "";
+                    dashboard_tab.Text = "";
+
+                    menuBarlblServerManagement.Text = "";
+                    deployment_tab.Text = "";
+                    management_tab.Text = "";
+                    control_tab.Text = "";
+
+                    menuBarlblAdvanced.Text = "";
+                    scheduledtasks_tab.Text = "";
+                    menuBarPanel.Width = 51;
+                    //menuBarTransition.ShowSync(menuBarPanel);  //Need to get this to work properly and smoothly.
+                }
+            }
         }
     }
 }

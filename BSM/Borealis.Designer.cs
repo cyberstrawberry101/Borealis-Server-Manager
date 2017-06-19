@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorealisServerManager));
             this.formHeaderDragger = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.header = new System.Windows.Forms.Panel();
@@ -38,14 +39,15 @@
             this.lblVersion = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.labelBorealisTitle = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.menuBarPanel = new System.Windows.Forms.TableLayoutPanel();
             this.DO_NOT_DELETE = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabForms = new System.Windows.Forms.TabControl();
             this.panel9 = new System.Windows.Forms.Panel();
             this.management_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.management_indicator = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.menuBarlblAdvanced = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.control_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.control_indicator = new System.Windows.Forms.Panel();
@@ -56,20 +58,23 @@
             this.dashboard_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.dashboard_indicator = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.menuBarlblServerManagement = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.bunifuCustomLabel5 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.menuBarlblMenu = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.scheduledtasks_tab = new Bunifu.Framework.UI.BunifuFlatButton();
             this.scheduledtasks_indicator = new System.Windows.Forms.Panel();
             this.MENU_TOOLTIPS = new System.Windows.Forms.ToolTip(this.components);
             this.panel6 = new System.Windows.Forms.Panel();
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.menuBarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.menuBarPanel.SuspendLayout();
             this.DO_NOT_DELETE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -95,6 +100,7 @@
             this.header.Controls.Add(this.mainIcon);
             this.header.Controls.Add(this.lblVersion);
             this.header.Controls.Add(this.labelBorealisTitle);
+            this.menuBarTransition.SetDecoration(this.header, BunifuAnimatorNS.DecorationType.None);
             this.header.Dock = System.Windows.Forms.DockStyle.Top;
             this.header.Location = new System.Drawing.Point(0, 0);
             this.header.Name = "header";
@@ -104,6 +110,7 @@
             // btnExitProgram
             // 
             this.btnExitProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.menuBarTransition.SetDecoration(this.btnExitProgram, BunifuAnimatorNS.DecorationType.None);
             this.btnExitProgram.Image = ((System.Drawing.Image)(resources.GetObject("btnExitProgram.Image")));
             this.btnExitProgram.ImageActive = null;
             this.btnExitProgram.Location = new System.Drawing.Point(927, 10);
@@ -119,6 +126,7 @@
             // attribution_tab
             // 
             this.attribution_tab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuBarTransition.SetDecoration(this.attribution_tab, BunifuAnimatorNS.DecorationType.None);
             this.attribution_tab.Image = global::Borealis.Properties.Resources.HELP_ICON;
             this.attribution_tab.ImageActive = null;
             this.attribution_tab.Location = new System.Drawing.Point(890, 10);
@@ -135,6 +143,7 @@
             // 
             this.mainIcon.BackgroundImage = global::Borealis.Properties.Resources.TitleIcon_WHITE;
             this.mainIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.menuBarTransition.SetDecoration(this.mainIcon, BunifuAnimatorNS.DecorationType.None);
             this.mainIcon.Location = new System.Drawing.Point(10, 7);
             this.mainIcon.Name = "mainIcon";
             this.mainIcon.Size = new System.Drawing.Size(30, 30);
@@ -146,6 +155,7 @@
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.menuBarTransition.SetDecoration(this.lblVersion, BunifuAnimatorNS.DecorationType.None);
             this.lblVersion.Font = new System.Drawing.Font("Segoe UI Light", 7F);
             this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(155)))), ((int)(((byte)(166)))));
             this.lblVersion.Location = new System.Drawing.Point(45, 27);
@@ -159,6 +169,7 @@
             // labelBorealisTitle
             // 
             this.labelBorealisTitle.AutoSize = true;
+            this.menuBarTransition.SetDecoration(this.labelBorealisTitle, BunifuAnimatorNS.DecorationType.None);
             this.labelBorealisTitle.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBorealisTitle.ForeColor = System.Drawing.Color.White;
             this.labelBorealisTitle.Location = new System.Drawing.Point(42, 5);
@@ -173,43 +184,46 @@
             this.notifyIcon1.Text = "Borealis Dedicated Server Manager";
             this.notifyIcon1.Visible = true;
             // 
-            // tableLayoutPanel1
+            // menuBarPanel
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.DO_NOT_DELETE, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.panel9, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.panel13, 0, 6);
-            this.tableLayoutPanel1.Controls.Add(this.panel11, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.panel7, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 7);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(240, 559);
-            this.tableLayoutPanel1.TabIndex = 28;
+            this.menuBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.menuBarPanel.ColumnCount = 1;
+            this.menuBarPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.menuBarPanel.Controls.Add(this.DO_NOT_DELETE, 0, 8);
+            this.menuBarPanel.Controls.Add(this.panel9, 0, 4);
+            this.menuBarPanel.Controls.Add(this.panel13, 0, 6);
+            this.menuBarPanel.Controls.Add(this.panel11, 0, 5);
+            this.menuBarPanel.Controls.Add(this.panel7, 0, 3);
+            this.menuBarPanel.Controls.Add(this.panel3, 0, 1);
+            this.menuBarPanel.Controls.Add(this.panel2, 0, 2);
+            this.menuBarPanel.Controls.Add(this.panel1, 0, 0);
+            this.menuBarPanel.Controls.Add(this.panel4, 0, 7);
+            this.menuBarTransition.SetDecoration(this.menuBarPanel, BunifuAnimatorNS.DecorationType.None);
+            this.menuBarPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuBarPanel.Location = new System.Drawing.Point(0, 45);
+            this.menuBarPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.menuBarPanel.Name = "menuBarPanel";
+            this.menuBarPanel.RowCount = 9;
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.menuBarPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.menuBarPanel.Size = new System.Drawing.Size(240, 559);
+            this.menuBarPanel.TabIndex = 28;
             // 
             // DO_NOT_DELETE
             // 
             this.DO_NOT_DELETE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.DO_NOT_DELETE.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.DO_NOT_DELETE.Controls.Add(this.pictureBox1);
             this.DO_NOT_DELETE.Controls.Add(this.tabForms);
+            this.menuBarTransition.SetDecoration(this.DO_NOT_DELETE, BunifuAnimatorNS.DecorationType.None);
             this.DO_NOT_DELETE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DO_NOT_DELETE.Location = new System.Drawing.Point(0, 320);
             this.DO_NOT_DELETE.Margin = new System.Windows.Forms.Padding(0);
@@ -217,8 +231,21 @@
             this.DO_NOT_DELETE.Size = new System.Drawing.Size(240, 239);
             this.DO_NOT_DELETE.TabIndex = 49;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Borealis.Properties.Resources.collapse_button;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.menuBarTransition.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 200);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 32);
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // tabForms
             // 
+            this.menuBarTransition.SetDecoration(this.tabForms, BunifuAnimatorNS.DecorationType.None);
             this.tabForms.Location = new System.Drawing.Point(187, 250);
             this.tabForms.Name = "tabForms";
             this.tabForms.SelectedIndex = 0;
@@ -231,6 +258,7 @@
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel9.Controls.Add(this.management_tab);
             this.panel9.Controls.Add(this.management_indicator);
+            this.menuBarTransition.SetDecoration(this.panel9, BunifuAnimatorNS.DecorationType.None);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 160);
             this.panel9.Margin = new System.Windows.Forms.Padding(0);
@@ -246,6 +274,7 @@
             this.management_tab.BorderRadius = 0;
             this.management_tab.ButtonText = "   Manage GameServers";
             this.management_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBarTransition.SetDecoration(this.management_tab, BunifuAnimatorNS.DecorationType.None);
             this.management_tab.DisabledColor = System.Drawing.Color.Gray;
             this.management_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.management_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -254,7 +283,7 @@
             this.management_tab.Iconimage_right = null;
             this.management_tab.Iconimage_right_Selected = null;
             this.management_tab.Iconimage_Selected = null;
-            this.management_tab.IconMarginLeft = 10;
+            this.management_tab.IconMarginLeft = 12;
             this.management_tab.IconMarginRight = 0;
             this.management_tab.IconRightVisible = false;
             this.management_tab.IconRightZoom = 0D;
@@ -280,6 +309,7 @@
             // management_indicator
             // 
             this.management_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.management_indicator, BunifuAnimatorNS.DecorationType.None);
             this.management_indicator.Dock = System.Windows.Forms.DockStyle.Right;
             this.management_indicator.Location = new System.Drawing.Point(235, 0);
             this.management_indicator.Margin = new System.Windows.Forms.Padding(0);
@@ -291,7 +321,8 @@
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel13.Controls.Add(this.bunifuCustomLabel3);
+            this.panel13.Controls.Add(this.menuBarlblAdvanced);
+            this.menuBarTransition.SetDecoration(this.panel13, BunifuAnimatorNS.DecorationType.None);
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel13.Location = new System.Drawing.Point(0, 240);
             this.panel13.Margin = new System.Windows.Forms.Padding(0);
@@ -299,23 +330,25 @@
             this.panel13.Size = new System.Drawing.Size(240, 40);
             this.panel13.TabIndex = 43;
             // 
-            // bunifuCustomLabel3
+            // menuBarlblAdvanced
             // 
-            this.bunifuCustomLabel3.AutoSize = true;
-            this.bunifuCustomLabel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
-            this.bunifuCustomLabel3.Location = new System.Drawing.Point(6, 22);
-            this.bunifuCustomLabel3.Name = "bunifuCustomLabel3";
-            this.bunifuCustomLabel3.Size = new System.Drawing.Size(60, 15);
-            this.bunifuCustomLabel3.TabIndex = 50;
-            this.bunifuCustomLabel3.Text = "Advanced";
+            this.menuBarlblAdvanced.AutoSize = true;
+            this.menuBarlblAdvanced.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.menuBarTransition.SetDecoration(this.menuBarlblAdvanced, BunifuAnimatorNS.DecorationType.None);
+            this.menuBarlblAdvanced.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuBarlblAdvanced.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
+            this.menuBarlblAdvanced.Location = new System.Drawing.Point(6, 22);
+            this.menuBarlblAdvanced.Name = "menuBarlblAdvanced";
+            this.menuBarlblAdvanced.Size = new System.Drawing.Size(60, 15);
+            this.menuBarlblAdvanced.TabIndex = 50;
+            this.menuBarlblAdvanced.Text = "Advanced";
             // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel11.Controls.Add(this.control_tab);
             this.panel11.Controls.Add(this.control_indicator);
+            this.menuBarTransition.SetDecoration(this.panel11, BunifuAnimatorNS.DecorationType.None);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(0, 200);
             this.panel11.Margin = new System.Windows.Forms.Padding(0);
@@ -331,6 +364,7 @@
             this.control_tab.BorderRadius = 0;
             this.control_tab.ButtonText = "   Control GameServers";
             this.control_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBarTransition.SetDecoration(this.control_tab, BunifuAnimatorNS.DecorationType.None);
             this.control_tab.DisabledColor = System.Drawing.Color.Gray;
             this.control_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.control_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -339,7 +373,7 @@
             this.control_tab.Iconimage_right = null;
             this.control_tab.Iconimage_right_Selected = null;
             this.control_tab.Iconimage_Selected = null;
-            this.control_tab.IconMarginLeft = 10;
+            this.control_tab.IconMarginLeft = 14;
             this.control_tab.IconMarginRight = 0;
             this.control_tab.IconRightVisible = false;
             this.control_tab.IconRightZoom = 0D;
@@ -365,6 +399,7 @@
             // control_indicator
             // 
             this.control_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.control_indicator, BunifuAnimatorNS.DecorationType.None);
             this.control_indicator.Dock = System.Windows.Forms.DockStyle.Right;
             this.control_indicator.Location = new System.Drawing.Point(235, 0);
             this.control_indicator.Margin = new System.Windows.Forms.Padding(0);
@@ -378,6 +413,7 @@
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel7.Controls.Add(this.deployment_indicator);
             this.panel7.Controls.Add(this.deployment_tab);
+            this.menuBarTransition.SetDecoration(this.panel7, BunifuAnimatorNS.DecorationType.None);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 120);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
@@ -388,6 +424,7 @@
             // deployment_indicator
             // 
             this.deployment_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.deployment_indicator, BunifuAnimatorNS.DecorationType.None);
             this.deployment_indicator.Dock = System.Windows.Forms.DockStyle.Right;
             this.deployment_indicator.Location = new System.Drawing.Point(235, 0);
             this.deployment_indicator.Margin = new System.Windows.Forms.Padding(0);
@@ -404,6 +441,7 @@
             this.deployment_tab.BorderRadius = 0;
             this.deployment_tab.ButtonText = "   Deploy GameServers";
             this.deployment_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBarTransition.SetDecoration(this.deployment_tab, BunifuAnimatorNS.DecorationType.None);
             this.deployment_tab.DisabledColor = System.Drawing.Color.Gray;
             this.deployment_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.deployment_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -440,6 +478,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel3.Controls.Add(this.dashboard_tab);
             this.panel3.Controls.Add(this.dashboard_indicator);
+            this.menuBarTransition.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 40);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
@@ -455,6 +494,7 @@
             this.dashboard_tab.BorderRadius = 0;
             this.dashboard_tab.ButtonText = "   Dashboard";
             this.dashboard_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBarTransition.SetDecoration(this.dashboard_tab, BunifuAnimatorNS.DecorationType.None);
             this.dashboard_tab.DisabledColor = System.Drawing.Color.Gray;
             this.dashboard_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dashboard_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -490,6 +530,7 @@
             // dashboard_indicator
             // 
             this.dashboard_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.dashboard_indicator, BunifuAnimatorNS.DecorationType.None);
             this.dashboard_indicator.Dock = System.Windows.Forms.DockStyle.Right;
             this.dashboard_indicator.Location = new System.Drawing.Point(235, 0);
             this.dashboard_indicator.Margin = new System.Windows.Forms.Padding(0);
@@ -500,7 +541,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel2.Controls.Add(this.bunifuCustomLabel2);
+            this.panel2.Controls.Add(this.menuBarlblServerManagement);
+            this.menuBarTransition.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 80);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
@@ -508,22 +550,24 @@
             this.panel2.Size = new System.Drawing.Size(240, 40);
             this.panel2.TabIndex = 32;
             // 
-            // bunifuCustomLabel2
+            // menuBarlblServerManagement
             // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(6, 22);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(113, 15);
-            this.bunifuCustomLabel2.TabIndex = 49;
-            this.bunifuCustomLabel2.Text = "Server Management";
+            this.menuBarlblServerManagement.AutoSize = true;
+            this.menuBarlblServerManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.menuBarTransition.SetDecoration(this.menuBarlblServerManagement, BunifuAnimatorNS.DecorationType.None);
+            this.menuBarlblServerManagement.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuBarlblServerManagement.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
+            this.menuBarlblServerManagement.Location = new System.Drawing.Point(6, 22);
+            this.menuBarlblServerManagement.Name = "menuBarlblServerManagement";
+            this.menuBarlblServerManagement.Size = new System.Drawing.Size(113, 15);
+            this.menuBarlblServerManagement.TabIndex = 49;
+            this.menuBarlblServerManagement.Text = "Server Management";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.panel1.Controls.Add(this.bunifuCustomLabel5);
+            this.panel1.Controls.Add(this.menuBarlblMenu);
+            this.menuBarTransition.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
@@ -531,23 +575,25 @@
             this.panel1.Size = new System.Drawing.Size(240, 40);
             this.panel1.TabIndex = 31;
             // 
-            // bunifuCustomLabel5
+            // menuBarlblMenu
             // 
-            this.bunifuCustomLabel5.AutoSize = true;
-            this.bunifuCustomLabel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
-            this.bunifuCustomLabel5.Location = new System.Drawing.Point(6, 22);
-            this.bunifuCustomLabel5.Name = "bunifuCustomLabel5";
-            this.bunifuCustomLabel5.Size = new System.Drawing.Size(34, 15);
-            this.bunifuCustomLabel5.TabIndex = 48;
-            this.bunifuCustomLabel5.Text = "Main";
+            this.menuBarlblMenu.AutoSize = true;
+            this.menuBarlblMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.menuBarTransition.SetDecoration(this.menuBarlblMenu, BunifuAnimatorNS.DecorationType.None);
+            this.menuBarlblMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.menuBarlblMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(79)))), ((int)(((byte)(86)))), ((int)(((byte)(93)))));
+            this.menuBarlblMenu.Location = new System.Drawing.Point(6, 22);
+            this.menuBarlblMenu.Name = "menuBarlblMenu";
+            this.menuBarlblMenu.Size = new System.Drawing.Size(34, 15);
+            this.menuBarlblMenu.TabIndex = 48;
+            this.menuBarlblMenu.Text = "Main";
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
             this.panel4.Controls.Add(this.scheduledtasks_tab);
             this.panel4.Controls.Add(this.scheduledtasks_indicator);
+            this.menuBarTransition.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 280);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
@@ -563,6 +609,7 @@
             this.scheduledtasks_tab.BorderRadius = 0;
             this.scheduledtasks_tab.ButtonText = "   Scheduled Tasks";
             this.scheduledtasks_tab.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.menuBarTransition.SetDecoration(this.scheduledtasks_tab, BunifuAnimatorNS.DecorationType.None);
             this.scheduledtasks_tab.DisabledColor = System.Drawing.Color.Gray;
             this.scheduledtasks_tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.scheduledtasks_tab.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -597,6 +644,7 @@
             // scheduledtasks_indicator
             // 
             this.scheduledtasks_indicator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.scheduledtasks_indicator, BunifuAnimatorNS.DecorationType.None);
             this.scheduledtasks_indicator.Dock = System.Windows.Forms.DockStyle.Right;
             this.scheduledtasks_indicator.Location = new System.Drawing.Point(235, 0);
             this.scheduledtasks_indicator.Margin = new System.Windows.Forms.Padding(0);
@@ -617,11 +665,38 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.menuBarTransition.SetDecoration(this.panel6, BunifuAnimatorNS.DecorationType.None);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(240, 45);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(725, 5);
             this.panel6.TabIndex = 55;
+            // 
+            // bunifuElipse1
+            // 
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this;
+            // 
+            // menuBarTransition
+            // 
+            this.menuBarTransition.AnimationType = BunifuAnimatorNS.AnimationType.HorizSlide;
+            this.menuBarTransition.Cursor = null;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.menuBarTransition.DefaultAnimation = animation2;
             // 
             // BorealisServerManager
             // 
@@ -630,8 +705,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(965, 604);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.menuBarPanel);
             this.Controls.Add(this.header);
+            this.menuBarTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -651,8 +727,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnExitProgram)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.attribution_tab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainIcon)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.menuBarPanel.ResumeLayout(false);
             this.DO_NOT_DELETE.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -680,11 +757,11 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblVersion;
         private System.Windows.Forms.PictureBox mainIcon;
         private Bunifu.Framework.UI.BunifuImageButton attribution_tab;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel menuBarPanel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel5;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private Bunifu.Framework.UI.BunifuCustomLabel menuBarlblMenu;
+        private Bunifu.Framework.UI.BunifuCustomLabel menuBarlblServerManagement;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel9;
@@ -695,14 +772,17 @@
         private System.Windows.Forms.Panel control_indicator;
         private System.Windows.Forms.Panel management_indicator;
         private System.Windows.Forms.Panel deployment_indicator;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
+        private Bunifu.Framework.UI.BunifuCustomLabel menuBarlblAdvanced;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel scheduledtasks_indicator;
         private Bunifu.Framework.UI.BunifuFlatButton scheduledtasks_tab;
-        private System.Windows.Forms.Panel DO_NOT_DELETE;
         private System.Windows.Forms.ToolTip MENU_TOOLTIPS;
         private System.Windows.Forms.Panel panel6;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private BunifuAnimatorNS.BunifuTransition menuBarTransition;
+        private System.Windows.Forms.Panel DO_NOT_DELETE;
         private System.Windows.Forms.TabControl tabForms;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
