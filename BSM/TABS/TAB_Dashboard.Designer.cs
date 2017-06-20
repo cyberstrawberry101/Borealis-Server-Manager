@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_DASHBOARD));
             this.lblDetailedCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblCPUUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -64,6 +65,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.lblDetailedLANUsage = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.dashboardAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.overallServerStatsGrid)).BeginInit();
             this.panelMemoryUsage.SuspendLayout();
             this.panelDiskUsage.SuspendLayout();
@@ -75,6 +77,7 @@
             // 
             this.lblDetailedCPUUsage.AutoSize = true;
             this.lblDetailedCPUUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblDetailedCPUUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblDetailedCPUUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDetailedCPUUsage.Location = new System.Drawing.Point(34, 166);
@@ -88,6 +91,7 @@
             // 
             this.lblCPUUsage.AutoSize = true;
             this.lblCPUUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblCPUUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblCPUUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblCPUUsage.Location = new System.Drawing.Point(21, 134);
@@ -101,6 +105,7 @@
             // 
             this.lblDetailedDISKUsage.AutoSize = true;
             this.lblDetailedDISKUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblDetailedDISKUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblDetailedDISKUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDetailedDISKUsage.Location = new System.Drawing.Point(17, 165);
@@ -114,6 +119,7 @@
             // 
             this.lblDISKUsage.AutoSize = true;
             this.lblDISKUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblDISKUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblDISKUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblDISKUsage.Location = new System.Drawing.Point(24, 134);
@@ -127,6 +133,7 @@
             // 
             this.lblDetailedRAMUsage.AutoSize = true;
             this.lblDetailedRAMUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblDetailedRAMUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblDetailedRAMUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDetailedRAMUsage.Location = new System.Drawing.Point(26, 166);
@@ -140,6 +147,7 @@
             // 
             this.lblRAMUsage.AutoSize = true;
             this.lblRAMUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblRAMUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblRAMUsage.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblRAMUsage.Location = new System.Drawing.Point(3, 134);
@@ -153,6 +161,7 @@
             // 
             this.bunifuCustomLabel5.AutoSize = true;
             this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel5.Location = new System.Drawing.Point(12, 42);
@@ -165,6 +174,7 @@
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(10, 10);
@@ -208,6 +218,7 @@
             this.columnStatus,
             this.columnRestartFlag});
             this.overallServerStatsGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dashboardAnimator.SetDecoration(this.overallServerStatsGrid, BunifuAnimatorNS.DecorationType.None);
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -332,6 +343,7 @@
             this.panelMemoryUsage.Controls.Add(this.progressRAMUsage);
             this.panelMemoryUsage.Controls.Add(this.lblDetailedRAMUsage);
             this.panelMemoryUsage.Controls.Add(this.lblRAMUsage);
+            this.dashboardAnimator.SetDecoration(this.panelMemoryUsage, BunifuAnimatorNS.DecorationType.None);
             this.panelMemoryUsage.Location = new System.Drawing.Point(11, 68);
             this.panelMemoryUsage.Name = "panelMemoryUsage";
             this.panelMemoryUsage.Size = new System.Drawing.Size(171, 188);
@@ -344,6 +356,7 @@
             this.progressRAMUsage.animationSpeed = 60;
             this.progressRAMUsage.BackColor = System.Drawing.Color.Transparent;
             this.progressRAMUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressRAMUsage.BackgroundImage")));
+            this.dashboardAnimator.SetDecoration(this.progressRAMUsage, BunifuAnimatorNS.DecorationType.None);
             this.progressRAMUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressRAMUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.progressRAMUsage.LabelVisible = true;
@@ -365,6 +378,7 @@
             this.panelDiskUsage.Controls.Add(this.progressDISKUsage);
             this.panelDiskUsage.Controls.Add(this.lblDISKUsage);
             this.panelDiskUsage.Controls.Add(this.lblDetailedDISKUsage);
+            this.dashboardAnimator.SetDecoration(this.panelDiskUsage, BunifuAnimatorNS.DecorationType.None);
             this.panelDiskUsage.Location = new System.Drawing.Point(188, 68);
             this.panelDiskUsage.Name = "panelDiskUsage";
             this.panelDiskUsage.Size = new System.Drawing.Size(171, 188);
@@ -377,6 +391,7 @@
             this.progressDISKUsage.animationSpeed = 60;
             this.progressDISKUsage.BackColor = System.Drawing.Color.Transparent;
             this.progressDISKUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressDISKUsage.BackgroundImage")));
+            this.dashboardAnimator.SetDecoration(this.progressDISKUsage, BunifuAnimatorNS.DecorationType.None);
             this.progressDISKUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressDISKUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.progressDISKUsage.LabelVisible = true;
@@ -398,6 +413,7 @@
             this.panelCPUUsage.Controls.Add(this.progressCPUUsage);
             this.panelCPUUsage.Controls.Add(this.lblCPUUsage);
             this.panelCPUUsage.Controls.Add(this.lblDetailedCPUUsage);
+            this.dashboardAnimator.SetDecoration(this.panelCPUUsage, BunifuAnimatorNS.DecorationType.None);
             this.panelCPUUsage.Location = new System.Drawing.Point(365, 68);
             this.panelCPUUsage.Name = "panelCPUUsage";
             this.panelCPUUsage.Size = new System.Drawing.Size(171, 188);
@@ -410,6 +426,7 @@
             this.progressCPUUsage.animationSpeed = 60;
             this.progressCPUUsage.BackColor = System.Drawing.Color.Transparent;
             this.progressCPUUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressCPUUsage.BackgroundImage")));
+            this.dashboardAnimator.SetDecoration(this.progressCPUUsage, BunifuAnimatorNS.DecorationType.None);
             this.progressCPUUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressCPUUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.progressCPUUsage.LabelVisible = true;
@@ -431,6 +448,7 @@
             this.panel1.Controls.Add(this.progressLANUsage);
             this.panel1.Controls.Add(this.bunifuCustomLabel1);
             this.panel1.Controls.Add(this.lblDetailedLANUsage);
+            this.dashboardAnimator.SetDecoration(this.panel1, BunifuAnimatorNS.DecorationType.None);
             this.panel1.Location = new System.Drawing.Point(542, 68);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(171, 188);
@@ -443,6 +461,7 @@
             this.progressLANUsage.animationSpeed = 60;
             this.progressLANUsage.BackColor = System.Drawing.Color.Transparent;
             this.progressLANUsage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("progressLANUsage.BackgroundImage")));
+            this.dashboardAnimator.SetDecoration(this.progressLANUsage, BunifuAnimatorNS.DecorationType.None);
             this.progressLANUsage.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressLANUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.progressLANUsage.LabelVisible = true;
@@ -462,6 +481,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(22, 134);
@@ -475,6 +495,7 @@
             // 
             this.lblDetailedLANUsage.AutoSize = true;
             this.lblDetailedLANUsage.BackColor = System.Drawing.Color.Transparent;
+            this.dashboardAnimator.SetDecoration(this.lblDetailedLANUsage, BunifuAnimatorNS.DecorationType.None);
             this.lblDetailedLANUsage.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblDetailedLANUsage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDetailedLANUsage.Location = new System.Drawing.Point(18, 165);
@@ -489,6 +510,27 @@
             this.toolTip1.AutoPopDelay = 10000;
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
+            // 
+            // dashboardAnimator
+            // 
+            this.dashboardAnimator.AnimationType = BunifuAnimatorNS.AnimationType.Scale;
+            this.dashboardAnimator.Cursor = null;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.dashboardAnimator.DefaultAnimation = animation3;
             // 
             // TAB_DASHBOARD
             // 
@@ -505,6 +547,7 @@
             this.Controls.Add(this.overallServerStatsGrid);
             this.Controls.Add(this.bunifuCustomLabel5);
             this.Controls.Add(this.bunifuCustomLabel2);
+            this.dashboardAnimator.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TAB_DASHBOARD";
             this.Text = " ";
@@ -555,5 +598,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn columnNetworkUsage;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnRestartFlag;
+        private BunifuAnimatorNS.BunifuTransition dashboardAnimator;
     }
 }

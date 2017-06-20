@@ -213,7 +213,7 @@ namespace Borealis
             {
                 if (ToggleStatus == "expand")
                 {
-                    //menuBarPanel.Visible = false;
+                    menuBarPanel.Visible = true;
                     //menuBarTransition.ShowSync(menuBarPanel);  //Need to get this to work properly and smoothly.
                     menuBarlblMenu.Text = "Menu";
                     dashboard_tab.Text = "   Dashboard";
@@ -231,8 +231,9 @@ namespace Borealis
 
                 if (ToggleStatus == "compress")
                 {
-                    //logoAnimator.Hide(largeLogo);
+                    //menuBarTransition.HideSync(menuBarPanel);  //Need to get this to work properly and smoothly.
                     //menuBarPanel.Visible = false;
+                    //logoAnimator.Hide(largeLogo);
                     menuBarlblMenu.Text = "";
                     dashboard_tab.Text = "";
 
@@ -244,7 +245,7 @@ namespace Borealis
                     menuBarlblAdvanced.Text = "";
                     scheduledtasks_tab.Text = "";
                     menuBarPanel.Width = 51;
-                    //menuBarTransition.ShowSync(menuBarPanel);  //Need to get this to work properly and smoothly.
+                    
                 }
             }
         }

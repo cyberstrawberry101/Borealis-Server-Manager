@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TAB_DEPLOYMENT));
             this.progressbarDownloadProgressOverall = new Bunifu.Framework.UI.BunifuProgressBar();
             this.dropdownServerSelection = new MetroFramework.Controls.MetroComboBox();
@@ -70,6 +71,7 @@
             this.panelStep2 = new System.Windows.Forms.Panel();
             this.panelStep3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.deploymentAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panelProgress.SuspendLayout();
             this.panelSteamGuard.SuspendLayout();
             this.btnTableLayoutPanel.SuspendLayout();
@@ -83,6 +85,7 @@
             // 
             this.progressbarDownloadProgressOverall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(209)))), ((int)(((byte)(212)))));
             this.progressbarDownloadProgressOverall.BorderRadius = 5;
+            this.deploymentAnimator.SetDecoration(this.progressbarDownloadProgressOverall, BunifuAnimatorNS.DecorationType.None);
             this.progressbarDownloadProgressOverall.Location = new System.Drawing.Point(11, 40);
             this.progressbarDownloadProgressOverall.MaximumValue = 100;
             this.progressbarDownloadProgressOverall.Name = "progressbarDownloadProgressOverall";
@@ -94,6 +97,7 @@
             // dropdownServerSelection
             // 
             this.dropdownServerSelection.BackColor = System.Drawing.Color.White;
+            this.deploymentAnimator.SetDecoration(this.dropdownServerSelection, BunifuAnimatorNS.DecorationType.None);
             this.dropdownServerSelection.DropDownHeight = 140;
             this.dropdownServerSelection.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.dropdownServerSelection.FormattingEnabled = true;
@@ -120,6 +124,7 @@
             // 
             this.lblDownloadProgressDetails.AutoSize = true;
             this.lblDownloadProgressDetails.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblDownloadProgressDetails, BunifuAnimatorNS.DecorationType.None);
             this.lblDownloadProgressDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDownloadProgressDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDownloadProgressDetails.Location = new System.Drawing.Point(8, 23);
@@ -132,6 +137,7 @@
             // 
             this.lblDestinationDetails.AutoSize = true;
             this.lblDestinationDetails.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblDestinationDetails, BunifuAnimatorNS.DecorationType.None);
             this.lblDestinationDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetails.Location = new System.Drawing.Point(3, 21);
@@ -144,6 +150,7 @@
             // 
             this.lblDownloadProgress.AutoSize = true;
             this.lblDownloadProgress.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblDownloadProgress, BunifuAnimatorNS.DecorationType.None);
             this.lblDownloadProgress.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDownloadProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblDownloadProgress.Location = new System.Drawing.Point(7, 2);
@@ -161,6 +168,7 @@
             this.btnBrowseDestination.BorderRadius = 0;
             this.btnBrowseDestination.ButtonText = "Browse";
             this.btnBrowseDestination.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.btnBrowseDestination, BunifuAnimatorNS.DecorationType.None);
             this.btnBrowseDestination.DisabledColor = System.Drawing.Color.Gray;
             this.btnBrowseDestination.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.btnBrowseDestination.Iconcolor = System.Drawing.Color.Transparent;
@@ -195,6 +203,7 @@
             // 
             this.txtboxDestinationFolder.BackColor = System.Drawing.Color.White;
             this.txtboxDestinationFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deploymentAnimator.SetDecoration(this.txtboxDestinationFolder, BunifuAnimatorNS.DecorationType.None);
             this.txtboxDestinationFolder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxDestinationFolder.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxDestinationFolder.Location = new System.Drawing.Point(6, 37);
@@ -207,6 +216,7 @@
             // 
             this.lblDestination.AutoSize = true;
             this.lblDestination.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblDestination, BunifuAnimatorNS.DecorationType.None);
             this.lblDestination.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblDestination.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblDestination.Location = new System.Drawing.Point(3, 1);
@@ -219,6 +229,7 @@
             // 
             this.lblSelectServerDetails.AutoSize = true;
             this.lblSelectServerDetails.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblSelectServerDetails, BunifuAnimatorNS.DecorationType.None);
             this.lblSelectServerDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSelectServerDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblSelectServerDetails.Location = new System.Drawing.Point(3, 21);
@@ -231,6 +242,7 @@
             // 
             this.bunifuCustomLabel5.AutoSize = true;
             this.bunifuCustomLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel5, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.bunifuCustomLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel5.Location = new System.Drawing.Point(12, 42);
@@ -243,6 +255,7 @@
             // 
             this.lblSelectServer.AutoSize = true;
             this.lblSelectServer.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblSelectServer, BunifuAnimatorNS.DecorationType.None);
             this.lblSelectServer.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblSelectServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblSelectServer.Location = new System.Drawing.Point(3, 1);
@@ -255,6 +268,7 @@
             // 
             this.bunifuCustomLabel2.AutoSize = true;
             this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel2, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel2.Font = new System.Drawing.Font("Segoe UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuCustomLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel2.Location = new System.Drawing.Point(10, 10);
@@ -271,6 +285,7 @@
             // 
             this.lblServerNameDetails.AutoSize = true;
             this.lblServerNameDetails.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblServerNameDetails, BunifuAnimatorNS.DecorationType.None);
             this.lblServerNameDetails.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblServerNameDetails.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblServerNameDetails.Location = new System.Drawing.Point(3, 21);
@@ -283,6 +298,7 @@
             // 
             this.lblServerName.AutoSize = true;
             this.lblServerName.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblServerName, BunifuAnimatorNS.DecorationType.None);
             this.lblServerName.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblServerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblServerName.Location = new System.Drawing.Point(3, 1);
@@ -295,6 +311,7 @@
             // 
             this.txtServerGivenName.BackColor = System.Drawing.Color.White;
             this.txtServerGivenName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deploymentAnimator.SetDecoration(this.txtServerGivenName, BunifuAnimatorNS.DecorationType.None);
             this.txtServerGivenName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServerGivenName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtServerGivenName.Location = new System.Drawing.Point(6, 37);
@@ -307,6 +324,7 @@
             // 
             this.lblDestinationDetailsSubtext.AutoSize = true;
             this.lblDestinationDetailsSubtext.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblDestinationDetailsSubtext, BunifuAnimatorNS.DecorationType.None);
             this.lblDestinationDetailsSubtext.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblDestinationDetailsSubtext.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.lblDestinationDetailsSubtext.Location = new System.Drawing.Point(0, 69);
@@ -323,6 +341,7 @@
             this.panelProgress.Controls.Add(this.lblDownloadProgress);
             this.panelProgress.Controls.Add(this.lblDownloadProgressDetails);
             this.panelProgress.Controls.Add(this.progressbarDownloadProgressOverall);
+            this.deploymentAnimator.SetDecoration(this.panelProgress, BunifuAnimatorNS.DecorationType.None);
             this.panelProgress.Location = new System.Drawing.Point(5, 434);
             this.panelProgress.Name = "panelProgress";
             this.panelProgress.Size = new System.Drawing.Size(717, 53);
@@ -332,6 +351,7 @@
             // 
             this.lblVerifyIntegrity.AutoSize = true;
             this.lblVerifyIntegrity.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblVerifyIntegrity, BunifuAnimatorNS.DecorationType.None);
             this.lblVerifyIntegrity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblVerifyIntegrity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblVerifyIntegrity.Location = new System.Drawing.Point(52, 522);
@@ -354,6 +374,7 @@
             this.chkVerifyIntegrity.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkVerifyIntegrity.BackgroundImage")));
             this.chkVerifyIntegrity.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkVerifyIntegrity.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.chkVerifyIntegrity, BunifuAnimatorNS.DecorationType.None);
             this.chkVerifyIntegrity.Location = new System.Drawing.Point(16, 521);
             this.chkVerifyIntegrity.Name = "chkVerifyIntegrity";
             this.chkVerifyIntegrity.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -372,6 +393,7 @@
             this.btnDeployGameserver.BorderRadius = 0;
             this.btnDeployGameserver.ButtonText = "Deploy   ";
             this.btnDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.btnDeployGameserver, BunifuAnimatorNS.DecorationType.None);
             this.btnDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnDeployGameserver.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnDeployGameserver.Enabled = false;
@@ -411,6 +433,7 @@
             this.btnCancelDeployGameserver.BorderRadius = 0;
             this.btnCancelDeployGameserver.ButtonText = "Cancel";
             this.btnCancelDeployGameserver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.btnCancelDeployGameserver, BunifuAnimatorNS.DecorationType.None);
             this.btnCancelDeployGameserver.DisabledColor = System.Drawing.Color.Gray;
             this.btnCancelDeployGameserver.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancelDeployGameserver.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -450,6 +473,7 @@
             this.btnUpdateServer.BorderRadius = 0;
             this.btnUpdateServer.ButtonText = "Update";
             this.btnUpdateServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.btnUpdateServer, BunifuAnimatorNS.DecorationType.None);
             this.btnUpdateServer.DisabledColor = System.Drawing.Color.Gray;
             this.btnUpdateServer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnUpdateServer.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -489,6 +513,7 @@
             this.btnSteamToken.BorderRadius = 0;
             this.btnSteamToken.ButtonText = "Authorize";
             this.btnSteamToken.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.deploymentAnimator.SetDecoration(this.btnSteamToken, BunifuAnimatorNS.DecorationType.None);
             this.btnSteamToken.DisabledColor = System.Drawing.Color.Gray;
             this.btnSteamToken.Enabled = false;
             this.btnSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
@@ -522,6 +547,7 @@
             // 
             this.lblSteamToken.AutoSize = true;
             this.lblSteamToken.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblSteamToken, BunifuAnimatorNS.DecorationType.None);
             this.lblSteamToken.Enabled = false;
             this.lblSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.lblSteamToken.ForeColor = System.Drawing.Color.White;
@@ -535,6 +561,7 @@
             // 
             this.txtSteamToken.BackColor = System.Drawing.Color.White;
             this.txtSteamToken.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deploymentAnimator.SetDecoration(this.txtSteamToken, BunifuAnimatorNS.DecorationType.None);
             this.txtSteamToken.Enabled = false;
             this.txtSteamToken.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSteamToken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
@@ -549,6 +576,7 @@
             // 
             this.txtSteamPassword.BackColor = System.Drawing.Color.White;
             this.txtSteamPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deploymentAnimator.SetDecoration(this.txtSteamPassword, BunifuAnimatorNS.DecorationType.None);
             this.txtSteamPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSteamPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtSteamPassword.Location = new System.Drawing.Point(196, 43);
@@ -561,6 +589,7 @@
             // 
             this.bunifuCustomLabel4.AutoSize = true;
             this.bunifuCustomLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel4, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel4.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.bunifuCustomLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel4.Location = new System.Drawing.Point(13, 27);
@@ -574,6 +603,7 @@
             // 
             this.txtSteamUsername.BackColor = System.Drawing.Color.White;
             this.txtSteamUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.deploymentAnimator.SetDecoration(this.txtSteamUsername, BunifuAnimatorNS.DecorationType.None);
             this.txtSteamUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSteamUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtSteamUsername.Location = new System.Drawing.Point(16, 43);
@@ -585,6 +615,7 @@
             // 
             this.bunifuCustomLabel1.AutoSize = true;
             this.bunifuCustomLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.bunifuCustomLabel1.Location = new System.Drawing.Point(12, 6);
@@ -615,6 +646,7 @@
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel4);
             this.panelSteamGuard.Controls.Add(this.txtSteamToken);
             this.panelSteamGuard.Controls.Add(this.txtSteamPassword);
+            this.deploymentAnimator.SetDecoration(this.panelSteamGuard, BunifuAnimatorNS.DecorationType.None);
             this.panelSteamGuard.Location = new System.Drawing.Point(0, 340);
             this.panelSteamGuard.Name = "panelSteamGuard";
             this.panelSteamGuard.Size = new System.Drawing.Size(725, 88);
@@ -625,6 +657,7 @@
             // 
             this.bunifuCustomLabel6.AutoSize = true;
             this.bunifuCustomLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel6, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel6.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.bunifuCustomLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel6.Location = new System.Drawing.Point(193, 72);
@@ -637,6 +670,7 @@
             // 
             this.bunifuCustomLabel3.AutoSize = true;
             this.bunifuCustomLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.bunifuCustomLabel3, BunifuAnimatorNS.DecorationType.None);
             this.bunifuCustomLabel3.Font = new System.Drawing.Font("Segoe UI Light", 8F);
             this.bunifuCustomLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
             this.bunifuCustomLabel3.Location = new System.Drawing.Point(13, 72);
@@ -657,6 +691,7 @@
             this.btnTableLayoutPanel.Controls.Add(this.btnDeployGameserver, 4, 0);
             this.btnTableLayoutPanel.Controls.Add(this.btnUpdateServer, 2, 0);
             this.btnTableLayoutPanel.Controls.Add(this.btnCancelDeployGameserver, 0, 0);
+            this.deploymentAnimator.SetDecoration(this.btnTableLayoutPanel, BunifuAnimatorNS.DecorationType.None);
             this.btnTableLayoutPanel.Location = new System.Drawing.Point(275, 489);
             this.btnTableLayoutPanel.Name = "btnTableLayoutPanel";
             this.btnTableLayoutPanel.RowCount = 1;
@@ -670,6 +705,7 @@
             this.panelStep1.Controls.Add(this.lblSelectServer);
             this.panelStep1.Controls.Add(this.lblSelectServerDetails);
             this.panelStep1.Controls.Add(this.dropdownServerSelection);
+            this.deploymentAnimator.SetDecoration(this.panelStep1, BunifuAnimatorNS.DecorationType.None);
             this.panelStep1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelStep1.Location = new System.Drawing.Point(3, 3);
             this.panelStep1.Name = "panelStep1";
@@ -684,6 +720,7 @@
             this.panelStep2.Controls.Add(this.btnBrowseDestination);
             this.panelStep2.Controls.Add(this.lblDestinationDetails);
             this.panelStep2.Controls.Add(this.lblDestinationDetailsSubtext);
+            this.deploymentAnimator.SetDecoration(this.panelStep2, BunifuAnimatorNS.DecorationType.None);
             this.panelStep2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelStep2.Location = new System.Drawing.Point(3, 183);
             this.panelStep2.Name = "panelStep2";
@@ -696,6 +733,7 @@
             this.panelStep3.Controls.Add(this.lblServerName);
             this.panelStep3.Controls.Add(this.lblServerNameDetails);
             this.panelStep3.Controls.Add(this.txtServerGivenName);
+            this.deploymentAnimator.SetDecoration(this.panelStep3, BunifuAnimatorNS.DecorationType.None);
             this.panelStep3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelStep3.Location = new System.Drawing.Point(3, 93);
             this.panelStep3.Name = "panelStep3";
@@ -710,6 +748,7 @@
             this.tableLayoutPanel1.Controls.Add(this.panelStep1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panelStep2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panelStep3, 0, 1);
+            this.deploymentAnimator.SetDecoration(this.tableLayoutPanel1, BunifuAnimatorNS.DecorationType.None);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 67);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -718,6 +757,27 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(452, 270);
             this.tableLayoutPanel1.TabIndex = 77;
+            // 
+            // deploymentAnimator
+            // 
+            this.deploymentAnimator.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
+            this.deploymentAnimator.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.deploymentAnimator.DefaultAnimation = animation1;
             // 
             // TAB_DEPLOYMENT
             // 
@@ -735,6 +795,7 @@
             this.Controls.Add(this.panelProgress);
             this.Controls.Add(this.bunifuCustomLabel2);
             this.Controls.Add(this.bunifuCustomLabel5);
+            this.deploymentAnimator.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TAB_DEPLOYMENT";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -798,5 +859,6 @@
         private System.Windows.Forms.Panel panelStep2;
         private System.Windows.Forms.Panel panelStep3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private BunifuAnimatorNS.BunifuTransition deploymentAnimator;
     }
 }

@@ -242,11 +242,11 @@ namespace Borealis
             {
                 if (gameserver.SERVER_type == dropdownServerSelection.Text)
                 {
-                    btnUpdateServer.Visible = true;
+                    deploymentAnimator.ShowSync(btnUpdateServer);
                 }
                 else
                 {
-                    btnUpdateServer.Visible = false;
+                    deploymentAnimator.HideSync(btnUpdateServer);
                 }
             }
 
