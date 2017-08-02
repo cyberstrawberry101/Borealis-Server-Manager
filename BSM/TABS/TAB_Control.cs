@@ -1,12 +1,75 @@
 ﻿using MetroFramework;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Borealis
 {
     public partial class TAB_CONTROL : Form
     {
+        #region pInvoke
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern bool AttachConsole(uint dwProcessId);
+
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        static extern bool FreeConsole();
+
+        [DllImport("kernel32.dll")]
+        static extern bool SetConsoleCtrlHandler(ConsoleCtrlDelegate HandlerRoutine, bool Add);
+        
+        // Delegate type to be used as the Handler Routine for SCCH
+        delegate Boolean ConsoleCtrlDelegate(CtrlTypes CtrlType);
+
+        // Enumerated type for the control messages sent to the handler routine
+        enum CtrlTypes : uint
+        {
+            CTRL_C_EVENT = 0,
+            CTRL_BREAK_EVENT,
+            CTRL_CLOSE_EVENT,
+            CTRL_LOGOFF_EVENT = 5,
+            CTRL_SHUTDOWN_EVENT
+        }
+
+        [DllImport("kernel32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool GenerateConsoleCtrlEvent(CtrlTypes dwCtrlEvent, uint dwProcessGroupId);
+
+        public static void StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(Process proc)
+        {
+            //This does not require the console window to be visible.
+            if (AttachConsole((uint)proc.Id))
+            {
+                //Disable Ctrl-C handling for our program
+                SetConsoleCtrlHandler(null, true);
+                GenerateConsoleCtrlEvent(CtrlTypes.CTRL_C_EVENT, 0);
+
+                //Must wait here. If we don't and re-enable Ctrl-C handling below too fast, we might terminate ourselves.
+                var wasAborted = false;
+                var procTask = Task.Run(() =>
+                {
+                    //This is necessary because when we kill the process, it obviously exits. At that point, there is no proc object to wait for any longer
+                    if (!wasAborted)
+                        proc.WaitForExit();
+                });
+                if (!procTask.Wait(10000))
+                {
+                    wasAborted = true;
+                    proc.Kill();
+                }
+
+                FreeConsole();
+
+                //Re-enable Ctrl-C handling or any subsequently started programs will inherit the disabled state.
+                SetConsoleCtrlHandler(null, false);
+            }
+        }
+        #endregion
+
         public TAB_CONTROL()
         {
             InitializeComponent();
@@ -70,7 +133,170 @@ namespace Borealis
                 consolePanel.Visible = false;
             }
         }
-        private void btnStartServer_Click(object sender, EventArgs e)
+
+
+            //===================================================================================//
+            // LAUNCH BACKGROUND WORKER TO HANDLE PROCESS                                        //
+            //===================================================================================//
+            private void backgroundWorker01_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+            {
+            bool stopped = false;
+            
+
+            //It's an assumption that these 3 elements MUST exist
+            var asyncCallback = comboboxGameserverList.BeginInvoke((Func<string[]>)delegate ()
+            {
+                return new string[] {
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "installation_folder" ),
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "default_launchscript" ),
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "binaries" )
+                };
+            });
+            asyncCallback.AsyncWaitHandle.WaitOne();
+            var serverParams = comboboxGameserverList.EndInvoke(asyncCallback) as string[];
+
+            Action<string> textAddCallback = (args) =>
+            {
+                consoleOutputList.BeginInvoke((Action)delegate ()
+                {
+                    consoleOutputList.Items.Add(args);
+                });
+            };
+
+            EventHandler exitedHandler = (sender2, e2) =>
+            {
+                if (!cancelToken.IsCancellationRequested)
+                {
+                    //Wait a little until we restart the server
+                    consoleOutputList.BeginInvoke((Action)delegate ()
+                    {
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+
+                        consoleOutputList.Items.Add("An error occured and the process has crashed. Auto-restarting in 5 seconds...");
+                        //Scroll to the bottom
+                        consoleOutputList.TopIndex = consoleOutputList.Items.Count - 1;
+
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                    });
+                    Thread.Sleep(5000);
+                }
+                else
+                    stopped = true;
+            };
+
+            while (chkAutoRestart.Value && !stopped)
+                LaunchExternalProgram(serverParams[0] + serverParams[2], serverParams[1], textAddCallback, null, serverParams[0], chkAutoRestart.Value ? exitedHandler : null, chkAutoRestart.Value ? cancelToken.Token : default(System.Threading.CancellationToken));
+        }
+
+
+        //===================================================================================//
+        // LAUNCH SERVER WITH GIVEN ARGUMENTS                                                //
+        //===================================================================================//
+        public static void LaunchExternalProgram(string argProgramName, string argParameters, Action<string> redirectedOutputCallback = null, TextReader input = null, string argWorkingDirectory = null, EventHandler onExitedCallback = null, CancellationToken cancelToken = default(CancellationToken))
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = true;
+            startInfo.Arguments = argParameters;
+            startInfo.FileName = argProgramName;
+
+            if (!string.IsNullOrEmpty(argWorkingDirectory))
+                startInfo.WorkingDirectory = argWorkingDirectory;
+
+            if (redirectedOutputCallback != null)  //Redirect Output to somewhere else.
+            {
+                startInfo.UseShellExecute = false; //Redirect the programs.
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.RedirectStandardError = true;
+                startInfo.RedirectStandardOutput = true;
+                startInfo.RedirectStandardInput = true;
+                startInfo.ErrorDialog = false;
+
+                try
+                {
+                    // Start the process with the info we specified.
+                    // Call WaitForExit and then the using statement will close.
+
+                    using (var process = Process.Start(startInfo))
+                    {
+                        if (onExitedCallback != null)
+                        {
+                            process.EnableRaisingEvents = true;
+                            process.Exited += onExitedCallback;
+                        }
+
+                        if (cancelToken != null)
+                        {
+                            cancelToken.Register(() =>
+                            {
+                                StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(process);
+
+                                redirectedOutputCallback?.Invoke("Shutting down the server...");
+                            });
+                        }
+
+                        process.OutputDataReceived += (sender, args) =>
+                        {
+                            if (!string.IsNullOrEmpty(args?.Data))
+                                redirectedOutputCallback(args.Data);
+                        };
+                        process.BeginOutputReadLine();
+
+                        process.ErrorDataReceived += (sender, args) =>
+                        {
+                            if (!string.IsNullOrEmpty(args?.Data))
+                                redirectedOutputCallback(args.Data);
+                        };
+                        process.BeginErrorReadLine();
+
+                        //For whenever input is needed
+                        string line;
+                        while (input != null && (line = input.ReadLine()) != null)
+                            process.StandardInput.WriteLine(line);
+                        //process.WaitForExit();
+                    }
+
+
+                }
+                catch
+                {
+                    StringBuilder errorDialog = new StringBuilder();
+                    errorDialog.Append("There was an error launching the following server:\n")
+                               .Append(startInfo.FileName)
+                               .Append("\n\n")
+                               .Append("[Retry]: Attempt to start the same server again.\n")
+                               .Append("[Cancel]: Cancel attempting to start server.");
+                }
+            }
+            else  //No not redirect output somewhere else
+            {
+                startInfo.UseShellExecute = true; //Execute the programs.
+
+                try
+                {
+                    // Start the process with the info we specified.
+                    // Call WaitForExit and then the using statement will close.
+                    using (Process exeProcess = Process.Start(startInfo))
+                    {
+                        //exeProcess.WaitForExit();
+                    }
+                }
+                catch
+                {
+                    StringBuilder errorDialog = new StringBuilder();
+                    errorDialog.Append("There was an error launching the following server:\n")
+                               .Append(startInfo.FileName)
+                               .Append("\n\n")
+                               .Append("[Retry]: Attempt to start the same server again.\n")
+                               .Append("[Cancel]: Cancel attempting to start server.");
+                }
+            }
+        }
+
+            private void btnStartServer_Click(object sender, EventArgs e)
         {
             if (GameServer_Management.server_collection != null)
             {
@@ -84,31 +310,23 @@ namespace Borealis
                         if (gameserver.ENGINE_type == "SOURCE")
                         {
                             //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
-                            if (chkStandaloneMode.Value == true)
+                            if (chkStandaloneMode.Value == true) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
                             {
                                 Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable, 
                                     string.Format("{0} +port {1} +map {2} +maxplayers {3}", 
                                     gameserver.SERVER_launch_arguments,
                                     gameserver.SERVER_port,
                                     gameserver.GAME_map,
-                                    gameserver.GAME_maxplayers), false);
+                                    gameserver.GAME_maxplayers), true);
                             }
                             else
                             {
-                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately Borealis cannot directly control console output at this time; instead, please launch the server in 'standalone mode'.", "Unable to launch server within Borealis.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                /*
-                                chkAutoRestart.Visible = false;
-                                lblAutoRestart.Visible = false;
-                                chkStandaloneMode.Visible = false;
-                                lblStandaloneMode.Visible = false;
-                                btnStartServer.Enabled = false;
-                                btnStopServer.Visible = true;
-                                consolePanel.Visible = true;
-                                txtboxIssueCommand.Visible = true;
-                                txtboxIssueCommand.Text = " > Enter a Command";
-                                txtboxIssueCommand.Enabled = true;
-                                Execute(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments, true);
-                                */
+                                LaunchExternalProgram(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable,
+                                string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                gameserver.SERVER_launch_arguments,
+                                gameserver.SERVER_port,
+                                gameserver.GAME_map,
+                                gameserver.GAME_maxplayers));
                             }
                         }
 
@@ -158,6 +376,16 @@ namespace Borealis
             consoleOutputList.Items.Clear();
             txtboxIssueCommand.Text = " > Server is Not Running";
             txtboxIssueCommand.Enabled = false;
+
+            cancelToken.Cancel();
+            backgroundWorker01.RunWorkerCompleted += (sender2, e2) =>
+            {
+                btnStopServer.Enabled = false;
+                btnStartServer.Enabled = true;
+                txtboxIssueCommand.Enabled = false;
+                txtboxIssueCommand.Text = "> Server is not running";
+                consoleOutputList.Items.Add("Server stopped...");
+            };
         }
         private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
         {
@@ -189,6 +417,7 @@ namespace Borealis
             lblAutoRestart.Visible = true;
             chkStandaloneMode.Visible = true;
             lblStandaloneMode.Visible = true;
+            consolePanel.Visible = true;
         }
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {
@@ -214,5 +443,19 @@ namespace Borealis
         {
             RefreshData();
         }
+
+        private void chkStandaloneMode_OnValueChange(object sender, EventArgs e)
+        {
+            if (chkStandaloneMode.Value == true)
+            {
+                consolePanel.Visible = false;
+            }
+            else
+            {
+                consolePanel.Visible = true;
+            }
+        }
+
+        
     }
 }

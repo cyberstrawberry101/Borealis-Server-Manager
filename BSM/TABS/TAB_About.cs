@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using MetroFramework;
+using System;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Borealis
 {
@@ -46,6 +49,53 @@ namespace Borealis
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Mezarith/bsmapi");
+        }
+
+        //===================================================================================//
+        // CONTROL:                                                                          //
+        //===================================================================================//
+        private void Execute(string argProgramName, string argParameters, bool Redirect)
+        {
+            try
+            {
+                var proc = new Process();
+                proc.StartInfo.Arguments = argParameters;
+                proc.StartInfo.FileName = argProgramName;
+
+                if (Redirect == true)
+                {
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.RedirectStandardInput = true;
+                    proc.StartInfo.RedirectStandardError = true;
+                    proc.EnableRaisingEvents = true;
+                    //proc.StartInfo.CreateNoWindow = true;
+                    //proc.ErrorDataReceived += proc_DataReceived;
+                    //proc.OutputDataReceived += proc_DataReceived;
+                    proc.Start();
+                    proc.BeginErrorReadLine();
+                    proc.BeginOutputReadLine();
+                }
+                else
+                {
+                    proc.StartInfo.UseShellExecute = true;
+                    proc.Start();
+                }
+            }
+            catch (Exception)
+            {
+                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "We cannot find the required executable to launch the server!  Either it is missing, or your configuration for this gameserver is corrupted.", "Error Launching GameServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void bunifuThinButton22_Click(object sender, System.EventArgs e)
+        {
+            Execute(@"C:\Windows\System32\cmd.exe", "-k help", true);
+        }
+
+        private void bunifuThinButton21_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

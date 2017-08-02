@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
+using Newtonsoft.Json;
+using System.Threading;
 
 namespace Borealis
 {
@@ -71,7 +75,6 @@ namespace Borealis
         }
     }
 
-
     public class GameServer_Object
     {
         //Server-based Properties
@@ -81,6 +84,7 @@ namespace Borealis
         public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
         public string SERVER_executable { get; set; }       //The relative location of where the server executable is located relative to install location
         public string SERVER_port { get; set; }
+        public int SERVER_processID { get; set; }
 
         //Custom configuration values given to server
         public int GAME_maxplayers { get; set; }
@@ -104,5 +108,6 @@ namespace Borealis
         public string bsm_integration { get; set; }         //Determines the support level of the gameserver in Borealis
         public bool bsm_custominstallfolder { get; set; }   //Determines whether the user gave a custom install folder or not.
     }
+
 }
 

@@ -251,6 +251,9 @@ namespace Borealis
             }
 
             btnDeployGameserver.Enabled = true;
+            panelStep2.Visible = true;
+            panelStep3.Visible = true;
+            panelProgress.Visible = true;
         }
 
         //Methods that handle deployment itself.

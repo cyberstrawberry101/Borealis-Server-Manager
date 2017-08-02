@@ -56,7 +56,6 @@
             this.btnCancelDeployGameserver = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnUpdateServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSteamToken = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.lblSteamToken = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.txtSteamToken = new System.Windows.Forms.TextBox();
             this.txtSteamPassword = new System.Windows.Forms.TextBox();
             this.bunifuCustomLabel4 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -72,6 +71,7 @@
             this.panelStep3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.deploymentAnimator = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.lblSteamToken = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.panelProgress.SuspendLayout();
             this.panelSteamGuard.SuspendLayout();
             this.btnTableLayoutPanel.SuspendLayout();
@@ -346,6 +346,7 @@
             this.panelProgress.Name = "panelProgress";
             this.panelProgress.Size = new System.Drawing.Size(717, 53);
             this.panelProgress.TabIndex = 50;
+            this.panelProgress.Visible = false;
             // 
             // lblVerifyIntegrity
             // 
@@ -529,7 +530,7 @@
             this.btnSteamToken.IconVisible = true;
             this.btnSteamToken.IconZoom = 90D;
             this.btnSteamToken.IsTab = false;
-            this.btnSteamToken.Location = new System.Drawing.Point(630, 43);
+            this.btnSteamToken.Location = new System.Drawing.Point(563, 43);
             this.btnSteamToken.Name = "btnSteamToken";
             this.btnSteamToken.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
             this.btnSteamToken.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -543,20 +544,6 @@
             this.btnSteamToken.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSteamToken.Click += new System.EventHandler(this.btnSteamToken_Click);
             // 
-            // lblSteamToken
-            // 
-            this.lblSteamToken.AutoSize = true;
-            this.lblSteamToken.BackColor = System.Drawing.Color.Transparent;
-            this.deploymentAnimator.SetDecoration(this.lblSteamToken, BunifuAnimatorNS.DecorationType.None);
-            this.lblSteamToken.Enabled = false;
-            this.lblSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8F);
-            this.lblSteamToken.ForeColor = System.Drawing.Color.White;
-            this.lblSteamToken.Location = new System.Drawing.Point(474, 27);
-            this.lblSteamToken.Name = "lblSteamToken";
-            this.lblSteamToken.Size = new System.Drawing.Size(96, 13);
-            this.lblSteamToken.TabIndex = 67;
-            this.lblSteamToken.Text = "Steam Guard Code:";
-            // 
             // txtSteamToken
             // 
             this.txtSteamToken.BackColor = System.Drawing.Color.White;
@@ -565,11 +552,10 @@
             this.txtSteamToken.Enabled = false;
             this.txtSteamToken.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSteamToken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtSteamToken.Location = new System.Drawing.Point(513, 43);
+            this.txtSteamToken.Location = new System.Drawing.Point(446, 43);
             this.txtSteamToken.Name = "txtSteamToken";
             this.txtSteamToken.Size = new System.Drawing.Size(111, 29);
             this.txtSteamToken.TabIndex = 66;
-            this.txtSteamToken.Text = "NOT READY";
             this.txtSteamToken.Click += new System.EventHandler(this.txtSteamToken_Click);
             // 
             // txtSteamPassword
@@ -581,7 +567,7 @@
             this.txtSteamPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtSteamPassword.Location = new System.Drawing.Point(196, 43);
             this.txtSteamPassword.Name = "txtSteamPassword";
-            this.txtSteamPassword.Size = new System.Drawing.Size(311, 29);
+            this.txtSteamPassword.Size = new System.Drawing.Size(244, 29);
             this.txtSteamPassword.TabIndex = 63;
             this.txtSteamPassword.UseSystemPasswordChar = true;
             // 
@@ -637,19 +623,19 @@
             // panelSteamGuard
             // 
             this.panelSteamGuard.BackColor = System.Drawing.Color.Transparent;
+            this.panelSteamGuard.Controls.Add(this.lblSteamToken);
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel6);
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel3);
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel1);
             this.panelSteamGuard.Controls.Add(this.btnSteamToken);
             this.panelSteamGuard.Controls.Add(this.txtSteamUsername);
-            this.panelSteamGuard.Controls.Add(this.lblSteamToken);
             this.panelSteamGuard.Controls.Add(this.bunifuCustomLabel4);
             this.panelSteamGuard.Controls.Add(this.txtSteamToken);
             this.panelSteamGuard.Controls.Add(this.txtSteamPassword);
             this.deploymentAnimator.SetDecoration(this.panelSteamGuard, BunifuAnimatorNS.DecorationType.None);
             this.panelSteamGuard.Location = new System.Drawing.Point(0, 340);
             this.panelSteamGuard.Name = "panelSteamGuard";
-            this.panelSteamGuard.Size = new System.Drawing.Size(725, 88);
+            this.panelSteamGuard.Size = new System.Drawing.Size(654, 88);
             this.panelSteamGuard.TabIndex = 69;
             this.panelSteamGuard.Visible = false;
             // 
@@ -726,6 +712,7 @@
             this.panelStep2.Name = "panelStep2";
             this.panelStep2.Size = new System.Drawing.Size(446, 84);
             this.panelStep2.TabIndex = 1;
+            this.panelStep2.Visible = false;
             // 
             // panelStep3
             // 
@@ -739,6 +726,7 @@
             this.panelStep3.Name = "panelStep3";
             this.panelStep3.Size = new System.Drawing.Size(446, 84);
             this.panelStep3.TabIndex = 2;
+            this.panelStep3.Visible = false;
             // 
             // tableLayoutPanel1
             // 
@@ -770,7 +758,7 @@
             animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
             animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
             animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.Padding = new System.Windows.Forms.Padding(0);
             animation1.RotateCoeff = 0F;
             animation1.RotateLimit = 0F;
             animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
@@ -778,6 +766,19 @@
             animation1.TimeCoeff = 0F;
             animation1.TransparencyCoeff = 0F;
             this.deploymentAnimator.DefaultAnimation = animation1;
+            // 
+            // lblSteamToken
+            // 
+            this.lblSteamToken.AutoSize = true;
+            this.lblSteamToken.BackColor = System.Drawing.Color.Transparent;
+            this.deploymentAnimator.SetDecoration(this.lblSteamToken, BunifuAnimatorNS.DecorationType.None);
+            this.lblSteamToken.Font = new System.Drawing.Font("Segoe UI Light", 8F);
+            this.lblSteamToken.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(156)))), ((int)(((byte)(163)))));
+            this.lblSteamToken.Location = new System.Drawing.Point(443, 72);
+            this.lblSteamToken.Name = "lblSteamToken";
+            this.lblSteamToken.Size = new System.Drawing.Size(96, 13);
+            this.lblSteamToken.TabIndex = 71;
+            this.lblSteamToken.Text = "Steam Guard Code:";
             // 
             // TAB_DEPLOYMENT
             // 
@@ -843,7 +844,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel lblVerifyIntegrity;
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuFlatButton btnSteamToken;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblSteamToken;
         private System.Windows.Forms.TextBox txtSteamToken;
         private System.Windows.Forms.TextBox txtSteamPassword;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel4;
@@ -860,5 +860,6 @@
         private System.Windows.Forms.Panel panelStep3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private BunifuAnimatorNS.BunifuTransition deploymentAnimator;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblSteamToken;
     }
 }

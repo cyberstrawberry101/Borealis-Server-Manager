@@ -38,19 +38,13 @@
             this.btnStopServer = new Bunifu.Framework.UI.BunifuFlatButton();
             this.bunifuCustomLabel14 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel16 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.serverProcess01 = new System.Diagnostics.Process();
-            this.serverProcess02 = new System.Diagnostics.Process();
             this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.chkStandaloneMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblStandaloneMode = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.serverProcess03 = new System.Diagnostics.Process();
-            this.serverProcess04 = new System.Diagnostics.Process();
-            this.serverProcess05 = new System.Diagnostics.Process();
-            this.serverProcess06 = new System.Diagnostics.Process();
-            this.serverProcess07 = new System.Diagnostics.Process();
+            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
             this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +54,7 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkAutoRestart.Enabled = false;
             this.chkAutoRestart.Location = new System.Drawing.Point(16, 521);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -216,26 +211,6 @@
             this.bunifuCustomLabel16.TabIndex = 4;
             this.bunifuCustomLabel16.Text = "GameServer Control";
             // 
-            // serverProcess01
-            // 
-            this.serverProcess01.StartInfo.Domain = "";
-            this.serverProcess01.StartInfo.LoadUserProfile = false;
-            this.serverProcess01.StartInfo.Password = null;
-            this.serverProcess01.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess01.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess01.StartInfo.UserName = "";
-            this.serverProcess01.SynchronizingObject = this;
-            // 
-            // serverProcess02
-            // 
-            this.serverProcess02.StartInfo.Domain = "";
-            this.serverProcess02.StartInfo.LoadUserProfile = false;
-            this.serverProcess02.StartInfo.Password = null;
-            this.serverProcess02.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess02.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess02.StartInfo.UserName = "";
-            this.serverProcess02.SynchronizingObject = this;
-            // 
             // consoleOutputList
             // 
             this.consoleOutputList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -294,8 +269,9 @@
             this.chkStandaloneMode.TabIndex = 52;
             this.toolTip1.SetToolTip(this.chkStandaloneMode, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
-            this.chkStandaloneMode.Value = true;
+            this.chkStandaloneMode.Value = false;
             this.chkStandaloneMode.Visible = false;
+            this.chkStandaloneMode.OnValueChange += new System.EventHandler(this.chkStandaloneMode_OnValueChange);
             // 
             // lblStandaloneMode
             // 
@@ -312,55 +288,11 @@
         "dow, and not have borealis manage it directly.");
             this.lblStandaloneMode.Visible = false;
             // 
-            // serverProcess03
+            // backgroundWorker01
             // 
-            this.serverProcess03.StartInfo.Domain = "";
-            this.serverProcess03.StartInfo.LoadUserProfile = false;
-            this.serverProcess03.StartInfo.Password = null;
-            this.serverProcess03.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess03.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess03.StartInfo.UserName = "";
-            this.serverProcess03.SynchronizingObject = this;
-            // 
-            // serverProcess04
-            // 
-            this.serverProcess04.StartInfo.Domain = "";
-            this.serverProcess04.StartInfo.LoadUserProfile = false;
-            this.serverProcess04.StartInfo.Password = null;
-            this.serverProcess04.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess04.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess04.StartInfo.UserName = "";
-            this.serverProcess04.SynchronizingObject = this;
-            // 
-            // serverProcess05
-            // 
-            this.serverProcess05.StartInfo.Domain = "";
-            this.serverProcess05.StartInfo.LoadUserProfile = false;
-            this.serverProcess05.StartInfo.Password = null;
-            this.serverProcess05.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess05.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess05.StartInfo.UserName = "";
-            this.serverProcess05.SynchronizingObject = this;
-            // 
-            // serverProcess06
-            // 
-            this.serverProcess06.StartInfo.Domain = "";
-            this.serverProcess06.StartInfo.LoadUserProfile = false;
-            this.serverProcess06.StartInfo.Password = null;
-            this.serverProcess06.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess06.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess06.StartInfo.UserName = "";
-            this.serverProcess06.SynchronizingObject = this;
-            // 
-            // serverProcess07
-            // 
-            this.serverProcess07.StartInfo.Domain = "";
-            this.serverProcess07.StartInfo.LoadUserProfile = false;
-            this.serverProcess07.StartInfo.Password = null;
-            this.serverProcess07.StartInfo.StandardErrorEncoding = null;
-            this.serverProcess07.StartInfo.StandardOutputEncoding = null;
-            this.serverProcess07.StartInfo.UserName = "";
-            this.serverProcess07.SynchronizingObject = this;
+            this.backgroundWorker01.WorkerReportsProgress = true;
+            this.backgroundWorker01.WorkerSupportsCancellation = true;
+            this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
             // TAB_CONTROL
             // 
@@ -398,8 +330,6 @@
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel16;
         private Bunifu.Framework.UI.BunifuCustomLabel lblAutoRestart;
         private Bunifu.Framework.UI.BunifuFlatButton btnStartServer;
-        private System.Diagnostics.Process serverProcess01;
-        private System.Diagnostics.Process serverProcess02;
         private MetroFramework.Controls.MetroComboBox comboboxGameserverList;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkAutoRestart;
@@ -409,10 +339,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkStandaloneMode;
         private Bunifu.Framework.UI.BunifuCustomLabel lblStandaloneMode;
-        private System.Diagnostics.Process serverProcess03;
-        private System.Diagnostics.Process serverProcess04;
-        private System.Diagnostics.Process serverProcess05;
-        private System.Diagnostics.Process serverProcess06;
-        private System.Diagnostics.Process serverProcess07;
+        private System.ComponentModel.BackgroundWorker backgroundWorker01;
     }
 }
