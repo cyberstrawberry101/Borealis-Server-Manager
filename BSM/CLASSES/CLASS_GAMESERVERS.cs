@@ -10,6 +10,40 @@ using System.Threading;
 
 namespace Borealis
 {
+    public class GameServer_Object
+    {
+        //Server-based Properties
+        public string SERVER_name_friendly { get; set; }    //User-designated name
+        public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
+        public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
+        public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
+        public string SERVER_executable { get; set; }       //The relative location of where the server executable is located relative to install location
+        public string SERVER_port { get; set; }
+        public int SERVER_processID { get; set; }
+
+        //Custom configuration values given to server
+        public int GAME_maxplayers { get; set; }
+        public string GAME_map { get; set; }
+
+        //Directory-based Properties
+        public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
+        public string DIR_root { get; set; }                //Location of root directory where the server is to be expected
+        public string DIR_maps { get; set; }                //Location of where gameserver's maps are located.
+        public string DIR_maps_file_extension { get; set; }  //Tell Borealis what file extension to look for when populating the map listing
+        public string DIR_mods { get; set; }                //Location of where gameserver's mods/workshop subscriptions are located
+        public string DIR_config { get; set; }              //Location of where gameserver's primary configuration files are stored
+
+        //Steam-based Properties
+        public bool STEAM_authrequired { get; set; }        //Determine whether the server requires Steam Guard or allows anonymous login
+        public bool STEAM_steamcmd_required { get; set; }   //Determines if the gameserver is deployed using steamcmd or not
+        public bool STEAM_workshop_enabled { get; set; }    //Determines if the gameserver supports Steam Workshop
+
+        //Miscellanious Properties
+        public string ENGINE_type { get; set; }             //Determines the game engine, and by proxy, how to hook onto it
+        public string bsm_integration { get; set; }         //Determines the support level of the gameserver in Borealis
+        public bool bsm_custominstallfolder { get; set; }   //Determines whether the user gave a custom install folder or not.
+    }
+
     public static class GameServer_Management
     {
         private static readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
@@ -25,7 +59,7 @@ namespace Borealis
         //=====================================================================================//
         // Method to add a gameserver JObject to the collection                                //
         //=====================================================================================//
-        public static void addServer(GameServer_Object gameserver)
+        public static void gameserverAdd(GameServer_Object gameserver)
         {
             server_collection.Add(gameserver);
         }
@@ -33,7 +67,7 @@ namespace Borealis
         //=====================================================================================//
         // Method to import all jsonstrings from gameservers.json into the JObject collection  //
         //=====================================================================================//
-        public static void ReadServersFromConfig()
+        public static void configRead()
         {
             string gameServerJson = File.ReadAllText(Environment.CurrentDirectory + @"\gameservers.json");
 
@@ -60,54 +94,21 @@ namespace Borealis
                     if (bracketCount == 0 && c != ' ')
                     {
                         var importedServer = JsonConvert.DeserializeObject<GameServer_Object>(json.ToString());
-                        addServer(importedServer);
+                        gameserverAdd(importedServer);
 
                         json.Clear();
                     }
                 }
             }
         }
-
-        public static void WriteServersToConfig()
+        public static void configWrite()
         {
             string gameServersJson = JsonConvert.SerializeObject(server_collection, _serializerSettings);
             File.WriteAllText(Environment.CurrentDirectory + @"\gameservers.json", gameServersJson);
         }
     }
 
-    public class GameServer_Object
-    {
-        //Server-based Properties
-        public string SERVER_name_friendly { get; set; }    //User-designated name
-        public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
-        public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
-        public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
-        public string SERVER_executable { get; set; }       //The relative location of where the server executable is located relative to install location
-        public string SERVER_port { get; set; }
-        public int SERVER_processID { get; set; }
 
-        //Custom configuration values given to server
-        public int GAME_maxplayers { get; set; }
-        public string GAME_map { get; set; }
-
-        //Directory-based Properties
-        public string DIR_install_location { get; set; }    //Location of where gameserver was deployed
-        public string DIR_root { get; set; }                //Location of root directory where the server is to be expected
-        public string DIR_maps { get; set; }                //Location of where gameserver's maps are located.
-        public string DIR_maps_file_extension {get; set; }  //Tell Borealis what file extension to look for when populating the map listing
-        public string DIR_mods { get; set; }                //Location of where gameserver's mods/workshop subscriptions are located
-        public string DIR_config { get; set; }              //Location of where gameserver's primary configuration files are stored
-
-        //Steam-based Properties
-        public bool STEAM_authrequired { get; set; }        //Determine whether the server requires Steam Guard or allows anonymous login
-        public bool STEAM_steamcmd_required { get; set; }   //Determines if the gameserver is deployed using steamcmd or not
-        public bool STEAM_workshop_enabled { get; set; }    //Determines if the gameserver supports Steam Workshop
-
-        //Miscellanious Properties
-        public string ENGINE_type { get; set; }             //Determines the game engine, and by proxy, how to hook onto it
-        public string bsm_integration { get; set; }         //Determines the support level of the gameserver in Borealis
-        public bool bsm_custominstallfolder { get; set; }   //Determines whether the user gave a custom install folder or not.
-    }
 
 }
 

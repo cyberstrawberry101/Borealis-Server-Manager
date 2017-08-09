@@ -1,18 +1,27 @@
 ﻿using MetroFramework;
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Borealis.Server_Process_Management;
 
 namespace Borealis
 {
+    
+
     public partial class TAB_CONTROL : Form
     {
+        private CancellationTokenSource cancelToken;
+
         #region pInvoke
+
         [DllImport("kernel32.dll", SetLastError = true)]
         static extern bool AttachConsole(uint dwProcessId);
 
@@ -21,7 +30,7 @@ namespace Borealis
 
         [DllImport("kernel32.dll")]
         static extern bool SetConsoleCtrlHandler(ConsoleCtrlDelegate HandlerRoutine, bool Add);
-        
+
         // Delegate type to be used as the Handler Routine for SCCH
         delegate Boolean ConsoleCtrlDelegate(CtrlTypes CtrlType);
 
@@ -42,7 +51,7 @@ namespace Borealis
         public static void StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(Process proc)
         {
             //This does not require the console window to be visible.
-            if (AttachConsole((uint)proc.Id))
+            if (AttachConsole((uint) proc.Id))
             {
                 //Disable Ctrl-C handling for our program
                 SetConsoleCtrlHandler(null, true);
@@ -68,7 +77,10 @@ namespace Borealis
                 SetConsoleCtrlHandler(null, false);
             }
         }
+
         #endregion
+
+        
 
         public TAB_CONTROL()
         {
@@ -76,7 +88,7 @@ namespace Borealis
         }
 
         //===================================================================================//
-        // STARTUP:                                                                          //
+        // UI HANDLING CODE                                                                  //
         //===================================================================================//
         private void ServerControl_Load(object sender, EventArgs e)
         {
@@ -90,311 +102,6 @@ namespace Borealis
             }
         }
 
-        //===================================================================================//
-        // CONTROL:                                                                          //
-        //===================================================================================//
-        private void Execute(string argProgramName, string argParameters, bool Redirect)
-        {
-            try
-            {
-                var proc = new Process();
-                proc.StartInfo.Arguments = argParameters;
-                proc.StartInfo.FileName = argProgramName;
-
-                if (Redirect == true)
-                {
-                    proc.StartInfo.UseShellExecute = false;
-                    proc.StartInfo.RedirectStandardOutput = true;
-                    proc.StartInfo.RedirectStandardInput = true;
-                    proc.StartInfo.RedirectStandardError = true;
-                    proc.EnableRaisingEvents = true;
-                    proc.StartInfo.CreateNoWindow = true;
-                    proc.ErrorDataReceived += proc_DataReceived;
-                    proc.OutputDataReceived += proc_DataReceived;
-                    proc.Start();
-                    proc.BeginErrorReadLine();
-                    proc.BeginOutputReadLine();
-                }
-                else
-                {
-                    proc.StartInfo.UseShellExecute = true;
-                    proc.Start();
-                }
-            }
-            catch (Exception)
-            {
-                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "We cannot find the required executable to launch the server!  Either it is missing, or your configuration for this gameserver is corrupted.", "Error Launching GameServer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnStartServer.Enabled = true;
-                btnStopServer.Visible = false;
-                lblAutoRestart.Visible = true;
-                chkAutoRestart.Visible = true;
-                lblStandaloneMode.Visible = true;
-                chkStandaloneMode.Visible = true;
-                consolePanel.Visible = false;
-            }
-        }
-
-
-            //===================================================================================//
-            // LAUNCH BACKGROUND WORKER TO HANDLE PROCESS                                        //
-            //===================================================================================//
-            private void backgroundWorker01_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-            {
-            bool stopped = false;
-            
-
-            //It's an assumption that these 3 elements MUST exist
-            var asyncCallback = comboboxGameserverList.BeginInvoke((Func<string[]>)delegate ()
-            {
-                return new string[] {
-                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "installation_folder" ),
-                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "default_launchscript" ),
-                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "binaries" )
-                };
-            });
-            asyncCallback.AsyncWaitHandle.WaitOne();
-            var serverParams = comboboxGameserverList.EndInvoke(asyncCallback) as string[];
-
-            Action<string> textAddCallback = (args) =>
-            {
-                consoleOutputList.BeginInvoke((Action)delegate ()
-                {
-                    consoleOutputList.Items.Add(args);
-                });
-            };
-
-            EventHandler exitedHandler = (sender2, e2) =>
-            {
-                if (!cancelToken.IsCancellationRequested)
-                {
-                    //Wait a little until we restart the server
-                    consoleOutputList.BeginInvoke((Action)delegate ()
-                    {
-                        consoleOutputList.Items.Add(Environment.NewLine);
-                        consoleOutputList.Items.Add(Environment.NewLine);
-                        consoleOutputList.Items.Add(Environment.NewLine);
-
-                        consoleOutputList.Items.Add("An error occured and the process has crashed. Auto-restarting in 5 seconds...");
-                        //Scroll to the bottom
-                        consoleOutputList.TopIndex = consoleOutputList.Items.Count - 1;
-
-                        consoleOutputList.Items.Add(Environment.NewLine);
-                        consoleOutputList.Items.Add(Environment.NewLine);
-                        consoleOutputList.Items.Add(Environment.NewLine);
-                    });
-                    Thread.Sleep(5000);
-                }
-                else
-                    stopped = true;
-            };
-
-            while (chkAutoRestart.Value && !stopped)
-                LaunchExternalProgram(serverParams[0] + serverParams[2], serverParams[1], textAddCallback, null, serverParams[0], chkAutoRestart.Value ? exitedHandler : null, chkAutoRestart.Value ? cancelToken.Token : default(System.Threading.CancellationToken));
-        }
-
-
-        //===================================================================================//
-        // LAUNCH SERVER WITH GIVEN ARGUMENTS                                                //
-        //===================================================================================//
-        public static void LaunchExternalProgram(string argProgramName, string argParameters, Action<string> redirectedOutputCallback = null, TextReader input = null, string argWorkingDirectory = null, EventHandler onExitedCallback = null, CancellationToken cancelToken = default(CancellationToken))
-        {
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = true;
-            startInfo.Arguments = argParameters;
-            startInfo.FileName = argProgramName;
-
-            if (!string.IsNullOrEmpty(argWorkingDirectory))
-                startInfo.WorkingDirectory = argWorkingDirectory;
-
-            if (redirectedOutputCallback != null)  //Redirect Output to somewhere else.
-            {
-                startInfo.UseShellExecute = false; //Redirect the programs.
-                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
-                startInfo.RedirectStandardError = true;
-                startInfo.RedirectStandardOutput = true;
-                startInfo.RedirectStandardInput = true;
-                startInfo.ErrorDialog = false;
-
-                try
-                {
-                    // Start the process with the info we specified.
-                    // Call WaitForExit and then the using statement will close.
-
-                    using (var process = Process.Start(startInfo))
-                    {
-                        if (onExitedCallback != null)
-                        {
-                            process.EnableRaisingEvents = true;
-                            process.Exited += onExitedCallback;
-                        }
-
-                        if (cancelToken != null)
-                        {
-                            cancelToken.Register(() =>
-                            {
-                                StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(process);
-
-                                redirectedOutputCallback?.Invoke("Shutting down the server...");
-                            });
-                        }
-
-                        process.OutputDataReceived += (sender, args) =>
-                        {
-                            if (!string.IsNullOrEmpty(args?.Data))
-                                redirectedOutputCallback(args.Data);
-                        };
-                        process.BeginOutputReadLine();
-
-                        process.ErrorDataReceived += (sender, args) =>
-                        {
-                            if (!string.IsNullOrEmpty(args?.Data))
-                                redirectedOutputCallback(args.Data);
-                        };
-                        process.BeginErrorReadLine();
-
-                        //For whenever input is needed
-                        string line;
-                        while (input != null && (line = input.ReadLine()) != null)
-                            process.StandardInput.WriteLine(line);
-                        //process.WaitForExit();
-                    }
-
-
-                }
-                catch
-                {
-                    StringBuilder errorDialog = new StringBuilder();
-                    errorDialog.Append("There was an error launching the following server:\n")
-                               .Append(startInfo.FileName)
-                               .Append("\n\n")
-                               .Append("[Retry]: Attempt to start the same server again.\n")
-                               .Append("[Cancel]: Cancel attempting to start server.");
-                }
-            }
-            else  //No not redirect output somewhere else
-            {
-                startInfo.UseShellExecute = true; //Execute the programs.
-
-                try
-                {
-                    // Start the process with the info we specified.
-                    // Call WaitForExit and then the using statement will close.
-                    using (Process exeProcess = Process.Start(startInfo))
-                    {
-                        //exeProcess.WaitForExit();
-                    }
-                }
-                catch
-                {
-                    StringBuilder errorDialog = new StringBuilder();
-                    errorDialog.Append("There was an error launching the following server:\n")
-                               .Append(startInfo.FileName)
-                               .Append("\n\n")
-                               .Append("[Retry]: Attempt to start the same server again.\n")
-                               .Append("[Cancel]: Cancel attempting to start server.");
-                }
-            }
-        }
-
-            private void btnStartServer_Click(object sender, EventArgs e)
-        {
-            if (GameServer_Management.server_collection != null)
-            {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
-                {
-                    if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
-                    {
-                        //check to see what kind of engine the server is using, and determine the usage of the variables accordingly
-
-                        //SOURCE ENGINE HANDLER
-                        if (gameserver.ENGINE_type == "SOURCE")
-                        {
-                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
-                            if (chkStandaloneMode.Value == true) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
-                            {
-                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable, 
-                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}", 
-                                    gameserver.SERVER_launch_arguments,
-                                    gameserver.SERVER_port,
-                                    gameserver.GAME_map,
-                                    gameserver.GAME_maxplayers), true);
-                            }
-                            else
-                            {
-                                LaunchExternalProgram(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable,
-                                string.Format("{0} +port {1} +map {2} +maxplayers {3}",
-                                gameserver.SERVER_launch_arguments,
-                                gameserver.SERVER_port,
-                                gameserver.GAME_map,
-                                gameserver.GAME_maxplayers));
-                            }
-                        }
-
-                        //SOURCE ENGINE HANDLER
-                        if (gameserver.ENGINE_type == "UNREAL")
-                        {
-                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
-                            if (chkStandaloneMode.Value == true)
-                            {
-                                Execute(gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable, 
-                                    string.Format("{0}?{1}?Port={2}?MaxPlayers={3}",
-                                    gameserver.GAME_map,
-                                    gameserver.SERVER_launch_arguments,
-                                    gameserver.SERVER_port,
-                                    gameserver.GAME_maxplayers), false);
-                            }
-                            else
-                            {
-                                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Unfortunately Borealis cannot directly control console output at this time; instead, please launch the server in 'standalone mode'.", "Unable to launch server within Borealis.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                /*
-                                chkAutoRestart.Visible = false;
-                                lblAutoRestart.Visible = false;
-                                chkStandaloneMode.Visible = false;
-                                lblStandaloneMode.Visible = false;
-                                btnStartServer.Enabled = false;
-                                btnStopServer.Visible = true;
-                                consolePanel.Visible = true;
-                                txtboxIssueCommand.Visible = true;
-                                txtboxIssueCommand.Text = " > Enter a Command";
-                                txtboxIssueCommand.Enabled = true;
-                                Execute(Environment.CurrentDirectory + gameserver.SERVER_executable, gameserver.SERVER_launch_arguments, true);
-                                */
-                            }
-                        }
-                    }
-                }
-            }  
-        }
-
-        private void btnStopServer_Click(object sender, EventArgs e)
-        {
-            btnStopServer.Visible = false;
-            btnStartServer.Enabled = true;
-            chkAutoRestart.Visible = true;
-            lblAutoRestart.Visible = true;
-            txtboxIssueCommand.Visible = false;
-            consoleOutputList.Items.Clear();
-            txtboxIssueCommand.Text = " > Server is Not Running";
-            txtboxIssueCommand.Enabled = false;
-
-            cancelToken.Cancel();
-            backgroundWorker01.RunWorkerCompleted += (sender2, e2) =>
-            {
-                btnStopServer.Enabled = false;
-                btnStartServer.Enabled = true;
-                txtboxIssueCommand.Enabled = false;
-                txtboxIssueCommand.Text = "> Server is not running";
-                consoleOutputList.Items.Add("Server stopped...");
-            };
-        }
-        private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtboxIssueCommand.Text = "";
-        }
-        private void txtboxIssueCommand_Enter(object sender, EventArgs e)
-        {
-            txtboxIssueCommand.Text = "";
-        }
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
             foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
@@ -402,14 +109,14 @@ namespace Borealis
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
                     //Decide what data to pull from the object at this point in time of development.
-                    
+
                     GameServer_Object Controlled_GameServer = new GameServer_Object();
 
                     Controlled_GameServer.DIR_install_location = Controlled_GameServer.DIR_install_location;
                     Controlled_GameServer.SERVER_executable = Controlled_GameServer.SERVER_executable;
                     Controlled_GameServer.SERVER_launch_arguments = Controlled_GameServer.SERVER_launch_arguments;
                     Controlled_GameServer.SERVER_running_status = Controlled_GameServer.SERVER_running_status;
-                    
+
                 }
             }
             btnStartServer.Visible = true;
@@ -419,6 +126,7 @@ namespace Borealis
             lblStandaloneMode.Visible = true;
             consolePanel.Visible = true;
         }
+
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
         {
             if (e.Data != null)
@@ -427,7 +135,7 @@ namespace Borealis
             }
         }
 
-        public void RefreshData()
+        private void RefreshData()
         {
             comboboxGameserverList.Items.Clear();
             if (GameServer_Management.server_collection != null)
@@ -456,6 +164,286 @@ namespace Borealis
             }
         }
 
-        
+        //===================================================================================//
+        // SERVER CONTROL:                                                                   //
+        //===================================================================================//
+        private void LaunchServer(string SERVER_executable, string SERVER_launch_arguments,
+            Action<string> redirectedOutputCallback = null, TextReader input = null, string argWorkingDirectory = null,
+            EventHandler onExitedCallback = null, CancellationToken cancelToken = default(CancellationToken))
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = true;
+            startInfo.Arguments = SERVER_launch_arguments;
+            startInfo.FileName = SERVER_executable;
+
+            if (redirectedOutputCallback != null) //Redirect Output to somewhere else.
+            {
+                startInfo.UseShellExecute = false; //Redirect the programs.
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.RedirectStandardError = true;
+                startInfo.RedirectStandardOutput = true;
+                startInfo.RedirectStandardInput = true;
+                startInfo.ErrorDialog = false;
+
+                try
+                {
+                    // Start the process with the info we specified.
+                    // Call WaitForExit and then the using statement will close.
+
+                    using (var process = Process.Start(startInfo))
+                    {
+                        if (onExitedCallback != null)
+                        {
+                            process.EnableRaisingEvents = true;
+                            process.Exited += onExitedCallback;
+                        }
+
+                        if (cancelToken != null)
+                        {
+                            cancelToken.Register(() =>
+                            {
+                                StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(process);
+                                redirectedOutputCallback?.Invoke("Shutting down the server...");
+                            });
+                        }
+
+                        process.OutputDataReceived += (sender, args) =>
+                        {
+                            if (!string.IsNullOrEmpty(args?.Data))
+                                redirectedOutputCallback(args.Data);
+                        };
+                        process.BeginOutputReadLine();
+
+                        process.ErrorDataReceived += (sender, args) =>
+                        {
+                            if (!string.IsNullOrEmpty(args?.Data))
+                                redirectedOutputCallback(args.Data);
+                        };
+                        process.BeginErrorReadLine();
+
+                        //For whenever input is needed
+                        string line;
+                        while (input != null && (line = input.ReadLine()) != null)
+                            process.StandardInput.WriteLine(line);
+                        process.WaitForExit();
+                    }
+                }
+                catch
+                {
+                    StringBuilder errorDialog = new StringBuilder();
+                    errorDialog.Append("There was an error launching the following server:\n")
+                        .Append(startInfo.FileName)
+                        .Append("\n\n")
+                        .Append("[Retry]: Attempt to start the same server again.\n")
+                        .Append("[Cancel]: Cancel attempting to start server.");
+                }
+            }
+            else //No not redirect output somewhere else
+            {
+                startInfo.UseShellExecute = true; //Execute the programs.
+
+                try
+                {
+                    // Start the process with the info we specified.
+                    // Call WaitForExit and then the using statement will close.
+                    using (Process exeProcess = Process.Start(startInfo))
+                    {
+                        exeProcess.WaitForExit();
+                    }
+                }
+                catch
+                {
+                    StringBuilder errorDialog = new StringBuilder();
+                    errorDialog.Append("There was an error launching the following server:\n")
+                        .Append(startInfo.FileName)
+                        .Append("\n\n")
+                        .Append("[Retry]: Attempt to start the same server again.\n")
+                        .Append("[Cancel]: Cancel attempting to start server.");
+                }
+            }
+        }
+
+        private void btnStartServer_Click(object sender, EventArgs e)
+        {
+            if (GameServer_Management.server_collection != null)
+            {
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                {
+                    if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
+                    {
+                        //SOURCE ENGINE HANDLER
+                        if (gameserver.ENGINE_type == "SOURCE")
+                        {
+                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
+                            if (chkStandaloneMode.Value == true
+                            ) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
+                            {
+                                LaunchServer(
+                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                    gameserver.SERVER_executable,
+                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                        gameserver.SERVER_launch_arguments,
+                                        gameserver.SERVER_port,
+                                        gameserver.GAME_map,
+                                        gameserver.GAME_maxplayers));
+                            }
+                            else
+                            {
+                                //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                                ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                                consoleOutputList.Items.Add(string.Format("Launching: {0}...",
+                                    gameserver.SERVER_name_friendly));
+
+                                var serverInstance = new ProcessHelper(
+                                    gameserver.SERVER_name_friendly,
+                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                    gameserver.SERVER_executable,
+                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                        gameserver.SERVER_launch_arguments,
+                                        gameserver.SERVER_port,
+                                        gameserver.GAME_map,
+                                        gameserver.GAME_maxplayers));
+                                serverInstance.EventOccured +=
+                                    (borealis, args) => consoleOutputList.Items.Add(args.ToString());
+                                serverInstance.Start();
+                                gameserver.SERVER_running_status = serverInstance.IsRunning;
+                            }
+                        }
+
+                        //SOURCE ENGINE HANDLER
+                        if (gameserver.ENGINE_type == "UNREAL")
+                        {
+                            if (chkStandaloneMode.Value == true
+                            ) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
+                            {
+                                LaunchServer(
+                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                    gameserver.SERVER_executable,
+                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                        gameserver.SERVER_launch_arguments,
+                                        gameserver.SERVER_port,
+                                        gameserver.GAME_map,
+                                        gameserver.GAME_maxplayers));
+                            }
+                            else
+                            {
+                                //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                                ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                                consoleOutputList.Items.Add(string.Format("Launching: {0}...",
+                                    gameserver.SERVER_name_friendly));
+
+                                var serverInstance = new ProcessHelper(
+                                    gameserver.SERVER_name_friendly,
+                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                    gameserver.SERVER_executable,
+                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                        gameserver.SERVER_launch_arguments,
+                                        gameserver.SERVER_port,
+                                        gameserver.GAME_map,
+                                        gameserver.GAME_maxplayers));
+                                serverInstance.EventOccured +=
+                                    (borealis, args) => consoleOutputList.Items.Add(args);
+                            
+                            serverInstance.Start();
+                            gameserver.SERVER_running_status = serverInstance.IsRunning;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnStopServer_Click(object sender, EventArgs e)
+        {
+            btnStopServer.Visible = false;
+            btnStartServer.Enabled = true;
+            chkAutoRestart.Visible = true;
+            lblAutoRestart.Visible = true;
+            txtboxIssueCommand.Visible = false;
+            consoleOutputList.Items.Clear();
+            txtboxIssueCommand.Text = " > Server is Not Running";
+            txtboxIssueCommand.Enabled = false;
+
+            cancelToken.Cancel();
+            backgroundWorker01.RunWorkerCompleted += (sender2, e2) =>
+            {
+                btnStopServer.Enabled = false;
+                btnStartServer.Enabled = true;
+                txtboxIssueCommand.Enabled = false;
+                txtboxIssueCommand.Text = "> Server is not running";
+                consoleOutputList.Items.Add("Server stopped...");
+            };
+        }
+
+        private void txtboxIssueCommand_Enter(object sender, EventArgs e)
+        {
+            txtboxIssueCommand.Text = "";
+        }
+
+        private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtboxIssueCommand.Text = "";
+        }
+
+        private void backgroundWorker01_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            bool stopped = false;
+
+
+            //It's an assumption that these 3 elements MUST exist
+            var asyncCallback = comboboxGameserverList.BeginInvoke((Func<string[]>) delegate()
+            {
+                return new string[]
+                {
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "installation_folder" ),
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "default_launchscript" ),
+                    //GameServerXMLData( comboboxGameserverList.SelectedItem as string, "binaries" )
+                };
+            });
+            asyncCallback.AsyncWaitHandle.WaitOne();
+            var serverParams = comboboxGameserverList.EndInvoke(asyncCallback) as string[];
+
+            Action<string> textAddCallback = (args) =>
+            {
+                consoleOutputList.BeginInvoke((Action) delegate()
+                {
+                    consoleOutputList.Items.Add(args);
+                });
+            };
+
+            EventHandler exitedHandler = (sender2, e2) =>
+            {
+                if (!cancelToken.IsCancellationRequested)
+                {
+                    //Wait a little until we restart the server
+                    consoleOutputList.BeginInvoke((Action) delegate()
+                    {
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+
+                        consoleOutputList.Items.Add(
+                            "An error occured and the process has crashed. Auto-restarting in 5 seconds...");
+                        //Scroll to the bottom
+                        consoleOutputList.TopIndex = consoleOutputList.Items.Count - 1;
+
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                        consoleOutputList.Items.Add(Environment.NewLine);
+                    });
+                    Thread.Sleep(5000);
+                }
+                else
+                    stopped = true;
+            };
+
+            while (chkAutoRestart.Value && !stopped)
+                LaunchServer(serverParams[0] + serverParams[2], serverParams[1], textAddCallback, null, serverParams[0],
+                    chkAutoRestart.Value ? exitedHandler : null,
+                    chkAutoRestart.Value ? cancelToken.Token : default(System.Threading.CancellationToken));
+        }
+
+
     }
+
 }

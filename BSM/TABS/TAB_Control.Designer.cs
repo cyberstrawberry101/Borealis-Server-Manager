@@ -42,9 +42,9 @@
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
             this.chkStandaloneMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblStandaloneMode = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
             this.consolePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +255,12 @@
             this.toolTip1.InitialDelay = 500;
             this.toolTip1.ReshowDelay = 100;
             // 
+            // backgroundWorker01
+            // 
+            this.backgroundWorker01.WorkerReportsProgress = true;
+            this.backgroundWorker01.WorkerSupportsCancellation = true;
+            this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
+            // 
             // chkStandaloneMode
             // 
             this.chkStandaloneMode.BackColor = System.Drawing.Color.Transparent;
@@ -287,12 +293,6 @@
             this.toolTip1.SetToolTip(this.lblStandaloneMode, "If you would like to simply launch the server with a normal (visible) console win" +
         "dow, and not have borealis manage it directly.");
             this.lblStandaloneMode.Visible = false;
-            // 
-            // backgroundWorker01
-            // 
-            this.backgroundWorker01.WorkerReportsProgress = true;
-            this.backgroundWorker01.WorkerSupportsCancellation = true;
-            this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
             // TAB_CONTROL
             // 
@@ -337,8 +337,8 @@
         private System.Windows.Forms.TextBox txtboxIssueCommand;
         private System.Windows.Forms.Panel consolePanel;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker01;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkStandaloneMode;
         private Bunifu.Framework.UI.BunifuCustomLabel lblStandaloneMode;
-        private System.ComponentModel.BackgroundWorker backgroundWorker01;
     }
 }
