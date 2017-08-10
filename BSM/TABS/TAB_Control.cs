@@ -14,8 +14,6 @@ using static Borealis.Server_Process_Management;
 
 namespace Borealis
 {
-    
-
     public partial class TAB_CONTROL : Form
     {
         private CancellationTokenSource cancelToken;
@@ -80,8 +78,6 @@ namespace Borealis
 
         #endregion
 
-        
-
         public TAB_CONTROL()
         {
             InitializeComponent();
@@ -108,23 +104,23 @@ namespace Borealis
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
-                    //Decide what data to pull from the object at this point in time of development.
-
-                    GameServer_Object Controlled_GameServer = new GameServer_Object();
-
-                    Controlled_GameServer.DIR_install_location = Controlled_GameServer.DIR_install_location;
-                    Controlled_GameServer.SERVER_executable = Controlled_GameServer.SERVER_executable;
-                    Controlled_GameServer.SERVER_launch_arguments = Controlled_GameServer.SERVER_launch_arguments;
-                    Controlled_GameServer.SERVER_running_status = Controlled_GameServer.SERVER_running_status;
-
+                    if (gameserver.SERVER_running_status == true)
+                    {
+                        btnStartServer.Visible = false;
+                        chkAutoRestart.Visible = false;
+                        lblAutoRestart.Visible = false;
+                        btnStopServer.Visible = true;
+                    }
+                    else
+                    {
+                        btnStartServer.Visible = true;
+                        chkAutoRestart.Visible = true;
+                        lblAutoRestart.Visible = true;
+                        btnStopServer.Visible = false;
+                    }
                 }
             }
-            btnStartServer.Visible = true;
-            chkAutoRestart.Visible = true;
-            lblAutoRestart.Visible = true;
-            chkStandaloneMode.Visible = true;
-            lblStandaloneMode.Visible = true;
-            consolePanel.Visible = true;
+            
         }
 
         private void proc_DataReceived(object sender, DataReceivedEventArgs e)
@@ -150,18 +146,6 @@ namespace Borealis
         private void ServerControl_Activated(object sender, EventArgs e)
         {
             RefreshData();
-        }
-
-        private void chkStandaloneMode_OnValueChange(object sender, EventArgs e)
-        {
-            if (chkStandaloneMode.Value == true)
-            {
-                consolePanel.Visible = false;
-            }
-            else
-            {
-                consolePanel.Visible = true;
-            }
         }
 
         //===================================================================================//
@@ -274,105 +258,90 @@ namespace Borealis
                         //SOURCE ENGINE HANDLER
                         if (gameserver.ENGINE_type == "SOURCE")
                         {
-                            //Check to see if the gameserver needs to be run with a visible console, or directly controlled by Borealis.
-                            if (chkStandaloneMode.Value == true
-                            ) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
-                            {
-                                LaunchServer(
-                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
-                                    gameserver.SERVER_executable,
-                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
-                                        gameserver.SERVER_launch_arguments,
-                                        gameserver.SERVER_port,
-                                        gameserver.GAME_map,
-                                        gameserver.GAME_maxplayers));
-                            }
-                            else
-                            {
-                                //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
-                                ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
-                                consoleOutputList.Items.Add(string.Format("Launching: {0}...",
-                                    gameserver.SERVER_name_friendly));
+                            //Copy SRCDS Redirection utility (Band-Aid Redirection Fix) into working gameserver.DIR_root directory.
+                            System.IO.File.Copy(Environment.CurrentDirectory + @"SrcdsConRedirect.exe", gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"SrcdsConRedirect.exe");
 
-                                var serverInstance = new ProcessHelper(
-                                    gameserver.SERVER_name_friendly,
-                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
-                                    gameserver.SERVER_executable,
-                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
-                                        gameserver.SERVER_launch_arguments,
-                                        gameserver.SERVER_port,
-                                        gameserver.GAME_map,
-                                        gameserver.GAME_maxplayers));
-                                serverInstance.EventOccured +=
-                                    (borealis, args) => consoleOutputList.Items.Add(args.ToString());
-                                serverInstance.Start();
-                                gameserver.SERVER_running_status = serverInstance.IsRunning;
-                            }
+                            //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                            ProcessHelper.traceSwitch.Level = TraceLevel.Verbose;
+
+                            var serverInstance = new ProcessHelper(
+                                gameserver.SERVER_name_friendly,
+                                gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                @"\SrcdsConRedirect.exe",
+                                string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                    gameserver.SERVER_launch_arguments,
+                                    gameserver.SERVER_port,
+                                    gameserver.GAME_map,
+                                    gameserver.GAME_maxplayers));
+                            serverInstance.EventOccured +=
+                                (borealis, args) => consoleOutputList.Items.Add(args.ToString());
+                            serverInstance.Start();
+                            gameserver.SERVER_running_status = serverInstance.IsRunning;
                         }
 
-                        //SOURCE ENGINE HANDLER
+                        //UNREAL ENGINE HANDLER
                         if (gameserver.ENGINE_type == "UNREAL")
                         {
-                            if (chkStandaloneMode.Value == true
-                            ) //To be hopefully depreciated soon.  Only needed right now as a fallback option to server operators.
-                            {
-                                LaunchServer(
-                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
-                                    gameserver.SERVER_executable,
-                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
-                                        gameserver.SERVER_launch_arguments,
-                                        gameserver.SERVER_port,
-                                        gameserver.GAME_map,
-                                        gameserver.GAME_maxplayers));
-                            }
-                            else
-                            {
-                                //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
-                                ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
-                                consoleOutputList.Items.Add(string.Format("Launching: {0}...",
-                                    gameserver.SERVER_name_friendly));
+                            //ProcessHelper.traceSwitch.Level = TraceLevel.Warning;
+                            ProcessHelper.traceSwitch.Level = TraceLevel.Verbose;
 
-                                var serverInstance = new ProcessHelper(
-                                    gameserver.SERVER_name_friendly,
-                                    gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
-                                    gameserver.SERVER_executable,
-                                    string.Format("{0} +port {1} +map {2} +maxplayers {3}",
-                                        gameserver.SERVER_launch_arguments,
-                                        gameserver.SERVER_port,
-                                        gameserver.GAME_map,
-                                        gameserver.GAME_maxplayers));
-                                serverInstance.EventOccured +=
-                                    (borealis, args) => consoleOutputList.Items.Add(args);
+                            var serverInstance = new ProcessHelper(
+                                gameserver.SERVER_name_friendly,
+                                gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root +
+                                gameserver.SERVER_executable,
+                                string.Format("{0} +port {1} +map {2} +maxplayers {3}",
+                                    gameserver.SERVER_launch_arguments,
+                                    gameserver.SERVER_port,
+                                    gameserver.GAME_map,
+                                    gameserver.GAME_maxplayers));
+                            serverInstance.EventOccured +=
+                                (borealis, args) => consoleOutputList.Items.Add(args);
                             
                             serverInstance.Start();
                             gameserver.SERVER_running_status = serverInstance.IsRunning;
-                            }
                         }
+
+                        btnStartServer.Visible = false;
+                        btnStopServer.Visible = true;
+
+                        txtboxIssueCommand.Enabled = true;
+                        txtboxIssueCommand.Text = "";
                     }
                 }
             }
         }
 
-        private void btnStopServer_Click(object sender, EventArgs e)
+        private void btnStopServer_Click(object senders, EventArgs e)
         {
             btnStopServer.Visible = false;
             btnStartServer.Enabled = true;
             chkAutoRestart.Visible = true;
             lblAutoRestart.Visible = true;
-            txtboxIssueCommand.Visible = false;
-            consoleOutputList.Items.Clear();
             txtboxIssueCommand.Text = " > Server is Not Running";
             txtboxIssueCommand.Enabled = false;
 
             cancelToken.Cancel();
+
             backgroundWorker01.RunWorkerCompleted += (sender2, e2) =>
             {
+                chkAutoRestart.Visible = true;
+                lblAutoRestart.Visible = true;
                 btnStopServer.Enabled = false;
                 btnStartServer.Enabled = true;
                 txtboxIssueCommand.Enabled = false;
                 txtboxIssueCommand.Text = "> Server is not running";
                 consoleOutputList.Items.Add("Server stopped...");
             };
+
+            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            {
+                if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
+                {
+                    ProcessHelper KillServer = new ProcessHelper(gameserver.SERVER_name_friendly, gameserver.SERVER_executable, gameserver.SERVER_launch_arguments);
+                    KillServer.Kill();
+                    gameserver.SERVER_running_status = false;
+                }
+            }
         }
 
         private void txtboxIssueCommand_Enter(object sender, EventArgs e)

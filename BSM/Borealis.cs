@@ -194,6 +194,12 @@ namespace Borealis
                     System.IO.File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
                 }
 
+                //Flag all servers as shut down.
+                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                {
+                    gameserver.SERVER_running_status = false;
+                }
+
                 GameServer_Management.configWrite();
             }
         }

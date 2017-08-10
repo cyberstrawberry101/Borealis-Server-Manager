@@ -30,6 +30,11 @@ namespace Borealis
                 Pid = pid;
             }
 
+            public override string ToString()
+            {
+                return $"{Occurred.ToString("hh:mm:ss tt zz")}: {Type.ToString().PadLeft(14)} {ProcessNickname} (PID {Pid}) {Message}";
+            }
+
             public int? Pid { get; }
             public string ProcessNickname { get; }
             public string Message { get; }
@@ -256,7 +261,7 @@ namespace Borealis
             }
         }
 
-        private CancellationTokenSource cancelToken;
+
     }
 }
 

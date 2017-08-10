@@ -43,9 +43,10 @@
             this.consolePanel = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.chkStandaloneMode = new Bunifu.Framework.UI.BunifuiOSSwitch();
-            this.lblStandaloneMode = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.btnSendCommand = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.consolePanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // chkAutoRestart
@@ -218,7 +219,7 @@
             this.consoleOutputList.FormattingEnabled = true;
             this.consoleOutputList.Location = new System.Drawing.Point(0, 0);
             this.consoleOutputList.Name = "consoleOutputList";
-            this.consoleOutputList.Size = new System.Drawing.Size(692, 371);
+            this.consoleOutputList.Size = new System.Drawing.Size(692, 400);
             this.consoleOutputList.TabIndex = 43;
             this.toolTip1.SetToolTip(this.consoleOutputList, "Here you can read the output from your currently running servers.");
             // 
@@ -226,13 +227,13 @@
             // 
             this.txtboxIssueCommand.BackColor = System.Drawing.Color.White;
             this.txtboxIssueCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtboxIssueCommand.Dock = System.Windows.Forms.DockStyle.Left;
             this.txtboxIssueCommand.Enabled = false;
             this.txtboxIssueCommand.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 371);
+            this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 0);
             this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(692, 29);
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(549, 29);
             this.txtboxIssueCommand.TabIndex = 49;
             this.txtboxIssueCommand.Text = " > Server is Not Running";
             this.toolTip1.SetToolTip(this.txtboxIssueCommand, "You can issue commands to the actively selected gameserver here.");
@@ -241,13 +242,12 @@
             // consolePanel
             // 
             this.consolePanel.BackColor = System.Drawing.Color.Transparent;
+            this.consolePanel.Controls.Add(this.panel1);
             this.consolePanel.Controls.Add(this.consoleOutputList);
-            this.consolePanel.Controls.Add(this.txtboxIssueCommand);
             this.consolePanel.Location = new System.Drawing.Point(18, 80);
             this.consolePanel.Name = "consolePanel";
             this.consolePanel.Size = new System.Drawing.Size(692, 400);
             this.consolePanel.TabIndex = 50;
-            this.consolePanel.Visible = false;
             // 
             // toolTip1
             // 
@@ -261,38 +261,52 @@
             this.backgroundWorker01.WorkerSupportsCancellation = true;
             this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
             // 
-            // chkStandaloneMode
+            // btnSendCommand
             // 
-            this.chkStandaloneMode.BackColor = System.Drawing.Color.Transparent;
-            this.chkStandaloneMode.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkStandaloneMode.BackgroundImage")));
-            this.chkStandaloneMode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.chkStandaloneMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkStandaloneMode.Location = new System.Drawing.Point(16, 492);
-            this.chkStandaloneMode.Name = "chkStandaloneMode";
-            this.chkStandaloneMode.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
-            this.chkStandaloneMode.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
-            this.chkStandaloneMode.Size = new System.Drawing.Size(35, 20);
-            this.chkStandaloneMode.TabIndex = 52;
-            this.toolTip1.SetToolTip(this.chkStandaloneMode, "In the event that the server crashes or the process is terminated, it will be aut" +
-        "omatically re-launched.");
-            this.chkStandaloneMode.Value = false;
-            this.chkStandaloneMode.Visible = false;
-            this.chkStandaloneMode.OnValueChange += new System.EventHandler(this.chkStandaloneMode_OnValueChange);
+            this.btnSendCommand.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(159)))), ((int)(((byte)(195)))));
+            this.btnSendCommand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.btnSendCommand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSendCommand.BorderRadius = 0;
+            this.btnSendCommand.ButtonText = "Send Command";
+            this.btnSendCommand.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSendCommand.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSendCommand.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSendCommand.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
+            this.btnSendCommand.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSendCommand.Iconimage = null;
+            this.btnSendCommand.Iconimage_right = null;
+            this.btnSendCommand.Iconimage_right_Selected = null;
+            this.btnSendCommand.Iconimage_Selected = null;
+            this.btnSendCommand.IconMarginLeft = 0;
+            this.btnSendCommand.IconMarginRight = 0;
+            this.btnSendCommand.IconRightVisible = true;
+            this.btnSendCommand.IconRightZoom = 0D;
+            this.btnSendCommand.IconVisible = true;
+            this.btnSendCommand.IconZoom = 0D;
+            this.btnSendCommand.IsTab = false;
+            this.btnSendCommand.Location = new System.Drawing.Point(549, 0);
+            this.btnSendCommand.Name = "btnSendCommand";
+            this.btnSendCommand.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
+            this.btnSendCommand.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(159)))), ((int)(((byte)(195)))));
+            this.btnSendCommand.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSendCommand.selected = false;
+            this.btnSendCommand.Size = new System.Drawing.Size(143, 30);
+            this.btnSendCommand.TabIndex = 50;
+            this.btnSendCommand.Text = "Send Command";
+            this.btnSendCommand.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSendCommand.Textcolor = System.Drawing.Color.White;
+            this.btnSendCommand.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolTip1.SetToolTip(this.btnSendCommand, "Start the server process in the background.");
             // 
-            // lblStandaloneMode
+            // panel1
             // 
-            this.lblStandaloneMode.AutoSize = true;
-            this.lblStandaloneMode.BackColor = System.Drawing.Color.Transparent;
-            this.lblStandaloneMode.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblStandaloneMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            this.lblStandaloneMode.Location = new System.Drawing.Point(52, 493);
-            this.lblStandaloneMode.Name = "lblStandaloneMode";
-            this.lblStandaloneMode.Size = new System.Drawing.Size(157, 19);
-            this.lblStandaloneMode.TabIndex = 51;
-            this.lblStandaloneMode.Text = "Start in standalone mode";
-            this.toolTip1.SetToolTip(this.lblStandaloneMode, "If you would like to simply launch the server with a normal (visible) console win" +
-        "dow, and not have borealis manage it directly.");
-            this.lblStandaloneMode.Visible = false;
+            this.panel1.Controls.Add(this.txtboxIssueCommand);
+            this.panel1.Controls.Add(this.btnSendCommand);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 370);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(692, 30);
+            this.panel1.TabIndex = 51;
             // 
             // TAB_CONTROL
             // 
@@ -301,8 +315,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.chkStandaloneMode);
-            this.Controls.Add(this.lblStandaloneMode);
             this.Controls.Add(this.consolePanel);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -318,7 +330,8 @@
             this.Activated += new System.EventHandler(this.ServerControl_Activated);
             this.Load += new System.EventHandler(this.ServerControl_Load);
             this.consolePanel.ResumeLayout(false);
-            this.consolePanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -338,7 +351,7 @@
         private System.Windows.Forms.Panel consolePanel;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.ComponentModel.BackgroundWorker backgroundWorker01;
-        private Bunifu.Framework.UI.BunifuiOSSwitch chkStandaloneMode;
-        private Bunifu.Framework.UI.BunifuCustomLabel lblStandaloneMode;
+        private System.Windows.Forms.Panel panel1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSendCommand;
     }
 }
