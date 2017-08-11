@@ -16,7 +16,6 @@ namespace Borealis
         public string SERVER_name_friendly { get; set; }    //User-designated name
         public string SERVER_type { get; set; }             //Type of gameserver (e.g. "Garry's Mod", "Synergy", etc)
         public string SERVER_launch_arguments { get; set; } //Default launch arguments and current launch arguments
-        public bool SERVER_running_status { get; set; }     //Determine whether the server is running or stopped
         public string SERVER_executable { get; set; }       //The relative location of where the server executable is located relative to install location
         public string SERVER_port { get; set; }
         public int SERVER_processID { get; set; }

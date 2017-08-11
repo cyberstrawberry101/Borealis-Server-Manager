@@ -26,7 +26,8 @@ namespace Borealis
                     this.overallServerStatsGrid.Rows.Clear();
                     foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
                     {
-                        this.overallServerStatsGrid.Rows.Add(gameserver.SERVER_name_friendly, gameserver.SERVER_type, "0.0GB", "0.0GB", "0.0%", "0 Kb/s", gameserver.SERVER_running_status, "No");
+                        var isRunning = ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly)?.IsRunning ?? false;
+                        this.overallServerStatsGrid.Rows.Add(gameserver.SERVER_name_friendly, gameserver.SERVER_type, "0.0GB", "0.0GB", "0.0%", "0 Kb/s", isRunning, "No");
                     }
 
                     this.overallServerStatsGrid.Visible = true; //Show Table only if values have been added.

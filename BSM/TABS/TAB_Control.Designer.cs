@@ -41,10 +41,13 @@
             this.consoleOutputList = new System.Windows.Forms.ListBox();
             this.txtboxIssueCommand = new System.Windows.Forms.TextBox();
             this.consolePanel = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.btnSendCommand = new Bunifu.Framework.UI.BunifuFlatButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSendCommand = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.chkRedirectInOut = new Bunifu.Framework.UI.BunifuiOSSwitch();
+            this.lblRedirectInOut = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
+            this.button1 = new System.Windows.Forms.Button();
             this.consolePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -249,17 +252,15 @@
             this.consolePanel.Size = new System.Drawing.Size(692, 400);
             this.consolePanel.TabIndex = 50;
             // 
-            // toolTip1
+            // panel1
             // 
-            this.toolTip1.AutoPopDelay = 10000;
-            this.toolTip1.InitialDelay = 500;
-            this.toolTip1.ReshowDelay = 100;
-            // 
-            // backgroundWorker01
-            // 
-            this.backgroundWorker01.WorkerReportsProgress = true;
-            this.backgroundWorker01.WorkerSupportsCancellation = true;
-            this.backgroundWorker01.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker01_DoWork);
+            this.panel1.Controls.Add(this.txtboxIssueCommand);
+            this.panel1.Controls.Add(this.btnSendCommand);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 370);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(692, 30);
+            this.panel1.TabIndex = 51;
             // 
             // btnSendCommand
             // 
@@ -267,6 +268,7 @@
             this.btnSendCommand.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             this.btnSendCommand.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSendCommand.BorderRadius = 0;
+            this.btnSendCommand.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.btnSendCommand.ButtonText = "Send Command";
             this.btnSendCommand.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSendCommand.DisabledColor = System.Drawing.Color.Gray;
@@ -297,16 +299,59 @@
             this.btnSendCommand.Textcolor = System.Drawing.Color.White;
             this.btnSendCommand.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnSendCommand, "Start the server process in the background.");
+            this.btnSendCommand.Click += new System.EventHandler(this.btnSendCommand_Click);
             // 
-            // panel1
+            // toolTip1
             // 
-            this.panel1.Controls.Add(this.txtboxIssueCommand);
-            this.panel1.Controls.Add(this.btnSendCommand);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 370);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 30);
-            this.panel1.TabIndex = 51;
+            this.toolTip1.AutoPopDelay = 10000;
+            this.toolTip1.InitialDelay = 500;
+            this.toolTip1.ReshowDelay = 100;
+            // 
+            // chkRedirectInOut
+            // 
+            this.chkRedirectInOut.BackColor = System.Drawing.Color.Transparent;
+            this.chkRedirectInOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkRedirectInOut.BackgroundImage")));
+            this.chkRedirectInOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.chkRedirectInOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkRedirectInOut.Enabled = false;
+            this.chkRedirectInOut.Location = new System.Drawing.Point(16, 493);
+            this.chkRedirectInOut.Name = "chkRedirectInOut";
+            this.chkRedirectInOut.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
+            this.chkRedirectInOut.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(181)))), ((int)(((byte)(129)))));
+            this.chkRedirectInOut.Size = new System.Drawing.Size(35, 20);
+            this.chkRedirectInOut.TabIndex = 52;
+            this.toolTip1.SetToolTip(this.chkRedirectInOut, "In the event that the server crashes or the process is terminated, it will be aut" +
+        "omatically re-launched.");
+            this.chkRedirectInOut.Value = false;
+            // 
+            // lblRedirectInOut
+            // 
+            this.lblRedirectInOut.AutoSize = true;
+            this.lblRedirectInOut.BackColor = System.Drawing.Color.Transparent;
+            this.lblRedirectInOut.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblRedirectInOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.lblRedirectInOut.Location = new System.Drawing.Point(52, 494);
+            this.lblRedirectInOut.Name = "lblRedirectInOut";
+            this.lblRedirectInOut.Size = new System.Drawing.Size(287, 19);
+            this.lblRedirectInOut.TabIndex = 51;
+            this.lblRedirectInOut.Text = "Redirect input/output to Borealis (Experimental)";
+            this.toolTip1.SetToolTip(this.lblRedirectInOut, "Hide Server Window");
+            // 
+            // backgroundWorker01
+            // 
+            this.backgroundWorker01.WorkerReportsProgress = true;
+            this.backgroundWorker01.WorkerSupportsCancellation = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button1.Location = new System.Drawing.Point(321, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 29);
+            this.button1.TabIndex = 53;
+            this.button1.Text = "DEBUG";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // TAB_CONTROL
             // 
@@ -315,6 +360,9 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.chkRedirectInOut);
+            this.Controls.Add(this.lblRedirectInOut);
             this.Controls.Add(this.consolePanel);
             this.Controls.Add(this.chkAutoRestart);
             this.Controls.Add(this.bunifuCustomLabel1);
@@ -353,5 +401,8 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker01;
         private System.Windows.Forms.Panel panel1;
         private Bunifu.Framework.UI.BunifuFlatButton btnSendCommand;
+        private Bunifu.Framework.UI.BunifuiOSSwitch chkRedirectInOut;
+        private Bunifu.Framework.UI.BunifuCustomLabel lblRedirectInOut;
+        private System.Windows.Forms.Button button1;
     }
 }
