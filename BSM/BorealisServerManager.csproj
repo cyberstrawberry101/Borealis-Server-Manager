@@ -99,7 +99,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CLASSES\CLASS_PROCESSES.cs" />
     <Compile Include="CLASSES\CLASS_MDICONTROL.cs" />
     <Compile Include="CLASSES\CLASS_GAMESERVERS.cs" />
     <Compile Include="CLASSES\CLASS_ServerAPI.cs" />

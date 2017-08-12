@@ -58,7 +58,6 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Enabled = false;
             this.chkAutoRestart.Location = new System.Drawing.Point(16, 521);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -214,6 +213,7 @@
             this.bunifuCustomLabel16.Size = new System.Drawing.Size(220, 32);
             this.bunifuCustomLabel16.TabIndex = 4;
             this.bunifuCustomLabel16.Text = "GameServer Control";
+            this.bunifuCustomLabel16.Click += new System.EventHandler(this.bunifuCustomLabel16_Click);
             // 
             // consoleOutputList
             // 
@@ -313,7 +313,6 @@
             this.chkRedirectInOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkRedirectInOut.BackgroundImage")));
             this.chkRedirectInOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkRedirectInOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkRedirectInOut.Enabled = false;
             this.chkRedirectInOut.Location = new System.Drawing.Point(16, 493);
             this.chkRedirectInOut.Name = "chkRedirectInOut";
             this.chkRedirectInOut.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -322,7 +321,8 @@
             this.chkRedirectInOut.TabIndex = 52;
             this.toolTip1.SetToolTip(this.chkRedirectInOut, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
-            this.chkRedirectInOut.Value = false;
+            this.chkRedirectInOut.Value = true;
+            this.chkRedirectInOut.Visible = false;
             // 
             // lblRedirectInOut
             // 
@@ -336,6 +336,7 @@
             this.lblRedirectInOut.TabIndex = 51;
             this.lblRedirectInOut.Text = "Redirect input/output to Borealis (Experimental)";
             this.toolTip1.SetToolTip(this.lblRedirectInOut, "Hide Server Window");
+            this.lblRedirectInOut.Visible = false;
             // 
             // backgroundWorker01
             // 
@@ -351,6 +352,7 @@
             this.button1.TabIndex = 53;
             this.button1.Text = "DEBUG";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // TAB_CONTROL
