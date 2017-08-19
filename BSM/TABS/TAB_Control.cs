@@ -93,7 +93,7 @@ namespace Borealis
 
         private void CurrentProcessOnEventOccured(object sender, ProcessHelperEvent e)
         {
-            consoleOutputList.Items.Add(e);
+            Invoke(new Action(() => consoleOutputList.Items.Add(e)));
         }
 
         private void RefreshData()
@@ -249,7 +249,7 @@ namespace Borealis
             ProcessManager.GetProcessByNickname("test")?.WriteLine(txtboxIssueCommand.Text);
             consoleOutputList.Items.Add("Command Issued to Server: " + txtboxIssueCommand.Text);
             txtboxIssueCommand.Text = "";
-            
+
             /*
             foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
             {
@@ -267,19 +267,22 @@ namespace Borealis
         private void button1_Click_1(object sender, EventArgs e)
         {
             consoleOutputList.Items.Add("\r\n// Starting DEBUG Test...");
-            var test = ProcessManager.GetOrCreate("test", "C:\\Windows\\System32\\cmd.exe", "-k", new ProcessLaunchOptions
+            var test = ProcessManager.GetOrCreate("test", "C:\\Windows\\System32\\ping.exe", "/t 8.8.8.8", new ProcessLaunchOptions
             {
                 ShowWindowOnStart = true
             });
-            test.EventOccured += (TAB_CONTROL, args) => consoleOutputList.Items.Add(args);
+            test.EventOccured += (TAB_CONTROL, args) =>
+            {
+                consoleOutputList.Invoke(new Action(() => this.consoleOutputList.Items.Add(args)));
+            };
             test.Start();
 
             SubscribeToProcess(test);
 
+
             txtboxIssueCommand.Enabled = true;
             //consoleOutputList.Items.Add(ProcessManager.GetProcessByNickname(test).);
         }
-
         private void bunifuCustomLabel16_Click(object sender, EventArgs e)
         {
             button1.Visible = true;
@@ -427,6 +430,9 @@ namespace Borealis
                     {
                         throw new Exception($"cannot get the process {nickname} @'{SERVER_executable}' to start - returns false");
                     }
+
+                    process.BeginErrorReadLine();
+                    process.BeginOutputReadLine();
 
                     OnEventOccurred(new ProcessHelperEvent(null, ProcessHelperEventType.ProcessStarted, nickname, process?.Id));
                     TraceMessage(TraceLevel.Info, $"process {nickname} started with pid {process.Id} @'{SERVER_executable}'");
