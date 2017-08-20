@@ -426,14 +426,14 @@ namespace Borealis
                     result = MetroMessageBox.Show(ActiveForm,
                         "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
                         deploymentValues.DIR_install_location + "]" +
-                        "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, but BSM cannot configure or control it at this time.",
+                        "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, and launch it, but BSM cannot configure it at this time.",
                         "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                     break;
                 case "partial":
                     result = MetroMessageBox.Show(ActiveForm,
                         "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
                         deploymentValues.DIR_install_location + "]" +
-                        "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, but BSM can only configure it at this time, you have no ability to control it directly through BSM.",
+                        "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, and launch it, and have experimental control over it directly through BSM.",
                         "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     break;
                 case "full":
