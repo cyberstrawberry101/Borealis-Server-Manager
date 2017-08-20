@@ -101,9 +101,10 @@
   <ItemGroup>
     <Compile Include="CLASSES\CLASS_MDICONTROL.cs" />
     <Compile Include="CLASSES\CLASS_GAMESERVERS.cs" />
-    <Compile Include="CLASSES\CLASS_ServerAPI.cs" />
+    <Compile Include="CLASSES\CLASS_SERVER_API.cs" />
     <Compile Include="CLASSES\CLASS_MONITORING.cs" />
-    <Compile Include="CLASSES\CLASS_SteamCMD.cs" />
+    <Compile Include="CLASSES\CLASS_PROCESSES.cs" />
+    <Compile Include="CLASSES\CLASS_STEAMCMD.cs" />
     <Compile Include="TABS\TAB_About.cs">
       <SubType>Form</SubType>
     </Compile>

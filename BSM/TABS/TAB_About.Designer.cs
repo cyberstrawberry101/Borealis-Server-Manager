@@ -178,7 +178,7 @@
             this.panel3.Controls.Add(this.linkLabel1);
             this.panel3.Controls.Add(this.bunifuCustomLabel5);
             this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(16, 269);
+            this.panel3.Location = new System.Drawing.Point(16, 287);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(230, 114);
             this.panel3.TabIndex = 23;
@@ -281,7 +281,7 @@
             this.bunifuTransition1.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
             this.panel4.Location = new System.Drawing.Point(16, 202);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(230, 61);
+            this.panel4.Size = new System.Drawing.Size(230, 79);
             this.panel4.TabIndex = 23;
             // 
             // bunifuCustomLabel6
@@ -306,11 +306,12 @@
             this.bunifuCustomLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(156)))), ((int)(((byte)(159)))));
             this.bunifuCustomLabel7.Location = new System.Drawing.Point(1, 18);
             this.bunifuCustomLabel7.Name = "bunifuCustomLabel7";
-            this.bunifuCustomLabel7.Size = new System.Drawing.Size(71, 38);
+            this.bunifuCustomLabel7.Size = new System.Drawing.Size(73, 57);
             this.bunifuCustomLabel7.TabIndex = 15;
-            this.bunifuCustomLabel7.Text = "CyrilPaulus\r\nCapsup";
-            this.toolTip1.SetToolTip(this.bunifuCustomLabel7, "CyrilPaulus: Helped design the performance metrics back-end.\r\nCapsup: Provided ad" +
-        "vice on how to maintain the project professionally.");
+            this.bunifuCustomLabel7.Text = "bord2tears\r\nCyrilPaulus\r\nCapsup";
+            this.toolTip1.SetToolTip(this.bunifuCustomLabel7, "bord2tears: Helped implement the process manager system.\r\nCyrilPaulus: Helped des" +
+        "ign the performance metrics back-end.\r\nCapsup: Provided advice on how to maintai" +
+        "n the project professionally.");
             // 
             // toolTip1
             // 
@@ -404,7 +405,7 @@
             this.panel5.Controls.Add(this.linkLabel8);
             this.panel5.Controls.Add(this.bunifuCustomLabel8);
             this.bunifuTransition1.SetDecoration(this.panel5, BunifuAnimatorNS.DecorationType.None);
-            this.panel5.Location = new System.Drawing.Point(16, 389);
+            this.panel5.Location = new System.Drawing.Point(16, 407);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(230, 114);
             this.panel5.TabIndex = 24;

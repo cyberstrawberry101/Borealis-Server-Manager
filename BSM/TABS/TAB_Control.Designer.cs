@@ -47,7 +47,6 @@
             this.chkRedirectInOut = new Bunifu.Framework.UI.BunifuiOSSwitch();
             this.lblRedirectInOut = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.backgroundWorker01 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
             this.consolePanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +57,7 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkAutoRestart.Enabled = false;
             this.chkAutoRestart.Location = new System.Drawing.Point(16, 521);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -67,7 +67,6 @@
             this.toolTip1.SetToolTip(this.chkAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
             this.chkAutoRestart.Value = true;
-            this.chkAutoRestart.Visible = false;
             // 
             // bunifuCustomLabel1
             // 
@@ -103,6 +102,7 @@
             // 
             this.lblAutoRestart.AutoSize = true;
             this.lblAutoRestart.BackColor = System.Drawing.Color.Transparent;
+            this.lblAutoRestart.Enabled = false;
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblAutoRestart.Location = new System.Drawing.Point(52, 522);
@@ -112,7 +112,6 @@
             this.lblAutoRestart.Text = "Auto-restart server if it crashes";
             this.toolTip1.SetToolTip(this.lblAutoRestart, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
-            this.lblAutoRestart.Visible = false;
             // 
             // btnStartServer
             // 
@@ -149,7 +148,6 @@
             this.btnStartServer.Textcolor = System.Drawing.Color.White;
             this.btnStartServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStartServer, "Start the server process in the background.");
-            this.btnStartServer.Visible = false;
             this.btnStartServer.Click += new System.EventHandler(this.btnStartServer_Click);
             // 
             // btnStopServer
@@ -187,7 +185,6 @@
             this.btnStopServer.Textcolor = System.Drawing.Color.White;
             this.btnStopServer.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolTip1.SetToolTip(this.btnStopServer, "Forcefully terminate the process (not gracefully).");
-            this.btnStopServer.Visible = false;
             this.btnStopServer.Click += new System.EventHandler(this.btnStopServer_Click);
             // 
             // bunifuCustomLabel14
@@ -213,16 +210,15 @@
             this.bunifuCustomLabel16.Size = new System.Drawing.Size(220, 32);
             this.bunifuCustomLabel16.TabIndex = 4;
             this.bunifuCustomLabel16.Text = "GameServer Control";
-            this.bunifuCustomLabel16.Click += new System.EventHandler(this.bunifuCustomLabel16_Click);
             // 
             // consoleOutputList
             // 
             this.consoleOutputList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.consoleOutputList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.consoleOutputList.Dock = System.Windows.Forms.DockStyle.Top;
             this.consoleOutputList.FormattingEnabled = true;
             this.consoleOutputList.Location = new System.Drawing.Point(0, 0);
             this.consoleOutputList.Name = "consoleOutputList";
-            this.consoleOutputList.Size = new System.Drawing.Size(692, 400);
+            this.consoleOutputList.Size = new System.Drawing.Size(692, 353);
             this.consoleOutputList.TabIndex = 43;
             this.toolTip1.SetToolTip(this.consoleOutputList, "Here you can read the output from your currently running servers.");
             // 
@@ -236,11 +232,12 @@
             this.txtboxIssueCommand.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.txtboxIssueCommand.Location = new System.Drawing.Point(0, 0);
             this.txtboxIssueCommand.Name = "txtboxIssueCommand";
-            this.txtboxIssueCommand.Size = new System.Drawing.Size(549, 29);
+            this.txtboxIssueCommand.Size = new System.Drawing.Size(543, 29);
             this.txtboxIssueCommand.TabIndex = 49;
             this.txtboxIssueCommand.Text = " > Server is Not Running";
             this.toolTip1.SetToolTip(this.txtboxIssueCommand, "You can issue commands to the actively selected gameserver here.");
             this.txtboxIssueCommand.Enter += new System.EventHandler(this.txtboxIssueCommand_Enter);
+            this.txtboxIssueCommand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtboxIssueCommand_KeyPress);
             // 
             // consolePanel
             // 
@@ -249,17 +246,16 @@
             this.consolePanel.Controls.Add(this.consoleOutputList);
             this.consolePanel.Location = new System.Drawing.Point(18, 80);
             this.consolePanel.Name = "consolePanel";
-            this.consolePanel.Size = new System.Drawing.Size(692, 400);
+            this.consolePanel.Size = new System.Drawing.Size(692, 390);
             this.consolePanel.TabIndex = 50;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.txtboxIssueCommand);
             this.panel1.Controls.Add(this.btnSendCommand);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 370);
+            this.panel1.Location = new System.Drawing.Point(0, 359);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(692, 30);
+            this.panel1.Size = new System.Drawing.Size(693, 30);
             this.panel1.TabIndex = 51;
             // 
             // btnSendCommand
@@ -286,7 +282,7 @@
             this.btnSendCommand.IconVisible = true;
             this.btnSendCommand.IconZoom = 0D;
             this.btnSendCommand.IsTab = false;
-            this.btnSendCommand.Location = new System.Drawing.Point(549, 0);
+            this.btnSendCommand.Location = new System.Drawing.Point(550, 0);
             this.btnSendCommand.Name = "btnSendCommand";
             this.btnSendCommand.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(179)))), ((int)(((byte)(215)))));
             this.btnSendCommand.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(159)))), ((int)(((byte)(195)))));
@@ -313,6 +309,7 @@
             this.chkRedirectInOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkRedirectInOut.BackgroundImage")));
             this.chkRedirectInOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkRedirectInOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkRedirectInOut.Enabled = false;
             this.chkRedirectInOut.Location = new System.Drawing.Point(16, 493);
             this.chkRedirectInOut.Name = "chkRedirectInOut";
             this.chkRedirectInOut.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -322,12 +319,12 @@
             this.toolTip1.SetToolTip(this.chkRedirectInOut, "In the event that the server crashes or the process is terminated, it will be aut" +
         "omatically re-launched.");
             this.chkRedirectInOut.Value = true;
-            this.chkRedirectInOut.Visible = false;
             // 
             // lblRedirectInOut
             // 
             this.lblRedirectInOut.AutoSize = true;
             this.lblRedirectInOut.BackColor = System.Drawing.Color.Transparent;
+            this.lblRedirectInOut.Enabled = false;
             this.lblRedirectInOut.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblRedirectInOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblRedirectInOut.Location = new System.Drawing.Point(52, 494);
@@ -336,24 +333,11 @@
             this.lblRedirectInOut.TabIndex = 51;
             this.lblRedirectInOut.Text = "Redirect input/output to Borealis (Experimental)";
             this.toolTip1.SetToolTip(this.lblRedirectInOut, "Hide Server Window");
-            this.lblRedirectInOut.Visible = false;
             // 
             // backgroundWorker01
             // 
             this.backgroundWorker01.WorkerReportsProgress = true;
             this.backgroundWorker01.WorkerSupportsCancellation = true;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button1.Location = new System.Drawing.Point(321, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 29);
-            this.button1.TabIndex = 53;
-            this.button1.Text = "DEBUG";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // TAB_CONTROL
             // 
@@ -362,7 +346,6 @@
             this.BackgroundImage = global::Borealis.Properties.Resources.backdrop;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(725, 557);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.chkRedirectInOut);
             this.Controls.Add(this.lblRedirectInOut);
             this.Controls.Add(this.consolePanel);
@@ -405,6 +388,5 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnSendCommand;
         private Bunifu.Framework.UI.BunifuiOSSwitch chkRedirectInOut;
         private Bunifu.Framework.UI.BunifuCustomLabel lblRedirectInOut;
-        private System.Windows.Forms.Button button1;
     }
 }
