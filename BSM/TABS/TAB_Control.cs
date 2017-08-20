@@ -40,8 +40,8 @@ namespace Borealis
                         btnStartServer.Enabled = false;
                         chkAutoRestart.Enabled = false;
                         lblAutoRestart.Enabled = false;
-                        lblRedirectInOut.Enabled = false;
-                        chkRedirectInOut.Enabled = false;
+                        //lblRedirectInOut.Enabled = false;
+                        //chkRedirectInOut.Enabled = false;
                         btnStopServer.Enabled = true;
                     }
                     else
@@ -49,8 +49,8 @@ namespace Borealis
                         btnStartServer.Enabled = true;
                         chkAutoRestart.Enabled = true;
                         lblAutoRestart.Enabled = true;
-                        lblRedirectInOut.Enabled = true;
-                        chkRedirectInOut.Enabled = true;
+                        //lblRedirectInOut.Enabled = true;
+                        //chkRedirectInOut.Enabled = true;
                         btnStopServer.Enabled = false;
                     }
                     SubscribeToProcess(process);
@@ -168,16 +168,32 @@ namespace Borealis
                                 break;
                         }
 
-                        //CREATE THE PROCESS
-                        var process = ProcessManager.GetOrCreate(gameserver.SERVER_name_friendly,
-                            EngineSpecificDirectory, EngineSpecificArguments, new ProcessLaunchOptions
-                            {
-                                ShowWindowOnStart = false
-                            });
-                        
-                        //Start the Process!
-                        SubscribeToProcess(process);
-                        ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly)?.Start();
+                        if (chkRedirectInOut.Value == true)
+                        {
+                            //CREATE THE PROCESS
+                            var process = ProcessManager.GetOrCreate(gameserver.SERVER_name_friendly,
+                                EngineSpecificDirectory, EngineSpecificArguments, new ProcessLaunchOptions
+                                {
+                                    ShowWindowOnStart = false
+                                });
+
+                            //Start the Process!
+                            SubscribeToProcess(process);
+                            ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly)?.Start();
+                        }
+                        else
+                        {
+                            //CREATE THE PROCESS
+                            var process = ProcessManager.GetOrCreate(gameserver.SERVER_name_friendly,
+                                EngineSpecificDirectory, EngineSpecificArguments, new ProcessLaunchOptions
+                                {
+                                    ShowWindowOnStart = true
+                                });
+
+                            //Start the Process!
+                            SubscribeToProcess(process);
+                            ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly)?.Start();
+                        }
 
                         btnStartServer.Enabled = false;
                         btnStopServer.Enabled = true;
@@ -185,8 +201,8 @@ namespace Borealis
                         txtboxIssueCommand.Enabled = true;
                         txtboxIssueCommand.Text = "";
 
-                        chkRedirectInOut.Enabled = false;
-                        lblRedirectInOut.Enabled = false;
+                        //chkRedirectInOut.Enabled = false;
+                        //lblRedirectInOut.Enabled = false;
                     }
                 }
             }
@@ -198,8 +214,8 @@ namespace Borealis
             btnStartServer.Enabled = true;
             chkAutoRestart.Enabled = true;
             lblAutoRestart.Enabled = true;
-            chkRedirectInOut.Enabled = true;
-            lblRedirectInOut.Enabled = true;
+            //chkRedirectInOut.Enabled = true;
+            //lblRedirectInOut.Enabled = true;
             txtboxIssueCommand.Text = " > Server is Not Running";
             txtboxIssueCommand.Enabled = false;
 

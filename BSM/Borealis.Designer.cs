@@ -122,6 +122,7 @@
             this.bunifuImageButton1.TabIndex = 47;
             this.bunifuImageButton1.TabStop = false;
             this.MENU_TOOLTIPS.SetToolTip(this.bunifuImageButton1, "Detailed attribution and credits for contributors to the project.");
+            this.bunifuImageButton1.Visible = false;
             this.bunifuImageButton1.Zoom = 20;
             // 
             // btnExitProgram

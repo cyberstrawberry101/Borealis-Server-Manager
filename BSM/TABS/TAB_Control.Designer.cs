@@ -57,7 +57,6 @@
             this.chkAutoRestart.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkAutoRestart.BackgroundImage")));
             this.chkAutoRestart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkAutoRestart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAutoRestart.Enabled = false;
             this.chkAutoRestart.Location = new System.Drawing.Point(16, 521);
             this.chkAutoRestart.Name = "chkAutoRestart";
             this.chkAutoRestart.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -102,7 +101,6 @@
             // 
             this.lblAutoRestart.AutoSize = true;
             this.lblAutoRestart.BackColor = System.Drawing.Color.Transparent;
-            this.lblAutoRestart.Enabled = false;
             this.lblAutoRestart.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblAutoRestart.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblAutoRestart.Location = new System.Drawing.Point(52, 522);
@@ -309,7 +307,6 @@
             this.chkRedirectInOut.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chkRedirectInOut.BackgroundImage")));
             this.chkRedirectInOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chkRedirectInOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkRedirectInOut.Enabled = false;
             this.chkRedirectInOut.Location = new System.Drawing.Point(16, 493);
             this.chkRedirectInOut.Name = "chkRedirectInOut";
             this.chkRedirectInOut.OffColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(75)))), ((int)(((byte)(96)))));
@@ -324,7 +321,6 @@
             // 
             this.lblRedirectInOut.AutoSize = true;
             this.lblRedirectInOut.BackColor = System.Drawing.Color.Transparent;
-            this.lblRedirectInOut.Enabled = false;
             this.lblRedirectInOut.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblRedirectInOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.lblRedirectInOut.Location = new System.Drawing.Point(52, 494);
