@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Windows.Forms;
 using Newtonsoft.Json;
 
 namespace Borealis
@@ -100,6 +101,25 @@ namespace Borealis
         {
             string gameServersJson = JsonConvert.SerializeObject(ServerCollection, SerializerSettings);
             File.WriteAllText(Environment.CurrentDirectory + @"\gameservers.json", gameServersJson);
+        }
+
+        public static GameServerObject PropertyGetSet(string SERVER_name_friendly)
+        {
+            //Check to make sure the gameserver collection isn't empty.
+            if (ServerCollection != null)
+            {
+                //Iterate throught all gameservers in collection.
+                foreach (GameServerObject gameserver in ServerCollection)
+                {
+                    //Locate specific gameserver
+                    if (SERVER_name_friendly == gameserver.SERVER_name_friendly)
+                    {
+                        return gameserver;
+                    }
+                }
+                return null;
+            }
+            return null;
         }
     }
 
