@@ -378,7 +378,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "TAB_STEAMGUARD_TOKEN";
             this.Text = "About";
-            this.Load += new System.EventHandler(this.TAB_STEAMGUARD_TOKEN_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

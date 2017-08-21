@@ -7,7 +7,7 @@ namespace Borealis
     //===================================================================================//
     // MDI CONTAINER PAINTING OVERRIDE: Makes MDI child forms have no border             //
     //===================================================================================//
-    public static class MDI_Classes
+    public static class MDIClasses
         {
             [DllImport("user32.dll")]
             private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
@@ -16,7 +16,7 @@ namespace Borealis
             private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
             [DllImport("user32.dll", ExactSpelling = true)]
-            private static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+            private static extern int SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint uFlags);
 
             private const int GWL_EXSTYLE = -20;
             private const int WS_EX_CLIENTEDGE = 0x200;
@@ -34,7 +34,7 @@ namespace Borealis
 
             public static bool SetBevel(this Form form, bool show)
             {
-                foreach (System.Windows.Forms.Control c in form.Controls)
+                foreach (Control c in form.Controls)
                 {
                 MdiClient client = c as MdiClient;
                     if (client != null)

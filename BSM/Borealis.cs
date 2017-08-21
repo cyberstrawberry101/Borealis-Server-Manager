@@ -9,14 +9,6 @@ namespace Borealis
 {
     public partial class BorealisServerManager : Form
     {
-        //Delegate to control UI from another panel (Use with caution)
-        /*public static void OpenWorkshopPanel()
-        {
-            MDI_CURTAINHIDER.Visible = true;
-            tabForms.SelectedIndex = 0;
-            MDI_CURTAINHIDER.Visible = false;
-        }*/
-
         //===================================================================================//
         // MDI HANDLING CODE:                                                                //
         //===================================================================================//
@@ -30,18 +22,18 @@ namespace Borealis
 
         private void BorealisServerManager_MdiChildActivate(object sender, EventArgs e)
         {
-            if (this.ActiveMdiChild != null)
+            if (ActiveMdiChild != null)
             {
                 // If child form is new and no has tabPage, create new tabPage
-                if (this.ActiveMdiChild.Tag == null)
+                if (ActiveMdiChild.Tag == null)
                 {
                     // Add a tabPage to tabControl with child form caption
-                    TabPage tp = new TabPage(this.ActiveMdiChild.Text);
-                    tp.Tag = this.ActiveMdiChild;
+                    TabPage tp = new TabPage(ActiveMdiChild.Text);
+                    tp.Tag = ActiveMdiChild;
                     tp.Parent = tabForms;
                     tabForms.SelectedTab = tp;
 
-                    this.ActiveMdiChild.Tag = tp;
+                    ActiveMdiChild.Tag = tp;
                 }
             }
         }
@@ -49,22 +41,19 @@ namespace Borealis
         public BorealisServerManager()
         {
             InitializeComponent();
-
         }
-
         [DllImport("user32.dll")]
-        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
+        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDc);
         [DllImport("User32.dll")]
 
         private static extern IntPtr GetWindowDC(IntPtr hWnd);
 
-        protected override void WndProc(ref System.Windows.Forms.Message m)
+        protected override void WndProc(ref Message m)
         {
-            const int WM_NCPAINT = 0x85;
+            const int wmNcpaint = 0x85;
             base.WndProc(ref m);
 
-            if (m.Msg == WM_NCPAINT)
+            if (m.Msg == wmNcpaint)
             {
 
                 IntPtr hdc = GetWindowDC(m.HWnd);
@@ -95,10 +84,10 @@ namespace Borealis
             this.SetBevel(false);
 
             //Display current product version.
-            lblVersion.Text = "Version " + Application.ProductVersion + " Alpha";
+            lblVersion.Text = $"Version {Application.ProductVersion} Alpha";
 
             //Store all gameservers into memory to be used by Borealis.
-            GameServer_Management.configRead();
+            GameServerManagement.ConfigRead();
 
 
             // Instantiate all Panels Immediately
@@ -125,7 +114,7 @@ namespace Borealis
         //===================================================================================//
         // TAB ANIMATION AND SWITCHING CODE:                                                 //
         //===================================================================================//
-        public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton SelectedTab, Panel SelectedIndicator, bool SelectNewTab)
+        public void tab_animate(Bunifu.Framework.UI.BunifuFlatButton selectedTab, Panel selectedIndicator, bool selectNewTab)
         {
             //Deactivate all other tabs
             dashboard_indicator.Visible = deployment_indicator.Visible = management_indicator.Visible = control_indicator.Visible = scheduledtasks_indicator.Visible = false;
@@ -133,13 +122,13 @@ namespace Borealis
             dashboard_tab.Activecolor = deployment_tab.Activecolor = management_tab.Activecolor = control_tab.Activecolor = scheduledtasks_tab.Activecolor = Color.FromArgb(26, 32, 40);
             dashboard_tab.BackColor = deployment_tab.BackColor = management_tab.BackColor = control_tab.BackColor = scheduledtasks_tab.BackColor = Color.FromArgb(26, 32, 40);
 
-            if (SelectNewTab == true)
+            if (selectNewTab) //If True
             {
                 //Make selected tab active
-                SelectedTab.Textcolor = Color.FromArgb(67, 181, 129);
-                SelectedTab.Activecolor = Color.FromArgb(16, 22, 30);
-                SelectedTab.BackColor = Color.FromArgb(16, 22, 30);
-                SelectedIndicator.Visible = true;
+                selectedTab.Textcolor = Color.FromArgb(67, 181, 129);
+                selectedTab.Activecolor = Color.FromArgb(16, 22, 30);
+                selectedTab.BackColor = Color.FromArgb(16, 22, 30);
+                selectedIndicator.Visible = true;
             }
         }
 
@@ -181,20 +170,20 @@ namespace Borealis
         private void btnExitProgram_Click(object sender, EventArgs e)
         {
             notifyIcon1.Dispose(); //Dispose of Notification Tray Icon
-            this.Close();
+            Close();
         }
         private void BorealisServerManager_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Write data in memory to disk into gameservers.json
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
                 //Delete existing gameservers.json
-                if (System.IO.File.Exists(Environment.CurrentDirectory + @"\gameservers.json"))
+                if (File.Exists(Environment.CurrentDirectory + @"\gameservers.json"))
                 {
-                    System.IO.File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
+                    File.Delete(Environment.CurrentDirectory + @"\gameservers.json");
                 }
 
-                GameServer_Management.configWrite();
+                GameServerManagement.ConfigWrite();
             }
         }
 
@@ -209,9 +198,9 @@ namespace Borealis
                 AnimateMenuBar("expand");
             }
 
-            void AnimateMenuBar(string ToggleStatus)
+            void AnimateMenuBar(string toggleStatus)
             {
-                if (ToggleStatus == "expand")
+                if (toggleStatus == "expand")
                 {
                     menuBarPanel.Visible = true;
                     //menuBarTransition.ShowSync(menuBarPanel);  //Need to get this to work properly and smoothly.
@@ -229,7 +218,7 @@ namespace Borealis
                     //logoAnimator.ShowSync(largeLogo);
                 }
 
-                if (ToggleStatus == "compress")
+                if (toggleStatus == "compress")
                 {
                     //menuBarTransition.HideSync(menuBarPanel);  //Need to get this to work properly and smoothly.
                     //menuBarPanel.Visible = false;

@@ -8,33 +8,32 @@ namespace Borealis
 {
     public partial class TAB_DASHBOARD : Form
     {
-        private readonly System_Monitoring _systemMonitoring;
+        private readonly SystemMonitoring _systemMonitoring;
 
         public TAB_DASHBOARD()
         {
-            this.InitializeComponent();
-            this._systemMonitoring = new System_Monitoring();
+            InitializeComponent();
+            _systemMonitoring = new SystemMonitoring();
         }
 
         public void RefreshData()
         {
             //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                if (GameServer_Management.server_collection.Count != 0)
+                if (GameServerManagement.ServerCollection.Count != 0)
                 {
-                    this.overallServerStatsGrid.Rows.Clear();
-                    foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                    overallServerStatsGrid.Rows.Clear();
+                    foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                     {
                         var isRunning = ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly)?.IsRunning ?? false;
-                        this.overallServerStatsGrid.Rows.Add(gameserver.SERVER_name_friendly, gameserver.SERVER_type, "0.0GB", "0.0GB", "0.0%", "0 Kb/s", isRunning, "No");
+                        overallServerStatsGrid.Rows.Add(gameserver.SERVER_name_friendly, gameserver.SERVER_type, "0.0GB", "0.0GB", "0.0%", "0 Kb/s", isRunning, "No");
                     }
-
-                    this.overallServerStatsGrid.Visible = true; //Show Table only if values have been added.
+                    overallServerStatsGrid.Visible = true; //Show Table only if values have been added.
                 }
                 else
                 {
-                    this.overallServerStatsGrid.Visible = false; //Hide Table
+                    overallServerStatsGrid.Visible = false; //Hide Table
                 }
             }
         }
@@ -56,7 +55,7 @@ namespace Borealis
         //===================================================================================//
         private void GSM_Performance_Dashboard_Load(object sender, EventArgs e)
         {
-            this.backgroundMetrics.RunWorkerAsync();
+            backgroundMetrics.RunWorkerAsync();
         }
 
         //===================================================================================//
@@ -67,13 +66,13 @@ namespace Borealis
 
             var dashboardInfo = new DashboardInfo
             {
-                TotalRAM = this._systemMonitoring.RetreiveTotalAvailableRAM(),
-                RAM = this._systemMonitoring.RetreiveTotalAvailableRAM() - this._systemMonitoring.RetreiveFreeRAM(),
-                DiskUsed = this._systemMonitoring.RetrieveDISKInfo(@"C:\", false, true, false),
-                DiskTotal = this._systemMonitoring.RetrieveDISKInfo(@"C:\", true, false, false),
-                CPU = this._systemMonitoring.RetrieveCPUUsage(),
-                LAN_DOWN = this._systemMonitoring.RetrieveLANUsage(true, false),
-                LAN_UP = this._systemMonitoring.RetrieveLANUsage(false, true)
+                TotalRAM = _systemMonitoring.RetreiveTotalAvailableRAM(),
+                RAM = _systemMonitoring.RetreiveTotalAvailableRAM() - _systemMonitoring.RetreiveFreeRAM(),
+                DiskUsed = _systemMonitoring.RetrieveDISKInfo(@"C:\", false, true, false),
+                DiskTotal = _systemMonitoring.RetrieveDISKInfo(@"C:\", true, false, false),
+                CPU = _systemMonitoring.RetrieveCPUUsage(),
+                LAN_DOWN = _systemMonitoring.RetrieveLANUsage(true, false),
+                LAN_UP = _systemMonitoring.RetrieveLANUsage(false, true)
             };
 
             return dashboardInfo;
@@ -85,7 +84,7 @@ namespace Borealis
 
             while (!worker.CancellationPending)
             {
-                DashboardInfo dashboardInfo = this.GetInfo();
+                DashboardInfo dashboardInfo = GetInfo();
                 worker.ReportProgress(0, dashboardInfo);
 
                 Thread.Sleep(200);
@@ -139,27 +138,27 @@ namespace Borealis
                 progressDISKUsage.ProgressColor = Color.FromArgb(191, 45, 66);
             }
 
-            this.progressRAMUsage.Value = (int)((info.RAM / (double)info.TotalRAM) * 100);
-            this.lblDetailedRAMUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.RAM / 1024.0, info.TotalRAM / 1024.0);
+            progressRAMUsage.Value = (int)((info.RAM / (double)info.TotalRAM) * 100);
+            lblDetailedRAMUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.RAM / 1024.0, info.TotalRAM / 1024.0);
 
-            this.progressDISKUsage.Value = (int)(info.DiskUsed / info.DiskTotal * 100);
-            this.lblDetailedDISKUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.DiskUsed, info.DiskTotal);
+            progressDISKUsage.Value = (int)(info.DiskUsed / info.DiskTotal * 100);
+            lblDetailedDISKUsage.Text = string.Format("{0:0.00} GB / {1:0.00} GB", info.DiskUsed, info.DiskTotal);
 
-            this.progressCPUUsage.Value = (int)(info.CPU);
-            this.lblDetailedCPUUsage.Text = string.Format("{0}% @ {1}-Cores", info.CPU, Environment.ProcessorCount);
+            progressCPUUsage.Value = (info.CPU);
+            lblDetailedCPUUsage.Text = string.Format("{0}% @ {1}-Cores", info.CPU, Environment.ProcessorCount);
 
-            this.progressLANUsage.Value = (int)(info.LAN_DOWN); //PLACEHOLDER 0 Kb/s RX / 0 Kb/s TX
-            this.lblDetailedLANUsage.Text = string.Format("{0} Kb/s TX {1} Kb/s RX", Convert.ToString(info.LAN_UP), Convert.ToString(info.LAN_DOWN));
+            progressLANUsage.Value = (int)(info.LAN_DOWN); //PLACEHOLDER 0 Kb/s RX / 0 Kb/s TX
+            lblDetailedLANUsage.Text = string.Format("{0} Kb/s TX {1} Kb/s RX", info.LAN_UP, info.LAN_DOWN);
         }
 
         private void backgroundMetrics_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.RefreshUI(e.UserState as DashboardInfo);
+            RefreshUI(e.UserState as DashboardInfo);
         }
 
         private void ServerDashboard_Activated(object sender, EventArgs e)
         {
-            this.RefreshData();
+            RefreshData();
         }
     }
 }

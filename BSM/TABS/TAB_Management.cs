@@ -18,9 +18,9 @@ namespace Borealis
         //===================================================================================//
         private void GSM_Management_Load(object sender, EventArgs e)
         {
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
@@ -29,8 +29,8 @@ namespace Borealis
 
         private void btnUpdateServerConfig_Click(object sender, EventArgs e)
         {
-            //Locate the associated GameServer_Object, and allow the user to edit the values associated with them.
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            //Locate the associated GameServerObject, and allow the user to edit the values associated with them.
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
@@ -43,7 +43,7 @@ namespace Borealis
             }
 
             //Notify the user that the data has been committed to memory, and warn them that if Borealis crashes, they will lose their changes.
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "The gameserver has been updated!\nPlease note: if Borealis crashes unexpectedly, these changes will be reverted.", "Changes Saved!", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MetroMessageBox.Show(ActiveForm, "The gameserver has been updated!\nPlease note: if Borealis crashes unexpectedly, these changes will be reverted.", "Changes Saved!", MessageBoxButtons.OK, MessageBoxIcon.Question);
 
             //Update the panel information after committing the updates to the gameserver.
             RefreshData();
@@ -52,11 +52,11 @@ namespace Borealis
         //Methods that handle reporting progress back to the UI
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
-                    //Populate applicable data fields using data from GameServer_Object
+                    //Populate applicable data fields using data from GameServerObject
                     txtboxFriendlyName.Text = gameserver.SERVER_name_friendly;
                     txtboxArguments.Text = gameserver.SERVER_launch_arguments;
                     btnSteamWorkshop.Enabled = gameserver.STEAM_workshop_enabled;
@@ -106,9 +106,9 @@ namespace Borealis
         public void RefreshData()
         {
             comboboxGameserverList.Items.Clear();
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
@@ -122,8 +122,8 @@ namespace Borealis
 
         private void btnDestroyServer_Click_1(object sender, EventArgs e)
         {
-            //Locate the associated GameServer_Object, and allow the user to edit the values associated with them.
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            //Locate the associated GameServerObject, and allow the user to edit the values associated with them.
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
@@ -133,8 +133,8 @@ namespace Borealis
 
                     if (result == DialogResult.Yes)
                     {
-                        int GameServer_ObjectIndex = GameServer_Management.server_collection.FindIndex(x => x==gameserver);
-                        GameServer_Management.server_collection.RemoveAt(GameServer_ObjectIndex);
+                        int GameServer_ObjectIndex = GameServerManagement.ServerCollection.FindIndex(x => x==gameserver);
+                        GameServerManagement.ServerCollection.RemoveAt(GameServer_ObjectIndex);
 
                         //Clear the text fields since the server no longer exists, to simply tidy things up.
                         txtboxFriendlyName.Text = "";
@@ -166,7 +166,7 @@ namespace Borealis
 
         private void chkFirewallToggle_OnChange(object sender, EventArgs e)
         {
-            if (chkFirewallToggle.Checked == true)
+            if (chkFirewallToggle.Checked)
             {
                 lblAddFirewallRule.Text = "Firewall Rule [Enabled]";
             }

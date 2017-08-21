@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
-    public class System_Monitoring
+    public class SystemMonitoring
     {
         private readonly ComputerInfo _computerInfo = new ComputerInfo();
 
@@ -16,12 +16,12 @@ namespace Borealis
         //===================================================================================//
         public long RetreiveFreeRAM()
         {
-            return (long)(this._computerInfo.AvailablePhysicalMemory / 1024 / 1024);
+            return (long)(_computerInfo.AvailablePhysicalMemory / 1024 / 1024);
         }
 
         public long RetreiveTotalAvailableRAM()
         {
-            return (long)(this._computerInfo.TotalPhysicalMemory / 1024 / 1024);
+            return (long)(_computerInfo.TotalPhysicalMemory / 1024 / 1024);
         }
 
         //===================================================================================//
@@ -48,23 +48,23 @@ namespace Borealis
         //===================================================================================//
         // DISK UTILIZATION INFO FUNCTIONS                                                   //
         //===================================================================================//
-        public double RetrieveDISKInfo(string driveName, bool TotalSize, bool TotalUsed, bool PercentUsed)
+        public double RetrieveDISKInfo(string driveName, bool totalSize, bool totalUsed, bool percentUsed)
         {
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
                 if (drive.IsReady && drive.Name == driveName)
                 {
-                    if (TotalSize == true)
+                    if (totalSize)
                     {
                         return (drive.TotalSize / (1024 * 1024 * 1024));
                     }
-                    if (TotalUsed == true)
+                    if (totalUsed)
                     {
                         return (drive.TotalSize - drive.AvailableFreeSpace) / (1024 * 1024 * 1024);
                     }
-                    if (PercentUsed == true)
+                    if (percentUsed)
                     {
-                        return ((((double)drive.TotalSize - (double)drive.AvailableFreeSpace) / ((double)drive.TotalSize)) * 100);
+                        return (((drive.TotalSize - drive.AvailableFreeSpace) / (drive.TotalSize)) * 100);
                     }
                 }
             }
@@ -104,7 +104,7 @@ namespace Borealis
             {
                 NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
 
-                if (bytesIn == true)
+                if (bytesIn)
                 {
                     foreach (NetworkInterface ni in interfaces)
                     {
@@ -112,7 +112,7 @@ namespace Borealis
                     }
                 }
 
-                if (bytesOut == true)
+                if (bytesOut)
                 {
                     foreach (NetworkInterface ni in interfaces)
                     {

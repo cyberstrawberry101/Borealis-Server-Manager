@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.IO.Compression;
 
 namespace Borealis
@@ -10,11 +11,10 @@ namespace Borealis
         //===================================================================================//
         public static void DownloadSteamCMD()
         {
-            TAB_DEPLOYMENT ServerDeploymentDelegate = new TAB_DEPLOYMENT();
-            if (System.IO.File.Exists(Environment.CurrentDirectory + @"\steamcmd.exe") == false)
+            if (File.Exists(Environment.CurrentDirectory + @"\steamcmd.exe") == false)
             {
                 //Create server directory for SteamCMD
-                System.IO.FileInfo file = new System.IO.FileInfo(Environment.CurrentDirectory);
+                FileInfo file = new FileInfo(Environment.CurrentDirectory);
                 file.Directory.Create();
 
                 //Download SteamCMD.zip to Borealis directory
@@ -28,7 +28,7 @@ namespace Borealis
                 ZipFile.ExtractToDirectory(Environment.CurrentDirectory + @"\SteamCMD.zip", Environment.CurrentDirectory);
 
                 //Delete old zip file.
-                System.IO.File.Delete(Environment.CurrentDirectory + @"\SteamCMD.zip");
+                File.Delete(Environment.CurrentDirectory + @"\SteamCMD.zip");
             }
         }
     }

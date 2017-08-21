@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Serilog;
 
 namespace Borealis
 {
@@ -9,12 +8,12 @@ namespace Borealis
         //===================================================================================//
         // Download Config Data via API into Memory                                          //
         //===================================================================================//
-        public static GameServer_Object QUERY_DATA(string appID)
+        public static GameServerObject QUERY_DATA(string appID)
         {
             using (var webClient = new System.Net.WebClient())
             {
                 var json = webClient.DownloadString("http://phantom-net.duckdns.org:1337/config/" + appID);
-                return JsonConvert.DeserializeObject<GameServer_Object>(json);
+                return JsonConvert.DeserializeObject<GameServerObject>(json);
             }
         }
 

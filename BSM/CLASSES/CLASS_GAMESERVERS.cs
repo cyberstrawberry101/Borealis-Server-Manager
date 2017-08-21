@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices;
 using Newtonsoft.Json;
-using System.Threading;
 
 namespace Borealis
 {
-    public class GameServer_Object
+    public class GameServerObject
     {
         //Server-based Properties
         public string SERVER_name_friendly { get; set; }    //User-designated name
@@ -43,9 +39,9 @@ namespace Borealis
         public bool bsm_custominstallfolder { get; set; }   //Determines whether the user gave a custom install folder or not.
     }
 
-    public static class GameServer_Management
+    public static class GameServerManagement
     {
-        private static readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
+        private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             Formatting = Formatting.Indented
         };
@@ -53,29 +49,29 @@ namespace Borealis
         //=====================================================================================//
         // Store all gameservers into a collections in memory                                  //
         //=====================================================================================//
-        public static List<GameServer_Object> server_collection = new List<GameServer_Object>(); //Master collection of deployed gameservers
+        public static List<GameServerObject> ServerCollection = new List<GameServerObject>(); //Master collection of deployed gameservers
 
         //=====================================================================================//
         // Method to add a gameserver JObject to the collection                                //
         //=====================================================================================//
-        public static void gameserverAdd(GameServer_Object gameserver)
+        public static void GameserverAdd(GameServerObject gameserver)
         {
-            server_collection.Add(gameserver);
+            ServerCollection.Add(gameserver);
         }
 
         //=====================================================================================//
         // Method to import all jsonstrings from gameservers.json into the JObject collection  //
         //=====================================================================================//
-        public static void configRead()
+        public static void ConfigRead()
         {
             string gameServerJson = File.ReadAllText(Environment.CurrentDirectory + @"\gameservers.json");
 
             if (gameServerJson[0] == '[')
             {
                 // Use the new parsing method
-                var gameServers = JsonConvert.DeserializeObject<IEnumerable<GameServer_Object>>(gameServerJson, _serializerSettings);
+                var gameServers = JsonConvert.DeserializeObject<IEnumerable<GameServerObject>>(gameServerJson, SerializerSettings);
 
-                server_collection.AddRange(gameServers);
+                ServerCollection.AddRange(gameServers);
             }
             else
             {
@@ -92,17 +88,17 @@ namespace Borealis
 
                     if (bracketCount == 0 && c != ' ')
                     {
-                        var importedServer = JsonConvert.DeserializeObject<GameServer_Object>(json.ToString());
-                        gameserverAdd(importedServer);
+                        var importedServer = JsonConvert.DeserializeObject<GameServerObject>(json.ToString());
+                        GameserverAdd(importedServer);
 
                         json.Clear();
                     }
                 }
             }
         }
-        public static void configWrite()
+        public static void ConfigWrite()
         {
-            string gameServersJson = JsonConvert.SerializeObject(server_collection, _serializerSettings);
+            string gameServersJson = JsonConvert.SerializeObject(ServerCollection, SerializerSettings);
             File.WriteAllText(Environment.CurrentDirectory + @"\gameservers.json", gameServersJson);
         }
     }

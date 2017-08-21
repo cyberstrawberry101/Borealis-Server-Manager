@@ -18,9 +18,9 @@ namespace Borealis
         private void ServerControl_Load(object sender, EventArgs e)
         {
             //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
@@ -29,13 +29,13 @@ namespace Borealis
 
         private void comboboxGameserverList_SelectedValueChanged(object sender, EventArgs e)
         {
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
                     var process = ProcessManager.GetProcessByNickname(gameserver.SERVER_name_friendly);
                     var isRunning = process?.IsRunning ?? false;
-                    if (isRunning == true)
+                    if (isRunning)
                     {
                         btnStartServer.Enabled = false;
                         chkAutoRestart.Enabled = false;
@@ -94,9 +94,9 @@ namespace Borealis
         {
             UnsubscribeToProcess();
             comboboxGameserverList.Items.Clear();
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }
@@ -113,15 +113,15 @@ namespace Borealis
         //===================================================================================//
         private void btnStartServer_Click(object sender, EventArgs e)
         {
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                     {
                         //These strings tell the process manager how exactly to start the server processes based on the engine they use.
-                        string EngineSpecificDirectory = null;
-                        string EngineSpecificArguments = null;
+                        string engineSpecificDirectory = null;
+                        string engineSpecificArguments = null;
 
                         switch (gameserver.ENGINE_type)
                         {
@@ -144,35 +144,31 @@ namespace Borealis
                                 // overwrite the destination file if it already exists.
                                 System.IO.File.Copy(sourceFile, destFile, true);
                                 
-                                EngineSpecificDirectory = gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\SrcdsConRedirect.exe";
-                                EngineSpecificArguments = string.Format("-console {0} +port {1} +map {2} +maxplayers {3}",
-                                    gameserver.SERVER_launch_arguments,
-                                    gameserver.SERVER_port,
-                                    gameserver.GAME_map,
-                                    gameserver.GAME_maxplayers);
+                                engineSpecificDirectory = gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + @"\SrcdsConRedirect.exe";
+                                engineSpecificArguments =
+                                    $"-console {gameserver.SERVER_launch_arguments} +port {gameserver.SERVER_port} +map {gameserver.GAME_map} +maxplayers {gameserver.GAME_maxplayers}";
                                 break;
 
                             case "UNREAL":
-                                EngineSpecificDirectory =
+                                engineSpecificDirectory =
                                     gameserver.DIR_install_location + @"\steamapps\common" + gameserver.DIR_root + gameserver.SERVER_executable;
-                                EngineSpecificArguments = string.Format("{0}{1}?maxplayers={3}",
+                                engineSpecificArguments = string.Format("{0}{1}?maxplayers={3}",
                                     gameserver.GAME_map,
                                     gameserver.SERVER_launch_arguments,
-                                    gameserver.SERVER_port,
                                     gameserver.GAME_maxplayers);
                                 break;
 
                             case "GENERIC":
-                                EngineSpecificDirectory = gameserver.DIR_install_location + gameserver.DIR_root + gameserver.SERVER_executable;
-                                EngineSpecificArguments = gameserver.SERVER_launch_arguments;
+                                engineSpecificDirectory = gameserver.DIR_install_location + gameserver.DIR_root + gameserver.SERVER_executable;
+                                engineSpecificArguments = gameserver.SERVER_launch_arguments;
                                 break;
                         }
 
-                        if (chkRedirectInOut.Value == true)
+                        if (chkRedirectInOut.Value)
                         {
                             //CREATE THE PROCESS
                             var process = ProcessManager.GetOrCreate(gameserver.SERVER_name_friendly,
-                                EngineSpecificDirectory, EngineSpecificArguments, new ProcessLaunchOptions
+                                engineSpecificDirectory, engineSpecificArguments, new ProcessLaunchOptions
                                 {
                                     ShowWindowOnStart = false
                                 });
@@ -185,7 +181,7 @@ namespace Borealis
                         {
                             //CREATE THE PROCESS
                             var process = ProcessManager.GetOrCreate(gameserver.SERVER_name_friendly,
-                                EngineSpecificDirectory, EngineSpecificArguments, new ProcessLaunchOptions
+                                engineSpecificDirectory, engineSpecificArguments, new ProcessLaunchOptions
                                 {
                                     ShowWindowOnStart = true
                                 });
@@ -219,7 +215,7 @@ namespace Borealis
             txtboxIssueCommand.Text = " > Server is Not Running";
             txtboxIssueCommand.Enabled = false;
 
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
@@ -233,14 +229,9 @@ namespace Borealis
             txtboxIssueCommand.Text = "";
         }
 
-        private void txtboxIssueCommand_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtboxIssueCommand.Text = "";
-        }
-
         private void btnSendCommand_Click(object sender, EventArgs e)
         {
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                 {
@@ -255,7 +246,7 @@ namespace Borealis
         {
             if (e.KeyChar == (char)13)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     if (gameserver.SERVER_name_friendly == comboboxGameserverList.Text)
                     {

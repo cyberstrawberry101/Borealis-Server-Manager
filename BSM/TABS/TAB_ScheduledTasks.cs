@@ -18,19 +18,19 @@ namespace Borealis
 
         private void bunifuFlatButton2_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "You have not chosen a task to remove.  Please select a task from the list below.", "No Scheduled Task Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MetroMessageBox.Show(ActiveForm, "You have not chosen a task to remove.  Please select a task from the list below.", "No Scheduled Task Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
-            MetroMessageBox.Show(BorealisServerManager.ActiveForm, "You have not chosen a task to modify.  Please select a task from the list below.", "No Scheduled Task Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MetroMessageBox.Show(ActiveForm, "You have not chosen a task to modify.  Please select a task from the list below.", "No Scheduled Task Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)
         {
             if (txtboxTaskName.Text == "" || txtboxCommand.Text == "" || txtboxRunTime.Text == "")
             {
-                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "You have not filled out all required fields.", "Empty Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(ActiveForm, "You have not filled out all required fields.", "Empty Field", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -50,9 +50,9 @@ namespace Borealis
 
         private void TAB_SCHEDULEDTASKS_Load(object sender, EventArgs e)
         {
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
                     comboboxGameserverList.Items.Add(gameserver.SERVER_name_friendly);
                 }

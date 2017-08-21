@@ -17,7 +17,7 @@ namespace Borealis
 
         public TAB_DEPLOYMENT()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
         private async Task<IList<GameserverType>> RefreshDataAsync()
@@ -40,19 +40,20 @@ namespace Borealis
                 Log.Error(ex, "Could not load the gameserver list");
                 throw;
             }
-        }
+        } 
+
         private class GameserverType
         {
             public string Id { get; }
-            public string Name { get; }
+            private string Name { get; }
 
             public GameserverType(string id, string name)
             {
-                this.Id = id;
-                this.Name = name;
+                Id = id;
+                Name = name;
             }
 
-            public override string ToString() => this.Name;
+            public override string ToString() => Name;
         }
 
         //===================================================================================//
@@ -62,14 +63,14 @@ namespace Borealis
         {
             try
             {
-                IList<GameserverType> gameserverTypes = await this.RefreshDataAsync();
+                IList<GameserverType> gameserverTypes = await RefreshDataAsync();
 
                 foreach (GameserverType serverName in gameserverTypes)
                 {
-                    this.dropdownServerSelection.Items.Add(serverName);
+                    dropdownServerSelection.Items.Add(serverName);
                 }
 
-                this.dropdownServerSelection.PromptText = "< Select a gameserver to deploy >";
+                dropdownServerSelection.PromptText = "< Select a gameserver to deploy >";
             }
             catch (Exception)
             {
@@ -82,51 +83,51 @@ namespace Borealis
         {
             if (e.Data != null)
             {
-                this.Invoke(new Action(() =>
+                Invoke(new Action(() =>
                 {
-                    if (this._currentDeploymentValues == null)
+                    if (_currentDeploymentValues == null)
                         return;
 
-                    this.lblDownloadProgressDetails.Text = e.Data;
+                    lblDownloadProgressDetails.Text = e.Data;
 
                     // I'm a bit uneasy with directly calling .Groups, what happens when there isn't a match?
                     string progressMatch = Regex.Match(e.Data, @"\:([^)]*)\(").Groups[1].Value;
                     if (double.TryParse(progressMatch, out double result))
                     {
-                        this.progressbarDownloadProgressOverall.Value = Convert.ToInt32(result);
+                        progressbarDownloadProgressOverall.Value = Convert.ToInt32(result);
                     }
 
-                    if (this._currentDeploymentValues.STEAM_steamcmd_required)
+                    if (_currentDeploymentValues.STEAM_steamcmd_required)
                     {
-                        string steamAppId = ((GameserverType)this.dropdownServerSelection.SelectedItem).Id;
+                        string steamAppId = ((GameserverType)dropdownServerSelection.SelectedItem).Id;
 
                         if (e.Data == "Success! App '" + steamAppId + "' already up to date." || e.Data == "Success! App '" + steamAppId + "' fully installed." || e.Data == "[----] Update complete, launching..." || e.Data == "[---] Update complete, launching...")
                         {
-                            this.progressbarDownloadProgressOverall.Value = 100;
-                            this.serverStoreInMemory();
-                            this.lblDownloadProgress.Text = "GameServer Deployed / Updated Successfully!";
-                            this.lblVerifyIntegrity.Visible = true;
-                            this.chkVerifyIntegrity.Visible = true;
-                            this.lblSteamToken.Enabled = false;
-                            this.txtSteamToken.Enabled = false;
-                            this.btnSteamToken.Enabled = false;
+                            progressbarDownloadProgressOverall.Value = 100;
+                            serverStoreInMemory();
+                            lblDownloadProgress.Text = "GameServer Deployed / Updated Successfully!";
+                            lblVerifyIntegrity.Visible = true;
+                            chkVerifyIntegrity.Visible = true;
+                            lblSteamToken.Enabled = false;
+                            txtSteamToken.Enabled = false;
+                            btnSteamToken.Enabled = false;
                             //MetroMessageBox.Show(BorealisServerManager.ActiveForm, txtServerGivenName.Text + "\n" + "Deployed to: [" + DeploymentValues.DIR_install_location + "]", "Gameserver Successfully Deployed!", MessageBoxButtons.OK, MessageBoxIcon.Question);
                             //panelProgress.Visible = false;
                         }
                         else if (e.Data == "Error! App '" + steamAppId + "' state is 0x202 after update job." || e.Data == "Error! App '" + steamAppId + "' state is 0x602 after update job.")
                         {
-                            this.btnDeployGameserver.Enabled = false;
-                            this.btnCancelDeployGameserver.Visible = true;
-                            this.serverDeploy(this._currentDeploymentValues);
+                            btnDeployGameserver.Enabled = false;
+                            btnCancelDeployGameserver.Visible = true;
+                            serverDeploy(_currentDeploymentValues);
                         }
                         else if (e.Data == "Enter the current code from your Steam Guard Mobile Authenticator app" || e.Data == "Two-factor code:" || e.Data == "Please check your email for the message from Steam, and enter the Steam Guard" || e.Data == "code from that message." || e.Data == "Please check your email for the message from Steam, and enter the Steam Guard code from that message.")
                         {
-                            this.lblSteamToken.Enabled = true;
-                            this.txtSteamUsername.Text = "";
-                            this.txtSteamPassword.Text = "";
-                            this.txtSteamToken.Text = "INPUT CODE";
-                            this.txtSteamToken.Enabled = true;
-                            this.btnSteamToken.Enabled = true;
+                            lblSteamToken.Enabled = true;
+                            txtSteamUsername.Text = "";
+                            txtSteamPassword.Text = "";
+                            txtSteamToken.Text = "INPUT CODE";
+                            txtSteamToken.Enabled = true;
+                            btnSteamToken.Enabled = true;
                         }
                         else if (e.Data == "Logged in OK" || e.Data == "Waiting for License info...OK")
                         {
@@ -171,16 +172,16 @@ namespace Borealis
         //Method to deploy gameservers given values from the DeploymentValues class
         private void serverDeploy(DeploymentValues deploymentValues)
         {
-            this._currentDeploymentValues = deploymentValues;
+            _currentDeploymentValues = deploymentValues;
 
             //Enable cancel button to terminate deployment process if needed.
-            this.lblDownloadProgressDetails.Text = "Status: Downloading " + this.dropdownServerSelection.Text + "...";
+            lblDownloadProgressDetails.Text = "Status: Downloading " + dropdownServerSelection.Text + "...";
 
             switch (deploymentValues.STEAM_steamcmd_required)
             {
                 case true:
                     {
-                        this.lblDownloadProgressDetails.Text = "Status: Downloading / Initializing SteamCMD...";
+                        lblDownloadProgressDetails.Text = "Status: Downloading / Initializing SteamCMD...";
                         SteamCMD.DownloadSteamCMD();
                         switch (deploymentValues.STEAM_authrequired)
                         {
@@ -193,7 +194,7 @@ namespace Borealis
                                         txtSteamUsername.Text,
                                         txtSteamPassword.Text,
                                         deploymentValues.DIR_install_location,
-                                        ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text),
+                                        ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text),
                                         deploymentValues.verify_integrity);
 
                                 SteamGuardProcess.StartInfo.FileName = Environment.CurrentDirectory + @"\steamcmd.exe";
@@ -213,10 +214,10 @@ namespace Borealis
                             case false:
                                 try
                                 {
-                                    this.Execute(Environment.CurrentDirectory + @"\steamcmd.exe",
+                                    Execute(Environment.CurrentDirectory + @"\steamcmd.exe",
                                         string.Format(@"+login anonymous +force_install_dir {0} +app_update {1} {2} +quit",
                                         deploymentValues.DIR_install_location,
-                                        ServerAPI.QUERY_STEAM_APPID(this.dropdownServerSelection.Text),
+                                        ServerAPI.QUERY_STEAM_APPID(dropdownServerSelection.Text),
                                         deploymentValues.verify_integrity), true);
 
                                 }
@@ -238,15 +239,15 @@ namespace Borealis
         }
         private void serverStoreInMemory()
         {
-            //Create the GameServer_Object
-            GameServer_Object deployConfiguredServer = new GameServer_Object();
+            //Create the GameServerObject
+            GameServerObject deployConfiguredServer = new GameServerObject();
 
-            //Assign Data to the GameServer_Object
+            //Assign Data to the GameServerObject
             //Server-based Properties
-            deployConfiguredServer.SERVER_name_friendly = this.txtServerGivenName.Text;
-            deployConfiguredServer.SERVER_type = this._currentDeploymentValues.SERVER_type;
-            deployConfiguredServer.SERVER_launch_arguments = this._currentDeploymentValues.SERVER_launch_arguments;
-            deployConfiguredServer.SERVER_executable = this._currentDeploymentValues.SERVER_executable;
+            deployConfiguredServer.SERVER_name_friendly = txtServerGivenName.Text;
+            deployConfiguredServer.SERVER_type = _currentDeploymentValues.SERVER_type;
+            deployConfiguredServer.SERVER_launch_arguments = _currentDeploymentValues.SERVER_launch_arguments;
+            deployConfiguredServer.SERVER_executable = _currentDeploymentValues.SERVER_executable;
             deployConfiguredServer.SERVER_port = "";
 
             //Game-based properties
@@ -254,32 +255,32 @@ namespace Borealis
             deployConfiguredServer.GAME_map = "NONE";
 
             //Directory-based Properties
-            deployConfiguredServer.DIR_install_location = this._currentDeploymentValues.DIR_install_location;
-            deployConfiguredServer.DIR_root = this._currentDeploymentValues.DIR_root;
-            deployConfiguredServer.DIR_maps = this._currentDeploymentValues.DIR_maps;
-            deployConfiguredServer.DIR_maps_file_extension = this._currentDeploymentValues.DIR_maps_file_extension;
-            deployConfiguredServer.DIR_mods = this._currentDeploymentValues.DIR_mods;
-            deployConfiguredServer.DIR_config = this._currentDeploymentValues.DIR_config;
+            deployConfiguredServer.DIR_install_location = _currentDeploymentValues.DIR_install_location;
+            deployConfiguredServer.DIR_root = _currentDeploymentValues.DIR_root;
+            deployConfiguredServer.DIR_maps = _currentDeploymentValues.DIR_maps;
+            deployConfiguredServer.DIR_maps_file_extension = _currentDeploymentValues.DIR_maps_file_extension;
+            deployConfiguredServer.DIR_mods = _currentDeploymentValues.DIR_mods;
+            deployConfiguredServer.DIR_config = _currentDeploymentValues.DIR_config;
 
             //Steam-based Properties
-            deployConfiguredServer.STEAM_authrequired = this._currentDeploymentValues.STEAM_authrequired;
-            deployConfiguredServer.STEAM_steamcmd_required = this._currentDeploymentValues.STEAM_steamcmd_required;
-            deployConfiguredServer.STEAM_workshop_enabled = this._currentDeploymentValues.STEAM_workshop_enabled;
+            deployConfiguredServer.STEAM_authrequired = _currentDeploymentValues.STEAM_authrequired;
+            deployConfiguredServer.STEAM_steamcmd_required = _currentDeploymentValues.STEAM_steamcmd_required;
+            deployConfiguredServer.STEAM_workshop_enabled = _currentDeploymentValues.STEAM_workshop_enabled;
 
             //Miscellanious Properties
-            deployConfiguredServer.ENGINE_type = this._currentDeploymentValues.ENGINE_type;
-            deployConfiguredServer.bsm_integration = this._currentDeploymentValues.bsm_integration;
-            deployConfiguredServer.bsm_custominstallfolder = this._currentDeploymentValues.bsm_custominstallfolder;
+            deployConfiguredServer.ENGINE_type = _currentDeploymentValues.ENGINE_type;
+            deployConfiguredServer.bsm_integration = _currentDeploymentValues.bsm_integration;
+            deployConfiguredServer.bsm_custominstallfolder = _currentDeploymentValues.bsm_custominstallfolder;
 
-            //Store that newly assigned and JSON-filled server into the GameServer_Object Collection
-            GameServer_Management.server_collection.Add(deployConfiguredServer);
+            //Store that newly assigned and JSON-filled server into the GameServerObject Collection
+            GameServerManagement.ServerCollection.Add(deployConfiguredServer);
 
             //Redundantly write the data to disk in the event of a crash.
-            GameServer_Management.configWrite();
+            GameServerManagement.ConfigWrite();
 
-            this.btnCancelDeployGameserver.Visible = false;
-            this.btnDeployGameserver.Enabled = true;
-            this._currentDeploymentValues = null;
+            btnCancelDeployGameserver.Visible = false;
+            btnDeployGameserver.Enabled = true;
+            _currentDeploymentValues = null;
         }
         private void Execute(string argProgramName, string argParameters, bool Redirect)
         {
@@ -289,7 +290,7 @@ namespace Borealis
                 proc.StartInfo.Arguments = argParameters;
                 proc.StartInfo.FileName = argProgramName;
 
-                if (Redirect == true)
+                if (Redirect)
                 {
                     proc.StartInfo.UseShellExecute = false;
                     proc.StartInfo.RedirectStandardOutput = true;
@@ -311,20 +312,20 @@ namespace Borealis
             }
             catch (Exception)
             {
-                MetroMessageBox.Show(BorealisServerManager.ActiveForm, "Borealis cannot find the required executable to launch!  Either it is missing, or your configuration for Borealis is corrupted.", "Error Launching Executable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MetroMessageBox.Show(ActiveForm, "Borealis cannot find the required executable to launch!  Either it is missing, or your configuration for Borealis is corrupted.", "Error Launching Executable", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
         }
         private void dropdownServerSelection_SelectedValueChanged(object sender, EventArgs e)
         {
-            this.txtServerGivenName.Text = this.dropdownServerSelection.Text;
+            txtServerGivenName.Text = dropdownServerSelection.Text;
 
             //Query specific appID for Steam Guard requirement check
-            var dataChecker = (GameserverType)this.dropdownServerSelection.SelectedItem;
-            GameServer_Object gameServer = ServerAPI.QUERY_DATA(dataChecker.Id);
+            var dataChecker = (GameserverType)dropdownServerSelection.SelectedItem;
+            GameServerObject gameServer = ServerAPI.QUERY_DATA(dataChecker.Id);
 
-            if (gameServer.STEAM_authrequired == true)
+            if (gameServer.STEAM_authrequired)
             {
                 panelSteamGuard.Visible = true;
             }
@@ -334,7 +335,7 @@ namespace Borealis
             }
 
             //Check if existing server was already deployed with the given type, and allow the user to update it instead.
-            foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+            foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
             {
                 if (gameserver.SERVER_type == dropdownServerSelection.Text)
                 {
@@ -353,17 +354,17 @@ namespace Borealis
         }
         private void btnBrowseDestination_Click(object sender, EventArgs e)
         {
-            this.browseDestinationFolder.ShowDialog();
-            this.txtboxDestinationFolder.Text = this.browseDestinationFolder.SelectedPath;
+            browseDestinationFolder.ShowDialog();
+            txtboxDestinationFolder.Text = browseDestinationFolder.SelectedPath;
         }
         private void btnDeployGameserver_Click(object sender, EventArgs e)
         {
             //Pull all gameserver data from gameservers.json, split all json strings into a list, iterate through that list for specific data.
-            if (GameServer_Management.server_collection != null)
+            if (GameServerManagement.ServerCollection != null)
             {
-                foreach (GameServer_Object gameserver in GameServer_Management.server_collection)
+                foreach (GameServerObject gameserver in GameServerManagement.ServerCollection)
                 {
-                    if (this.txtServerGivenName.Text == gameserver.SERVER_name_friendly)
+                    if (txtServerGivenName.Text == gameserver.SERVER_name_friendly)
                     {
                         MetroMessageBox.Show(ActiveForm, "Unfortunately, you must give unique names to every server you deploy, using the exact same name would cause several issues.", "Identical gameserver name already exists.", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; //Break gracefully out of the entire void function.
@@ -372,8 +373,8 @@ namespace Borealis
             }
 
             //Query specific appID for all required data.
-            var gameserverType = (GameserverType) this.dropdownServerSelection.SelectedItem;
-            GameServer_Object gameServer = ServerAPI.QUERY_DATA(gameserverType.Id);
+            var gameserverType = (GameserverType) dropdownServerSelection.SelectedItem;
+            GameServerObject gameServer = ServerAPI.QUERY_DATA(gameserverType.Id);
 
             //Retrieve the data that was just stored into the deployment server list.
             var deploymentValues = new DeploymentValues
@@ -395,19 +396,19 @@ namespace Borealis
             };
 
             //Determine where to deploy the server based on user input.
-            if (this.txtboxDestinationFolder.Text == "")
+            if (txtboxDestinationFolder.Text == "")
             {
                 deploymentValues.DIR_install_location = Environment.CurrentDirectory;
                 deploymentValues.bsm_custominstallfolder = false;
             }
             else
             {
-                deploymentValues.DIR_install_location = this.txtboxDestinationFolder.Text;
+                deploymentValues.DIR_install_location = txtboxDestinationFolder.Text;
                 deploymentValues.bsm_custominstallfolder = true;
             }
 
             //Determine whether or not to verify integrity of the installation.
-            if (this.chkVerifyIntegrity.Value)
+            if (chkVerifyIntegrity.Value)
             {
                 deploymentValues.verify_integrity = " +validate";
             }
@@ -421,21 +422,21 @@ namespace Borealis
             {
                 case "none":
                     result = MetroMessageBox.Show(ActiveForm,
-                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
                         deploymentValues.DIR_install_location + "]" +
                         "\n\nWARNING: This gameserver currently has NO BSM support.\nYou can deploy it, and launch it, but BSM cannot configure it at this time.",
                         "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                     break;
                 case "partial":
                     result = MetroMessageBox.Show(ActiveForm,
-                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
                         deploymentValues.DIR_install_location + "]" +
                         "\n\nWARNING: This gameserver currently has PARTIAL BSM support.\nYou can deploy it, and launch it, and have experimental control over it directly through BSM.",
                         "Deploy GameServer?", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
                     break;
                 case "full":
                     result = MetroMessageBox.Show(ActiveForm,
-                        "Type of GameServer: [" + this.dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
+                        "Type of GameServer: [" + dropdownServerSelection.Text + "]\n" + "Deploy to: [" +
                         deploymentValues.DIR_install_location + "]", "Deploy GameServer?", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question);
                     break;
@@ -446,45 +447,34 @@ namespace Borealis
 
             if (result == DialogResult.Yes)
             {
-                this.btnCancelDeployGameserver.Visible = true;
-                this.btnDeployGameserver.Enabled = false;
-                this.serverDeploy(deploymentValues);
-                this.lblDownloadProgress.Text = "Download / Installation Progress:";
-                this.lblVerifyIntegrity.Visible = false;
-                this.chkVerifyIntegrity.Visible = false;
+                btnCancelDeployGameserver.Visible = true;
+                btnDeployGameserver.Enabled = false;
+                serverDeploy(deploymentValues);
+                lblDownloadProgress.Text = "Download / Installation Progress:";
+                lblVerifyIntegrity.Visible = false;
+                chkVerifyIntegrity.Visible = false;
             }
         }
         private void btnCancelDeployGameserver_Click(object sender, EventArgs e)
         {
-            if (this._currentDeploymentValues.STEAM_steamcmd_required)
+            if (_currentDeploymentValues.STEAM_steamcmd_required)
             {
-                this.Execute(@"C:\Windows\System32\taskkill", "/F /IM steamcmd.exe", true);
-                this.btnCancelDeployGameserver.Visible = false;
+                Execute(@"C:\Windows\System32\taskkill", "/F /IM steamcmd.exe", true);
+                btnCancelDeployGameserver.Visible = false;
             }
             else
             {
                 //Kill program being used to deploy a server.
             }
-            this.btnDeployGameserver.Enabled = true;
-            this.progressbarDownloadProgressOverall.Value = 0;
-            this._currentDeploymentValues = null;
-            this.lblDownloadProgress.Text = "Download / Installation Progress:";
-            this.lblDownloadProgressDetails.Text = "Status: Deployment Cancelled";
-            this.lblVerifyIntegrity.Visible = true;
-            this.chkVerifyIntegrity.Visible = true;
+            btnDeployGameserver.Enabled = true;
+            progressbarDownloadProgressOverall.Value = 0;
+            _currentDeploymentValues = null;
+            lblDownloadProgress.Text = "Download / Installation Progress:";
+            lblDownloadProgressDetails.Text = "Status: Deployment Cancelled";
+            lblVerifyIntegrity.Visible = true;
+            chkVerifyIntegrity.Visible = true;
         }
-        private void btnConnectToSteam_Click(object sender, EventArgs e)
-        {
-            panelProgress.Visible = true;
-            txtSteamUsername.Enabled = false;
-            txtSteamPassword.Enabled = false;
 
-            this.Execute(Environment.CurrentDirectory + @"\steamcmd.exe",
-                string.Format(@"+login {0} {1}",
-                txtSteamUsername.Text,
-                txtSteamPassword.Text),
-                true);
-        }
         private void btnSteamToken_Click(object sender, EventArgs e)
         {
             SteamGuardProcess.StandardInput.WriteLine(txtSteamToken.Text);

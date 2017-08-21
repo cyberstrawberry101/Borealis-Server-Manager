@@ -50,6 +50,7 @@ namespace Borealis
             }
         }
 
+
         private static void NewInstanceOnEventOccured(object o, ProcessHelperEvent e)
         {
             if (e.Type == ProcessHelperEventType.InstanceDisposed)
