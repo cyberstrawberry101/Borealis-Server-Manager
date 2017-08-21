@@ -15,13 +15,13 @@ namespace Borealis
             ConfigureLogging();
             ConfigureExceptionHandling();
 
-            Log.Information("Starting Borealis Server Manager {version} at {time}", Application.ProductVersion, DateTime.Now);
+            Log.Information($"Starting Borealis Server Manager {Application.ProductVersion}");
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BorealisServerManager());
 
-            Log.Information("Borealis Server Manager stopping.");
+            Log.Information($"Stopping Borealis Server Manager {Application.ProductVersion}");
         }
 
         private static void ConfigureLogging()

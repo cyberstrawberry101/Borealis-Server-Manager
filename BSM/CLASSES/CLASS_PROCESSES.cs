@@ -37,10 +37,11 @@ namespace Borealis
             {
                 if (ProcessList.ContainsKey(nickname))
                 {
+                    Log.Information($"process {nickname} found by manager");
                     TraceMessage(TraceLevel.Info, $"process {nickname} found by manager");
                     return ProcessList[nickname];
                 }
-                Log.Error($"process {nickname} NOT found - cache miss by manager");
+                Log.Warning($"process {nickname} NOT found - cache miss by manager");
                 TraceMessage(TraceLevel.Info, $"process {nickname} NOT found - cache miss by manager");
                 var newInstance = new ProcessHelper(nickname, SERVER_executable, SERVER_launch_arguments, launchOptions ?? new ProcessLaunchOptions());
                 newInstance.EventOccured += NewInstanceOnEventOccured;
