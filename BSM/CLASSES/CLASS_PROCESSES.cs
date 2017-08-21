@@ -2,11 +2,11 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO.Compression;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Serilog;
 
 namespace Borealis
 {
@@ -40,7 +40,7 @@ namespace Borealis
                     TraceMessage(TraceLevel.Info, $"process {nickname} found by manager");
                     return ProcessList[nickname];
                 }
-
+                Log.Error($"process {nickname} NOT found - cache miss by manager");
                 TraceMessage(TraceLevel.Info, $"process {nickname} NOT found - cache miss by manager");
                 var newInstance = new ProcessHelper(nickname, SERVER_executable, SERVER_launch_arguments, launchOptions ?? new ProcessLaunchOptions());
                 newInstance.EventOccured += NewInstanceOnEventOccured;
@@ -59,6 +59,7 @@ namespace Borealis
                     var record = ProcessList.FirstOrDefault(x => ReferenceEquals(o, x.Value));
                     if (ProcessList.ContainsKey(record.Key))
                     {
+                        Log.Information($"removed process {record.Key} from manager after dispose");
                         TraceMessage(TraceLevel.Info, $"removed process {record.Key} from manager after dispose");
                         ProcessList.Remove(record.Key);
                     }
@@ -146,6 +147,7 @@ namespace Borealis
                     process.StartInfo = startInfo;
                     process.Exited += (sender, args) => ProcessClosed(process);
 
+                    Log.Information($"about to start process {nickname} @'{SERVER_executable}'");
                     TraceMessage(TraceLevel.Verbose, $"about to start process {nickname} @'{SERVER_executable}'");
                     if (!process.Start())
                     {
@@ -156,10 +158,12 @@ namespace Borealis
                     process.BeginOutputReadLine();
 
                     OnEventOccurred(new ProcessHelperEvent(null, ProcessHelperEventType.ProcessStarted, nickname, process?.Id));
+                    Log.Information($"process {nickname} started with pid {process.Id} @'{SERVER_executable}'");
                     TraceMessage(TraceLevel.Info, $"process {nickname} started with pid {process.Id} @'{SERVER_executable}'");
 
                     if (launchOptions.ShowWindowOnStart)
                     {
+                        Log.Information($"window showing for {nickname} pid {process.Id} - ShowWindowOnStart set to true");
                         TraceMessage(TraceLevel.Verbose, $"window showing for {nickname} pid {process.Id} - ShowWindowOnStart set to true");
                     }
                     else
@@ -173,10 +177,9 @@ namespace Borealis
 
                         // this hides the window without disable message pumping
                         ShowWindow(process.MainWindowHandle, SW_HIDE);
-
+                        Log.Information($"window hidden for {nickname} pid {process.Id}");
                         TraceMessage(TraceLevel.Verbose, $"window hidden for {nickname} pid {process.Id}");
                     }
-
                     currentProcess = process;
                 }
             }
@@ -188,11 +191,13 @@ namespace Borealis
                     DisposeGuard();
                     if (currentProcess == null)
                     {
+                        Log.Warning($"attempted to stop process {nickname} when no process is running - likely a race condition!");
                         TraceMessage(TraceLevel.Warning, $"attempted to stop process {nickname} when no process is running - likely a race condition!");
                         return;
                     }
 
                     SendMessage(currentProcess.MainWindowHandle, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+                    Log.Information($"sent WM_CLOSE to process {nickname} pid {currentProcess.Id}");
                     TraceMessage(TraceLevel.Verbose, $"sent WM_CLOSE to process {nickname} pid {currentProcess.Id}");
                 }
             }
@@ -204,11 +209,13 @@ namespace Borealis
                     DisposeGuard();
                     if (currentProcess == null)
                     {
+                        Log.Warning($"attempted to KILL process {nickname} when no process is running - likely a race condition!");
                         TraceMessage(TraceLevel.Warning, $"attempted to KILL process {nickname} when no process is running - likely a race condition!");
                         return;
                     }
 
                     currentProcess.Kill();
+                    Log.Information($"KILLED process {nickname} pid {currentProcess.Id}");
                     TraceMessage(TraceLevel.Warning, $"KILLED process {nickname} pid {currentProcess.Id}");
                     currentProcess.Dispose();
                     currentProcess = null;
@@ -221,13 +228,15 @@ namespace Borealis
                 {
                     if (!disposed && currentProcess != null)
                     {
-                        TraceMessage(TraceLevel.Warning, $"KILLING {nickname} beccause you forgot to stop it before calling Dispose");
+                        Log.Warning($"KILLING {nickname} because you forgot to stop it before calling Dispose");
+                        TraceMessage(TraceLevel.Warning, $"KILLING {nickname} because you forgot to stop it before calling Dispose");
                         // welp, time waits for no one!
                         currentProcess.Kill();
                         currentProcess = null;
                     }
                     else if (!disposed)
                     {
+                        Log.Information($"diposed {nickname} gracefully, good job!");
                         TraceMessage(TraceLevel.Verbose, $"diposed {nickname} gracefully, good job!");
                     }
                     disposed = true;
@@ -240,6 +249,7 @@ namespace Borealis
                 lock (processSync)
                 {
                     OnEventOccurred(new ProcessHelperEvent(null, ProcessHelperEventType.ProcessStopped, nickname, process?.Id));
+                    Log.Information($"process {nickname} pid {process?.Id} has closed, RIP");
                     TraceMessage(TraceLevel.Info, $"process {nickname} pid {process?.Id} has closed, RIP");
                     process?.Dispose();
                     if (currentProcess == process)

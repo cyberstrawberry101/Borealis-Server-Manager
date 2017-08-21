@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Serilog;
-using System.Windows.Documents;
-using System.IO;
-using System.Drawing;
 
 namespace Borealis
 {
