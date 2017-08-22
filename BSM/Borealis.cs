@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShadowDemo;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -7,8 +8,22 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
+
+
     public partial class BorealisServerManager : Form
     {
+        private Dropshadow shadow;
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0084 /*WM_NCHITTEST*/)
+            {
+                m.Result = (IntPtr)2;   // HTCLIENT
+                return;
+            }
+            base.WndProc(ref m);
+        }
+
         //===================================================================================//
         // MDI HANDLING CODE:                                                                //
         //===================================================================================//
@@ -42,38 +57,23 @@ namespace Borealis
         {
             InitializeComponent();
         }
-        [DllImport("user32.dll")]
-        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDc);
-        [DllImport("User32.dll")]
-
-        private static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        protected override void WndProc(ref Message m)
-        {
-            const int wmNcpaint = 0x85;
-            base.WndProc(ref m);
-
-            if (m.Msg == wmNcpaint)
-            {
-
-                IntPtr hdc = GetWindowDC(m.HWnd);
-                if ((int)hdc != 0)
-                {
-                    Graphics g = Graphics.FromHdc(hdc);
-                    g.DrawLine(Pens.Green, 10, 10, 100, 10);
-                    g.Flush();
-                    ReleaseDC(m.HWnd, hdc);
-                }
-
-            }
-
-        }
 
         //===================================================================================//
         // STARTUP:                                                                          //
         //===================================================================================//
         public void BorealisServerManager_Load(object sender, EventArgs e)
         {
+            if (!DesignMode)
+            {
+                shadow = new Dropshadow(this)
+                {
+                    ShadowBlur = 25,
+                    ShadowSpread = -18,
+                    ShadowColor = Color.FromArgb(170,0,0,0)
+                };
+                shadow.RefreshShadow();
+            }
+
             //Create blank gameservers.json
             if (File.Exists(Environment.CurrentDirectory + @"\gameservers.json") == false)
             {

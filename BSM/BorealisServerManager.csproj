@@ -85,6 +85,9 @@
     <Compile Include="CLASSES\CLASS_MONITORING.cs" />
     <Compile Include="CLASSES\CLASS_PROCESSES.cs" />
     <Compile Include="CLASSES\CLASS_STEAMCMD.cs" />
+    <Compile Include="RESOURCES\Dropshadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TABS\TAB_About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +138,9 @@
     <Compile Include="TABS\TAB_SteamWorkshop.Designer.cs">
       <DependentUpon>TAB_SteamWorkshop.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RESOURCES\Dropshadow.resx">
+      <DependentUpon>Dropshadow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TABS\TAB_About.resx">
       <DependentUpon>TAB_About.cs</DependentUpon>
     </EmbeddedResource>
