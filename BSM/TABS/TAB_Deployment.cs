@@ -27,7 +27,7 @@ namespace Borealis
             {
                 using (var webClient = new System.Net.WebClient())
                 {
-                    var json = await webClient.DownloadStringTaskAsync("http://phantom-net.duckdns.org:1337/index").ConfigureAwait(false);
+                    var json = await webClient.DownloadStringTaskAsync("http://sfo2.hauteclaire.me:1337/index").ConfigureAwait(false);
 
                     return JsonConvert.DeserializeObject<IDictionary<string, string>>(json)
                         .Select(kv => new GameserverType(kv.Key, kv.Value))
@@ -40,7 +40,7 @@ namespace Borealis
                 Log.Error(ex, "Could not load the gameserver list");
                 throw;
             }
-        } 
+        }
 
         private class GameserverType
         {
@@ -147,7 +147,7 @@ namespace Borealis
         //===================================================================================//
         // DEPLOYMENT CODE                                                                   //
         //===================================================================================//
-        
+
         //Class to store relevant deployment values during deployment
         private class DeploymentValues
         {
