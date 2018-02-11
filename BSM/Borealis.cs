@@ -1,4 +1,5 @@
-﻿using ShadowDemo;
+﻿using MetroFramework;
+using ShadowDemo;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,8 +9,6 @@ using System.Windows.Forms;
 
 namespace Borealis
 {
-
-
     public partial class BorealisServerManager : Form
     {
         private Dropshadow shadow;
@@ -73,22 +72,26 @@ namespace Borealis
                 };
                 shadow.RefreshShadow();
             }
-
-            //Create blank gameservers.json
-            if (File.Exists(Environment.CurrentDirectory + @"\gameservers.json") == false)
-            {
-                File.Create(Environment.CurrentDirectory + @"\gameservers.json").Dispose();
-            }
-
             //Destroy the bevelled border around MDI parent container.
             this.SetBevel(false);
 
             //Display current product version.
             lblVersion.Text = $"Version {Application.ProductVersion} Alpha";
 
-            //Store all gameservers into memory to be used by Borealis.
-            GameServerManagement.ConfigRead();
+            //Create blank gameservers.json
+            if (File.Exists(Environment.CurrentDirectory + @"\gameservers.json"))
+            {
+                GameServerManagement.ConfigRead();
+            }
+            else
+            {
+                File.Create(Environment.CurrentDirectory + @"\gameservers.json").Dispose();
+                GameServerManagement.ConfigRead();
+            }
 
+            //Store all gameservers into memory to be used by Borealis.
+
+            GameServerManagement.ConfigRead();
 
             // Instantiate all Panels Immediately
             var panels = new List<Form>
