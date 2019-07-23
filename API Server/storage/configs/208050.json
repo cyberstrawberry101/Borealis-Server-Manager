@@ -1,0 +1,12 @@
+{  
+  "SERVER_type": "Sniper Elite V2",
+  "SERVER_launch_arguments": "",
+  "DIR_executable": "",
+  "DIR_config": "", 
+  "DIR_config_file": "",
+  "STEAM_authrequired": true,
+  "STEAM_steamcmd_required": true,
+  "STEAM_workshop_enabled": false,
+  "ENGINE_type": "UNKNOWN",
+  "bsm_integration": "none"
+}

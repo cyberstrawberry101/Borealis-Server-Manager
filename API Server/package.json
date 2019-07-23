@@ -1,0 +1,33 @@
+{
+  "name": "bsmapi",
+  "version": "0.0.1",
+  "description": "Backend for the Borealis Gameserver Manager.",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js test",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Mezarith@bitbucket.org/Mezarith/bsmapi.git"
+  },
+  "keywords": [
+    "api",
+    "game",
+    "server",
+    "manager"
+  ],
+  "author": "Hunter Nakagawa <hunternakagawa@outlook.com>",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Mezarith/bsmapi#readme",
+  "dependencies": {
+    "async": "^2.1.4",
+    "chalk": "^1.1.3",
+    "express": "^4.14.1",
+    "jsontoxml": "0.0.11",
+    "lodash": ">=4.17.13",
+    "log": "^1.4.0",
+    "moment-timezone": "^0.5.23",
+    "request": "^2.88.0"
+  }
+}

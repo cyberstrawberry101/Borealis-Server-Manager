@@ -1,0 +1,15 @@
+{  
+  "SERVER_type": "Synergy",
+  "SERVER_launch_arguments": "",
+  "SERVER_executable": "\\srcds.exe",
+  "DIR_root": "\\Synergy Dedicated Server",
+  "DIR_maps": "\\synergy\\maps",
+  "DIR_maps_file_extension": "*.bsp",
+  "DIR_mods": "\\synergy\\addons",
+  "DIR_config": "\\synergy\\cfg",  
+  "STEAM_authrequired": false,
+  "STEAM_steamcmd_required": true,
+  "STEAM_workshop_enabled": false,
+  "ENGINE_type": "SOURCE",
+  "bsm_integration": "partial"
+}

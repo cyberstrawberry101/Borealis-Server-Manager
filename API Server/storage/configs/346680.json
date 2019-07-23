@@ -1,0 +1,15 @@
+{  
+  "SERVER_type": "Black Mesa: Deathmatch",
+  "SERVER_launch_arguments": "",
+  "SERVER_executable": "\\srcds.exe",
+  "DIR_root": "\\Half-Life Deathmatch Source Dedicated server",
+  "DIR_maps": "\\bms\\maps",
+  "DIR_maps_file_extension": "*.bsp",
+  "DIR_mods": "\\bms\\addons",
+  "DIR_config": "\\bms\\cfg",  
+  "STEAM_authrequired": false,
+  "STEAM_steamcmd_required": true,
+  "STEAM_workshop_enabled": false,
+  "ENGINE_type": "SOURCE",
+  "bsm_integration": "partial"
+}

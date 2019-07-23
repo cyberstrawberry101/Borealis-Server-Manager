@@ -1,0 +1,15 @@
+{  
+  "SERVER_type": "Left 4 Dead 2",
+  "SERVER_launch_arguments": "",
+  "SERVER_executable": "\\srcds.exe",
+  "DIR_root": "\\Left 4 Dead 2 Dedicated Server",
+  "DIR_maps": "\\left4dead2\\maps",
+  "DIR_maps_file_extension": "*.bsp",
+  "DIR_mods": "\\left4dead2\\addons",
+  "DIR_config": "\\left4dead2\\cfg",  
+  "STEAM_authrequired": false,
+  "STEAM_steamcmd_required": true,
+  "STEAM_workshop_enabled": false,
+  "ENGINE_type": "SOURCE",
+  "bsm_integration": "partial"
+}

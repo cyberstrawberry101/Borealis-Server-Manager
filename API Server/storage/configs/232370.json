@@ -1,0 +1,15 @@
+{
+  "SERVER_type": "Half-Life 2: Deathmatch",
+  "SERVER_launch_arguments": "",
+  "SERVER_executable": "\\srcds.exe",
+  "DIR_root": "\\Half-Life 2 Deathmatch Dedicated Server",
+  "DIR_maps": "\\hl2mp\\maps",
+  "DIR_maps_file_extension": "*.bsp",
+  "DIR_mods": "\\hl2mp\\addons",
+  "DIR_config": "\\hl2mp\\cfg",  
+  "STEAM_authrequired": false,
+  "STEAM_steamcmd_required": true,
+  "STEAM_workshop_enabled": false,
+  "ENGINE_type": "SOURCE",
+  "bsm_integration": "partial"
+}
