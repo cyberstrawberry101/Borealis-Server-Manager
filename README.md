@@ -18,6 +18,3 @@
 * **Capsup:** https://github.com/Capsup **Helped assist with more professionally structuring the project.**
 * **CyrilPaulus:** https://github.com/CyrilPaulus **Helped code the dashboard widgets to work properly.**
 * **Mezarith:** https://github.com/Mezarith **Designed the server NodeJS data querying back-end.**
-
-**Prototype Electron-based Front-End:**
-![alt tag](https://i.imgur.com/RwcYfkZ.png)
